@@ -20,8 +20,12 @@ body{
     line-height:1.5;
 }
 
-button{
+button,input,select{
     font-family:inherit;
+}
+
+button{
+    cursor:pointer;
 }
 
 a{
@@ -29,11 +33,11 @@ a{
     color:inherit;
 }
 
-/* =========================
-   LOGIN
-========================= */
+/* ==============================
+   ENTRY SCREEN
+============================== */
 
-.login-screen{
+.entry-screen{
     min-height:100vh;
     display:flex;
     align-items:center;
@@ -42,112 +46,214 @@ a{
     background:linear-gradient(135deg,#edf9f7,#f5fafb);
 }
 
-.login-card{
+.entry-card{
     width:100%;
-    max-width:430px;
-    background:#fff;
-    border-radius:22px;
+    max-width:500px;
+    background:white;
+    border-radius:24px;
     padding:35px;
     box-shadow:0 20px 55px rgba(20,70,85,.12);
     border:1px solid #e0eaed;
 }
 
-.login-logo{
-    width:68px;
-    height:68px;
+.logo{
+    width:70px;
+    height:70px;
     object-fit:contain;
     border-radius:50%;
     display:block;
     margin:0 auto 15px;
 }
 
-.login-card h1{
+.entry-card h1{
     text-align:center;
     color:#0d626c;
-    font-size:27px;
+    font-size:28px;
     margin-bottom:5px;
 }
 
-.login-card .subtitle{
+.subtitle{
     text-align:center;
     color:#788995;
     font-size:14px;
     margin-bottom:28px;
 }
 
-.login-label{
+.entry-options{
+    display:grid;
+    gap:13px;
+}
+
+.entry-option{
+    width:100%;
+    text-align:left;
+    padding:17px;
+    border:1px solid #dce8eb;
+    border-radius:13px;
+    background:white;
+    transition:.2s;
+}
+
+.entry-option:hover{
+    border-color:#9ed5d0;
+    background:#f4fbfa;
+    transform:translateY(-2px);
+}
+
+.entry-option strong{
     display:block;
+    color:#285064;
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.entry-option span{
+    display:block;
+    color:#82939d;
+    font-size:12px;
+}
+
+.option-icon{
+    float:left;
+    width:42px;
+    height:42px;
+    background:#e7f7f4;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    margin-right:13px;
+}
+
+.home-link{
+    display:block;
+    text-align:center;
+    margin-top:22px;
+    color:#087b77;
     font-size:13px;
     font-weight:700;
-    color:#36586b;
-    margin-bottom:7px;
 }
 
-.login-input{
-    width:100%;
-    border:1px solid #ccdce1;
-    border-radius:9px;
-    padding:13px;
-    font-size:15px;
-    outline:none;
-    margin-bottom:17px;
-}
+/* ==============================
+   FORMS
+============================== */
 
-.login-input:focus{
-    border-color:#15988f;
-}
-
-.login-button{
-    width:100%;
-    border:0;
-    border-radius:9px;
-    padding:14px;
-    background:#0c6871;
-    color:white;
-    font-size:15px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.login-button:hover{
-    background:#09565e;
-}
-
-.otp-box{
+.form-screen{
     display:none;
 }
 
-.demo-note{
-    margin-top:18px;
-    padding:11px;
-    background:#edf8f7;
-    border-radius:8px;
-    color:#52717b;
-    font-size:12px;
-    text-align:center;
+.form-screen.active{
+    display:block;
 }
 
-.back-home{
-    display:block;
+.form-title{
     text-align:center;
-    margin-top:18px;
-    color:#0c7779;
+    color:#21485b;
+    font-size:23px;
+    margin-bottom:5px;
+}
+
+.form-subtitle{
+    text-align:center;
+    color:#81919a;
     font-size:13px;
+    margin-bottom:22px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+    color:#466575;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.form-control{
+    width:100%;
+    border:1px solid #ccdce1;
+    border-radius:9px;
+    padding:12px;
+    font-size:14px;
+    outline:none;
+    background:white;
+}
+
+.form-control:focus{
+    border-color:#15988f;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:13px;
+}
+
+.primary-button{
+    width:100%;
+    border:0;
+    border-radius:9px;
+    padding:13px;
+    background:#0c6871;
+    color:white;
+    font-size:14px;
     font-weight:700;
 }
 
-/* =========================
-   APP
-========================= */
+.primary-button:hover{
+    background:#09565e;
+}
+
+.secondary-button{
+    width:100%;
+    border:1px solid #c9dcdf;
+    border-radius:9px;
+    padding:12px;
+    background:white;
+    color:#0b7777;
+    font-size:13px;
+    font-weight:700;
+    margin-top:9px;
+}
+
+.demo-note{
+    margin-top:15px;
+    padding:10px;
+    background:#edf8f7;
+    border-radius:8px;
+    color:#52717b;
+    font-size:11px;
+    text-align:center;
+}
+
+.error{
+    color:#b84d4d;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.success{
+    color:#287b50;
+    font-size:12px;
+    margin-top:7px;
+}
+
+/* ==============================
+   APPLICATION
+============================== */
 
 .app{
     display:none;
     min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ==============================
+   TOPBAR
+============================== */
 
 .topbar{
     height:72px;
@@ -188,12 +294,27 @@ a{
 .patient-mini{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
 }
 
-.patient-mini-avatar{
-    width:39px;
-    height:39px;
+.patient-mini-info{
+    text-align:right;
+}
+
+.patient-mini-info strong{
+    display:block;
+    font-size:13px;
+    color:#284a5d;
+}
+
+.patient-mini-info span{
+    color:#81919b;
+    font-size:10px;
+}
+
+.patient-avatar{
+    width:40px;
+    height:40px;
     border-radius:50%;
     background:#e2f4f2;
     color:#0d817b;
@@ -203,24 +324,9 @@ a{
     font-weight:800;
 }
 
-.patient-mini-info{
-    text-align:right;
-}
-
-.patient-mini-info strong{
-    display:block;
-    font-size:14px;
-    color:#284a5d;
-}
-
-.patient-mini-info span{
-    font-size:11px;
-    color:#81919b;
-}
-
-/* =========================
+/* ==============================
    LAYOUT
-========================= */
+============================== */
 
 .layout{
     display:flex;
@@ -229,14 +335,14 @@ a{
 
 .sidebar{
     width:245px;
-    background:#fff;
+    background:white;
     border-right:1px solid #e0eaed;
     padding:25px 14px;
     flex-shrink:0;
 }
 
 .nav-title{
-    font-size:11px;
+    font-size:10px;
     color:#93a2aa;
     font-weight:800;
     text-transform:uppercase;
@@ -256,8 +362,7 @@ a{
     display:flex;
     align-items:center;
     gap:11px;
-    cursor:pointer;
-    font-size:14px;
+    font-size:13px;
     font-weight:600;
     text-align:left;
 }
@@ -274,13 +379,8 @@ a{
 }
 
 .logout-button{
-    margin-top:20px;
+    margin-top:18px;
     color:#b24d4d;
-}
-
-.logout-button:hover{
-    background:#fff1f1;
-    color:#a03b3b;
 }
 
 .content{
@@ -288,10 +388,6 @@ a{
     padding:30px;
     min-width:0;
 }
-
-/* =========================
-   PAGE
-========================= */
 
 .page{
     display:none;
@@ -316,9 +412,9 @@ a{
     font-size:14px;
 }
 
-/* =========================
+/* ==============================
    DASHBOARD
-========================= */
+============================== */
 
 .welcome{
     background:linear-gradient(135deg,#0d6972,#168e87);
@@ -342,38 +438,37 @@ a{
     font-size:14px;
 }
 
-.patient-id{
+.patient-id-box{
     background:rgba(255,255,255,.13);
     border:1px solid rgba(255,255,255,.25);
     padding:14px 17px;
     border-radius:12px;
-    min-width:170px;
+    min-width:175px;
 }
 
-.patient-id small{
+.patient-id-box small{
     display:block;
     opacity:.75;
-    font-size:11px;
+    font-size:10px;
     margin-bottom:3px;
 }
 
-.patient-id strong{
+.patient-id-box strong{
     font-size:17px;
-    letter-spacing:.5px;
 }
 
 .summary-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:17px;
-    margin-bottom:28px;
+    margin-bottom:25px;
 }
 
 .summary-card{
     background:white;
     border:1px solid #e1eaed;
     border-radius:15px;
-    padding:21px;
+    padding:20px;
     cursor:pointer;
     transition:.2s;
 }
@@ -391,13 +486,13 @@ a{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:22px;
-    margin-bottom:13px;
+    font-size:21px;
+    margin-bottom:12px;
 }
 
 .summary-card h3{
     color:#27495b;
-    font-size:25px;
+    font-size:23px;
     margin-bottom:1px;
 }
 
@@ -424,7 +519,7 @@ a{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:18px;
+    margin-bottom:17px;
 }
 
 .panel-heading h2{
@@ -438,105 +533,25 @@ a{
     color:#0c817d;
     font-weight:700;
     font-size:12px;
-    cursor:pointer;
 }
 
-.appointment-card{
-    background:#f3faf9;
-    border:1px solid #d8eeeb;
-    border-radius:13px;
-    padding:18px;
-}
-
-.appointment-top{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    margin-bottom:12px;
-}
-
-.status{
-    display:inline-block;
-    background:#dff4e9;
-    color:#2a7b50;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:800;
-}
-
-.appointment-card h3{
-    color:#23495d;
-    font-size:17px;
-    margin-bottom:4px;
-}
-
-.appointment-card p{
-    color:#70848f;
+.empty-state{
+    padding:25px 15px;
+    text-align:center;
+    color:#8797a0;
     font-size:13px;
+    border:1px dashed #d7e4e7;
+    border-radius:11px;
 }
 
-.appointment-details{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:14px;
-    color:#59727e;
-    font-size:12px;
+.empty-icon{
+    font-size:28px;
+    margin-bottom:7px;
 }
 
-.record-list{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.record{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    padding:12px;
-    border:1px solid #edf1f2;
-    border-radius:10px;
-    cursor:pointer;
-}
-
-.record:hover{
-    background:#f7fbfb;
-}
-
-.record-icon{
-    width:37px;
-    height:37px;
-    background:#edf7f6;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.record-info{
-    flex:1;
-}
-
-.record-info strong{
-    display:block;
-    color:#365569;
-    font-size:13px;
-}
-
-.record-info span{
-    color:#8998a0;
-    font-size:11px;
-}
-
-.arrow{
-    color:#7f929c;
-}
-
-/* =========================
-   TABLE
-========================= */
+/* ==============================
+   TABLES
+============================== */
 
 .table-wrap{
     overflow-x:auto;
@@ -545,44 +560,53 @@ a{
 .data-table{
     width:100%;
     border-collapse:collapse;
-    min-width:650px;
+    min-width:700px;
 }
 
 .data-table th{
     text-align:left;
-    padding:13px;
+    padding:12px;
     background:#f4f8f9;
     color:#617985;
-    font-size:11px;
+    font-size:10px;
     text-transform:uppercase;
     letter-spacing:.4px;
 }
 
 .data-table td{
-    padding:15px 13px;
+    padding:14px 12px;
     border-bottom:1px solid #edf1f2;
     color:#496473;
-    font-size:13px;
+    font-size:12px;
 }
 
 .data-table tr:last-child td{
     border-bottom:0;
 }
 
-.table-action{
+.action-button{
     border:1px solid #cce1e2;
-    background:#fff;
+    background:white;
     color:#087b77;
     border-radius:7px;
     padding:6px 9px;
     font-size:11px;
     font-weight:700;
-    cursor:pointer;
 }
 
-/* =========================
+.status{
+    display:inline-block;
+    background:#e0f4e8;
+    color:#2a7b50;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:800;
+}
+
+/* ==============================
    HEALTH RECORD
-========================= */
+============================== */
 
 .health-grid{
     display:grid;
@@ -626,9 +650,9 @@ a{
     text-align:right;
 }
 
-/* =========================
+/* ==============================
    PROFILE
-========================= */
+============================== */
 
 .profile-card{
     max-width:850px;
@@ -647,7 +671,7 @@ a{
     border-bottom:1px solid #edf1f2;
 }
 
-.profile-avatar{
+.profile-avatar-large{
     width:72px;
     height:72px;
     border-radius:50%;
@@ -656,23 +680,24 @@ a{
     align-items:center;
     justify-content:center;
     color:#0c817b;
-    font-size:27px;
+    font-size:25px;
     font-weight:800;
 }
 
 .profile-top h2{
     color:#24485b;
+    margin-bottom:3px;
 }
 
 .profile-top p{
     color:#82929b;
-    font-size:13px;
+    font-size:12px;
 }
 
 .profile-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:15px;
+    gap:14px;
 }
 
 .profile-field{
@@ -691,14 +716,15 @@ a{
 .profile-field strong{
     color:#3c5d6d;
     font-size:13px;
+    word-break:break-word;
 }
 
-/* =========================
+/* ==============================
    CONSENT
-========================= */
+============================== */
 
 .consent-card{
-    max-width:850px;
+    max-width:900px;
     background:white;
     border:1px solid #e1eaed;
     border-radius:17px;
@@ -736,9 +762,48 @@ a{
     font-weight:800;
 }
 
-/* =========================
+/* ==============================
+   PATIENT ID
+============================== */
+
+.id-card{
+    max-width:600px;
+    background:linear-gradient(135deg,#0d6972,#168e87);
+    color:white;
+    border-radius:20px;
+    padding:32px;
+    text-align:center;
+    box-shadow:0 15px 35px rgba(13,105,114,.18);
+}
+
+.id-card small{
+    opacity:.75;
+    display:block;
+    margin-bottom:8px;
+}
+
+.id-number{
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:10px;
+}
+
+.id-card p{
+    opacity:.85;
+    font-size:13px;
+}
+
+.id-note{
+    margin-top:20px;
+    max-width:600px;
+    color:#708590;
+    font-size:13px;
+}
+
+/* ==============================
    MODAL
-========================= */
+============================== */
 
 .modal{
     display:none;
@@ -766,77 +831,32 @@ a{
     position:relative;
 }
 
-.modal-close{
+.close{
     position:absolute;
-    top:10px;
     right:15px;
+    top:9px;
     border:0;
     background:none;
-    font-size:28px;
+    font-size:27px;
     color:#71848e;
-    cursor:pointer;
 }
 
 .modal-box h2{
     color:#20475a;
-    margin-bottom:5px;
+    margin-bottom:6px;
 }
 
-.modal-subtitle{
-    color:#82929a;
-    font-size:12px;
-    margin-bottom:22px;
-}
-
-.prescription-header{
-    padding:16px;
-    background:#f1f8f7;
-    border-radius:11px;
+.modal-box p{
+    color:#7d909a;
+    font-size:13px;
     margin-bottom:18px;
 }
 
-.prescription-header strong{
-    color:#235064;
-}
-
-.medicine{
-    border:1px solid #e6edef;
-    border-radius:10px;
-    padding:13px;
-    margin-bottom:9px;
-}
-
-.medicine strong{
-    color:#315569;
-}
-
-.medicine span{
-    display:block;
-    color:#7b8d96;
-    font-size:12px;
-    margin-top:3px;
-}
-
-.print-button{
-    margin-top:15px;
-    border:0;
-    background:#0d6871;
-    color:white;
-    border-radius:8px;
-    padding:11px 17px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-/* =========================
-   MOBILE
-========================= */
+/* ==============================
+   RESPONSIVE
+============================== */
 
 @media(max-width:1000px){
-
-    .sidebar{
-        width:210px;
-    }
 
     .summary-grid{
         grid-template-columns:repeat(2,1fr);
@@ -869,7 +889,7 @@ a{
         width:100%;
         border-right:0;
         border-bottom:1px solid #e0eaed;
-        padding:8px;
+        padding:7px;
         display:flex;
         overflow-x:auto;
         gap:3px;
@@ -882,12 +902,8 @@ a{
     .nav-button{
         width:auto;
         white-space:nowrap;
-        padding:10px;
-        font-size:11px;
-    }
-
-    .logout-button{
-        margin-top:0;
+        padding:9px;
+        font-size:10px;
     }
 
     .content{
@@ -898,21 +914,13 @@ a{
         display:block;
     }
 
-    .patient-id{
-        margin-top:17px;
-    }
-
-    .summary-grid{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-    .summary-card{
-        padding:15px;
+    .patient-id-box{
+        margin-top:16px;
     }
 
     .health-grid,
-    .profile-grid{
+    .profile-grid,
+    .form-grid{
         grid-template-columns:1fr;
     }
 
@@ -934,6 +942,10 @@ a{
     .page-heading h1{
         font-size:25px;
     }
+
+    .entry-card{
+        padding:25px;
+    }
 }
 </style>
 </head>
@@ -942,104 +954,414 @@ a{
 
 
 <!-- =========================================================
-     LOGIN SCREEN
+     ENTRY / LOGIN / SIGNUP
 ========================================================= -->
 
-<div class="login-screen" id="loginScreen">
+<div class="entry-screen" id="entryScreen">
 
-    <div class="login-card">
+    <div class="entry-card">
 
         <img
             src="luvio-logo.jpeg"
             alt="Luvio HealthLink"
-            class="login-logo"
+            class="logo"
         >
 
-        <h1>Patient Portal</h1>
+        <!-- MAIN ENTRY -->
 
-        <p class="subtitle">
-            Access your connected health record
-        </p>
+        <div id="entryOptions">
+
+            <h1>Patient Portal</h1>
+
+            <p class="subtitle">
+                Access your Luvio HealthLink healthcare record
+            </p>
+
+            <div class="entry-options">
+
+                <button
+                    class="entry-option"
+                    onclick="showLogin()"
+                >
+
+                    <div class="option-icon">👤</div>
+
+                    <strong>
+                        Patient Login
+                    </strong>
+
+                    <span>
+                        Already registered with Luvio HealthLink?
+                    </span>
+
+                </button>
 
 
-        <!-- MOBILE -->
+                <button
+                    class="entry-option"
+                    onclick="showSignup('normal')"
+                >
 
-        <div id="mobileStep">
+                    <div class="option-icon">🪪</div>
 
-            <label class="login-label">
-                Mobile Number
-            </label>
+                    <strong>
+                        Create Health ID / Sign Up
+                    </strong>
 
-            <input
-                type="tel"
-                id="mobileNumber"
-                class="login-input"
-                placeholder="Enter mobile number"
-                maxlength="10"
-            >
+                    <span>
+                        New to Luvio? Create your patient account.
+                    </span>
 
-            <button
-                class="login-button"
-                onclick="sendOTP()"
-            >
-                Continue
-            </button>
+                </button>
+
+
+                <button
+                    class="entry-option"
+                    onclick="showOnlineConsultation()"
+                >
+
+                    <div class="option-icon">🩺</div>
+
+                    <strong>
+                        Online Consultation
+                    </strong>
+
+                    <span>
+                        Consult a doctor online with or without a previous Luvio visit.
+                    </span>
+
+                </button>
+
+            </div>
+
+            <a href="index.html" class="home-link">
+                ← Back to Luvio HealthLink
+            </a>
 
         </div>
 
 
-        <!-- OTP -->
+        <!-- LOGIN -->
 
-        <div class="otp-box" id="otpStep">
-
-            <label class="login-label">
-                Enter OTP
-            </label>
-
-            <input
-                type="text"
-                id="otp"
-                class="login-input"
-                placeholder="Enter 6-digit OTP"
-                maxlength="6"
-            >
-
-            <button
-                class="login-button"
-                onclick="verifyOTP()"
-            >
-                Verify & Continue
-            </button>
-
-            <button
-                onclick="backToMobile()"
-                style="
-                width:100%;
-                margin-top:10px;
-                border:0;
-                background:none;
-                color:#087b77;
-                padding:8px;
-                cursor:pointer;
-                font-size:13px;
-                "
-            >
-                Change mobile number
-            </button>
-
-        </div>
-
-
-        <div class="demo-note">
-            Demo mode: OTP is <strong>123456</strong>
-        </div>
-
-        <a
-            href="index.html"
-            class="back-home"
+        <div
+            id="loginScreen"
+            class="form-screen"
         >
-            ← Back to Luvio HealthLink
-        </a>
+
+            <h2 class="form-title">
+                Patient Login
+            </h2>
+
+            <p class="form-subtitle">
+                Login using the mobile number registered with Luvio.
+            </p>
+
+            <div id="loginMobileStep">
+
+                <div class="form-group">
+
+                    <label>
+                        Registered Mobile Number
+                    </label>
+
+                    <input
+                        id="loginMobile"
+                        class="form-control"
+                        type="tel"
+                        maxlength="10"
+                        placeholder="10-digit mobile number"
+                    >
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="sendLoginOTP()"
+                >
+                    Send OTP
+                </button>
+
+            </div>
+
+
+            <div
+                id="loginOtpStep"
+                style="display:none;"
+            >
+
+                <div class="form-group">
+
+                    <label>
+                        OTP
+                    </label>
+
+                    <input
+                        id="loginOtp"
+                        class="form-control"
+                        type="text"
+                        maxlength="6"
+                        placeholder="Enter OTP"
+                    >
+
+                </div>
+
+                <button
+                    class="primary-button"
+                    onclick="verifyLogin()"
+                >
+                    Verify & Login
+                </button>
+
+                <div class="demo-note">
+                    Prototype OTP: <strong>123456</strong>
+                </div>
+
+            </div>
+
+            <button
+                class="secondary-button"
+                onclick="backToEntry()"
+            >
+                ← Back
+            </button>
+
+        </div>
+
+
+        <!-- SIGNUP -->
+
+        <div
+            id="signupScreen"
+            class="form-screen"
+        >
+
+            <h2 class="form-title">
+                Create Luvio Health ID
+            </h2>
+
+            <p class="form-subtitle">
+                Register once and use your Luvio identity across participating healthcare services.
+            </p>
+
+
+            <div class="form-group">
+
+                <label>
+                    Full Name *
+                </label>
+
+                <input
+                    id="signupName"
+                    class="form-control"
+                    type="text"
+                    placeholder="Enter full name"
+                >
+
+            </div>
+
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Date of Birth
+                    </label>
+
+                    <input
+                        id="signupDob"
+                        class="form-control"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Gender
+                    </label>
+
+                    <select
+                        id="signupGender"
+                        class="form-control"
+                    >
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option>
+                            Male
+                        </option>
+
+                        <option>
+                            Female
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                        <option>
+                            Prefer not to say
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Mobile Number *
+                </label>
+
+                <input
+                    id="signupMobile"
+                    class="form-control"
+                    type="tel"
+                    maxlength="10"
+                    placeholder="10-digit mobile number"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="signupEmail"
+                    class="form-control"
+                    type="email"
+                    placeholder="Email address"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Address
+                </label>
+
+                <input
+                    id="signupAddress"
+                    class="form-control"
+                    type="text"
+                    placeholder="Address"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Emergency Contact
+                </label>
+
+                <input
+                    id="signupEmergency"
+                    class="form-control"
+                    type="tel"
+                    maxlength="10"
+                    placeholder="Emergency contact number"
+                >
+
+            </div>
+
+
+            <button
+                class="primary-button"
+                onclick="createHealthID()"
+            >
+                Create Health ID
+            </button>
+
+
+            <button
+                class="secondary-button"
+                onclick="backToEntry()"
+            >
+                ← Back
+            </button>
+
+        </div>
+
+
+        <!-- ONLINE CONSULTATION -->
+
+        <div
+            id="onlineScreen"
+            class="form-screen"
+        >
+
+            <h2 class="form-title">
+                Online Consultation
+            </h2>
+
+            <p class="form-subtitle">
+                Your existing Luvio record can be used, or create a Health ID if you are new.
+            </p>
+
+
+            <button
+                class="entry-option"
+                onclick="showLogin()"
+            >
+
+                <div class="option-icon">👤</div>
+
+                <strong>
+                    I already have a Luvio Health ID
+                </strong>
+
+                <span>
+                    Login and continue to online consultation.
+                </span>
+
+            </button>
+
+
+            <br>
+
+
+            <button
+                class="entry-option"
+                onclick="showSignup('online')"
+            >
+
+                <div class="option-icon">🪪</div>
+
+                <strong>
+                    I am new to Luvio
+                </strong>
+
+                <span>
+                    Create a Health ID and continue.
+                </span>
+
+            </button>
+
+
+            <button
+                class="secondary-button"
+                onclick="backToEntry()"
+            >
+                ← Back
+            </button>
+
+        </div>
 
     </div>
 
@@ -1047,11 +1369,10 @@ a{
 
 
 <!-- =========================================================
-     APPLICATION
+     MAIN APPLICATION
 ========================================================= -->
 
 <div class="app" id="app">
-
 
     <!-- TOPBAR -->
 
@@ -1076,18 +1397,21 @@ a{
 
             <div class="patient-mini-info">
 
-                <strong id="miniPatientName">
-                    Ahmed Patient
+                <strong id="topName">
+                    Patient
                 </strong>
 
-                <span>
-                    Patient Portal
+                <span id="topPatientID">
+                    Luvio Patient
                 </span>
 
             </div>
 
-            <div class="patient-mini-avatar">
-                AP
+            <div
+                class="patient-avatar"
+                id="topAvatar"
+            >
+                P
             </div>
 
         </div>
@@ -1098,9 +1422,7 @@ a{
     <div class="layout">
 
 
-        <!-- =================================================
-             SIDEBAR
-        ================================================= -->
+        <!-- SIDEBAR -->
 
         <aside class="sidebar">
 
@@ -1170,6 +1492,13 @@ a{
             </button>
 
             <button
+                class="nav-button"
+                onclick="showPage('patient-id',this)"
+            >
+                🪪 Digital Patient ID
+            </button>
+
+            <button
                 class="nav-button logout-button"
                 onclick="logout()"
             >
@@ -1179,16 +1508,14 @@ a{
         </aside>
 
 
-        <!-- =================================================
-             MAIN CONTENT
-        ================================================= -->
+        <!-- MAIN CONTENT -->
 
         <main class="content">
 
 
-            <!-- =================================================
-                 DASHBOARD
-            ================================================= -->
+            <!-- =============================================
+                 1. DASHBOARD
+            ============================================== -->
 
             <section
                 class="page active"
@@ -1200,7 +1527,7 @@ a{
                     <div>
 
                         <h1>
-                            Welcome, Ahmed
+                            Welcome, <span id="welcomeName">Patient</span>
                         </h1>
 
                         <p>
@@ -1209,14 +1536,15 @@ a{
 
                     </div>
 
-                    <div class="patient-id">
+
+                    <div class="patient-id-box">
 
                         <small>
                             Luvio Patient ID
                         </small>
 
-                        <strong>
-                            LH-000001
+                        <strong id="dashboardPatientID">
+                            —
                         </strong>
 
                     </div>
@@ -1224,7 +1552,36 @@ a{
                 </div>
 
 
-                <!-- SUMMARY CARDS -->
+                <!-- TODAY'S HEALTH SUMMARY -->
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <h2>
+                            Today's Health Summary
+                        </h2>
+
+                    </div>
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ❤️
+                        </div>
+
+                        No health information recorded for today.
+
+                        <br>
+
+                        Your vitals, diagnoses and clinical information will appear here after a healthcare encounter.
+
+                    </div>
+
+                </div>
+
+
+                <!-- SUMMARY -->
 
                 <div class="summary-grid">
 
@@ -1237,7 +1594,9 @@ a{
                             📅
                         </div>
 
-                        <h3>1</h3>
+                        <h3 id="appointmentCount">
+                            0
+                        </h3>
 
                         <p>
                             Upcoming Appointment
@@ -1255,7 +1614,9 @@ a{
                             💊
                         </div>
 
-                        <h3>2</h3>
+                        <h3 id="medicineCount">
+                            0
+                        </h3>
 
                         <p>
                             Active Medicines
@@ -1273,10 +1634,12 @@ a{
                             🧪
                         </div>
 
-                        <h3>3</h3>
+                        <h3 id="reportCount">
+                            0
+                        </h3>
 
                         <p>
-                            Diagnostic Reports
+                            Latest Reports
                         </p>
 
                     </div>
@@ -1291,10 +1654,12 @@ a{
                             📋
                         </div>
 
-                        <h3>5</h3>
+                        <h3 id="visitCount">
+                            0
+                        </h3>
 
                         <p>
-                            Past Visits
+                            Recent Visits
                         </p>
 
                     </div>
@@ -1305,7 +1670,7 @@ a{
                 <div class="dashboard-grid">
 
 
-                    <!-- APPOINTMENT -->
+                    <!-- UPCOMING APPOINTMENT -->
 
                     <div class="panel">
 
@@ -1324,59 +1689,27 @@ a{
 
                         </div>
 
+                        <div class="empty-state">
 
-                        <div class="appointment-card">
-
-                            <div class="appointment-top">
-
-                                <div>
-
-                                    <h3>
-                                        General Consultation
-                                    </h3>
-
-                                    <p>
-                                        Luvio Polyclinic
-                                    </p>
-
-                                </div>
-
-                                <span class="status">
-                                    Confirmed
-                                </span>
-
+                            <div class="empty-icon">
+                                📅
                             </div>
 
-
-                            <div class="appointment-details">
-
-                                <span>
-                                    📅 25 September 2026
-                                </span>
-
-                                <span>
-                                    🕐 10:30 AM
-                                </span>
-
-                                <span>
-                                    🩺 Dr. A. Khan
-                                </span>
-
-                            </div>
+                            No upcoming appointments.
 
                         </div>
 
                     </div>
 
 
-                    <!-- RECENT RECORDS -->
+                    <!-- RECENT VISITS -->
 
                     <div class="panel">
 
                         <div class="panel-heading">
 
                             <h2>
-                                Recent Health Records
+                                Recent Visits
                             </h2>
 
                             <button
@@ -1388,92 +1721,13 @@ a{
 
                         </div>
 
+                        <div class="empty-state">
 
-                        <div class="record-list">
-
-
-                            <div
-                                class="record"
-                                onclick="showPageById('reports')"
-                            >
-
-                                <div class="record-icon">
-                                    🧪
-                                </div>
-
-                                <div class="record-info">
-
-                                    <strong>
-                                        Blood Test Report
-                                    </strong>
-
-                                    <span>
-                                        18 September 2026
-                                    </span>
-
-                                </div>
-
-                                <div class="arrow">
-                                    →
-                                </div>
-
+                            <div class="empty-icon">
+                                🩺
                             </div>
 
-
-                            <div
-                                class="record"
-                                onclick="showPageById('prescriptions')"
-                            >
-
-                                <div class="record-icon">
-                                    💊
-                                </div>
-
-                                <div class="record-info">
-
-                                    <strong>
-                                        Digital Prescription
-                                    </strong>
-
-                                    <span>
-                                        15 September 2026
-                                    </span>
-
-                                </div>
-
-                                <div class="arrow">
-                                    →
-                                </div>
-
-                            </div>
-
-
-                            <div
-                                class="record"
-                                onclick="showPageById('visits')"
-                            >
-
-                                <div class="record-icon">
-                                    🩺
-                                </div>
-
-                                <div class="record-info">
-
-                                    <strong>
-                                        Consultation Record
-                                    </strong>
-
-                                    <span>
-                                        15 September 2026
-                                    </span>
-
-                                </div>
-
-                                <div class="arrow">
-                                    →
-                                </div>
-
-                            </div>
+                            No visits recorded yet.
 
                         </div>
 
@@ -1484,9 +1738,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 APPOINTMENTS
-            ================================================= -->
+            <!-- =============================================
+                 2. APPOINTMENTS
+            ============================================== -->
 
             <section
                 class="page"
@@ -1500,7 +1754,7 @@ a{
                     </h1>
 
                     <p>
-                        View your upcoming and previous appointments.
+                        Upcoming and past appointments.
                     </p>
 
                 </div>
@@ -1516,45 +1770,13 @@ a{
 
                     </div>
 
+                    <div class="empty-state">
 
-                    <div class="appointment-card">
-
-                        <div class="appointment-top">
-
-                            <div>
-
-                                <h3>
-                                    General Consultation
-                                </h3>
-
-                                <p>
-                                    Dr. A. Khan · Luvio Polyclinic
-                                </p>
-
-                            </div>
-
-                            <span class="status">
-                                Confirmed
-                            </span>
-
+                        <div class="empty-icon">
+                            📅
                         </div>
 
-
-                        <div class="appointment-details">
-
-                            <span>
-                                📅 25 September 2026
-                            </span>
-
-                            <span>
-                                🕐 10:30 AM
-                            </span>
-
-                            <span>
-                                🏥 Luvio Polyclinic
-                            </span>
-
-                        </div>
+                        No upcoming appointments.
 
                     </div>
 
@@ -1566,52 +1788,14 @@ a{
                     <div class="panel-heading">
 
                         <h2>
-                            Previous Appointments
+                            Past Appointments
                         </h2>
 
                     </div>
 
-                    <div class="table-wrap">
+                    <div class="empty-state">
 
-                        <table class="data-table">
-
-                            <thead>
-
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Doctor</th>
-                                    <th>Purpose</th>
-                                    <th>Status</th>
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-                                    <td>15 Sep 2026</td>
-                                    <td>Dr. A. Khan</td>
-                                    <td>General Consultation</td>
-                                    <td>Completed</td>
-                                </tr>
-
-                                <tr>
-                                    <td>03 Sep 2026</td>
-                                    <td>Dr. S. Malik</td>
-                                    <td>Follow-up</td>
-                                    <td>Completed</td>
-                                </tr>
-
-                                <tr>
-                                    <td>20 Aug 2026</td>
-                                    <td>Dr. A. Khan</td>
-                                    <td>Consultation</td>
-                                    <td>Completed</td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
+                        No past appointments recorded.
 
                     </div>
 
@@ -1620,9 +1804,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 PRESCRIPTIONS
-            ================================================= -->
+            <!-- =============================================
+                 3. PRESCRIPTIONS
+            ============================================== -->
 
             <section
                 class="page"
@@ -1636,7 +1820,7 @@ a{
                     </h1>
 
                     <p>
-                        Your digital prescriptions and active medicines.
+                        Current medicines and prescription history.
                     </p>
 
                 </div>
@@ -1647,46 +1831,18 @@ a{
                     <div class="panel-heading">
 
                         <h2>
-                            Active Medicines
+                            Current Medicines
                         </h2>
 
                     </div>
 
+                    <div class="empty-state">
 
-                    <div class="table-wrap">
+                        <div class="empty-icon">
+                            💊
+                        </div>
 
-                        <table class="data-table">
-
-                            <thead>
-
-                                <tr>
-                                    <th>Medicine</th>
-                                    <th>Dosage</th>
-                                    <th>Frequency</th>
-                                    <th>Duration</th>
-                                </tr>
-
-                            </thead>
-
-                            <tbody>
-
-                                <tr>
-                                    <td>Medicine A</td>
-                                    <td>1 tablet</td>
-                                    <td>Once daily</td>
-                                    <td>30 days</td>
-                                </tr>
-
-                                <tr>
-                                    <td>Medicine B</td>
-                                    <td>1 tablet</td>
-                                    <td>Twice daily</td>
-                                    <td>10 days</td>
-                                </tr>
-
-                            </tbody>
-
-                        </table>
+                        No active medicines recorded.
 
                     </div>
 
@@ -1703,7 +1859,6 @@ a{
 
                     </div>
 
-
                     <div class="table-wrap">
 
                         <table class="data-table">
@@ -1711,9 +1866,12 @@ a{
                             <thead>
 
                                 <tr>
-                                    <th>Date</th>
+                                    <th>Prescription Date</th>
                                     <th>Doctor</th>
-                                    <th>Clinic</th>
+                                    <th>Medicine</th>
+                                    <th>Dose</th>
+                                    <th>Frequency</th>
+                                    <th>Duration</th>
                                     <th>Action</th>
                                 </tr>
 
@@ -1722,30 +1880,8 @@ a{
                             <tbody>
 
                                 <tr>
-                                    <td>15 Sep 2026</td>
-                                    <td>Dr. A. Khan</td>
-                                    <td>Luvio Polyclinic</td>
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openPrescription()"
-                                        >
-                                            View
-                                        </button>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>03 Sep 2026</td>
-                                    <td>Dr. S. Malik</td>
-                                    <td>Luvio Polyclinic</td>
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openPrescription()"
-                                        >
-                                            View
-                                        </button>
+                                    <td colspan="7" style="text-align:center;color:#8999a2;">
+                                        No prescriptions recorded.
                                     </td>
                                 </tr>
 
@@ -1760,9 +1896,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 REPORTS
-            ================================================= -->
+            <!-- =============================================
+                 4. DIAGNOSTIC REPORTS
+            ============================================== -->
 
             <section
                 class="page"
@@ -1776,7 +1912,7 @@ a{
                     </h1>
 
                     <p>
-                        View reports received from participating diagnostic providers.
+                        Blood tests, imaging and other diagnostic reports.
                     </p>
 
                 </div>
@@ -1791,8 +1927,9 @@ a{
                             <thead>
 
                                 <tr>
-                                    <th>Date</th>
+                                    <th>Type</th>
                                     <th>Report</th>
+                                    <th>Date</th>
                                     <th>Laboratory</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -1803,98 +1940,9 @@ a{
                             <tbody>
 
                                 <tr>
-
-                                    <td>
-                                        18 Sep 2026
+                                    <td colspan="6" style="text-align:center;color:#8999a2;padding:25px;">
+                                        No diagnostic reports available.
                                     </td>
-
-                                    <td>
-                                        Blood Test
-                                    </td>
-
-                                    <td>
-                                        Partner Diagnostic Lab
-                                    </td>
-
-                                    <td>
-                                        <span class="status">
-                                            Available
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openReport()"
-                                        >
-                                            View Report
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-                                        10 Sep 2026
-                                    </td>
-
-                                    <td>
-                                        Lipid Profile
-                                    </td>
-
-                                    <td>
-                                        Partner Diagnostic Lab
-                                    </td>
-
-                                    <td>
-                                        <span class="status">
-                                            Available
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openReport()"
-                                        >
-                                            View Report
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>
-                                        22 Aug 2026
-                                    </td>
-
-                                    <td>
-                                        Routine Blood Work
-                                    </td>
-
-                                    <td>
-                                        Partner Diagnostic Lab
-                                    </td>
-
-                                    <td>
-                                        <span class="status">
-                                            Available
-                                        </span>
-                                    </td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openReport()"
-                                        >
-                                            View Report
-                                        </button>
-                                    </td>
-
                                 </tr>
 
                             </tbody>
@@ -1908,9 +1956,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 HEALTH RECORD
-            ================================================= -->
+            <!-- =============================================
+                 5. HEALTH RECORD
+            ============================================== -->
 
             <section
                 class="page"
@@ -1924,7 +1972,7 @@ a{
                     </h1>
 
                     <p>
-                        Your key health information in one place.
+                        Your longitudinal health information.
                     </p>
 
                 </div>
@@ -1940,23 +1988,18 @@ a{
                         </h3>
 
                         <div class="info-row">
-                            <span>Patient ID</span>
-                            <span>LH-000001</span>
-                        </div>
-
-                        <div class="info-row">
                             <span>Name</span>
-                            <span>Ahmed Patient</span>
+                            <span id="recordName">—</span>
                         </div>
 
                         <div class="info-row">
                             <span>Date of Birth</span>
-                            <span>01 Jan 1995</span>
+                            <span id="recordDob">—</span>
                         </div>
 
                         <div class="info-row">
                             <span>Gender</span>
-                            <span>Male</span>
+                            <span id="recordGender">—</span>
                         </div>
 
                     </div>
@@ -1968,43 +2011,8 @@ a{
                             Latest Vitals
                         </h3>
 
-                        <div class="info-row">
-                            <span>Blood Pressure</span>
-                            <span>120/80 mmHg</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>Pulse</span>
-                            <span>72 bpm</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>SpO₂</span>
-                            <span>98%</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>Temperature</span>
-                            <span>98.4°F</span>
-                        </div>
-
-                    </div>
-
-
-                    <div class="info-card">
-
-                        <h3>
-                            Current Medicines
-                        </h3>
-
-                        <div class="info-row">
-                            <span>Medicine A</span>
-                            <span>Active</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>Medicine B</span>
-                            <span>Active</span>
+                        <div class="empty-state">
+                            No vitals recorded.
                         </div>
 
                     </div>
@@ -2016,14 +2024,8 @@ a{
                             Allergies
                         </h3>
 
-                        <div class="info-row">
-                            <span>Drug Allergies</span>
-                            <span>None recorded</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>Food Allergies</span>
-                            <span>None recorded</span>
+                        <div class="empty-state">
+                            No allergy information recorded.
                         </div>
 
                     </div>
@@ -2035,14 +2037,8 @@ a{
                             Medical History
                         </h3>
 
-                        <div class="info-row">
-                            <span>Major Conditions</span>
-                            <span>None recorded</span>
-                        </div>
-
-                        <div class="info-row">
-                            <span>Previous Surgery</span>
-                            <span>None recorded</span>
+                        <div class="empty-state">
+                            No medical history recorded.
                         </div>
 
                     </div>
@@ -2051,17 +2047,37 @@ a{
                     <div class="info-card">
 
                         <h3>
-                            Care Information
+                            Current Medicines
                         </h3>
 
-                        <div class="info-row">
-                            <span>Primary Doctor</span>
-                            <span>Dr. A. Khan</span>
+                        <div class="empty-state">
+                            No current medicines recorded.
                         </div>
 
-                        <div class="info-row">
-                            <span>Primary Clinic</span>
-                            <span>Luvio Polyclinic</span>
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Diagnoses
+                        </h3>
+
+                        <div class="empty-state">
+                            No diagnoses recorded.
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-card">
+
+                        <h3>
+                            Immunization / History
+                        </h3>
+
+                        <div class="empty-state">
+                            No immunization history recorded.
                         </div>
 
                     </div>
@@ -2071,9 +2087,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 VISIT HISTORY
-            ================================================= -->
+            <!-- =============================================
+                 6. VISIT HISTORY
+            ============================================== -->
 
             <section
                 class="page"
@@ -2087,7 +2103,7 @@ a{
                     </h1>
 
                     <p>
-                        Your previous consultations and healthcare encounters.
+                        Every consultation and healthcare encounter.
                     </p>
 
                 </div>
@@ -2104,9 +2120,11 @@ a{
                                 <tr>
                                     <th>Date</th>
                                     <th>Doctor</th>
-                                    <th>Clinic</th>
+                                    <th>Polyclinic</th>
                                     <th>Reason</th>
-                                    <th>Action</th>
+                                    <th>Diagnosis</th>
+                                    <th>Prescription</th>
+                                    <th>Tests / Referral</th>
                                 </tr>
 
                             </thead>
@@ -2115,87 +2133,9 @@ a{
 
                                 <tr>
 
-                                    <td>15 Sep 2026</td>
-
-                                    <td>Dr. A. Khan</td>
-
-                                    <td>Luvio Polyclinic</td>
-
-                                    <td>General Consultation</td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openVisit()"
-                                        >
-                                            View
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>03 Sep 2026</td>
-
-                                    <td>Dr. S. Malik</td>
-
-                                    <td>Luvio Polyclinic</td>
-
-                                    <td>Follow-up</td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openVisit()"
-                                        >
-                                            View
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>20 Aug 2026</td>
-
-                                    <td>Dr. A. Khan</td>
-
-                                    <td>Luvio Polyclinic</td>
-
-                                    <td>Consultation</td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openVisit()"
-                                        >
-                                            View
-                                        </button>
-                                    </td>
-
-                                </tr>
-
-
-                                <tr>
-
-                                    <td>05 Aug 2026</td>
-
-                                    <td>Dr. S. Malik</td>
-
-                                    <td>Luvio Polyclinic</td>
-
-                                    <td>Routine Visit</td>
-
-                                    <td>
-                                        <button
-                                            class="table-action"
-                                            onclick="openVisit()"
-                                        >
-                                            View
-                                        </button>
+                                    <td colspan="7"
+                                        style="text-align:center;color:#8999a2;padding:25px;">
+                                        No consultation history recorded.
                                     </td>
 
                                 </tr>
@@ -2211,9 +2151,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 PROFILE
-            ================================================= -->
+            <!-- =============================================
+                 7. PROFILE
+            ============================================== -->
 
             <section
                 class="page"
@@ -2223,11 +2163,11 @@ a{
                 <div class="page-heading">
 
                     <h1>
-                        My Profile
+                        Profile
                     </h1>
 
                     <p>
-                        Your registered patient information.
+                        Your registered personal information.
                     </p>
 
                 </div>
@@ -2237,18 +2177,21 @@ a{
 
                     <div class="profile-top">
 
-                        <div class="profile-avatar">
-                            AP
+                        <div
+                            class="profile-avatar-large"
+                            id="profileAvatar"
+                        >
+                            P
                         </div>
 
                         <div>
 
-                            <h2>
-                                Ahmed Patient
+                            <h2 id="profileName">
+                                Patient
                             </h2>
 
-                            <p>
-                                Luvio Patient ID: LH-000001
+                            <p id="profileID">
+                                Luvio Patient ID
                             </p>
 
                         </div>
@@ -2259,43 +2202,38 @@ a{
                     <div class="profile-grid">
 
                         <div class="profile-field">
-                            <small>Full Name</small>
-                            <strong>Ahmed Patient</strong>
+                            <small>Name</small>
+                            <strong id="profileNameField">—</strong>
                         </div>
 
                         <div class="profile-field">
                             <small>Date of Birth</small>
-                            <strong>01 January 1995</strong>
+                            <strong id="profileDob">—</strong>
                         </div>
 
                         <div class="profile-field">
                             <small>Gender</small>
-                            <strong>Male</strong>
+                            <strong id="profileGender">—</strong>
                         </div>
 
                         <div class="profile-field">
-                            <small>Mobile Number</small>
-                            <strong>+91 XXXXX XXXXX</strong>
+                            <small>Mobile</small>
+                            <strong id="profileMobile">—</strong>
                         </div>
 
                         <div class="profile-field">
                             <small>Email</small>
-                            <strong>Not provided</strong>
-                        </div>
-
-                        <div class="profile-field">
-                            <small>Emergency Contact</small>
-                            <strong>Not provided</strong>
+                            <strong id="profileEmail">—</strong>
                         </div>
 
                         <div class="profile-field">
                             <small>Address</small>
-                            <strong>Not provided</strong>
+                            <strong id="profileAddress">—</strong>
                         </div>
 
                         <div class="profile-field">
-                            <small>Patient Since</small>
-                            <strong>September 2026</strong>
+                            <small>Emergency Contact</small>
+                            <strong id="profileEmergency">—</strong>
                         </div>
 
                     </div>
@@ -2305,9 +2243,9 @@ a{
             </section>
 
 
-            <!-- =================================================
-                 CONSENT
-            ================================================= -->
+            <!-- =============================================
+                 8. CONSENT & PRIVACY
+            ============================================== -->
 
             <section
                 class="page"
@@ -2321,7 +2259,7 @@ a{
                     </h1>
 
                     <p>
-                        Control and understand how your health information is shared.
+                        Understand and control authorized access to your health information.
                     </p>
 
                 </div>
@@ -2329,21 +2267,17 @@ a{
 
                 <div class="consent-card">
 
-
                     <div class="consent-item">
 
                         <h3>
-                            Healthcare Provider Access
+                            What data may be shared?
                         </h3>
 
                         <p>
-                            Authorized healthcare professionals may access
-                            relevant information needed to provide your care.
+                            Relevant clinical information, prescriptions,
+                            diagnostic orders and reports may be shared with
+                            authorized healthcare providers when required for care.
                         </p>
-
-                        <span class="consent-status">
-                            ACTIVE
-                        </span>
 
                     </div>
 
@@ -2351,17 +2285,12 @@ a{
                     <div class="consent-item">
 
                         <h3>
-                            Diagnostic Report Sharing
+                            Which provider received access?
                         </h3>
 
                         <p>
-                            Diagnostic providers may return reports to your
-                            Luvio HealthLink health record after an authorized order.
+                            No provider access has been recorded yet.
                         </p>
-
-                        <span class="consent-status">
-                            ACTIVE
-                        </span>
 
                     </div>
 
@@ -2369,17 +2298,13 @@ a{
                     <div class="consent-item">
 
                         <h3>
-                            Hospital Referral Sharing
+                            Patient Authorization
                         </h3>
 
                         <p>
-                            Relevant information may be shared with an authorized
-                            referral hospital when required for your care.
+                            Authorization should be obtained before applicable
+                            health information is shared with participating providers.
                         </p>
-
-                        <span class="consent-status">
-                            ACTIVE
-                        </span>
 
                     </div>
 
@@ -2387,13 +2312,11 @@ a{
                     <div class="consent-item">
 
                         <h3>
-                            Your Privacy
+                            Consent History
                         </h3>
 
                         <p>
-                            Your Patient ID alone should not provide unrestricted
-                            access to your health information. Access should be
-                            authenticated and authorized.
+                            No consent events have been recorded yet.
                         </p>
 
                     </div>
@@ -2402,6 +2325,59 @@ a{
 
             </section>
 
+
+            <!-- =============================================
+                 9. DIGITAL PATIENT ID
+            ============================================== -->
+
+            <section
+                class="page"
+                id="patient-id"
+            >
+
+                <div class="page-heading">
+
+                    <h1>
+                        Digital Patient ID
+                    </h1>
+
+                    <p>
+                        Your Luvio identity for connected healthcare.
+                    </p>
+
+                </div>
+
+
+                <div class="id-card">
+
+                    <small>
+                        Luvio Patient ID
+                    </small>
+
+                    <div
+                        class="id-number"
+                        id="bigPatientID"
+                    >
+                        —
+                    </div>
+
+                    <p>
+                        This identity can eventually be used across participating
+                        Luvio HealthLink clinics and healthcare services.
+                    </p>
+
+                </div>
+
+
+                <p class="id-note">
+
+                    Your Patient ID is an identifier, not a password.
+                    Access to your health information must use secure
+                    authentication and authorization.
+
+                </p>
+
+            </section>
 
         </main>
 
@@ -2419,7 +2395,7 @@ a{
     <div class="modal-box">
 
         <button
-            class="modal-close"
+            class="close"
             onclick="closeModal()"
         >
             ×
@@ -2435,15 +2411,142 @@ a{
 <script>
 
 /* =========================================================
-   LOGIN
+   STORAGE
 ========================================================= */
 
-function sendOTP(){
+const STORAGE_KEY = "luvio_patient_accounts";
+const CURRENT_KEY = "luvio_current_patient";
+
+
+function getAccounts(){
+
+    return JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || "[]"
+    );
+
+}
+
+
+function saveAccounts(accounts){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(accounts)
+    );
+
+}
+
+
+function getCurrentPatient(){
+
+    return JSON.parse(
+        localStorage.getItem(CURRENT_KEY) || "null"
+    );
+
+}
+
+
+/* =========================================================
+   ENTRY NAVIGATION
+========================================================= */
+
+function hideAllForms(){
+
+    document
+        .querySelectorAll(".form-screen")
+        .forEach(function(screen){
+            screen.classList.remove("active");
+        });
+
+}
+
+
+function showLogin(){
+
+    hideAllForms();
+
+    document.getElementById("entryOptions").style.display="none";
+
+    document
+        .getElementById("loginScreen")
+        .classList.add("active");
+
+}
+
+
+function showSignup(source){
+
+    hideAllForms();
+
+    document.getElementById("entryOptions").style.display="none";
+
+    document
+        .getElementById("signupScreen")
+        .classList.add("active");
+
+}
+
+
+function showOnlineConsultation(){
+
+    hideAllForms();
+
+    document.getElementById("entryOptions").style.display="none";
+
+    document
+        .getElementById("onlineScreen")
+        .classList.add("active");
+
+}
+
+
+function backToEntry(){
+
+    hideAllForms();
+
+    document.getElementById("entryOptions").style.display="block";
+
+}
+
+
+/* =========================================================
+   CREATE HEALTH ID
+========================================================= */
+
+function createHealthID(){
+
+    const name =
+        document.getElementById("signupName").value.trim();
+
+    const dob =
+        document.getElementById("signupDob").value;
+
+    const gender =
+        document.getElementById("signupGender").value;
 
     const mobile =
-        document.getElementById("mobileNumber").value.trim();
+        document.getElementById("signupMobile").value.trim();
 
-    if(mobile.length !== 10){
+    const email =
+        document.getElementById("signupEmail").value.trim();
+
+    const address =
+        document.getElementById("signupAddress").value.trim();
+
+    const emergency =
+        document.getElementById("signupEmergency").value.trim();
+
+
+    if(!name){
+
+        alert("Please enter your full name.");
+
+        return;
+
+    }
+
+
+    if(!/^\d{10}$/.test(mobile)){
 
         alert("Please enter a valid 10-digit mobile number.");
 
@@ -2451,60 +2554,377 @@ function sendOTP(){
 
     }
 
-    document.getElementById("mobileStep").style.display="none";
 
-    document.getElementById("otpStep").style.display="block";
-
-}
+    const accounts = getAccounts();
 
 
-function verifyOTP(){
+    const existing =
+        accounts.find(function(account){
+            return account.mobile === mobile;
+        });
 
-    const otp =
-        document.getElementById("otp").value.trim();
 
-    if(otp !== "123456"){
+    if(existing){
 
-        alert("Incorrect OTP. Demo OTP is 123456.");
+        alert(
+            "A Luvio Health ID already exists for this mobile number. Please use Patient Login."
+        );
 
         return;
 
     }
 
-    document.getElementById("loginScreen").style.display="none";
 
-    document.getElementById("app").style.display="block";
+    /*
+       Prototype Patient ID.
 
-}
+       In the real backend this will be generated
+       centrally and securely.
+    */
+
+    const number =
+        String(accounts.length + 1).padStart(6,"0");
+
+    const patientID =
+        "LH-" + number;
 
 
-function backToMobile(){
+    const patient = {
 
-    document.getElementById("otpStep").style.display="none";
+        patientID:patientID,
 
-    document.getElementById("mobileStep").style.display="block";
+        name:name,
+
+        dob:dob,
+
+        gender:gender,
+
+        mobile:mobile,
+
+        email:email,
+
+        address:address,
+
+        emergency:emergency,
+
+        createdAt:new Date().toISOString(),
+
+        appointments:[],
+
+        prescriptions:[],
+
+        reports:[],
+
+        visits:[],
+
+        vitals:[],
+
+        diagnoses:[],
+
+        consents:[]
+
+    };
+
+
+    accounts.push(patient);
+
+    saveAccounts(accounts);
+
+    localStorage.setItem(
+        CURRENT_KEY,
+        JSON.stringify(patient)
+    );
+
+
+    alert(
+        "Your Luvio Health ID has been created: " + patientID
+    );
+
+
+    openPortal(patient);
 
 }
 
 
 /* =========================================================
-   NAVIGATION
+   LOGIN
+========================================================= */
+
+function sendLoginOTP(){
+
+    const mobile =
+        document.getElementById("loginMobile").value.trim();
+
+
+    if(!/^\d{10}$/.test(mobile)){
+
+        alert("Please enter a valid 10-digit mobile number.");
+
+        return;
+
+    }
+
+
+    const accounts = getAccounts();
+
+
+    const account =
+        accounts.find(function(patient){
+            return patient.mobile === mobile;
+        });
+
+
+    if(!account){
+
+        alert(
+            "No Luvio Patient account was found for this mobile number. Please create a Health ID first."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById("loginMobileStep")
+        .style.display="none";
+
+    document.getElementById("loginOtpStep")
+        .style.display="block";
+
+}
+
+
+function verifyLogin(){
+
+    const mobile =
+        document.getElementById("loginMobile").value.trim();
+
+    const otp =
+        document.getElementById("loginOtp").value.trim();
+
+
+    if(otp !== "123456"){
+
+        alert("Incorrect OTP. Prototype OTP is 123456.");
+
+        return;
+
+    }
+
+
+    const accounts = getAccounts();
+
+
+    const patient =
+        accounts.find(function(account){
+            return account.mobile === mobile;
+        });
+
+
+    if(!patient){
+
+        alert("Patient account not found.");
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        CURRENT_KEY,
+        JSON.stringify(patient)
+    );
+
+
+    openPortal(patient);
+
+}
+
+
+/* =========================================================
+   OPEN PORTAL
+========================================================= */
+
+function openPortal(patient){
+
+    document.getElementById("entryScreen")
+        .style.display="none";
+
+    document.getElementById("app")
+        .style.display="block";
+
+
+    populatePatient(patient);
+
+}
+
+
+/* =========================================================
+   POPULATE PATIENT INFORMATION
+========================================================= */
+
+function populatePatient(patient){
+
+    if(!patient){
+
+        return;
+
+    }
+
+
+    const name =
+        patient.name || "Patient";
+
+    const id =
+        patient.patientID || "—";
+
+
+    document.getElementById("welcomeName")
+        .textContent=name;
+
+    document.getElementById("topName")
+        .textContent=name;
+
+    document.getElementById("topPatientID")
+        .textContent=id;
+
+    document.getElementById("dashboardPatientID")
+        .textContent=id;
+
+    document.getElementById("bigPatientID")
+        .textContent=id;
+
+    document.getElementById("profileName")
+        .textContent=name;
+
+    document.getElementById("profileID")
+        .textContent=id;
+
+
+    document.getElementById("profileNameField")
+        .textContent=patient.name || "—";
+
+    document.getElementById("profileDob")
+        .textContent=patient.dob || "—";
+
+    document.getElementById("profileGender")
+        .textContent=patient.gender || "—";
+
+    document.getElementById("profileMobile")
+        .textContent=patient.mobile || "—";
+
+    document.getElementById("profileEmail")
+        .textContent=patient.email || "—";
+
+    document.getElementById("profileAddress")
+        .textContent=patient.address || "—";
+
+    document.getElementById("profileEmergency")
+        .textContent=patient.emergency || "—";
+
+
+    document.getElementById("recordName")
+        .textContent=patient.name || "—";
+
+    document.getElementById("recordDob")
+        .textContent=patient.dob || "—";
+
+    document.getElementById("recordGender")
+        .textContent=patient.gender || "—";
+
+
+    const initials =
+        getInitials(name);
+
+    document.getElementById("topAvatar")
+        .textContent=initials;
+
+    document.getElementById("profileAvatar")
+        .textContent=initials;
+
+
+    /*
+       Current prototype counts.
+
+       These will eventually come from the backend.
+    */
+
+    document.getElementById("appointmentCount")
+        .textContent=(patient.appointments || []).length;
+
+    document.getElementById("medicineCount")
+        .textContent=(patient.prescriptions || []).length;
+
+    document.getElementById("reportCount")
+        .textContent=(patient.reports || []).length;
+
+    document.getElementById("visitCount")
+        .textContent=(patient.visits || []).length;
+
+}
+
+
+function getInitials(name){
+
+    const words =
+        name.trim().split(/\s+/);
+
+    if(words.length === 1){
+
+        return words[0]
+            .substring(0,2)
+            .toUpperCase();
+
+    }
+
+    return (
+        words[0][0] +
+        words[words.length-1][0]
+    ).toUpperCase();
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
 ========================================================= */
 
 function showPage(id,button){
 
-    document.querySelectorAll(".page")
-        .forEach(page => page.classList.remove("active"));
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
 
-    document.getElementById(id)
-        .classList.add("active");
+            page.classList.remove("active");
 
-    document.querySelectorAll(".nav-button")
-        .forEach(btn => btn.classList.remove("active"));
+        });
+
+
+    const target =
+        document.getElementById(id);
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(function(btn){
+
+            btn.classList.remove("active");
+
+        });
+
 
     if(button){
+
         button.classList.add("active");
+
     }
+
 
     window.scrollTo({
         top:0,
@@ -2516,25 +2936,42 @@ function showPage(id,button){
 
 function showPageById(id){
 
-    document.querySelectorAll(".page")
-        .forEach(page => page.classList.remove("active"));
+    document
+        .querySelectorAll(".page")
+        .forEach(function(page){
 
-    document.getElementById(id)
-        .classList.add("active");
+            page.classList.remove("active");
 
-    document.querySelectorAll(".nav-button")
-        .forEach(btn => {
+        });
+
+
+    const target =
+        document.getElementById(id);
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav-button")
+        .forEach(function(btn){
 
             btn.classList.remove("active");
 
-            const onclick =
+            const action =
                 btn.getAttribute("onclick") || "";
 
-            if(onclick.includes("'" + id + "'")){
+            if(action.includes("'" + id + "'")){
+
                 btn.classList.add("active");
+
             }
 
         });
+
 
     window.scrollTo({
         top:0,
@@ -2548,7 +2985,10 @@ function showPageById(id){
    MODAL
 ========================================================= */
 
-function openModal(){
+function openModal(content){
+
+    document.getElementById("modalContent")
+        .innerHTML=content;
 
     document.getElementById("modal")
         .classList.add("show");
@@ -2568,207 +3008,12 @@ document.getElementById("modal")
 .addEventListener("click",function(event){
 
     if(event.target === this){
+
         closeModal();
+
     }
 
 });
-
-
-/* =========================================================
-   PRESCRIPTION
-========================================================= */
-
-function openPrescription(){
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <h2>Digital Prescription</h2>
-
-        <p class="modal-subtitle">
-            Prescription dated 15 September 2026
-        </p>
-
-        <div class="prescription-header">
-
-            <strong>
-                Dr. A. Khan
-            </strong>
-
-            <br>
-
-            <span>
-                Luvio Polyclinic
-            </span>
-
-        </div>
-
-
-        <div class="medicine">
-
-            <strong>
-                Medicine A
-            </strong>
-
-            <span>
-                1 tablet · Once daily · 30 days
-            </span>
-
-        </div>
-
-
-        <div class="medicine">
-
-            <strong>
-                Medicine B
-            </strong>
-
-            <span>
-                1 tablet · Twice daily · 10 days
-            </span>
-
-        </div>
-
-
-        <button
-            class="print-button"
-            onclick="window.print()"
-        >
-            Print Prescription
-        </button>
-
-    `;
-
-    openModal();
-
-}
-
-
-/* =========================================================
-   REPORT
-========================================================= */
-
-function openReport(){
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <h2>Diagnostic Report</h2>
-
-        <p class="modal-subtitle">
-            Blood Test · 18 September 2026
-        </p>
-
-
-        <div class="prescription-header">
-
-            <strong>
-                Partner Diagnostic Lab
-            </strong>
-
-            <br>
-
-            <span>
-                Report available in Luvio HealthLink
-            </span>
-
-        </div>
-
-
-        <div class="info-card">
-
-            <div class="info-row">
-                <span>Report Type</span>
-                <span>Blood Test</span>
-            </div>
-
-            <div class="info-row">
-                <span>Patient ID</span>
-                <span>LH-000001</span>
-            </div>
-
-            <div class="info-row">
-                <span>Date</span>
-                <span>18 Sep 2026</span>
-            </div>
-
-            <div class="info-row">
-                <span>Status</span>
-                <span>Available</span>
-            </div>
-
-        </div>
-
-
-        <button
-            class="print-button"
-            onclick="window.print()"
-        >
-            Print Report
-        </button>
-
-    `;
-
-    openModal();
-
-}
-
-
-/* =========================================================
-   VISIT
-========================================================= */
-
-function openVisit(){
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <h2>Consultation Record</h2>
-
-        <p class="modal-subtitle">
-            15 September 2026 · Luvio Polyclinic
-        </p>
-
-
-        <div class="info-card">
-
-            <div class="info-row">
-                <span>Doctor</span>
-                <span>Dr. A. Khan</span>
-            </div>
-
-            <div class="info-row">
-                <span>Visit Type</span>
-                <span>General Consultation</span>
-            </div>
-
-            <div class="info-row">
-                <span>Diagnosis</span>
-                <span>Recorded in consultation</span>
-            </div>
-
-            <div class="info-row">
-                <span>Prescription</span>
-                <span>Issued</span>
-            </div>
-
-            <div class="info-row">
-                <span>Diagnostics</span>
-                <span>Ordered</span>
-            </div>
-
-        </div>
-
-
-        <button
-            class="print-button"
-            onclick="window.print()"
-        >
-            Print Record
-        </button>
-
-    `;
-
-    openModal();
-
-}
 
 
 /* =========================================================
@@ -2777,9 +3022,51 @@ function openVisit(){
 
 function logout(){
 
-    window.location.href="index.html";
+    localStorage.removeItem(CURRENT_KEY);
+
+    document.getElementById("app")
+        .style.display="none";
+
+    document.getElementById("entryScreen")
+        .style.display="flex";
+
+    backToEntry();
 
 }
+
+
+/* =========================================================
+   AUTO LOGIN FOR CURRENT SESSION
+========================================================= */
+
+window.addEventListener("load",function(){
+
+    const current =
+        getCurrentPatient();
+
+    /*
+       We intentionally don't automatically expose
+       the patient dashboard on every page load.
+
+       The login flow will be used.
+    */
+
+});
+
+
+/* =========================================================
+   ESC KEY FOR MODAL
+========================================================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+
+        closeModal();
+
+    }
+
+});
 
 </script>
 
