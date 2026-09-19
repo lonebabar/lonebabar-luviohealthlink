@@ -1,42 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Patient Portal | Luvio HealthLink</title>
+<title>Luvio HealthLink | Patient Portal</title>
 
 <style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
 font-family:Arial,Helvetica,sans-serif;
-background:#f3f9f8;
+background:#f4faf9;
 color:#173d45;
-line-height:1.6;
+line-height:1.5;
 }
+
+button{font-family:inherit;cursor:pointer}
+
+.login-screen{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+background:linear-gradient(135deg,#e9f8f6,#f7fbfb);
+}
+
+.login-box{
+background:#fff;
+width:100%;
+max-width:430px;
+padding:35px;
+border-radius:22px;
+box-shadow:0 20px 60px rgba(20,80,85,.12);
+}
+
+.logo{
+width:55px;
+height:55px;
+border-radius:50%;
+background:#0c8f88;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:bold;
+margin-bottom:18px;
+}
+
+.login-box h1{
+font-size:27px;
+margin-bottom:5px;
+}
+
+.login-box .subtitle{
+color:#71868a;
+font-size:14px;
+margin-bottom:28px;
+}
+
+.login-box label{
+display:block;
+font-size:13px;
+font-weight:bold;
+margin-bottom:7px;
+}
+
+.input{
+width:100%;
+padding:14px;
+border:1px solid #d6e5e5;
+border-radius:9px;
+font-size:16px;
+margin-bottom:15px;
+outline:none;
+}
+
+.input:focus{
+border-color:#0c8f88;
+}
+
+.primary{
+width:100%;
+padding:14px;
+border:0;
+border-radius:9px;
+background:#0c8f88;
+color:#fff;
+font-weight:bold;
+font-size:15px;
+}
+
+.secondary{
+padding:12px 16px;
+border:1px solid #cce0de;
+border-radius:9px;
+background:#fff;
+color:#08766f;
+font-weight:bold;
+}
+
+.otp-screen{display:none}
+
+.otp-info{
+background:#eef8f7;
+padding:12px;
+border-radius:9px;
+font-size:13px;
+color:#42656b;
+margin-bottom:18px;
+}
+
+.demo-otp{
+margin-top:15px;
+font-size:12px;
+color:#71868a;
+text-align:center;
+}
+
+.resend{
+border:0;
+background:none;
+color:#08766f;
+font-weight:bold;
+margin-top:15px;
+}
+
+.portal{display:none}
 
 header{
 background:#fff;
 border-bottom:1px solid #dcebea;
-padding:15px 20px;
+padding:14px 20px;
 position:sticky;
 top:0;
-z-index:10;
+z-index:20;
 }
 
-.header-inner{
+.header{
 max-width:1200px;
 margin:auto;
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:15px;
 }
 
@@ -46,107 +153,86 @@ align-items:center;
 gap:10px;
 }
 
-.logo{
-width:44px;
-height:44px;
-background:#0c8f88;
-color:white;
+.brand-logo{
+width:43px;
+height:43px;
 border-radius:50%;
+background:#0c8f88;
+color:#fff;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:25px;
+font-size:24px;
 font-weight:bold;
 }
 
-.brand h1{
-font-size:20px;
-}
-
-.brand p{
-font-size:11px;
-color:#71868a;
-}
+.brand h1{font-size:19px}
+.brand p{font-size:11px;color:#71868a}
 
 .logout{
-border:none;
+border:0;
 background:#eef7f6;
 color:#08766f;
 padding:10px 15px;
 border-radius:8px;
 font-weight:bold;
-cursor:pointer;
 }
 
 .container{
 max-width:1200px;
 margin:auto;
-padding:30px 20px 60px;
+padding:25px 20px 60px;
 }
 
 .welcome{
-background:linear-gradient(135deg,#0c8f88,#11616a);
+background:linear-gradient(135deg,#0c8f88,#12616a);
 color:white;
-padding:30px;
+padding:28px;
 border-radius:20px;
-margin-bottom:25px;
+margin-bottom:22px;
 }
 
-.welcome small{
-opacity:.85;
-}
-
-.welcome h2{
-margin:7px 0;
-font-size:30px;
-}
-
-.welcome p{
-opacity:.9;
-}
+.welcome small{opacity:.8}
+.welcome h2{font-size:29px;margin:6px 0}
+.welcome p{opacity:.9}
 
 .patient-id{
-margin-top:18px;
 display:inline-block;
-background:rgba(255,255,255,.15);
-padding:9px 14px;
+margin-top:14px;
+padding:8px 13px;
+background:rgba(255,255,255,.16);
 border-radius:8px;
 font-size:13px;
 }
 
 .section-title{
-margin:30px 0 15px;
 font-size:21px;
+margin:25px 0 13px;
 }
 
 .overview{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px;
+gap:14px;
 }
 
 .stat{
-background:white;
+background:#fff;
 border:1px solid #deebea;
 border-radius:15px;
-padding:20px;
+padding:19px;
+cursor:pointer;
+transition:.2s;
 }
 
-.stat-icon{
-font-size:23px;
-margin-bottom:10px;
+.stat:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 25px rgba(20,80,85,.08);
 }
 
-.stat h3{
-font-size:24px;
-color:#0c8f88;
-}
-
-.stat p{
-color:#71868a;
-font-size:13px;
-margin-top:3px;
-}
+.stat-icon{font-size:23px;margin-bottom:8px}
+.stat h3{font-size:24px;color:#0c8f88}
+.stat p{font-size:13px;color:#71868a}
 
 .dashboard{
 display:grid;
@@ -156,350 +242,292 @@ margin-top:20px;
 }
 
 .panel{
-background:white;
+background:#fff;
 border:1px solid #deebea;
 border-radius:17px;
-padding:22px;
-margin-bottom:20px;
-}
-
-.panel h3{
+padding:21px;
 margin-bottom:18px;
 }
 
+.panel h3{margin-bottom:15px}
+
 .appointment{
 border-left:4px solid #0c8f88;
-background:#f5fbfa;
-padding:15px;
+background:#f4faf9;
+padding:16px;
 border-radius:8px;
-margin-bottom:12px;
+cursor:pointer;
 }
 
-.appointment strong{
-display:block;
-margin-bottom:5px;
-}
-
-.appointment span{
-font-size:13px;
-color:#71868a;
-}
+.appointment strong{display:block}
+.appointment span{font-size:13px;color:#71868a}
 
 .doctor{
-margin-top:10px;
-font-size:14px;
+font-size:13px;
 color:#42636a;
+margin-top:8px;
 }
 
 .status{
 display:inline-block;
 background:#e3f6ef;
 color:#08745e;
-padding:6px 10px;
+padding:5px 10px;
 border-radius:20px;
-font-size:12px;
+font-size:11px;
 font-weight:bold;
-margin-top:10px;
+margin-top:9px;
 }
 
-.quick-links{
+.quick{
 display:grid;
-gap:10px;
+gap:9px;
 }
 
-.quick-links button{
-text-align:left;
-background:#f5fbfa;
+.quick button{
 border:1px solid #dcebea;
-padding:14px;
+background:#f6fbfa;
+padding:13px;
 border-radius:9px;
-cursor:pointer;
-color:#234d55;
+text-align:left;
 font-weight:bold;
-}
-
-.quick-links button:hover{
-background:#e4f5f3;
-}
-
-.records{
-margin-top:20px;
+color:#234d55;
 }
 
 .record{
 display:flex;
 justify-content:space-between;
-align-items:center;
 gap:15px;
-padding:16px 0;
+padding:14px 0;
 border-bottom:1px solid #edf2f2;
 }
 
-.record:last-child{
-border-bottom:none;
-}
+.record:last-child{border-bottom:0}
 
-.record-info strong{
+.record span{
 display:block;
-margin-bottom:3px;
-}
-
-.record-info span{
-color:#788c91;
-font-size:13px;
+font-size:12px;
+color:#71868a;
 }
 
 .profile{
-margin-top:20px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:15px;
+gap:12px;
 }
 
 .profile-item{
-background:#f7fbfb;
-padding:15px;
-border-radius:10px;
+background:#f6fbfa;
+padding:13px;
+border-radius:9px;
 }
 
 .profile-item small{
 display:block;
-color:#7a8e92;
-margin-bottom:4px;
+font-size:11px;
+color:#71868a;
 }
 
-.profile-item strong{
-font-size:14px;
-}
+.profile-item strong{font-size:13px}
 
 .privacy{
-margin-top:20px;
 background:#eef8f7;
 border:1px solid #d7ecea;
-padding:20px;
+padding:18px;
 border-radius:15px;
 }
 
-.privacy h3{
-margin-bottom:8px;
-}
-
 .privacy p{
-color:#617b80;
 font-size:13px;
+color:#617b80;
 margin-bottom:12px;
 }
 
-.action-button{
-border:none;
-background:#0c8f88;
-color:white;
-padding:10px 15px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-}
+.page{display:none}
 
-.secondary-button{
-border:1px solid #c9dfdd;
-background:white;
-color:#08766f;
-padding:10px 15px;
-border-radius:8px;
-cursor:pointer;
-font-weight:bold;
-}
-
-.appointments-page{
-display:none;
-}
-
-.page-header{
+.page-head{
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:15px;
 margin-bottom:20px;
 flex-wrap:wrap;
 }
 
-.page-header h2{
-font-size:28px;
-}
+.page-head h2{font-size:27px}
 
-.appointment-card{
-background:white;
+.item{
+background:#fff;
 border:1px solid #dcebea;
-border-radius:16px;
-padding:20px;
-margin-bottom:15px;
+border-radius:15px;
+padding:19px;
+margin-bottom:14px;
 }
 
-.appointment-top{
+.item-top{
 display:flex;
 justify-content:space-between;
-align-items:flex-start;
 gap:15px;
 }
 
-.appointment-date{
-font-size:14px;
+.item-date{
+font-size:13px;
 color:#71868a;
-margin-top:5px;
+margin-top:4px;
 }
 
-.appointment-details{
+.details{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:12px;
-margin-top:18px;
+gap:10px;
+margin-top:16px;
 }
 
 .detail{
 background:#f6fbfa;
-padding:12px;
-border-radius:9px;
+padding:11px;
+border-radius:8px;
 }
 
 .detail small{
 display:block;
-color:#7a8e92;
-font-size:11px;
-margin-bottom:3px;
+font-size:10px;
+color:#71868a;
 }
 
-.detail strong{
-font-size:13px;
-}
+.detail strong{font-size:13px}
 
-.completed{
-background:#edf7f2;
-color:#26735c;
-}
-
-.cancelled{
-background:#fbeeee;
-color:#a04d4d;
+.action{
+border:0;
+background:#0c8f88;
+color:#fff;
+padding:10px 14px;
+border-radius:8px;
+font-weight:bold;
 }
 
 footer{
 background:#123b43;
 color:white;
-padding:30px 20px;
+padding:28px;
 text-align:center;
 }
 
 footer p{
 color:#bfd0d2;
-font-size:13px;
-margin-top:5px;
-}
-
-.modal{
-display:none;
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-z-index:100;
-align-items:center;
-justify-content:center;
-padding:20px;
-}
-
-.modal-box{
-background:white;
-width:100%;
-max-width:450px;
-padding:28px;
-border-radius:18px;
-}
-
-.modal-box h2{
-margin-bottom:10px;
-}
-
-.modal-box p{
-color:#71868a;
-font-size:14px;
-margin-bottom:18px;
-}
-
-.modal-box select,
-.modal-box input{
-width:100%;
-padding:12px;
-border:1px solid #d6e5e5;
-border-radius:8px;
-margin-bottom:12px;
-font-size:14px;
-}
-
-.modal-buttons{
-display:flex;
-gap:10px;
-}
-
-.modal-buttons button{
-flex:1;
+font-size:12px;
+margin-top:4px;
 }
 
 @media(max-width:850px){
-
-.overview{
-grid-template-columns:repeat(2,1fr);
-}
-
-.dashboard{
-grid-template-columns:1fr;
-}
-
+.overview{grid-template-columns:repeat(2,1fr)}
+.dashboard{grid-template-columns:1fr}
 }
 
 @media(max-width:550px){
-
-.overview{
-grid-template-columns:1fr 1fr;
-}
-
-.profile{
-grid-template-columns:1fr;
-}
-
-.welcome h2{
-font-size:25px;
-}
-
-.appointment-details{
-grid-template-columns:1fr;
-}
-
-.appointment-top{
-flex-direction:column;
-}
-
+.container{padding:18px 14px 45px}
+.overview{grid-template-columns:1fr 1fr}
+.profile{grid-template-columns:1fr}
+.details{grid-template-columns:1fr}
+.welcome h2{font-size:25px}
 }
 
 </style>
-
 </head>
 
 <body>
 
+<!-- LOGIN -->
 
-<header>
+<div class="login-screen" id="loginScreen">
 
-<div class="header-inner">
-
-<div class="brand">
+<div class="login-box" id="mobileBox">
 
 <div class="logo">+</div>
 
+<h1>Patient Login</h1>
+
+<p class="subtitle">
+Access your Luvio HealthLink health record securely.
+</p>
+
+<label>Mobile Number</label>
+
+<input
+class="input"
+id="mobile"
+type="tel"
+inputmode="numeric"
+maxlength="10"
+placeholder="Enter 10-digit mobile number"
+>
+
+<button class="primary" onclick="sendOTP()">
+Send OTP
+</button>
+
+<p class="demo-otp">
+Demo mode: OTP will be <strong>123456</strong>
+</p>
+
+</div>
+
+
+<div class="login-box otp-screen" id="otpBox">
+
+<div class="logo">+</div>
+
+<h1>Verify Mobile Number</h1>
+
+<p class="subtitle">
+Enter the 6-digit OTP sent to your mobile number.
+</p>
+
+<div class="otp-info" id="otpNumber"></div>
+
+<label>6-Digit OTP</label>
+
+<input
+class="input"
+id="otp"
+type="tel"
+inputmode="numeric"
+maxlength="6"
+placeholder="Enter OTP"
+>
+
+<button class="primary" onclick="verifyOTP()">
+Verify OTP
+</button>
+
+<button class="resend" onclick="sendOTP()">
+Resend OTP
+</button>
+
+<p class="demo-otp">
+Demo OTP: <strong>123456</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- PORTAL -->
+
+<div class="portal" id="portal">
+
+<header>
+
+<div class="header">
+
+<div class="brand">
+
+<div class="brand-logo">+</div>
+
 <div>
-
 <h1>Luvio HealthLink</h1>
-
 <p>Your Personal Health Architecture.</p>
-
 </div>
 
 </div>
@@ -519,7 +547,6 @@ Logout
 <!-- DASHBOARD -->
 
 <div id="dashboardPage">
-
 
 <section class="welcome">
 
@@ -543,54 +570,33 @@ Health Overview
 </h2>
 
 
-<section class="overview">
+<div class="overview">
 
-
-<div class="stat">
-
+<div class="stat" onclick="showPage('appointments')">
 <div class="stat-icon">📅</div>
-
 <h3>1</h3>
-
 <p>Upcoming Appointment</p>
-
 </div>
 
-
-<div class="stat">
-
+<div class="stat" onclick="showPage('prescriptions')">
 <div class="stat-icon">💊</div>
-
 <h3>2</h3>
-
 <p>Active Medicines</p>
-
 </div>
 
-
-<div class="stat">
-
+<div class="stat" onclick="showPage('reports')">
 <div class="stat-icon">🧪</div>
-
 <h3>3</h3>
-
 <p>Diagnostic Reports</p>
-
 </div>
 
-
-<div class="stat">
-
+<div class="stat" onclick="showPage('visits')">
 <div class="stat-icon">🩺</div>
-
 <h3>4</h3>
-
 <p>Past Visits</p>
-
 </div>
 
-
-</section>
+</div>
 
 
 <section class="dashboard">
@@ -598,12 +604,12 @@ Health Overview
 
 <div>
 
-
 <div class="panel">
 
 <h3>📅 Upcoming Appointment</h3>
 
-<div class="appointment">
+<div class="appointment"
+onclick="showPage('appointments')">
 
 <strong>
 General Consultation
@@ -623,84 +629,47 @@ Confirmed
 
 </div>
 
-<button
-class="action-button"
-onclick="showAppointments()">
-
-View All Appointments
-
-</button>
-
 </div>
 
 
-<div class="panel records">
+<div class="panel">
 
 <h3>🧪 Recent Health Records</h3>
 
-
 <div class="record">
 
-<div class="record-info">
-
-<strong>
-Blood Test Report
-</strong>
-
-<span>
-18 September 2026 • Diagnostic Laboratory
-</span>
-
+<div>
+<strong>Blood Test Report</strong>
+<span>18 September 2026 • Diagnostic Laboratory</span>
 </div>
 
-<div class="status">
-Available
-</div>
+<div class="status">Available</div>
 
 </div>
 
 
 <div class="record">
 
-<div class="record-info">
-
-<strong>
-Digital Prescription
-</strong>
-
-<span>
-15 September 2026 • Dr. Demo Doctor
-</span>
-
+<div>
+<strong>Digital Prescription</strong>
+<span>15 September 2026 • Dr. Demo Doctor</span>
 </div>
 
-<div class="status">
-Active
-</div>
+<div class="status">Active</div>
 
 </div>
 
 
 <div class="record">
 
-<div class="record-info">
-
-<strong>
-Consultation Record
-</strong>
-
-<span>
-15 September 2026 • Luvio Polyclinic
-</span>
-
+<div>
+<strong>Consultation Record</strong>
+<span>15 September 2026 • Luvio Polyclinic</span>
 </div>
 
-<div class="status">
-Completed
-</div>
+<div class="status">Completed</div>
 
 </div>
-
 
 </div>
 
@@ -709,99 +678,70 @@ Completed
 
 <h3>👤 My Profile</h3>
 
-
 <div class="profile">
 
-
 <div class="profile-item">
-
 <small>Patient Name</small>
-
-<strong>
-Aamir Demo
-</strong>
-
+<strong>Aamir Demo</strong>
 </div>
 
-
 <div class="profile-item">
-
 <small>Date of Birth</small>
-
-<strong>
-01 January 1995
-</strong>
-
+<strong>01 January 1995</strong>
 </div>
 
-
 <div class="profile-item">
-
 <small>Mobile Number</small>
-
-<strong>
-+91 XXXXX XXXXX
-</strong>
-
+<strong>+91 XXXXX XXXXX</strong>
 </div>
-
 
 <div class="profile-item">
-
 <small>Blood Group</small>
-
-<strong>
-O Positive
-</strong>
-
-</div>
-
-
+<strong>O Positive</strong>
 </div>
 
 </div>
 
+</div>
 
 </div>
 
 
 <aside>
 
-
 <div class="panel">
 
-<h3>
-Quick Access
-</h3>
+<h3>Quick Access</h3>
 
+<div class="quick">
 
-<div class="quick-links">
-
-
-<button onclick="showAppointments()">
+<button onclick="showPage('appointments')">
 📅 My Appointments
 </button>
 
-
-<button onclick="showMessage('Prescriptions')">
+<button onclick="showPage('prescriptions')">
 💊 My Prescriptions
 </button>
 
-
-<button onclick="showMessage('Reports')">
+<button onclick="showPage('reports')">
 🧪 Diagnostic Reports
 </button>
 
-
-<button onclick="showMessage('Health Record')">
+<button onclick="showPage('health')">
 🩺 Health Record
 </button>
 
-
-<button onclick="showMessage('Visits')">
+<button onclick="showPage('visits')">
 📋 Visit History
 </button>
 
+<button onclick="showPage('profile')">
+👤 My Profile
+</button>
+
+<button onclick="showPage('consent')">
+🔐 Consent & Privacy
+</button>
 
 </div>
 
@@ -810,9 +750,7 @@ Quick Access
 
 <div class="privacy">
 
-<h3>
-🔐 Your Privacy
-</h3>
+<h3>🔐 Your Privacy</h3>
 
 <p>
 Your healthcare information should only be shared
@@ -820,79 +758,43 @@ with authorized healthcare providers according to
 your permissions and applicable consent.
 </p>
 
-<button
-class="action-button"
-onclick="showMessage('Consent Management')">
-
+<button class="action" onclick="showPage('consent')">
 Manage Consent
-
 </button>
 
 </div>
 
-
 </aside>
-
 
 </section>
 
 </div>
 
 
-<!-- APPOINTMENTS PAGE -->
+<!-- APPOINTMENTS -->
 
-<div id="appointmentsPage"
-class="appointments-page">
+<div class="page" id="appointments">
 
+<div class="page-head">
 
-<div class="page-header">
+<h2>📅 My Appointments</h2>
 
-<div>
-
-<h2>
-📅 My Appointments
-</h2>
-
-<p style="color:#71868a;">
-Manage and view your healthcare appointments.
-</p>
-
-</div>
-
-<button
-class="secondary-button"
-onclick="showDashboard()">
-
-← Back to Dashboard
-
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
 </button>
 
 </div>
 
 
-<!-- UPCOMING -->
+<div class="item">
 
-<div class="panel">
-
-<h3>
-Upcoming Appointment
-</h3>
-
-
-<div class="appointment-card">
-
-<div class="appointment-top">
+<div class="item-top">
 
 <div>
-
-<strong>
-General Consultation
-</strong>
-
-<div class="appointment-date">
+<strong>General Consultation</strong>
+<div class="item-date">
 24 September 2026 • 11:30 AM
 </div>
-
 </div>
 
 <div class="status">
@@ -901,228 +803,492 @@ Confirmed
 
 </div>
 
-
-<div class="appointment-details">
-
+<div class="details">
 
 <div class="detail">
-
-<small>
-DOCTOR
-</small>
-
-<strong>
-Dr. Demo Doctor
-</strong>
-
+<small>DOCTOR</small>
+<strong>Dr. Demo Doctor</strong>
 </div>
-
 
 <div class="detail">
-
-<small>
-CLINIC
-</small>
-
-<strong>
-Luvio Polyclinic
-</strong>
-
+<small>CLINIC</small>
+<strong>Luvio Polyclinic</strong>
 </div>
-
 
 <div class="detail">
-
-<small>
-CONSULTATION TYPE
-</small>
-
-<strong>
-In-Person
-</strong>
-
+<small>TYPE</small>
+<strong>In-Person</strong>
 </div>
-
 
 <div class="detail">
-
-<small>
-PATIENT ID
-</small>
-
-<strong>
-LH-000001
-</strong>
-
+<small>PATIENT ID</small>
+<strong>LH-000001</strong>
 </div>
-
 
 </div>
 
 </div>
 
 
-<button
-class="action-button"
-onclick="bookAppointment()">
+<h3 style="margin:25px 0 12px">
+Previous Appointments
+</h3>
 
-+ Book New Appointment
 
+<div class="item">
+
+<div class="item-top">
+
+<div>
+<strong>General Consultation</strong>
+<div class="item-date">
+15 September 2026 • 10:30 AM
+</div>
+</div>
+
+<div class="status">
+Completed
+</div>
+
+</div>
+
+<div class="details">
+
+<div class="detail">
+<small>DOCTOR</small>
+<strong>Dr. Demo Doctor</strong>
+</div>
+
+<div class="detail">
+<small>CLINIC</small>
+<strong>Luvio Polyclinic</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- PRESCRIPTIONS -->
+
+<div class="page" id="prescriptions">
+
+<div class="page-head">
+
+<h2>💊 My Prescriptions</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
 </button>
 
 </div>
 
 
-<!-- PREVIOUS -->
+<div class="item">
 
-<div class="panel">
-
-<h3>
-Previous Appointments
-</h3>
-
-
-<div class="appointment-card">
-
-<div class="appointment-top">
+<div class="item-top">
 
 <div>
+<strong>Digital Prescription</strong>
+<div class="item-date">
+15 September 2026 • Dr. Demo Doctor
+</div>
+</div>
 
-<strong>
-General Consultation
-</strong>
-
-<div class="appointment-date">
-15 September 2026 • 10:30 AM
+<div class="status">
+Active
 </div>
 
 </div>
 
-<div class="status completed">
+<div class="details">
+
+<div class="detail">
+<small>MEDICINE</small>
+<strong>Medicine A</strong>
+</div>
+
+<div class="detail">
+<small>DOSAGE</small>
+<strong>As prescribed</strong>
+</div>
+
+<div class="detail">
+<small>FREQUENCY</small>
+<strong>As directed</strong>
+</div>
+
+<div class="detail">
+<small>DURATION</small>
+<strong>7 days</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="item">
+
+<strong>Previous Prescription</strong>
+
+<div class="item-date">
+02 September 2026 • Completed
+</div>
+
+</div>
+
+</div>
+
+
+<!-- REPORTS -->
+
+<div class="page" id="reports">
+
+<div class="page-head">
+
+<h2>🧪 Diagnostic Reports</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
+</button>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-top">
+
+<div>
+<strong>Blood Test Report</strong>
+<div class="item-date">
+18 September 2026
+</div>
+</div>
+
+<div class="status">
+Available
+</div>
+
+</div>
+
+<div class="details">
+
+<div class="detail">
+<small>LABORATORY</small>
+<strong>Partner Diagnostic Lab</strong>
+</div>
+
+<div class="detail">
+<small>REPORT STATUS</small>
+<strong>Final</strong>
+</div>
+
+</div>
+
+<br>
+
+<button class="action" onclick="demoAlert()">
+View Report
+</button>
+
+</div>
+
+
+<div class="item">
+
+<strong>Routine Health Panel</strong>
+
+<div class="item-date">
+10 August 2026
+</div>
+
+<br>
+
+<button class="secondary" onclick="demoAlert()">
+View Report
+</button>
+
+</div>
+
+</div>
+
+
+<!-- HEALTH RECORD -->
+
+<div class="page" id="health">
+
+<div class="page-head">
+
+<h2>🩺 Health Record</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
+</button>
+
+</div>
+
+
+<div class="item">
+
+<h3>Latest Vitals</h3>
+
+<div class="details">
+
+<div class="detail">
+<small>BLOOD PRESSURE</small>
+<strong>120 / 80 mmHg</strong>
+</div>
+
+<div class="detail">
+<small>PULSE</small>
+<strong>72 bpm</strong>
+</div>
+
+<div class="detail">
+<small>SPO2</small>
+<strong>98%</strong>
+</div>
+
+<div class="detail">
+<small>TEMPERATURE</small>
+<strong>98.4 °F</strong>
+</div>
+
+<div class="detail">
+<small>WEIGHT</small>
+<strong>80 kg</strong>
+</div>
+
+<div class="detail">
+<small>HEIGHT</small>
+<strong>180 cm</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="item">
+
+<h3>Clinical Information</h3>
+
+<div class="details">
+
+<div class="detail">
+<small>ALLERGIES</small>
+<strong>No recorded allergy</strong>
+</div>
+
+<div class="detail">
+<small>MEDICAL HISTORY</small>
+<strong>Available in record</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- VISITS -->
+
+<div class="page" id="visits">
+
+<div class="page-head">
+
+<h2>📋 Visit History</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
+</button>
+
+</div>
+
+
+<div class="item">
+
+<div class="item-top">
+
+<div>
+<strong>General Consultation</strong>
+<div class="item-date">
+15 September 2026
+</div>
+</div>
+
+<div class="status">
 Completed
 </div>
 
 </div>
 
-
-<div class="appointment-details">
-
+<div class="details">
 
 <div class="detail">
-
-<small>
-DOCTOR
-</small>
-
-<strong>
-Dr. Demo Doctor
-</strong>
-
+<small>DOCTOR</small>
+<strong>Dr. Demo Doctor</strong>
 </div>
-
 
 <div class="detail">
-
-<small>
-CLINIC
-</small>
-
-<strong>
-Luvio Polyclinic
-</strong>
-
+<small>CLINIC</small>
+<strong>Luvio Polyclinic</strong>
 </div>
-
 
 <div class="detail">
-
-<small>
-CONSULTATION TYPE
-</small>
-
-<strong>
-In-Person
-</strong>
-
+<small>TYPE</small>
+<strong>In-Person</strong>
 </div>
 
-
+<div class="detail">
+<small>RECORD</small>
+<strong>Consultation Available</strong>
 </div>
 
 </div>
 
+</div>
 
-<div class="appointment-card">
 
-<div class="appointment-top">
+<div class="item">
+
+<div class="item-top">
 
 <div>
-
-<strong>
-Follow-up Consultation
-</strong>
-
-<div class="appointment-date">
-02 September 2026 • 2:00 PM
+<strong>Follow-up Consultation</strong>
+<div class="item-date">
+02 September 2026
+</div>
 </div>
 
-</div>
-
-<div class="status completed">
+<div class="status">
 Completed
 </div>
 
 </div>
 
+</div>
 
-<div class="appointment-details">
+</div>
 
+
+<!-- PROFILE -->
+
+<div class="page" id="profile">
+
+<div class="page-head">
+
+<h2>👤 My Profile</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
+</button>
+
+</div>
+
+
+<div class="item">
+
+<div class="profile">
+
+<div class="profile-item">
+<small>FULL NAME</small>
+<strong>Aamir Demo</strong>
+</div>
+
+<div class="profile-item">
+<small>LUVIO PATIENT ID</small>
+<strong>LH-000001</strong>
+</div>
+
+<div class="profile-item">
+<small>MOBILE NUMBER</small>
+<strong>+91 XXXXX XXXXX</strong>
+</div>
+
+<div class="profile-item">
+<small>DATE OF BIRTH</small>
+<strong>01 January 1995</strong>
+</div>
+
+<div class="profile-item">
+<small>BLOOD GROUP</small>
+<strong>O Positive</strong>
+</div>
+
+<div class="profile-item">
+<small>ACCOUNT STATUS</small>
+<strong>Active</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONSENT -->
+
+<div class="page" id="consent">
+
+<div class="page-head">
+
+<h2>🔐 Consent & Privacy</h2>
+
+<button class="secondary" onclick="showDashboard()">
+← Dashboard
+</button>
+
+</div>
+
+
+<div class="item">
+
+<h3>Healthcare Data Sharing</h3>
+
+<p style="color:#71868a;font-size:14px;margin-top:8px">
+Your health information should only be shared with
+authorized healthcare providers for permitted healthcare
+purposes and according to your consent.
+</p>
+
+<br>
 
 <div class="detail">
 
-<small>
-DOCTOR
-</small>
+<small>GENERAL HEALTHCARE SHARING</small>
 
 <strong>
-Dr. Demo Doctor
+Consent status: Demo Active
 </strong>
 
 </div>
 
+<br>
 
 <div class="detail">
 
-<small>
-CLINIC
-</small>
+<small>PARTNER HOSPITAL ACCESS</small>
 
 <strong>
-Luvio Polyclinic
+Authorization required
 </strong>
 
 </div>
 
+<br>
 
-<div class="detail">
-
-<small>
-CONSULTATION TYPE
-</small>
-
-<strong>
-In-Person
-</strong>
+<button class="action" onclick="demoAlert()">
+Manage Consent
+</button>
 
 </div>
-
-</div>
-
-</div>
-
-
-</div>
-
 
 </div>
 
@@ -1132,135 +1298,77 @@ In-Person
 
 <footer>
 
-<strong>
-Luvio HealthLink
-</strong>
+<strong>Luvio HealthLink</strong>
 
-<p>
-Your Personal Health Architecture.
-</p>
+<p>Your Personal Health Architecture.</p>
 
-<p>
-Patient Portal • V3 Demo
-</p>
+<p>Patient Portal • V4 Demo</p>
 
 </footer>
-
-
-<!-- BOOK APPOINTMENT MODAL -->
-
-<div
-class="modal"
-id="appointmentModal">
-
-
-<div class="modal-box">
-
-
-<h2>
-📅 Book Appointment
-</h2>
-
-
-<p>
-This is the initial appointment-booking interface.
-Real-time doctor availability and booking will be
-connected to the secure backend later.
-</p>
-
-
-<select>
-
-<option>
-Select Department
-</option>
-
-<option>
-General Medicine
-</option>
-
-<option>
-Cardiology
-</option>
-
-<option>
-Paediatrics
-</option>
-
-<option>
-Orthopaedics
-</option>
-
-</select>
-
-
-<select>
-
-<option>
-Select Doctor
-</option>
-
-<option>
-Dr. Demo Doctor
-</option>
-
-</select>
-
-
-<input
-type="date"
->
-
-
-<input
-type="time"
->
-
-
-<div class="modal-buttons">
-
-<button
-class="secondary-button"
-onclick="closeBooking()">
-
-Cancel
-
-</button>
-
-
-<button
-class="action-button"
-onclick="confirmBooking()">
-
-Request Appointment
-
-</button>
-
-</div>
-
-
-</div>
 
 </div>
 
 
 <script>
 
+let currentMobile="";
 
-function showAppointments(){
+function sendOTP(){
 
-document.getElementById("dashboardPage").style.display="none";
+const mobile=document.getElementById("mobile").value.trim();
 
-document.getElementById("appointmentsPage").style.display="block";
+if(!/^[0-9]{10}$/.test(mobile)){
+alert("Please enter a valid 10-digit mobile number.");
+return;
+}
+
+currentMobile=mobile;
+
+document.getElementById("mobileBox").style.display="none";
+
+document.getElementById("otpBox").style.display="block";
+
+document.getElementById("otpNumber").innerText=
+"OTP sent to +91 " + mobile;
+
+}
+
+function verifyOTP(){
+
+const otp=document.getElementById("otp").value.trim();
+
+if(otp!=="123456"){
+alert("Invalid OTP. For this demo, use 123456.");
+return;
+}
+
+document.getElementById("loginScreen").style.display="none";
+
+document.getElementById("portal").style.display="block";
 
 window.scrollTo(0,0);
 
 }
 
+function showPage(page){
+
+document.getElementById("dashboardPage").style.display="none";
+
+document.querySelectorAll(".page").forEach(function(item){
+item.style.display="none";
+});
+
+document.getElementById(page).style.display="block";
+
+window.scrollTo(0,0);
+
+}
 
 function showDashboard(){
 
-document.getElementById("appointmentsPage").style.display="none";
+document.querySelectorAll(".page").forEach(function(item){
+item.style.display="none";
+});
 
 document.getElementById("dashboardPage").style.display="block";
 
@@ -1268,67 +1376,31 @@ window.scrollTo(0,0);
 
 }
 
-
-function bookAppointment(){
-
-document.getElementById("appointmentModal").style.display="flex";
-
-}
-
-
-function closeBooking(){
-
-document.getElementById("appointmentModal").style.display="none";
-
-}
-
-
-function confirmBooking(){
-
-alert(
-"Appointment request created in demo mode. Real appointment booking will be connected to the secure HealthLink backend."
-);
-
-closeBooking();
-
-}
-
-
-function showMessage(section){
-
-alert(
-section +
-" module is part of the Patient Portal and will be connected to the secure database in the next development stage."
-);
-
-}
-
-
 function logout(){
 
+document.getElementById("portal").style.display="none";
+
+document.getElementById("loginScreen").style.display="flex";
+
+document.getElementById("mobileBox").style.display="block";
+
+document.getElementById("otpBox").style.display="none";
+
+document.getElementById("mobile").value="";
+
+document.getElementById("otp").value="";
+
+}
+
+function demoAlert(){
+
 alert(
-"Demo logout successful. Secure authentication will be connected in the production version."
+"This feature is available in the Patient Portal demo. It will be connected to the secure HealthLink backend."
 );
 
 }
 
-
-window.onclick=function(event){
-
-const modal=
-document.getElementById("appointmentModal");
-
-if(event.target===modal){
-
-closeBooking();
-
-}
-
-};
-
-
 </script>
-
 
 </body>
 </html>
