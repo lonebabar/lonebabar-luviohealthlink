@@ -1,0 +1,1 @@
+function createReferral(){const p=LH.findPatient(hPatient.value.trim());if(!p)return alert("Patient not found.");LH.update(p.id,x=>x.referrals.unshift({hospital:hHospital.value,reason:hReason.value,date:new Date().toLocaleDateString("en-IN"),status:"Referred"}));alert("Referral created.")}
