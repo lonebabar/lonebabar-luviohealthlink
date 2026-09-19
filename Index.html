@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Luvio HealthLink | Digital Healthcare Ecosystem</title>
+
+  <meta name="description"
+        content="Luvio HealthLink connects patients, doctors, polyclinics, pharmacies, diagnostics and hospitals through one connected digital healthcare ecosystem.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5fbfa;
+      color: #173b43;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2eeee;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #0c8f88;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 21px;
+      color: #123d46;
+    }
+
+    .brand p {
+      font-size: 12px;
+      color: #6b858b;
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #315860;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #0c8f88;
+    }
+
+    .nav-button {
+      background: #0c8f88;
+      color: white !important;
+      padding: 10px 17px;
+      border-radius: 9px;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 24px 70px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #dff5f2;
+      color: #08766f;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 54px;
+      line-height: 1.08;
+      color: #123c45;
+      margin-bottom: 22px;
+    }
+
+    .hero h2 span {
+      color: #0c8f88;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #607980;
+      max-width: 650px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .primary {
+      background: #0c8f88;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .secondary {
+      background: white;
+      color: #0c8f88;
+      padding: 14px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid #b9dfdc;
+    }
+
+    .hero-card {
+      background: white;
+      border-radius: 25px;
+      padding: 28px;
+      box-shadow: 0 20px 60px rgba(24, 80, 85, .12);
+      border: 1px solid #e2eeee;
+    }
+
+    .hero-card h3 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .connection {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .connection div {
+      padding: 18px 12px;
+      background: #f1f9f8;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      color: #28575d;
+    }
+
+    .connection strong {
+      display: block;
+      font-size: 25px;
+      margin-bottom: 5px;
+      color: #0c8f88;
+    }
+
+    section {
+      padding: 75px 24px;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      color: #123c45;
+      margin-bottom: 12px;
+    }
+
+    .section-title p {
+      color: #6a8288;
+    }
+
+    .stats {
+      background: #123f48;
+      color: white;
+    }
+
+    .stats-grid {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 35px;
+      color: #68d8d0;
+    }
+
+    .stat p {
+      font-size: 14px;
+      color: #d0e2e3;
+    }
+
+    .ecosystem {
+      background: white;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #f8fcfc;
+      border: 1px solid #e1eeee;
+      border-radius: 18px;
+      padding: 25px;
+      transition: .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(24, 80, 85, .08);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 13px;
+      background: #dff5f2;
+      color: #08766f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+      margin-bottom: 16px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #173f47;
+    }
+
+    .card p {
+      color: #6b8186;
+      font-size: 14px;
+    }
+
+    .how {
+      background: #f5fbfa;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-radius: 17px;
+      border: 1px solid #e1eeee;
+    }
+
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #0c8f88;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .portals {
+      background: white;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .portal {
+      border: 1px solid #dcebea;
+      border-radius: 17px;
+      padding: 25px;
+      background: #fbfefe;
+    }
+
+    .portal h3 {
+      margin-bottom: 8px;
+    }
+
+    .portal p {
+      color: #6b8186;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .portal button {
+      border: none;
+      background: #0c8f88;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .about {
+      background: #eef8f7;
+    }
+
+    .about-box {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about-box h2 {
+      font-size: 36px;
+      margin-bottom: 18px;
+    }
+
+    .about-box p {
+      color: #607980;
+      font-size: 17px;
+    }
+
+    footer {
+      background: #102f36;
+      color: white;
+      padding: 40px 24px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    footer p {
+      color: #b9ced1;
+      font-size: 14px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-box {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      padding: 30px;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      right: 18px;
+      top: 12px;
+      font-size: 25px;
+      cursor: pointer;
+      color: #71858a;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 8px;
+    }
+
+    .modal-box p {
+      color: #708489;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .modal-box input,
+    .modal-box select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #d6e5e5;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .modal-box button {
+      width: 100%;
+      padding: 13px;
+      border: none;
+      background: #0c8f88;
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+      }
+
+      .hero h2 {
+        font-size: 42px;
+      }
+
+      .cards,
+      .portal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .cards,
+      .portal-grid,
+      .steps,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        padding: 14px 16px;
+      }
+
+      section {
+        padding: 55px 18px;
+      }
+
+      .brand h1 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <div class="brand">
+      <div class="logo">+</div>
+
+      <div>
+        <h1>Luvio HealthLink</h1>
+        <p>Your Personal Health Architecture.</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#ecosystem">Ecosystem</a>
+      <a href="#portals">Portals</a>
+      <a href="#contact">Contact</a>
+      <a href="#portals" class="nav-button">Access Portal</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<section class="hero">
+
+  <div>
+
+    <div class="badge">
+      DIGITAL HEALTHCARE ECOSYSTEM
+    </div>
+
+    <h2>
+      One health record.<br>
+      <span>Everywhere you need it.</span>
+    </h2>
+
+    <p>
+      Luvio HealthLink connects patients, doctors, polyclinics,
+      pharmacies, diagnostics and hospitals through one connected
+      digital healthcare ecosystem.
+    </p>
+
+    <div class="buttons">
+      <a href="#portals" class="primary">Access HealthLink</a>
+      <a href="#ecosystem" class="secondary">Explore Ecosystem</a>
+    </div>
+
+  </div>
+
+
+  <div class="hero-card">
+
+    <h3>Connected Healthcare</h3>
+
+    <div class="connection">
+
+      <div>
+        <strong>👤</strong>
+        Patients
+      </div>
+
+      <div>
+        <strong>🩺</strong>
+        Doctors
+      </div>
+
+      <div>
+        <strong>🏥</strong>
+        Polyclinics
+      </div>
+
+      <div>
+        <strong>💊</strong>
+        Pharmacies
+      </div>
+
+      <div>
+        <strong>🧪</strong>
+        Diagnostics
+      </div>
+
+      <div>
+        <strong>🏨</strong>
+        Hospitals
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="stats">
+
+  <div class="stats-grid">
+
+    <div class="stat">
+      <h3>01</h3>
+      <p>Connected Patient Record</p>
+    </div>
+
+    <div class="stat">
+      <h3>06+</h3>
+      <p>Healthcare Portals</p>
+    </div>
+
+    <div class="stat">
+      <h3>24/7</h3>
+      <p>Digital Access</p>
+    </div>
+
+    <div class="stat">
+      <h3>∞</h3>
+      <p>Future Network Potential</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="ecosystem" id="ecosystem">
+
+  <div class="section-inner">
+
+    <div class="section-title">
+
+      <h2>One Connected Ecosystem</h2>
+
+      <p>
+        Luvio HealthLink is designed to connect the different
+        parts of a patient's healthcare journey.
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">👤</div>
+
+        <h3>Patient</h3>
+
+        <p>
+          Access appointments, prescriptions, reports and
+          healthcare information through a connected digital record.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🩺</div>
+
+        <h3>Doctor</h3>
+
+        <p>
+          View patient history, record consultations,
+          prescribe medicines, order tests and create referrals.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🏥</div>
+
+        <h3>Polyclinic</h3>
+
+        <p>
+          Manage reception, patient registration, queues,
+          consultations and clinic operations.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">💊</div>
+
+        <h3>Pharmacy</h3>
+
+        <p>
+          Receive authorized digital prescriptions and
+          maintain dispensing information.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🧪</div>
+
+        <h3>Diagnostics</h3>
+
+        <p>
+          Receive diagnostic orders and return laboratory
+          reports directly into the patient's record.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🏨</div>
+
+        <h3>Partner Hospitals</h3>
+
+        <p>
+          Receive digital referrals and authorized clinical
+          information while maintaining their own hospital systems.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="how">
+
+  <div class="section-inner">
+
+    <div class="section-title">
+
+      <h2>How HealthLink Works</h2>
+
+      <p>
+        A simple workflow designed around the patient.
+      </p>
+
+    </div>
+
+
+    <div class="steps">
+
+      <div class="step">
+
+        <div class="step-number">1</div>
+
+        <h3>Register</h3>
+
+        <p>
+          Reception searches for an existing patient or
+          creates a new patient record.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">2</div>
+
+        <h3>Consult</h3>
+
+        <p>
+          The doctor views relevant history, records the
+          consultation and prepares the treatment plan.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">3</div>
+
+        <h3>Confirm</h3>
+
+        <p>
+          One final confirmation sends authorized prescriptions,
+          diagnostic orders and referrals to the appropriate services.
+        </p>
+
+      </div>
+
+
+      <div class="step">
+
+        <div class="step-number">4</div>
+
+        <h3>Continue Care</h3>
+
+        <p>
+          Reports, medicines, referrals and future consultations
+          become part of the longitudinal patient record.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="portals" id="portals">
+
+  <div class="section-inner">
+
+    <div class="section-title">
+
+      <h2>HealthLink Portals</h2>
+
+      <p>
+        Dedicated access for every participant in the healthcare ecosystem.
+      </p>
+
+    </div>
+
+
+    <div class="portal-grid">
+
+      <div class="portal">
+
+        <h3>👤 Patient Portal</h3>
+
+        <p>
+          View your healthcare information, prescriptions,
+          reports and appointments.
+        </p>
+
+        <button onclick="openLogin('Patient')">
+          Patient Login
+        </button>
+
+      </div>
+
+
+      <div class="portal">
+
+        <h3>🩺 Doctor Portal</h3>
+
+        <p>
+          Manage consultations, clinical records,
+          prescriptions and referrals.
+        </p>
+
+        <button onclick="openLogin('Doctor')">
+          Doctor Login
+        </button>
+
+      </div>
+
+
+      <div class="portal">
+
+        <h3>🏥 Reception Portal</h3>
+
+        <p>
+          Register patients, manage queues and
+          coordinate clinic workflows.
+        </p>
+
+        <button onclick="openLogin('Reception')">
+          Reception Login
+        </button>
+
+      </div>
+
+
+      <div class="portal">
+
+        <h3>💊 Pharmacy Portal</h3>
+
+        <p>
+          Receive authorized prescriptions and
+          manage medicine dispensing.
+        </p>
+
+        <button onclick="openLogin('Pharmacy')">
+          Pharmacy Login
+        </button>
+
+      </div>
+
+
+      <div class="portal">
+
+        <h3>🧪 Diagnostic Portal</h3>
+
+        <p>
+          Manage diagnostic orders, samples and
+          laboratory reports.
+        </p>
+
+        <button onclick="openLogin('Diagnostic')">
+          Diagnostic Login
+        </button>
+
+      </div>
+
+
+      <div class="portal">
+
+        <h3>🏨 Hospital Portal</h3>
+
+        <p>
+          Manage authorized referrals and
+          healthcare coordination.
+        </p>
+
+        <button onclick="openLogin('Hospital')">
+          Hospital Login
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="about" id="about">
+
+  <div class="about-box">
+
+    <h2>Healthcare, Connected.</h2>
+
+    <p>
+      Luvio HealthLink is being designed as a scalable digital
+      healthcare ecosystem. It starts with a single polyclinic
+      and can grow into a network connecting multiple clinics,
+      doctors, pharmacies, diagnostic laboratories and partner
+      hospitals.
+    </p>
+
+  </div>
+
+</section>
+
+
+<footer id="contact">
+
+  <div class="footer-inner">
+
+    <div>
+
+      <h2>Luvio HealthLink</h2>
+
+      <p>
+        Your Personal Health Architecture.
+      </p>
+
+    </div>
+
+    <div>
+
+      <p>
+        Digital Healthcare Ecosystem
+      </p>
+
+      <p>
+        © 2026 Luvio HealthLink
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<div class="modal" id="loginModal">
+
+  <div class="modal-box">
+
+    <div class="close" onclick="closeLogin()">×</div>
+
+    <h2 id="loginTitle">Portal Login</h2>
+
+    <p>
+      This is the initial HealthLink portal interface.
+      Secure authentication will be connected during development.
+    </p>
+
+    <select>
+      <option>Select Portal</option>
+      <option>Patient</option>
+      <option>Doctor</option>
+      <option>Reception</option>
+      <option>Pharmacy</option>
+      <option>Diagnostic</option>
+      <option>Hospital</option>
+    </select>
+
+    <input
+      type="text"
+      placeholder="User ID"
+    >
+
+    <input
+      type="password"
+      placeholder="Password"
+    >
+
+    <button onclick="demoLogin()">
+      Continue
+    </button>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  function openLogin(type) {
+
+    document.getElementById("loginModal").style.display = "flex";
+
+    document.getElementById("loginTitle").innerText =
+      type + " Portal Login";
+
+  }
+
+
+  function closeLogin() {
+
+    document.getElementById("loginModal").style.display = "none";
+
+  }
+
+
+  function demoLogin() {
+
+    alert(
+      "Portal interface created successfully. Secure authentication and database connection will be added in the next development stage."
+    );
+
+  }
+
+
+  window.onclick = function(event) {
+
+    const modal = document.getElementById("loginModal");
+
+    if (event.target === modal) {
+
+      closeLogin();
+
+    }
+
+  };
+
+</script>
+
+</body>
+</html>
