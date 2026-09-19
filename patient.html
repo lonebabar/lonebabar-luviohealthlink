@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Patient Portal | Luvio HealthLink</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f9f8;
+      color: #173d45;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #dcebea;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      background: #0c8f88;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+    }
+
+    .brand p {
+      font-size: 11px;
+      color: #71868a;
+    }
+
+    .logout {
+      border: none;
+      background: #eef7f6;
+      color: #08766f;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 30px 20px 60px;
+    }
+
+    .welcome {
+      background: linear-gradient(135deg, #0c8f88, #11616a);
+      color: white;
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
+
+    .welcome small {
+      opacity: .85;
+    }
+
+    .welcome h2 {
+      margin: 7px 0;
+      font-size: 30px;
+    }
+
+    .welcome p {
+      opacity: .9;
+    }
+
+    .patient-id {
+      margin-top: 18px;
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      padding: 9px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+    }
+
+    .section-title {
+      margin: 30px 0 15px;
+      font-size: 21px;
+    }
+
+    .overview {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid #deebea;
+      border-radius: 15px;
+      padding: 20px;
+    }
+
+    .stat-icon {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .stat h3 {
+      font-size: 24px;
+      color: #0c8f88;
+    }
+
+    .stat p {
+      color: #71868a;
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    .dashboard {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .panel {
+      background: white;
+      border: 1px solid #deebea;
+      border-radius: 17px;
+      padding: 22px;
+    }
+
+    .panel h3 {
+      margin-bottom: 18px;
+    }
+
+    .appointment {
+      border-left: 4px solid #0c8f88;
+      background: #f5fbfa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .appointment:last-child {
+      margin-bottom: 0;
+    }
+
+    .appointment strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .appointment span {
+      font-size: 13px;
+      color: #71868a;
+    }
+
+    .doctor {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #42636a;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-links button {
+      text-align: left;
+      background: #f5fbfa;
+      border: 1px solid #dcebea;
+      padding: 14px;
+      border-radius: 9px;
+      cursor: pointer;
+      color: #234d55;
+      font-weight: bold;
+    }
+
+    .quick-links button:hover {
+      background: #e4f5f3;
+    }
+
+    .records {
+      margin-top: 20px;
+    }
+
+    .record {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 16px 0;
+      border-bottom: 1px solid #edf2f2;
+    }
+
+    .record:last-child {
+      border-bottom: none;
+    }
+
+    .record-info strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .record-info span {
+      color: #788c91;
+      font-size: 13px;
+    }
+
+    .status {
+      background: #e3f6ef;
+      color: #08745e;
+      padding: 6px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .profile {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .profile-item {
+      background: #f7fbfb;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .profile-item small {
+      display: block;
+      color: #7a8e92;
+      margin-bottom: 4px;
+    }
+
+    .profile-item strong {
+      font-size: 14px;
+    }
+
+    .privacy {
+      margin-top: 20px;
+      background: #eef8f7;
+      border: 1px solid #d7ecea;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    .privacy h3 {
+      margin-bottom: 8px;
+    }
+
+    .privacy p {
+      color: #617b80;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .privacy button {
+      border: none;
+      background: #0c8f88;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #123b43;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      color: #bfd0d2;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 850px) {
+      .overview {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dashboard {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .overview {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .profile {
+        grid-template-columns: 1fr;
+      }
+
+      .welcome h2 {
+        font-size: 25px;
+      }
+
+      .record {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+
+    <div class="brand">
+      <div class="logo">+</div>
+
+      <div>
+        <h1>Luvio HealthLink</h1>
+        <p>Your Personal Health Architecture.</p>
+      </div>
+    </div>
+
+    <button class="logout" onclick="logout()">
+      Logout
+    </button>
+
+  </div>
+</header>
+
+
+<main class="container">
+
+  <section class="welcome">
+
+    <small>PATIENT PORTAL</small>
+
+    <h2>Good evening, Aamir</h2>
+
+    <p>
+      Welcome to your Luvio HealthLink dashboard.
+    </p>
+
+    <div class="patient-id">
+      Luvio Patient ID: <strong>LH-000001</strong>
+    </div>
+
+  </section>
+
+
+  <h2 class="section-title">Health Overview</h2>
+
+  <section class="overview">
+
+    <div class="stat">
+      <div class="stat-icon">📅</div>
+      <h3>1</h3>
+      <p>Upcoming Appointment</p>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">💊</div>
+      <h3>2</h3>
+      <p>Active Medicines</p>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">🧪</div>
+      <h3>3</h3>
+      <p>Diagnostic Reports</p>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">🩺</div>
+      <h3>4</h3>
+      <p>Past Visits</p>
+    </div>
+
+  </section>
+
+
+  <section class="dashboard">
+
+    <div>
+
+      <div class="panel">
+
+        <h3>📅 Upcoming Appointment</h3>
+
+        <div class="appointment">
+
+          <strong>General Consultation</strong>
+
+          <span>
+            24 September 2026 • 11:30 AM
+          </span>
+
+          <div class="doctor">
+            Dr. Demo Doctor • Luvio Polyclinic
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel records">
+
+        <h3>🧪 Recent Health Records</h3>
+
+        <div class="record">
+
+          <div class="record-info">
+            <strong>Blood Test Report</strong>
+            <span>18 September 2026 • Diagnostic Laboratory</span>
+          </div>
+
+          <div class="status">Available</div>
+
+        </div>
+
+
+        <div class="record">
+
+          <div class="record-info">
+            <strong>Digital Prescription</strong>
+            <span>15 September 2026 • Dr. Demo Doctor</span>
+          </div>
+
+          <div class="status">Active</div>
+
+        </div>
+
+
+        <div class="record">
+
+          <div class="record-info">
+            <strong>Consultation Record</strong>
+            <span>15 September 2026 • Luvio Polyclinic</span>
+          </div>
+
+          <div class="status">Completed</div>
+
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+
+        <h3>👤 My Profile</h3>
+
+        <div class="profile">
+
+          <div class="profile-item">
+            <small>Patient Name</small>
+            <strong>Aamir Demo</strong>
+          </div>
+
+          <div class="profile-item">
+            <small>Date of Birth</small>
+            <strong>01 January 1995</strong>
+          </div>
+
+          <div class="profile-item">
+            <small>Mobile Number</small>
+            <strong>+91 XXXXX XXXXX</strong>
+          </div>
+
+          <div class="profile-item">
+            <small>Blood Group</small>
+            <strong>O Positive</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <aside>
+
+      <div class="panel">
+
+        <h3>Quick Access</h3>
+
+        <div class="quick-links">
+
+          <button onclick="showMessage('Appointments')">
+            📅 My Appointments
+          </button>
+
+          <button onclick="showMessage('Prescriptions')">
+            💊 My Prescriptions
+          </button>
+
+          <button onclick="showMessage('Reports')">
+            🧪 Diagnostic Reports
+          </button>
+
+          <button onclick="showMessage('Health Record')">
+            🩺 Health Record
+          </button>
+
+          <button onclick="showMessage('Visits')">
+            📋 Visit History
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="privacy">
+
+        <h3>🔐 Your Privacy</h3>
+
+        <p>
+          Your healthcare information should only be shared
+          with authorized healthcare providers according to
+          your permissions and applicable consent.
+        </p>
+
+        <button onclick="showMessage('Consent Management')">
+          Manage Consent
+        </button>
+
+      </div>
+
+    </aside>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <strong>Luvio HealthLink</strong>
+
+  <p>
+    Your Personal Health Architecture.
+  </p>
+
+  <p>
+    Patient Portal • V2 Demo
+  </p>
+
+</footer>
+
+
+<script>
+
+  function showMessage(section) {
+
+    alert(
+      section +
+      " module is part of the Patient Portal and will be connected to the secure database in the next development stage."
+    );
+
+  }
+
+
+  function logout() {
+
+    alert(
+      "Demo logout successful. Secure authentication will be connected in the production version."
+    );
+
+  }
+
+</script>
+
+</body>
+</html>
