@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Luvio HealthLink - Online Consultation</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f8fb;
+    color: #183b56;
+}
+
+header {
+    background: white;
+    padding: 15px 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-area img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.logo-text h2 {
+    color: #087f8c;
+}
+
+.logo-text p {
+    font-size: 12px;
+    color: #777;
+}
+
+.home-btn {
+    text-decoration: none;
+    color: #087f8c;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #087f8c, #135d7a);
+    color: white;
+    border-radius: 18px;
+    padding: 35px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    opacity: 0.9;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #087f8c;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccd8df;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+button {
+    border: none;
+    padding: 13px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.primary {
+    background: #087f8c;
+    color: white;
+    margin-top: 20px;
+}
+
+.primary:hover {
+    background: #066b75;
+}
+
+.doctors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.doctor {
+    border: 1px solid #dce6eb;
+    border-radius: 12px;
+    padding: 18px;
+}
+
+.doctor h3 {
+    color: #135d7a;
+    margin-bottom: 7px;
+}
+
+.doctor p {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.doctor button {
+    background: #087f8c;
+    color: white;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.summary {
+    background: #eef9fa;
+    border-left: 5px solid #087f8c;
+    padding: 18px;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.hidden {
+    display: none;
+}
+
+.success {
+    background: #edf9f0;
+    border-left: 5px solid #2e8b57;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.patient-id {
+    font-size: 22px;
+    font-weight: bold;
+    color: #087f8c;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .container {
+        margin: 20px auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-area">
+        <img src="luvio-logo.jpeg" alt="Luvio HealthLink Logo">
+
+        <div class="logo-text">
+            <h2>Luvio HealthLink</h2>
+            <p>Your Personal Health Architecture.</p>
+        </div>
+    </div>
+
+    <a href="index.html" class="home-btn">← Home</a>
+
+</header>
+
+
+<div class="container">
+
+    <div class="hero">
+        <h1>Online Consultation</h1>
+        <p>
+            Consult a doctor online using your Luvio Health ID
+            and keep your consultation connected to your health record.
+        </p>
+    </div>
+
+
+    <!-- STEP 1 -->
+
+    <div class="card" id="patientStep">
+
+        <h2>1. Enter Your Luvio Patient ID</h2>
+
+        <p>
+            If you already have a Luvio Patient ID, enter it below.
+        </p>
+
+        <label>Luvio Patient ID</label>
+
+        <input
+            type="text"
+            id="patientId"
+            placeholder="Example: LH-000001"
+        >
+
+        <button class="primary" onclick="loadPatient()">
+            Continue
+        </button>
+
+    </div>
+
+
+    <!-- PATIENT FOUND -->
+
+    <div class="card hidden" id="patientFound">
+
+        <h2>Patient Details</h2>
+
+        <div class="summary">
+
+            <strong>Name:</strong>
+            <span id="displayName"></span>
+            <br>
+
+            <strong>Luvio Patient ID:</strong>
+            <span id="displayPatientId"></span>
+            <br>
+
+            <strong>Mobile:</strong>
+            <span id="displayMobile"></span>
+
+        </div>
+
+        <button class="primary" onclick="showSpecialties()">
+            Choose Doctor
+        </button>
+
+    </div>
+
+
+    <!-- SPECIALTY -->
+
+    <div class="card hidden" id="specialtyStep">
+
+        <h2>2. Select Specialty</h2>
+
+        <label>Choose Specialty</label>
+
+        <select id="specialty" onchange="showDoctors()">
+
+            <option value="">Select Specialty</option>
+
+            <option value="General Medicine">
+                General Medicine
+            </option>
+
+            <option value="Cardiology">
+                Cardiology
+            </option>
+
+            <option value="Dermatology">
+                Dermatology
+            </option>
+
+            <option value="Paediatrics">
+                Paediatrics
+            </option>
+
+            <option value="Orthopaedics">
+                Orthopaedics
+            </option>
+
+            <option value="Gynaecology">
+                Gynaecology
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <!-- DOCTORS -->
+
+    <div class="card hidden" id="doctorStep">
+
+        <h2>3. Select Doctor</h2>
+
+        <div id="doctorList" class="doctors"></div>
+
+    </div>
+
+
+    <!-- BOOKING -->
+
+    <div class="card hidden" id="bookingStep">
+
+        <h2>4. Book Consultation</h2>
+
+        <div class="summary">
+
+            <strong>Patient:</strong>
+            <span id="bookingPatient"></span>
+            <br>
+
+            <strong>Doctor:</strong>
+            <span id="bookingDoctor"></span>
+            <br>
+
+            <strong>Specialty:</strong>
+            <span id="bookingSpecialty"></span>
+
+        </div>
+
+
+        <label>Select Date</label>
+
+        <input type="date" id="appointmentDate">
+
+
+        <label>Select Time</label>
+
+        <select id="appointmentTime">
+
+            <option value="">Select Time</option>
+
+            <option>10:00 AM</option>
+            <option>11:00 AM</option>
+            <option>12:00 PM</option>
+            <option>2:00 PM</option>
+            <option>3:00 PM</option>
+            <option>4:00 PM</option>
+            <option>5:00 PM</option>
+
+        </select>
+
+
+        <button class="primary" onclick="bookConsultation()">
+            Confirm Consultation
+        </button>
+
+    </div>
+
+
+    <!-- SUCCESS -->
+
+    <div class="card hidden" id="successStep">
+
+        <h2>Consultation Booked</h2>
+
+        <div class="success">
+
+            <p>Your online consultation has been booked successfully.</p>
+
+            <br>
+
+            <strong>Consultation ID:</strong>
+            <span id="consultationId"></span>
+
+            <br><br>
+
+            <strong>Patient:</strong>
+            <span id="successPatient"></span>
+
+            <br><br>
+
+            <strong>Doctor:</strong>
+            <span id="successDoctor"></span>
+
+            <br><br>
+
+            <strong>Date:</strong>
+            <span id="successDate"></span>
+
+            <br><br>
+
+            <strong>Time:</strong>
+            <span id="successTime"></span>
+
+            <br><br>
+
+            <strong>Status:</strong>
+            <span>Booked</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let currentPatient = null;
+let selectedDoctor = null;
+
+
+/* SAMPLE ONLINE DOCTORS */
+
+const doctors = {
+
+    "General Medicine": [
+        {
+            name: "Dr. Aamir Khan",
+            qualification: "MBBS, MD",
+            experience: "10 years"
+        },
+        {
+            name: "Dr. Sara Ahmed",
+            qualification: "MBBS, MD",
+            experience: "8 years"
+        }
+    ],
+
+    "Cardiology": [
+        {
+            name: "Dr. Rahul Sharma",
+            qualification: "MBBS, MD, DM",
+            experience: "15 years"
+        }
+    ],
+
+    "Dermatology": [
+        {
+            name: "Dr. Mehak Gupta",
+            qualification: "MBBS, MD",
+            experience: "9 years"
+        }
+    ],
+
+    "Paediatrics": [
+        {
+            name: "Dr. Arif Malik",
+            qualification: "MBBS, MD",
+            experience: "12 years"
+        }
+    ],
+
+    "Orthopaedics": [
+        {
+            name: "Dr. Imran Shah",
+            qualification: "MBBS, MS",
+            experience: "11 years"
+        }
+    ],
+
+    "Gynaecology": [
+        {
+            name: "Dr. Neha Kapoor",
+            qualification: "MBBS, MD",
+            experience: "10 years"
+        }
+    ]
+
+};
+
+
+/* LOAD PATIENT */
+
+function loadPatient() {
+
+    const id =
+        document.getElementById("patientId")
+        .value
+        .trim()
+        .toUpperCase();
+
+    if (!id) {
+
+        alert("Please enter your Luvio Patient ID.");
+
+        return;
+    }
+
+
+    /*
+       DEMO PATIENT DATABASE
+
+       Later this will come from the
+       secure Luvio backend.
+    */
+
+    const patients =
+        JSON.parse(
+            localStorage.getItem("luvioPatients") || "[]"
+        );
+
+
+    currentPatient =
+        patients.find(
+            patient =>
+            patient.patientId.toUpperCase() === id
+        );
+
+
+    /*
+       DEMO FALLBACK
+
+       This allows testing before the
+       Reception Portal is connected.
+    */
+
+    if (!currentPatient && id === "LH-000001") {
+
+        currentPatient = {
+
+            patientId: "LH-000001",
+            name: "Demo Patient",
+            mobile: "9999999999"
+
+        };
+
+    }
+
+
+    if (!currentPatient) {
+
+        alert(
+            "Patient ID not found. Please register at a Luvio Polyclinic first."
+        );
+
+        return;
+    }
+
+
+    document.getElementById("displayName")
+        .textContent = currentPatient.name;
+
+    document.getElementById("displayPatientId")
+        .textContent = currentPatient.patientId;
+
+    document.getElementById("displayMobile")
+        .textContent = currentPatient.mobile || "Not available";
+
+
+    document.getElementById("patientFound")
+        .classList.remove("hidden");
+
+}
+
+
+/* SHOW SPECIALTIES */
+
+function showSpecialties() {
+
+    document.getElementById("specialtyStep")
+        .classList.remove("hidden");
+
+}
+
+
+/* SHOW DOCTORS */
+
+function showDoctors() {
+
+    const specialty =
+        document.getElementById("specialty").value;
+
+    const list =
+        document.getElementById("doctorList");
+
+    list.innerHTML = "";
+
+
+    if (!specialty) {
+
+        document.getElementById("doctorStep")
+            .classList.add("hidden");
+
+        return;
+    }
+
+
+    doctors[specialty].forEach(doctor => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "doctor";
+
+
+        card.innerHTML = `
+
+            <h3>${doctor.name}</h3>
+
+            <p>${doctor.qualification}</p>
+
+            <p>${doctor.experience} experience</p>
+
+            <button onclick="selectDoctor(
+                '${doctor.name}',
+                '${specialty}'
+            )">
+                Select Doctor
+            </button>
+
+        `;
+
+
+        list.appendChild(card);
+
+    });
+
+
+    document.getElementById("doctorStep")
+        .classList.remove("hidden");
+
+}
+
+
+/* SELECT DOCTOR */
+
+function selectDoctor(name, specialty) {
+
+    selectedDoctor = {
+
+        name: name,
+        specialty: specialty
+
+    };
+
+
+    document.getElementById("bookingPatient")
+        .textContent = currentPatient.name;
+
+
+    document.getElementById("bookingDoctor")
+        .textContent = name;
+
+
+    document.getElementById("bookingSpecialty")
+        .textContent = specialty;
+
+
+    document.getElementById("bookingStep")
+        .classList.remove("hidden");
+
+
+    document.getElementById("bookingStep")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* BOOK CONSULTATION */
+
+function bookConsultation() {
+
+    const date =
+        document.getElementById("appointmentDate")
+        .value;
+
+    const time =
+        document.getElementById("appointmentTime")
+        .value;
+
+
+    if (!date) {
+
+        alert("Please select a consultation date.");
+
+        return;
+    }
+
+
+    if (!time) {
+
+        alert("Please select a consultation time.");
+
+        return;
+    }
+
+
+    const consultation = {
+
+        consultationId:
+            "LC-" +
+            Date.now(),
+
+        patientId:
+            currentPatient.patientId,
+
+        patientName:
+            currentPatient.name,
+
+        doctor:
+            selectedDoctor.name,
+
+        specialty:
+            selectedDoctor.specialty,
+
+        date:
+            date,
+
+        time:
+            time,
+
+        status:
+            "Booked",
+
+        type:
+            "Online Consultation",
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    /*
+       SAVE CONSULTATION
+
+       This is our temporary demo database.
+    */
+
+    const consultations =
+        JSON.parse(
+            localStorage.getItem("luvioConsultations")
+            || "[]"
+        );
+
+
+    consultations.push(consultation);
+
+
+    localStorage.setItem(
+        "luvioConsultations",
+        JSON.stringify(consultations)
+    );
+
+
+    /* SHOW SUCCESS */
+
+    document.getElementById("consultationId")
+        .textContent =
+        consultation.consultationId;
+
+
+    document.getElementById("successPatient")
+        .textContent =
+        consultation.patientName;
+
+
+    document.getElementById("successDoctor")
+        .textContent =
+        consultation.doctor;
+
+
+    document.getElementById("successDate")
+        .textContent =
+        consultation.date;
+
+
+    document.getElementById("successTime")
+        .textContent =
+        consultation.time;
+
+
+    document.getElementById("successStep")
+        .classList.remove("hidden");
+
+
+    document.getElementById("successStep")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+</script>
+
+</body>
+</html>
