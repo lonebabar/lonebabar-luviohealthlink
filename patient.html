@@ -230,18 +230,6 @@ a{
     text-align:center;
 }
 
-.error{
-    color:#b84d4d;
-    font-size:12px;
-    margin-top:7px;
-}
-
-.success{
-    color:#287b50;
-    font-size:12px;
-    margin-top:7px;
-}
-
 /* ==============================
    APPLICATION
 ============================== */
@@ -250,10 +238,6 @@ a{
     display:none;
     min-height:100vh;
 }
-
-/* ==============================
-   TOPBAR
-============================== */
 
 .topbar{
     height:72px;
@@ -493,7 +477,6 @@ a{
 .summary-card h3{
     color:#27495b;
     font-size:23px;
-    margin-bottom:1px;
 }
 
 .summary-card p{
@@ -570,7 +553,6 @@ a{
     color:#617985;
     font-size:10px;
     text-transform:uppercase;
-    letter-spacing:.4px;
 }
 
 .data-table td{
@@ -578,30 +560,6 @@ a{
     border-bottom:1px solid #edf1f2;
     color:#496473;
     font-size:12px;
-}
-
-.data-table tr:last-child td{
-    border-bottom:0;
-}
-
-.action-button{
-    border:1px solid #cce1e2;
-    background:white;
-    color:#087b77;
-    border-radius:7px;
-    padding:6px 9px;
-    font-size:11px;
-    font-weight:700;
-}
-
-.status{
-    display:inline-block;
-    background:#e0f4e8;
-    color:#2a7b50;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:10px;
-    font-weight:800;
 }
 
 /* ==============================
@@ -634,10 +592,6 @@ a{
     padding:8px 0;
     border-bottom:1px solid #edf1f2;
     font-size:12px;
-}
-
-.info-row:last-child{
-    border-bottom:0;
 }
 
 .info-row span:first-child{
@@ -682,16 +636,6 @@ a{
     color:#0c817b;
     font-size:25px;
     font-weight:800;
-}
-
-.profile-top h2{
-    color:#24485b;
-    margin-bottom:3px;
-}
-
-.profile-top p{
-    color:#82929b;
-    font-size:12px;
 }
 
 .profile-grid{
@@ -751,17 +695,6 @@ a{
     font-size:13px;
 }
 
-.consent-status{
-    display:inline-block;
-    margin-top:9px;
-    padding:5px 9px;
-    background:#e2f5e9;
-    color:#287b4e;
-    border-radius:15px;
-    font-size:10px;
-    font-weight:800;
-}
-
 /* ==============================
    PATIENT ID
 ============================== */
@@ -773,32 +706,84 @@ a{
     border-radius:20px;
     padding:32px;
     text-align:center;
-    box-shadow:0 15px 35px rgba(13,105,114,.18);
 }
 
 .id-card small{
     opacity:.75;
     display:block;
-    margin-bottom:8px;
 }
 
 .id-number{
     font-size:38px;
     font-weight:900;
     letter-spacing:1px;
-    margin-bottom:10px;
+    margin:10px 0;
 }
 
-.id-card p{
-    opacity:.85;
+/* ==============================
+   ONLINE CONSULTATION CARD
+============================== */
+
+.consult-card{
+    background:white;
+    border:1px solid #dfeaec;
+    border-radius:18px;
+    padding:28px;
+    max-width:850px;
+}
+
+.consult-hero{
+    background:linear-gradient(135deg,#0d6972,#168e87);
+    color:white;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:20px;
+}
+
+.consult-hero h2{
+    font-size:24px;
+    margin-bottom:6px;
+}
+
+.consult-hero p{
+    opacity:.9;
     font-size:13px;
 }
 
-.id-note{
-    margin-top:20px;
-    max-width:600px;
-    color:#708590;
-    font-size:13px;
+.consult-options{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.consult-option{
+    border:1px solid #dce8eb;
+    border-radius:14px;
+    padding:20px;
+    background:white;
+    text-align:left;
+    cursor:pointer;
+}
+
+.consult-option:hover{
+    background:#f2fbf9;
+    border-color:#9ed5d0;
+}
+
+.consult-option .icon{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.consult-option h3{
+    color:#294e60;
+    font-size:16px;
+    margin-bottom:4px;
+}
+
+.consult-option p{
+    color:#7b8e98;
+    font-size:12px;
 }
 
 /* ==============================
@@ -843,7 +828,7 @@ a{
 
 .modal-box h2{
     color:#20475a;
-    margin-bottom:6px;
+    margin-bottom:8px;
 }
 
 .modal-box p{
@@ -920,7 +905,8 @@ a{
 
     .health-grid,
     .profile-grid,
-    .form-grid{
+    .form-grid,
+    .consult-options{
         grid-template-columns:1fr;
     }
 
@@ -952,9 +938,8 @@ a{
 
 <body>
 
-
 <!-- =========================================================
-     ENTRY / LOGIN / SIGNUP
+     ENTRY SCREEN
 ========================================================= -->
 
 <div class="entry-screen" id="entryScreen">
@@ -983,7 +968,6 @@ a{
                     class="entry-option"
                     onclick="showLogin()"
                 >
-
                     <div class="option-icon">👤</div>
 
                     <strong>
@@ -993,15 +977,13 @@ a{
                     <span>
                         Already registered with Luvio HealthLink?
                     </span>
-
                 </button>
 
 
                 <button
                     class="entry-option"
-                    onclick="showSignup('normal')"
+                    onclick="showSignup()"
                 >
-
                     <div class="option-icon">🪪</div>
 
                     <strong>
@@ -1011,15 +993,13 @@ a{
                     <span>
                         New to Luvio? Create your patient account.
                     </span>
-
                 </button>
 
 
                 <button
                     class="entry-option"
-                    onclick="showOnlineConsultation()"
+                    onclick="showOnlineConsultationEntry()"
                 >
-
                     <div class="option-icon">🩺</div>
 
                     <strong>
@@ -1029,7 +1009,6 @@ a{
                     <span>
                         Consult a doctor online with or without a previous Luvio visit.
                     </span>
-
                 </button>
 
             </div>
@@ -1043,10 +1022,7 @@ a{
 
         <!-- LOGIN -->
 
-        <div
-            id="loginScreen"
-            class="form-screen"
-        >
+        <div id="loginScreen" class="form-screen">
 
             <h2 class="form-title">
                 Patient Login
@@ -1084,10 +1060,7 @@ a{
             </div>
 
 
-            <div
-                id="loginOtpStep"
-                style="display:none;"
-            >
+            <div id="loginOtpStep" style="display:none;">
 
                 <div class="form-group">
 
@@ -1130,10 +1103,7 @@ a{
 
         <!-- SIGNUP -->
 
-        <div
-            id="signupScreen"
-            class="form-screen"
-        >
+        <div id="signupScreen" class="form-screen">
 
             <h2 class="form-title">
                 Create Luvio Health ID
@@ -1143,12 +1113,9 @@ a{
                 Register once and use your Luvio identity across participating healthcare services.
             </p>
 
-
             <div class="form-group">
 
-                <label>
-                    Full Name *
-                </label>
+                <label>Full Name *</label>
 
                 <input
                     id="signupName"
@@ -1159,14 +1126,11 @@ a{
 
             </div>
 
-
             <div class="form-grid">
 
                 <div class="form-group">
 
-                    <label>
-                        Date of Birth
-                    </label>
+                    <label>Date of Birth</label>
 
                     <input
                         id="signupDob"
@@ -1176,37 +1140,20 @@ a{
 
                 </div>
 
-
                 <div class="form-group">
 
-                    <label>
-                        Gender
-                    </label>
+                    <label>Gender</label>
 
                     <select
                         id="signupGender"
                         class="form-control"
                     >
 
-                        <option value="">
-                            Select
-                        </option>
-
-                        <option>
-                            Male
-                        </option>
-
-                        <option>
-                            Female
-                        </option>
-
-                        <option>
-                            Other
-                        </option>
-
-                        <option>
-                            Prefer not to say
-                        </option>
+                        <option value="">Select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                        <option>Prefer not to say</option>
 
                     </select>
 
@@ -1214,12 +1161,9 @@ a{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Mobile Number *
-                </label>
+                <label>Mobile Number *</label>
 
                 <input
                     id="signupMobile"
@@ -1231,12 +1175,9 @@ a{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Email
-                </label>
+                <label>Email</label>
 
                 <input
                     id="signupEmail"
@@ -1247,12 +1188,9 @@ a{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Address
-                </label>
+                <label>Address</label>
 
                 <input
                     id="signupAddress"
@@ -1263,12 +1201,9 @@ a{
 
             </div>
 
-
             <div class="form-group">
 
-                <label>
-                    Emergency Contact
-                </label>
+                <label>Emergency Contact</label>
 
                 <input
                     id="signupEmergency"
@@ -1280,14 +1215,12 @@ a{
 
             </div>
 
-
             <button
                 class="primary-button"
                 onclick="createHealthID()"
             >
                 Create Health ID
             </button>
-
 
             <button
                 class="secondary-button"
@@ -1299,21 +1232,17 @@ a{
         </div>
 
 
-        <!-- ONLINE CONSULTATION -->
+        <!-- ONLINE CONSULTATION ENTRY -->
 
-        <div
-            id="onlineScreen"
-            class="form-screen"
-        >
+        <div id="onlineScreen" class="form-screen">
 
             <h2 class="form-title">
                 Online Consultation
             </h2>
 
             <p class="form-subtitle">
-                Your existing Luvio record can be used, or create a Health ID if you are new.
+                Continue with your existing Luvio Health ID or create one if you are new.
             </p>
-
 
             <button
                 class="entry-option"
@@ -1332,13 +1261,11 @@ a{
 
             </button>
 
-
             <br>
-
 
             <button
                 class="entry-option"
-                onclick="showSignup('online')"
+                onclick="showSignup()"
             >
 
                 <div class="option-icon">🪪</div>
@@ -1352,7 +1279,6 @@ a{
                 </span>
 
             </button>
-
 
             <button
                 class="secondary-button"
@@ -1422,13 +1348,16 @@ a{
     <div class="layout">
 
 
-        <!-- SIDEBAR -->
+        <!-- =====================================================
+             SIDEBAR
+        ====================================================== -->
 
         <aside class="sidebar">
 
             <div class="nav-title">
                 My Health
             </div>
+
 
             <button
                 class="nav-button active"
@@ -1437,12 +1366,14 @@ a{
                 🏠 Dashboard
             </button>
 
+
             <button
                 class="nav-button"
                 onclick="showPage('appointments',this)"
             >
                 📅 Appointments
             </button>
+
 
             <button
                 class="nav-button"
@@ -1451,6 +1382,7 @@ a{
                 💊 Prescriptions
             </button>
 
+
             <button
                 class="nav-button"
                 onclick="showPage('reports',this)"
@@ -1458,12 +1390,14 @@ a{
                 🧪 Diagnostic Reports
             </button>
 
+
             <button
                 class="nav-button"
                 onclick="showPage('health-record',this)"
             >
                 ❤️ Health Record
             </button>
+
 
             <button
                 class="nav-button"
@@ -1473,9 +1407,22 @@ a{
             </button>
 
 
+            <!-- =================================================
+                 THIS IS THE NEW ONLINE CONSULTATION BUTTON
+            ================================================== -->
+
+            <button
+                class="nav-button"
+                onclick="openOnlineConsultation()"
+            >
+                🩺 Online Consultation
+            </button>
+
+
             <div class="nav-title" style="margin-top:17px;">
                 Account
             </div>
+
 
             <button
                 class="nav-button"
@@ -1484,6 +1431,7 @@ a{
                 👤 Profile
             </button>
 
+
             <button
                 class="nav-button"
                 onclick="showPage('consent',this)"
@@ -1491,12 +1439,14 @@ a{
                 🔐 Consent & Privacy
             </button>
 
+
             <button
                 class="nav-button"
                 onclick="showPage('patient-id',this)"
             >
                 🪪 Digital Patient ID
             </button>
+
 
             <button
                 class="nav-button logout-button"
@@ -1508,14 +1458,16 @@ a{
         </aside>
 
 
-        <!-- MAIN CONTENT -->
+        <!-- =====================================================
+             MAIN CONTENT
+        ====================================================== -->
 
         <main class="content">
 
 
-            <!-- =============================================
-                 1. DASHBOARD
-            ============================================== -->
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
 
             <section
                 class="page active"
@@ -1552,8 +1504,6 @@ a{
                 </div>
 
 
-                <!-- TODAY'S HEALTH SUMMARY -->
-
                 <div class="panel">
 
                     <div class="panel-heading">
@@ -1581,7 +1531,7 @@ a{
                 </div>
 
 
-                <!-- SUMMARY -->
+                <!-- SUMMARY CARDS -->
 
                 <div class="summary-grid">
 
@@ -1670,8 +1620,6 @@ a{
                 <div class="dashboard-grid">
 
 
-                    <!-- UPCOMING APPOINTMENT -->
-
                     <div class="panel">
 
                         <div class="panel-heading">
@@ -1701,8 +1649,6 @@ a{
 
                     </div>
 
-
-                    <!-- RECENT VISITS -->
 
                     <div class="panel">
 
@@ -1735,12 +1681,50 @@ a{
 
                 </div>
 
+
+                <!-- QUICK ONLINE CONSULTATION -->
+
+                <div class="panel">
+
+                    <div class="panel-heading">
+
+                        <h2>
+                            Need to consult a doctor?
+                        </h2>
+
+                    </div>
+
+                    <div class="consult-card">
+
+                        <div class="consult-hero">
+
+                            <h2>
+                                🩺 Online Consultation
+                            </h2>
+
+                            <p>
+                                Consult a doctor online using your existing Luvio Health ID.
+                            </p>
+
+                        </div>
+
+                        <button
+                            class="primary-button"
+                            onclick="openOnlineConsultation()"
+                        >
+                            Start Online Consultation
+                        </button>
+
+                    </div>
+
+                </div>
+
             </section>
 
 
-            <!-- =============================================
-                 2. APPOINTMENTS
-            ============================================== -->
+            <!-- =================================================
+                 APPOINTMENTS
+            ================================================== -->
 
             <section
                 class="page"
@@ -1804,9 +1788,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 3. PRESCRIPTIONS
-            ============================================== -->
+            <!-- =================================================
+                 PRESCRIPTIONS
+            ================================================== -->
 
             <section
                 class="page"
@@ -1866,13 +1850,12 @@ a{
                             <thead>
 
                                 <tr>
-                                    <th>Prescription Date</th>
+                                    <th>Date</th>
                                     <th>Doctor</th>
                                     <th>Medicine</th>
                                     <th>Dose</th>
                                     <th>Frequency</th>
                                     <th>Duration</th>
-                                    <th>Action</th>
                                 </tr>
 
                             </thead>
@@ -1880,9 +1863,14 @@ a{
                             <tbody>
 
                                 <tr>
-                                    <td colspan="7" style="text-align:center;color:#8999a2;">
+
+                                    <td colspan="6"
+                                        style="text-align:center;padding:25px;">
+
                                         No prescriptions recorded.
+
                                     </td>
+
                                 </tr>
 
                             </tbody>
@@ -1896,9 +1884,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 4. DIAGNOSTIC REPORTS
-            ============================================== -->
+            <!-- =================================================
+                 DIAGNOSTIC REPORTS
+            ================================================== -->
 
             <section
                 class="page"
@@ -1940,9 +1928,14 @@ a{
                             <tbody>
 
                                 <tr>
-                                    <td colspan="6" style="text-align:center;color:#8999a2;padding:25px;">
+
+                                    <td colspan="6"
+                                        style="text-align:center;padding:25px;">
+
                                         No diagnostic reports available.
+
                                     </td>
+
                                 </tr>
 
                             </tbody>
@@ -1956,9 +1949,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 5. HEALTH RECORD
-            ============================================== -->
+            <!-- =================================================
+                 HEALTH RECORD
+            ================================================== -->
 
             <section
                 class="page"
@@ -2087,9 +2080,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 6. VISIT HISTORY
-            ============================================== -->
+            <!-- =================================================
+                 VISIT HISTORY
+            ================================================== -->
 
             <section
                 class="page"
@@ -2134,8 +2127,10 @@ a{
                                 <tr>
 
                                     <td colspan="7"
-                                        style="text-align:center;color:#8999a2;padding:25px;">
+                                        style="text-align:center;padding:25px;">
+
                                         No consultation history recorded.
+
                                     </td>
 
                                 </tr>
@@ -2151,9 +2146,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 7. PROFILE
-            ============================================== -->
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
 
             <section
                 class="page"
@@ -2243,9 +2238,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 8. CONSENT & PRIVACY
-            ============================================== -->
+            <!-- =================================================
+                 CONSENT
+            ================================================== -->
 
             <section
                 class="page"
@@ -2326,9 +2321,9 @@ a{
             </section>
 
 
-            <!-- =============================================
-                 9. DIGITAL PATIENT ID
-            ============================================== -->
+            <!-- =================================================
+                 DIGITAL PATIENT ID
+            ================================================== -->
 
             <section
                 class="page"
@@ -2369,7 +2364,7 @@ a{
                 </div>
 
 
-                <p class="id-note">
+                <p style="margin-top:20px;color:#708590;font-size:13px;max-width:600px;">
 
                     Your Patient ID is an identifier, not a password.
                     Access to your health information must use secure
@@ -2455,7 +2450,9 @@ function hideAllForms(){
     document
         .querySelectorAll(".form-screen")
         .forEach(function(screen){
+
             screen.classList.remove("active");
+
         });
 
 }
@@ -2465,36 +2462,36 @@ function showLogin(){
 
     hideAllForms();
 
-    document.getElementById("entryOptions").style.display="none";
+    document.getElementById("entryOptions")
+        .style.display="none";
 
-    document
-        .getElementById("loginScreen")
+    document.getElementById("loginScreen")
         .classList.add("active");
 
 }
 
 
-function showSignup(source){
+function showSignup(){
 
     hideAllForms();
 
-    document.getElementById("entryOptions").style.display="none";
+    document.getElementById("entryOptions")
+        .style.display="none";
 
-    document
-        .getElementById("signupScreen")
+    document.getElementById("signupScreen")
         .classList.add("active");
 
 }
 
 
-function showOnlineConsultation(){
+function showOnlineConsultationEntry(){
 
     hideAllForms();
 
-    document.getElementById("entryOptions").style.display="none";
+    document.getElementById("entryOptions")
+        .style.display="none";
 
-    document
-        .getElementById("onlineScreen")
+    document.getElementById("onlineScreen")
         .classList.add("active");
 
 }
@@ -2504,7 +2501,8 @@ function backToEntry(){
 
     hideAllForms();
 
-    document.getElementById("entryOptions").style.display="block";
+    document.getElementById("entryOptions")
+        .style.display="block";
 
 }
 
@@ -2560,7 +2558,9 @@ function createHealthID(){
 
     const existing =
         accounts.find(function(account){
+
             return account.mobile === mobile;
+
         });
 
 
@@ -2574,13 +2574,6 @@ function createHealthID(){
 
     }
 
-
-    /*
-       Prototype Patient ID.
-
-       In the real backend this will be generated
-       centrally and securely.
-    */
 
     const number =
         String(accounts.length + 1).padStart(6,"0");
@@ -2653,7 +2646,8 @@ function createHealthID(){
 function sendLoginOTP(){
 
     const mobile =
-        document.getElementById("loginMobile").value.trim();
+        document.getElementById("loginMobile")
+        .value.trim();
 
 
     if(!/^\d{10}$/.test(mobile)){
@@ -2670,7 +2664,9 @@ function sendLoginOTP(){
 
     const account =
         accounts.find(function(patient){
+
             return patient.mobile === mobile;
+
         });
 
 
@@ -2697,15 +2693,19 @@ function sendLoginOTP(){
 function verifyLogin(){
 
     const mobile =
-        document.getElementById("loginMobile").value.trim();
+        document.getElementById("loginMobile")
+        .value.trim();
 
     const otp =
-        document.getElementById("loginOtp").value.trim();
+        document.getElementById("loginOtp")
+        .value.trim();
 
 
     if(otp !== "123456"){
 
-        alert("Incorrect OTP. Prototype OTP is 123456.");
+        alert(
+            "Incorrect OTP. Prototype OTP is 123456."
+        );
 
         return;
 
@@ -2717,7 +2717,9 @@ function verifyLogin(){
 
     const patient =
         accounts.find(function(account){
+
             return account.mobile === mobile;
+
         });
 
 
@@ -2742,7 +2744,7 @@ function verifyLogin(){
 
 
 /* =========================================================
-   OPEN PORTAL
+   OPEN PATIENT PORTAL
 ========================================================= */
 
 function openPortal(patient){
@@ -2753,14 +2755,13 @@ function openPortal(patient){
     document.getElementById("app")
         .style.display="block";
 
-
     populatePatient(patient);
 
 }
 
 
 /* =========================================================
-   POPULATE PATIENT INFORMATION
+   POPULATE PATIENT
 ========================================================= */
 
 function populatePatient(patient){
@@ -2793,6 +2794,7 @@ function populatePatient(patient){
 
     document.getElementById("bigPatientID")
         .textContent=id;
+
 
     document.getElementById("profileName")
         .textContent=name;
@@ -2836,18 +2838,13 @@ function populatePatient(patient){
     const initials =
         getInitials(name);
 
+
     document.getElementById("topAvatar")
         .textContent=initials;
 
     document.getElementById("profileAvatar")
         .textContent=initials;
 
-
-    /*
-       Current prototype counts.
-
-       These will eventually come from the backend.
-    */
 
     document.getElementById("appointmentCount")
         .textContent=(patient.appointments || []).length;
@@ -2869,6 +2866,7 @@ function getInitials(name){
     const words =
         name.trim().split(/\s+/);
 
+
     if(words.length === 1){
 
         return words[0]
@@ -2876,6 +2874,7 @@ function getInitials(name){
             .toUpperCase();
 
     }
+
 
     return (
         words[0][0] +
@@ -2902,6 +2901,7 @@ function showPage(id,button){
 
     const target =
         document.getElementById(id);
+
 
     if(target){
 
@@ -2948,6 +2948,7 @@ function showPageById(id){
     const target =
         document.getElementById(id);
 
+
     if(target){
 
         target.classList.add("active");
@@ -2964,6 +2965,7 @@ function showPageById(id){
             const action =
                 btn.getAttribute("onclick") || "";
 
+
             if(action.includes("'" + id + "'")){
 
                 btn.classList.add("active");
@@ -2977,6 +2979,50 @@ function showPageById(id){
         top:0,
         behavior:"smooth"
     });
+
+}
+
+
+/* =========================================================
+   ONLINE CONSULTATION
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   This function opens the existing
+   online-consultation.html page.
+
+   The current logged-in patient remains stored
+   in localStorage under:
+
+   luvio_current_patient
+
+   Therefore the next version of the
+   online-consultation page can read the same
+   patient record instead of asking for the
+   Patient ID again.
+*/
+
+function openOnlineConsultation(){
+
+    const patient =
+        getCurrentPatient();
+
+
+    if(!patient){
+
+        alert(
+            "Please login to your Luvio Patient Portal first."
+        );
+
+        return;
+
+    }
+
+
+    window.location.href =
+        "online-consultation.html";
 
 }
 
@@ -3036,26 +3082,7 @@ function logout(){
 
 
 /* =========================================================
-   AUTO LOGIN FOR CURRENT SESSION
-========================================================= */
-
-window.addEventListener("load",function(){
-
-    const current =
-        getCurrentPatient();
-
-    /*
-       We intentionally don't automatically expose
-       the patient dashboard on every page load.
-
-       The login flow will be used.
-    */
-
-});
-
-
-/* =========================================================
-   ESC KEY FOR MODAL
+   ESC KEY
 ========================================================= */
 
 document.addEventListener("keydown",function(event){
