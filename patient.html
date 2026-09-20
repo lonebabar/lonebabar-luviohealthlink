@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Luvio HealthLink | Patient Portal</title>
 
 <style>
+
+/* =====================================================
+   BASE
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -32,85 +42,97 @@ button{
 }
 
 .hidden{
-    display:none !important;
+    display:none!important;
 }
 
-/* =========================
-   ENTRY SCREEN
-========================= */
+a{
+    text-decoration:none;
+}
+
+
+/* =====================================================
+   ENTRY
+===================================================== */
 
 #entryScreen{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:30px;
-    background:linear-gradient(135deg,#edf9f7,#f5fafb);
+    padding:25px;
+    background:linear-gradient(
+        135deg,
+        #edf9f7,
+        #f6fafb
+    );
 }
 
 .entry-card{
     width:100%;
     max-width:520px;
-    background:white;
-    border-radius:20px;
+    background:#fff;
     padding:35px;
-    box-shadow:0 15px 45px rgba(20,70,85,.12);
-    text-align:center;
+    border-radius:20px;
+    box-shadow:
+        0 15px 45px rgba(20,70,85,.12);
 }
 
-.logo{
-    width:75px;
-    height:75px;
+.entry-logo{
+    width:72px;
+    height:72px;
     object-fit:contain;
-    margin-bottom:12px;
+    display:block;
+    margin:0 auto 12px;
 }
 
 .entry-card h1{
+    text-align:center;
     color:#173f52;
     font-size:30px;
-    margin-bottom:8px;
+    margin-bottom:6px;
 }
 
 .entry-card h1 span{
     color:#087b77;
 }
 
-.entry-card p{
-    color:#71848e;
+.entry-card > p{
+    text-align:center;
+    color:#7a8d96;
+    font-size:14px;
     margin-bottom:25px;
-    line-height:1.6;
 }
 
 .entry-option{
     width:100%;
-    border:1px solid #d7e6e9;
+    border:1px solid #d9e7ea;
     background:#fff;
-    border-radius:13px;
-    padding:18px;
-    margin-bottom:12px;
+    border-radius:12px;
+    padding:17px;
+    margin-bottom:10px;
     text-align:left;
-    transition:.2s;
 }
 
 .entry-option:hover{
     border-color:#087b77;
-    background:#f4fbfa;
+    background:#f5fbfa;
 }
 
 .entry-option strong{
     display:block;
-    color:#254f61;
+    color:#285064;
     margin-bottom:5px;
 }
 
 .entry-option span{
     color:#81919a;
-    font-size:13px;
+    font-size:12px;
 }
 
-/* =========================
+
+/* =====================================================
    FORMS
-========================= */
+===================================================== */
 
 .form-screen{
     display:none;
@@ -121,27 +143,26 @@ button{
 }
 
 .form-title{
-    font-size:24px;
     color:#173f52;
+    font-size:23px;
     margin-bottom:7px;
 }
 
 .form-subtitle{
-    color:#7a8b94;
+    color:#7b8d96;
     font-size:13px;
-    margin-bottom:22px;
+    margin-bottom:20px;
 }
 
 .form-group{
-    text-align:left;
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .form-group label{
     display:block;
+    color:#496875;
     font-size:12px;
     font-weight:700;
-    color:#466673;
     margin-bottom:6px;
 }
 
@@ -149,10 +170,11 @@ button{
 .form-group select,
 .form-group textarea{
     width:100%;
-    padding:12px;
-    border:1px solid #d3e1e5;
+    border:1px solid #d4e2e6;
     border-radius:9px;
+    padding:11px;
     outline:none;
+    background:white;
 }
 
 .form-group input:focus,
@@ -167,25 +189,25 @@ button{
     background:#087b77;
     color:white;
     padding:13px;
-    border-radius:10px;
+    border-radius:9px;
     font-weight:800;
-    margin-top:8px;
 }
 
 .secondary-button{
     width:100%;
-    border:1px solid #d1e0e4;
+    border:1px solid #d3e1e5;
     background:white;
     color:#315b6b;
     padding:12px;
-    border-radius:10px;
+    border-radius:9px;
     font-weight:700;
-    margin-top:10px;
+    margin-top:9px;
 }
 
-/* =========================
+
+/* =====================================================
    APP
-========================= */
+===================================================== */
 
 #app{
     display:none;
@@ -194,11 +216,11 @@ button{
 
 .topbar{
     height:70px;
-    background:white;
+    background:#fff;
     border-bottom:1px solid #e0eaed;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:0 25px;
     position:sticky;
     top:0;
@@ -209,12 +231,11 @@ button{
     display:flex;
     align-items:center;
     gap:10px;
-    text-decoration:none;
 }
 
 .brand img{
-    width:42px;
-    height:42px;
+    width:43px;
+    height:43px;
     object-fit:contain;
 }
 
@@ -234,18 +255,6 @@ button{
     gap:10px;
 }
 
-.avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#e5f6f3;
-    color:#087b77;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-}
-
 .top-user-info{
     text-align:right;
 }
@@ -258,6 +267,19 @@ button{
 
 .top-user-info small{
     color:#8a999f;
+    font-size:11px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#e5f6f3;
+    color:#087b77;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
 }
 
 .layout{
@@ -267,16 +289,16 @@ button{
 
 .sidebar{
     width:245px;
-    background:#173f52;
-    padding:22px 12px;
     flex-shrink:0;
+    background:#173f52;
+    padding:20px 12px;
 }
 
 .sidebar-title{
     color:#9fc4ca;
     font-size:10px;
     text-transform:uppercase;
-    letter-spacing:1.5px;
+    letter-spacing:1.4px;
     padding:8px 13px;
 }
 
@@ -288,7 +310,7 @@ button{
     padding:12px 13px;
     text-align:left;
     border-radius:9px;
-    margin-bottom:4px;
+    margin-bottom:3px;
     font-size:13px;
 }
 
@@ -300,8 +322,8 @@ button{
 
 .content{
     flex:1;
-    padding:30px;
     min-width:0;
+    padding:28px;
 }
 
 .page{
@@ -314,27 +336,17 @@ button{
     display:block;
 }
 
-.page-title{
-    color:#173f52;
-    font-size:28px;
-    margin-bottom:7px;
-}
 
-.page-subtitle{
-    color:#7b8d96;
-    font-size:13px;
-    margin-bottom:25px;
-}
-
-/* =========================
+/* =====================================================
    DASHBOARD
-========================= */
+===================================================== */
 
 .patient-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:22px;
+    gap:20px;
+    margin-bottom:20px;
 }
 
 .patient-header h1{
@@ -344,21 +356,21 @@ button{
 
 .patient-header p{
     color:#7c8d96;
+    font-size:13px;
     margin-top:5px;
 }
 
 .patient-id-box{
     background:white;
     border:1px solid #dce9ec;
-    border-radius:13px;
-    padding:15px 20px;
-    text-align:right;
+    border-radius:12px;
+    padding:14px 18px;
 }
 
 .patient-id-box small{
     display:block;
     color:#8999a0;
-    font-size:10px;
+    font-size:9px;
 }
 
 .patient-id-box strong{
@@ -369,14 +381,14 @@ button{
 .summary-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    gap:14px;
 }
 
 .summary-card{
     background:white;
     border:1px solid #e0eaed;
-    border-radius:14px;
-    padding:20px;
+    border-radius:13px;
+    padding:19px;
 }
 
 .summary-card span{
@@ -393,10 +405,14 @@ button{
 
 .online-dashboard-card{
     margin-top:20px;
-    padding:22px;
-    background:linear-gradient(135deg,#edf9f7,#f7fbfc);
+    padding:21px;
+    background:linear-gradient(
+        135deg,
+        #edf9f7,
+        #f7fbfc
+    );
     border:1px solid #cfe8e5;
-    border-radius:16px;
+    border-radius:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -413,33 +429,72 @@ button{
     font-size:13px;
 }
 
-.online-primary{
-    border:0;
-    background:#087b77;
-    color:white;
-    padding:12px 18px;
-    border-radius:10px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
 .panel{
     background:white;
     border:1px solid #e0eaed;
-    border-radius:15px;
-    padding:22px;
+    border-radius:14px;
+    padding:21px;
     margin-top:20px;
 }
 
 .panel h2{
     color:#254e60;
     font-size:18px;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
-/* =========================
+.online-primary{
+    border:0;
+    background:#087b77;
+    color:white;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:800;
+}
+
+.online-secondary{
+    border:1px solid #d1e0e4;
+    background:white;
+    color:#315b6b;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:700;
+}
+
+.cancel-button{
+    border:1px solid #e1baba;
+    background:#fff6f6;
+    color:#a33c3c;
+    padding:11px 17px;
+    border-radius:9px;
+    font-weight:800;
+}
+
+.cancel-button:hover{
+    background:#ffeded;
+}
+
+
+/* =====================================================
+   GENERAL PAGE
+===================================================== */
+
+.page-title{
+    color:#173f52;
+    font-size:28px;
+    margin-bottom:6px;
+}
+
+.page-subtitle{
+    color:#7b8d96;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+
+/* =====================================================
    ONLINE CONSULTATION
-========================= */
+===================================================== */
 
 .online-wrapper{
     max-width:1050px;
@@ -461,29 +516,21 @@ button{
 
 .online-header p{
     color:#7b8d96;
+    font-size:13px;
     margin-top:5px;
-}
-
-.online-back{
-    border:1px solid #d2e0e4;
-    background:white;
-    color:#315b6b;
-    padding:11px 15px;
-    border-radius:9px;
-    font-weight:700;
 }
 
 .online-card{
     background:white;
     border:1px solid #dfeaec;
-    border-radius:16px;
-    padding:25px;
-    box-shadow:0 7px 25px rgba(20,70,85,.05);
+    border-radius:15px;
+    padding:24px;
+    box-shadow:0 7px 24px rgba(20,70,85,.05);
 }
 
 .online-card h2{
     color:#21485b;
-    font-size:20px;
+    font-size:19px;
     margin-bottom:6px;
 }
 
@@ -493,52 +540,56 @@ button{
     margin-bottom:20px;
 }
 
-.specialty-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
+
+/* Patient Details */
+
+.patient-details-box{
+    border-left:4px solid #087b77;
+    background:#f5faf9;
+    padding:15px;
+    border-radius:8px;
+    line-height:1.8;
+    color:#3d5863;
+    margin-bottom:17px;
 }
 
-.specialty-card{
-    border:1px solid #d7e6e9;
+.patient-details-box strong{
+    color:#234653;
+}
+
+
+/* Specialty dropdown */
+
+.specialty-select{
+    width:100%;
+    padding:13px;
+    border:1px solid #b9d9df;
+    border-radius:9px;
     background:white;
-    padding:20px;
-    border-radius:13px;
-    text-align:left;
+    color:#315566;
+    outline:none;
+    font-size:14px;
 }
 
-.specialty-card:hover{
+.specialty-select:focus{
     border-color:#087b77;
-    background:#f5fbfa;
+    box-shadow:0 0 0 2px rgba(8,123,119,.08);
 }
 
-.specialty-icon{
-    font-size:28px;
-    margin-bottom:12px;
-}
 
-.specialty-card strong{
-    display:block;
-    color:#285064;
-    margin-bottom:5px;
-}
+/* Doctors */
 
-.specialty-card span{
-    color:#82939b;
-    font-size:12px;
-}
-
-.doctor-grid{
+.doctor-list{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    gap:14px;
 }
 
 .doctor-card{
     border:1px solid #d8e6e9;
     background:white;
-    border-radius:13px;
-    padding:20px;
+    border-radius:12px;
+    padding:18px;
     text-align:left;
 }
 
@@ -548,22 +599,22 @@ button{
 }
 
 .doctor-avatar{
-    width:50px;
-    height:50px;
+    width:48px;
+    height:48px;
     border-radius:50%;
     background:#e6f7f4;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:25px;
-    margin-bottom:12px;
+    font-size:23px;
+    margin-bottom:10px;
 }
 
 .doctor-card strong{
     display:block;
     color:#285064;
     font-size:16px;
-    margin-bottom:5px;
+    margin-bottom:4px;
 }
 
 .doctor-card span{
@@ -573,93 +624,100 @@ button{
 
 .doctor-tags{
     display:flex;
-    gap:7px;
-    margin-top:13px;
+    gap:6px;
     flex-wrap:wrap;
+    margin-top:12px;
 }
 
 .doctor-tag{
     background:#f0f6f7;
     color:#58727d;
-    border-radius:7px;
     padding:5px 8px;
-    font-size:11px;
+    border-radius:6px;
+    font-size:10px;
 }
+
+
+/* Doctor Profile */
 
 .doctor-profile{
     display:grid;
-    grid-template-columns:140px 1fr;
-    gap:25px;
+    grid-template-columns:135px 1fr;
+    gap:23px;
 }
 
 .doctor-profile-avatar{
-    width:120px;
-    height:120px;
+    width:115px;
+    height:115px;
     border-radius:50%;
     background:#e6f7f4;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:55px;
+    font-size:52px;
     margin:auto;
 }
 
 .doctor-profile h2{
-    font-size:23px;
     color:#173f52;
+    font-size:22px;
     margin-bottom:5px;
 }
 
 .doctor-qualification{
-    color:#6f848e;
-    margin-bottom:15px;
+    color:#71848e;
+    margin-bottom:14px;
 }
 
 .profile-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:10px;
+    gap:9px;
 }
 
 .profile-detail{
     background:#f7fafb;
-    padding:11px;
-    border-radius:9px;
+    border-radius:8px;
+    padding:10px;
 }
 
 .profile-detail small{
     display:block;
     color:#87969c;
-    font-size:10px;
-    margin-bottom:4px;
+    font-size:9px;
+    margin-bottom:3px;
 }
 
 .profile-detail strong{
     color:#315566;
-    font-size:13px;
+    font-size:12px;
 }
 
+
+/* Availability */
+
 .availability{
-    margin-top:25px;
-    border-top:1px solid #e1ebed;
-    padding-top:20px;
+    margin-top:23px;
+    border-top:1px solid #e3edef;
+    padding-top:19px;
 }
 
 .availability h3{
     color:#234e60;
-    margin-bottom:6px;
+    font-size:16px;
+    margin-bottom:5px;
 }
 
 .availability p{
     color:#7b8d96;
     font-size:12px;
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .date-buttons{
     display:flex;
-    gap:10px;
-    margin-bottom:15px;
+    gap:9px;
+    margin-bottom:14px;
 }
 
 .date-button,
@@ -667,8 +725,8 @@ button{
     border:1px solid #d0e0e4;
     background:white;
     color:#315b6b;
-    border-radius:9px;
-    padding:10px 13px;
+    border-radius:8px;
+    padding:9px 12px;
     font-weight:700;
 }
 
@@ -682,37 +740,65 @@ button{
 .slot-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:9px;
+    gap:8px;
+}
+
+
+/* Review */
+
+.review-box{
+    background:#f6fafb;
+    border:1px solid #dfebee;
+    border-radius:10px;
+    padding:16px;
+}
+
+.review-row{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    padding:9px 0;
+    border-bottom:1px solid #e4edef;
+    font-size:13px;
+}
+
+.review-row:last-child{
+    border-bottom:0;
+}
+
+.review-row span{
+    color:#7d9098;
+}
+
+.review-row strong{
+    color:#315566;
+    text-align:right;
 }
 
 .online-actions{
     display:flex;
     justify-content:space-between;
-    margin-top:22px;
-    padding-top:18px;
+    gap:10px;
+    margin-top:20px;
+    padding-top:17px;
     border-top:1px solid #e3edef;
 }
 
-.online-secondary{
-    border:1px solid #d0e0e4;
-    background:white;
-    color:#315b6b;
-    padding:12px 18px;
-    border-radius:9px;
-    font-weight:700;
-}
+
+/* Waiting */
 
 .waiting-box{
     background:#fffbea;
     border:1px solid #e8dda9;
     border-radius:15px;
-    padding:25px;
+    padding:24px;
 }
 
 .waiting-title{
     color:#655513;
     font-size:21px;
     font-weight:800;
+    margin-bottom:6px;
 }
 
 .waiting-status{
@@ -723,68 +809,110 @@ button{
     border-radius:20px;
     font-size:12px;
     font-weight:800;
-    margin:13px 0 20px;
+    margin:12px 0 18px;
 }
 
 .consultation-details{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:11px;
+    gap:10px;
 }
 
 .consultation-detail{
     background:white;
     border:1px solid #e8e0c7;
     border-radius:9px;
-    padding:12px;
+    padding:11px;
 }
 
 .consultation-detail small{
     display:block;
     color:#89949a;
-    font-size:10px;
-    margin-bottom:4px;
+    font-size:9px;
+    margin-bottom:3px;
 }
 
 .consultation-detail strong{
     color:#31515b;
+    font-size:12px;
+}
+
+.cancel-warning{
+    background:#fff4f4;
+    border:1px solid #efd0d0;
+    color:#8e4545;
+    border-radius:9px;
+    padding:11px;
+    font-size:12px;
+    margin-top:17px;
+}
+
+
+/* Cancelled */
+
+.cancelled-box{
+    background:#fafafa;
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:24px;
+}
+
+.cancelled-status{
+    display:inline-block;
+    background:#eeeeee;
+    color:#666;
+    padding:7px 11px;
+    border-radius:18px;
+    font-size:11px;
+    font-weight:800;
+    margin:10px 0 15px;
+}
+
+
+/* No doctors */
+
+.no-doctors{
+    background:#fafcfc;
+    border:1px dashed #cbdcdf;
+    border-radius:10px;
+    padding:22px;
+    text-align:center;
+    color:#748891;
     font-size:13px;
 }
 
-/* =========================
-   TABLE / RECORDS
-========================= */
+
+/* =====================================================
+   TABLE
+===================================================== */
 
 .data-card{
     background:white;
     border:1px solid #dfeaec;
-    border-radius:15px;
+    border-radius:14px;
     overflow:hidden;
 }
 
 .data-row{
-    padding:15px 18px;
-    border-bottom:1px solid #edf2f3;
     display:grid;
     grid-template-columns:1.2fr 1fr 1fr 1fr;
     gap:15px;
-    font-size:13px;
-}
-
-.data-row:last-child{
-    border-bottom:0;
+    padding:14px 17px;
+    border-bottom:1px solid #edf2f3;
+    font-size:12px;
 }
 
 .data-header{
     background:#f6fafb;
     color:#66808b;
-    font-size:11px;
     font-weight:800;
+    font-size:10px;
 }
 
-/* =========================
+
+/* =====================================================
    RESPONSIVE
-========================= */
+===================================================== */
 
 @media(max-width:900px){
 
@@ -792,12 +920,8 @@ button{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .specialty-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
     .sidebar{
-        width:210px;
+        width:215px;
     }
 
 }
@@ -832,8 +956,7 @@ button{
     }
 
     .summary-grid,
-    .specialty-grid,
-    .doctor-grid,
+    .doctor-list,
     .profile-grid,
     .consultation-details{
         grid-template-columns:1fr;
@@ -845,10 +968,6 @@ button{
     .online-actions{
         flex-direction:column;
         align-items:flex-start;
-    }
-
-    .patient-id-box{
-        text-align:left;
     }
 
     .doctor-profile{
@@ -863,393 +982,405 @@ button{
         display:none;
     }
 
+    .data-row{
+        grid-template-columns:1fr;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
 
 <!-- =====================================================
-     ENTRY
-====================================================== -->
+     ENTRY SCREEN
+===================================================== -->
 
 <div id="entryScreen">
 
 <div class="entry-card">
 
-    <img
-        src="luvio-logo.jpeg"
-        class="logo"
-        alt="Luvio HealthLink"
-    >
+<img
+    src="luvio-logo.jpeg"
+    class="entry-logo"
+    alt="Luvio HealthLink"
+>
 
-    <h1>
-        Luvio <span>HealthLink</span>
-    </h1>
 
-    <p>
-        Your connected digital healthcare record.
-    </p>
+<h1>
+    Luvio <span>HealthLink</span>
+</h1>
 
+<p>
+    Your connected digital healthcare record.
+</p>
 
-    <!-- ENTRY OPTIONS -->
 
-    <div id="entryOptions">
+<!-- MAIN ENTRY -->
 
-        <button
-            class="entry-option"
-            onclick="showLogin()"
-        >
-            <strong>
-                Patient Login
-            </strong>
+<div id="entryOptions">
 
-            <span>
-                Login to your existing Luvio Health ID.
-            </span>
+<button
+    class="entry-option"
+    onclick="showLogin()"
+>
 
-        </button>
+<strong>
+    Patient Login
+</strong>
 
+<span>
+    Login to your existing Luvio Health ID.
+</span>
 
-        <button
-            class="entry-option"
-            onclick="showSignup('normal')"
-        >
-            <strong>
-                Create Health ID / Sign Up
-            </strong>
+</button>
 
-            <span>
-                New to Luvio? Create your digital patient identity.
-            </span>
 
-        </button>
+<button
+    class="entry-option"
+    onclick="showSignup('normal')"
+>
 
+<strong>
+    Create Health ID / Sign Up
+</strong>
 
-        <button
-            class="entry-option"
-            onclick="showOnlineConsultation()"
-        >
-            <strong>
-                🩺 Online Consultation
-            </strong>
+<span>
+    New to Luvio? Create your digital patient identity.
+</span>
 
-            <span>
-                Consult an available doctor online.
-            </span>
+</button>
 
-        </button>
 
+<button
+    class="entry-option"
+    onclick="showOnlineConsultation()"
+>
 
-        <a
-            href="index.html"
-            class="secondary-button"
-            style="display:block;text-decoration:none;"
-        >
-            ← Back to Luvio HealthLink
-        </a>
+<strong>
+    🩺 Online Consultation
+</strong>
 
-    </div>
+<span>
+    Consult an available doctor online.
+</span>
 
+</button>
 
-    <!-- LOGIN -->
 
-    <div
-        id="loginScreen"
-        class="form-screen"
-    >
+<a
+    href="index.html"
+    class="secondary-button"
+    style="
+        display:block;
+        text-align:center;
+        margin-top:10px;
+    "
+>
+    ← Back to Luvio HealthLink
+</a>
 
-        <h2 class="form-title">
-            Patient Login
-        </h2>
+</div>
 
-        <p class="form-subtitle">
-            Login using your registered mobile number.
-        </p>
 
+<!-- LOGIN -->
 
-        <div
-            id="loginMobileStep"
-        >
+<div
+    id="loginScreen"
+    class="form-screen"
+>
 
-            <div class="form-group">
+<h2 class="form-title">
+    Patient Login
+</h2>
 
-                <label>
-                    Mobile Number
-                </label>
+<p class="form-subtitle">
+    Login using your registered mobile number.
+</p>
 
-                <input
-                    id="loginMobile"
-                    type="tel"
-                    maxlength="10"
-                    placeholder="10-digit mobile number"
-                >
 
-            </div>
+<div id="loginMobileStep">
 
+<div class="form-group">
 
-            <button
-                class="primary-button"
-                onclick="sendLoginOTP()"
-            >
-                Send OTP
-            </button>
+<label>
+    Mobile Number
+</label>
 
-        </div>
+<input
+    id="loginMobile"
+    type="tel"
+    maxlength="10"
+    placeholder="10-digit mobile number"
+>
 
+</div>
 
-        <div
-            id="loginOtpStep"
-            style="display:none;"
-        >
 
-            <div class="form-group">
+<button
+    class="primary-button"
+    onclick="sendLoginOTP()"
+>
+    Send OTP
+</button>
 
-                <label>
-                    Enter OTP
-                </label>
+</div>
 
-                <input
-                    id="loginOtp"
-                    type="text"
-                    maxlength="6"
-                    placeholder="Enter OTP"
-                >
 
-            </div>
+<div
+    id="loginOtpStep"
+    style="display:none;"
+>
 
+<div class="form-group">
 
-            <button
-                class="primary-button"
-                onclick="verifyLogin()"
-            >
-                Verify & Login
-            </button>
+<label>
+    Enter OTP
+</label>
 
-        </div>
+<input
+    id="loginOtp"
+    type="text"
+    maxlength="6"
+    placeholder="Enter OTP"
+>
 
+</div>
 
-        <button
-            class="secondary-button"
-            onclick="backToEntry()"
-        >
-            ← Back
-        </button>
 
-    </div>
+<button
+    class="primary-button"
+    onclick="verifyLogin()"
+>
+    Verify & Login
+</button>
 
+</div>
 
-    <!-- SIGNUP -->
 
-    <div
-        id="signupScreen"
-        class="form-screen"
-    >
+<button
+    class="secondary-button"
+    onclick="backToEntry()"
+>
+    ← Back
+</button>
 
-        <h2 class="form-title">
-            Create Health ID
-        </h2>
+</div>
 
-        <p class="form-subtitle">
-            Create your Luvio digital patient identity.
-        </p>
 
+<!-- SIGNUP -->
 
-        <div class="form-group">
+<div
+    id="signupScreen"
+    class="form-screen"
+>
 
-            <label>
-                Full Name
-            </label>
+<h2 class="form-title">
+    Create Health ID
+</h2>
 
-            <input
-                id="signupName"
-                type="text"
-                placeholder="Full name"
-            >
+<p class="form-subtitle">
+    Create your Luvio digital patient identity.
+</p>
 
-        </div>
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+    Full Name
+</label>
 
-            <label>
-                Date of Birth
-            </label>
+<input
+    id="signupName"
+    type="text"
+    placeholder="Full name"
+>
 
-            <input
-                id="signupDob"
-                type="date"
-            >
+</div>
 
-        </div>
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+    Date of Birth
+</label>
 
-            <label>
-                Gender
-            </label>
+<input
+    id="signupDob"
+    type="date"
+>
 
-            <select id="signupGender">
+</div>
 
-                <option value="">
-                    Select gender
-                </option>
 
-                <option>
-                    Male
-                </option>
+<div class="form-group">
 
-                <option>
-                    Female
-                </option>
+<label>
+    Gender
+</label>
 
-                <option>
-                    Other
-                </option>
+<select id="signupGender">
 
-            </select>
+<option value="">
+    Select gender
+</option>
 
-        </div>
+<option>
+    Male
+</option>
 
+<option>
+    Female
+</option>
 
-        <div class="form-group">
+<option>
+    Other
+</option>
 
-            <label>
-                Mobile Number
-            </label>
+</select>
 
-            <input
-                id="signupMobile"
-                type="tel"
-                maxlength="10"
-                placeholder="10-digit mobile number"
-            >
+</div>
 
-        </div>
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+    Mobile Number
+</label>
 
-            <label>
-                Email
-            </label>
+<input
+    id="signupMobile"
+    type="tel"
+    maxlength="10"
+    placeholder="10-digit mobile number"
+>
 
-            <input
-                id="signupEmail"
-                type="email"
-                placeholder="Email address"
-            >
+</div>
 
-        </div>
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+    Email
+</label>
 
-            <label>
-                Address
-            </label>
+<input
+    id="signupEmail"
+    type="email"
+    placeholder="Email address"
+>
 
-            <textarea
-                id="signupAddress"
-                rows="2"
-                placeholder="Address"
-            ></textarea>
+</div>
 
-        </div>
 
+<div class="form-group">
 
-        <div class="form-group">
+<label>
+    Address
+</label>
 
-            <label>
-                Emergency Contact
-            </label>
+<textarea
+    id="signupAddress"
+    rows="2"
+    placeholder="Address"
+></textarea>
 
-            <input
-                id="signupEmergency"
-                type="text"
-                placeholder="Emergency contact"
-            >
+</div>
 
-        </div>
 
+<div class="form-group">
 
-        <button
-            class="primary-button"
-            onclick="createHealthID()"
-        >
-            Create Luvio Health ID
-        </button>
+<label>
+    Emergency Contact
+</label>
 
+<input
+    id="signupEmergency"
+    type="text"
+    placeholder="Emergency contact"
+>
 
-        <button
-            class="secondary-button"
-            onclick="backToEntry()"
-        >
-            ← Back
-        </button>
+</div>
 
-    </div>
 
+<button
+    class="primary-button"
+    onclick="createHealthID()"
+>
+    Create Luvio Health ID
+</button>
 
-    <!-- PUBLIC ONLINE CONSULTATION ENTRY -->
 
-    <div
-        id="onlineScreen"
-        class="form-screen"
-    >
+<button
+    class="secondary-button"
+    onclick="backToEntry()"
+>
+    ← Back
+</button>
 
-        <h2 class="form-title">
-            Online Consultation
-        </h2>
+</div>
 
-        <p class="form-subtitle">
-            Use your existing Luvio record or create a new Health ID.
-        </p>
 
+<!-- ONLINE ENTRY -->
 
-        <button
-            class="entry-option"
-            onclick="startOnlineExistingPatient()"
-        >
+<div
+    id="onlineScreen"
+    class="form-screen"
+>
 
-            <strong>
-                I already have a Luvio Health ID
-            </strong>
+<h2 class="form-title">
+    Online Consultation
+</h2>
 
-            <span>
-                Login to continue with your existing health record.
-            </span>
+<p class="form-subtitle">
+    Use your existing Luvio record or create a new Health ID.
+</p>
 
-        </button>
 
+<button
+    class="entry-option"
+    onclick="startOnlineExistingPatient()"
+>
 
-        <button
-            class="entry-option"
-            onclick="startOnlineNewPatient()"
-        >
+<strong>
+    I already have a Luvio Health ID
+</strong>
 
-            <strong>
-                I am new to Luvio
-            </strong>
+<span>
+    Login to continue with your existing record.
+</span>
 
-            <span>
-                Create a Luvio Health ID and continue.
-            </span>
+</button>
 
-        </button>
 
+<button
+    class="entry-option"
+    onclick="startOnlineNewPatient()"
+>
 
-        <button
-            class="secondary-button"
-            onclick="backToEntry()"
-        >
-            ← Back
-        </button>
+<strong>
+    I am new to Luvio
+</strong>
 
-    </div>
+<span>
+    Create a Luvio Health ID and continue.
+</span>
+
+</button>
+
+
+<button
+    class="secondary-button"
+    onclick="backToEntry()"
+>
+    ← Back
+</button>
+
+</div>
 
 </div>
 
@@ -1257,53 +1388,55 @@ button{
 
 
 <!-- =====================================================
-     APP
-====================================================== -->
+     APPLICATION
+===================================================== -->
 
 <div id="app">
 
 
+<!-- TOPBAR -->
+
 <header class="topbar">
 
-    <a
-        href="index.html"
-        class="brand"
-    >
+<a
+    href="index.html"
+    class="brand"
+>
 
-        <img
-            src="luvio-logo.jpeg"
-            alt="Luvio"
-        >
+<img
+    src="luvio-logo.jpeg"
+    alt="Luvio"
+>
 
-        <div class="brand-name">
-            Luvio <span>HealthLink</span>
-        </div>
+<div class="brand-name">
+    Luvio <span>HealthLink</span>
+</div>
 
-    </a>
+</a>
 
 
-    <div class="top-user">
+<div class="top-user">
 
-        <div class="top-user-info">
+<div class="top-user-info">
 
-            <strong id="topName">
-                Patient
-            </strong>
+<strong id="topName">
+    Patient
+</strong>
 
-            <small id="topPatientID">
-                —
-            </small>
+<small id="topPatientID">
+    —
+</small>
 
-        </div>
+</div>
 
-        <div
-            class="avatar"
-            id="topAvatar"
-        >
-            P
-        </div>
+<div
+    class="avatar"
+    id="topAvatar"
+>
+    P
+</div>
 
-    </div>
+</div>
 
 </header>
 
@@ -1311,691 +1444,700 @@ button{
 <div class="layout">
 
 
-<!-- SIDEBAR -->
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
 
 <aside class="sidebar">
 
-    <div class="sidebar-title">
-        Patient Portal
-    </div>
+<div class="sidebar-title">
+    Patient Portal
+</div>
 
 
-    <button
-        class="nav-button active"
-        onclick="showPage('dashboard',this)"
-    >
-        🏠 Dashboard
-    </button>
+<button
+    class="nav-button active"
+    onclick="showPage('dashboard',this)"
+>
+    🏠 Dashboard
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('appointments',this)"
-    >
-        📅 Appointments
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('appointments',this)"
+>
+    📅 Appointments
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('prescriptions',this)"
-    >
-        💊 Prescriptions
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('prescriptions',this)"
+>
+    💊 Prescriptions
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('reports',this)"
-    >
-        🧪 Diagnostic Reports
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('reports',this)"
+>
+    🧪 Diagnostic Reports
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('health-record',this)"
-    >
-        ❤️ Health Record
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('health-record',this)"
+>
+    ❤️ Health Record
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('visits',this)"
-    >
-        📋 Visit History
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('visits',this)"
+>
+    📋 Visit History
+</button>
 
 
-    <button
-        id="onlineNavButton"
-        class="nav-button"
-        onclick="openLoggedInOnlineConsultation()"
-    >
-        🩺 Online Consultation
-    </button>
+<button
+    class="nav-button"
+    onclick="openLoggedInOnlineConsultation()"
+>
+    🩺 Online Consultation
+</button>
 
 
-    <div class="sidebar-title">
-        Account
-    </div>
+<div class="sidebar-title">
+    Account
+</div>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('profile',this)"
-    >
-        👤 Profile
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('profile',this)"
+>
+    👤 Profile
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('consent',this)"
-    >
-        🔐 Consent & Privacy
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('consent',this)"
+>
+    🔐 Consent & Privacy
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="showPage('digital-id',this)"
-    >
-        🪪 Digital Patient ID
-    </button>
+<button
+    class="nav-button"
+    onclick="showPage('digital-id',this)"
+>
+    🪪 Digital Patient ID
+</button>
 
 
-    <button
-        class="nav-button"
-        onclick="logout()"
-    >
-        ↪ Logout
-    </button>
+<button
+    class="nav-button"
+    onclick="logout()"
+>
+    ↪ Logout
+</button>
 
 </aside>
 
 
-<!-- CONTENT -->
+<!-- =====================================================
+     CONTENT
+===================================================== -->
 
 <main class="content">
 
 
-<!-- ================= DASHBOARD ================= -->
+<!-- DASHBOARD -->
 
 <section
     id="dashboard"
     class="page active"
 >
 
-    <div class="patient-header">
+<div class="patient-header">
 
-        <div>
+<div>
 
-            <h1>
-                Welcome,
-                <span id="welcomeName">
-                    Patient
-                </span>
-            </h1>
+<h1>
+    Welcome,
+    <span id="welcomeName">
+        Patient
+    </span>
+</h1>
 
-            <p>
-                Your Luvio HealthLink patient dashboard.
-            </p>
+<p>
+    Your Luvio HealthLink patient dashboard.
+</p>
 
-        </div>
-
-
-        <div class="patient-id-box">
-
-            <small>
-                LUVIO PATIENT ID
-            </small>
-
-            <strong id="dashboardPatientID">
-                —
-            </strong>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="summary-grid">
+<div class="patient-id-box">
 
-        <div class="summary-card">
+<small>
+    LUVIO PATIENT ID
+</small>
 
-            <span>
-                Appointments
-            </span>
+<strong id="dashboardPatientID">
+    —
+</strong>
 
-            <strong id="appointmentCount">
-                0
-            </strong>
+</div>
 
-        </div>
-
-
-        <div class="summary-card">
-
-            <span>
-                Medicines
-            </span>
-
-            <strong id="medicineCount">
-                0
-            </strong>
-
-        </div>
+</div>
 
 
-        <div class="summary-card">
+<div class="summary-grid">
 
-            <span>
-                Reports
-            </span>
+<div class="summary-card">
 
-            <strong id="reportCount">
-                0
-            </strong>
+<span>
+    Appointments
+</span>
 
-        </div>
+<strong id="appointmentCount">
+    0
+</strong>
 
-
-        <div class="summary-card">
-
-            <span>
-                Visits
-            </span>
-
-            <strong id="visitCount">
-                0
-            </strong>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <div
-        id="onlineDashboardCard"
-        class="online-dashboard-card"
-    >
+<div class="summary-card">
 
-        <div>
+<span>
+    Medicines
+</span>
 
-            <h3>
-                🩺 Online Consultation
-            </h3>
+<strong id="medicineCount">
+    0
+</strong>
 
-            <p>
-                Consult an available doctor online using your Luvio health record.
-            </p>
-
-        </div>
+</div>
 
 
-        <button
-            class="online-primary"
-            onclick="openLoggedInOnlineConsultation()"
-        >
-            Start Online Consultation
-        </button>
+<div class="summary-card">
 
-    </div>
+<span>
+    Reports
+</span>
 
+<strong id="reportCount">
+    0
+</strong>
 
-    <div class="panel">
-
-        <h2>
-            Today's Health Summary
-        </h2>
-
-        <p style="color:#81919a;font-size:13px;">
-            Your latest health information will appear here as your
-            Luvio HealthLink record becomes connected with reception,
-            doctors, diagnostics and pharmacy.
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="panel">
+<div class="summary-card">
 
-        <h2>
-            Recent Activity
-        </h2>
+<span>
+    Visits
+</span>
 
-        <p style="color:#81919a;font-size:13px;">
-            Your consultations, prescriptions, reports and visits
-            will appear here.
-        </p>
+<strong id="visitCount">
+    0
+</strong>
 
-    </div>
+</div>
+
+</div>
+
+
+<div
+    id="onlineDashboardCard"
+    class="online-dashboard-card"
+>
+
+<div>
+
+<h3>
+    🩺 Online Consultation
+</h3>
+
+<p>
+    Consult an available doctor online using your Luvio health record.
+</p>
+
+</div>
+
+
+<button
+    class="online-primary"
+    onclick="openLoggedInOnlineConsultation()"
+>
+    Start Online Consultation
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h2>
+    Today's Health Summary
+</h2>
+
+<p style="
+    color:#81919a;
+    font-size:13px;
+">
+    Your latest health information will appear here.
+</p>
+
+</div>
 
 </section>
 
 
-<!-- ================= APPOINTMENTS ================= -->
+<!-- APPOINTMENTS -->
 
 <section
     id="appointments"
     class="page"
 >
 
-    <h1 class="page-title">
-        Appointments
-    </h1>
+<h1 class="page-title">
+    Appointments
+</h1>
 
-    <p class="page-subtitle">
-        Your upcoming and previous appointments.
-    </p>
-
-
-    <div id="onlineAppointmentRequests"></div>
+<p class="page-subtitle">
+    Your appointments and online consultation requests.
+</p>
 
 
-    <div class="data-card">
-
-        <div class="data-row data-header">
-
-            <div>
-                Type
-            </div>
-
-            <div>
-                Doctor
-            </div>
-
-            <div>
-                Date
-            </div>
-
-            <div>
-                Status
-            </div>
-
-        </div>
+<div
+    id="onlineAppointmentRequests"
+></div>
 
 
-        <div
-            id="appointmentList"
-        >
+<div class="data-card">
 
-            <div
-                class="data-row"
-                style="grid-template-columns:1fr;"
-            >
-                No appointments available.
-            </div>
+<div class="data-row data-header">
 
-        </div>
+<div>
+    Type
+</div>
 
-    </div>
+<div>
+    Doctor
+</div>
+
+<div>
+    Date / Time
+</div>
+
+<div>
+    Status
+</div>
+
+</div>
+
+
+<div id="appointmentList">
+
+<div
+    class="data-row"
+    style="grid-template-columns:1fr;"
+>
+    No appointments available.
+</div>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= PRESCRIPTIONS ================= -->
+<!-- PRESCRIPTIONS -->
 
 <section
     id="prescriptions"
     class="page"
 >
 
-    <h1 class="page-title">
-        Prescriptions
-    </h1>
+<h1 class="page-title">
+    Prescriptions
+</h1>
 
-    <p class="page-subtitle">
-        Your medicines and digital prescriptions.
-    </p>
+<p class="page-subtitle">
+    Your digital prescriptions and medicines.
+</p>
 
 
-    <div class="panel">
+<div class="panel">
 
-        <p style="color:#81919a;font-size:13px;">
-            Prescriptions created by your Luvio doctor will appear here.
-        </p>
+<p style="
+    color:#81919a;
+    font-size:13px;
+">
+    Prescriptions from your doctor will appear here.
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= REPORTS ================= -->
+<!-- REPORTS -->
 
 <section
     id="reports"
     class="page"
 >
 
-    <h1 class="page-title">
-        Diagnostic Reports
-    </h1>
+<h1 class="page-title">
+    Diagnostic Reports
+</h1>
 
-    <p class="page-subtitle">
-        Your laboratory and diagnostic reports.
-    </p>
+<p class="page-subtitle">
+    Your laboratory and diagnostic reports.
+</p>
 
 
-    <div class="panel">
+<div class="panel">
 
-        <p style="color:#81919a;font-size:13px;">
-            Reports returned by connected diagnostic providers will appear here.
-        </p>
+<p style="
+    color:#81919a;
+    font-size:13px;
+">
+    Diagnostic reports will appear here.
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= HEALTH RECORD ================= -->
+<!-- HEALTH RECORD -->
 
 <section
     id="health-record"
     class="page"
 >
 
-    <h1 class="page-title">
-        Health Record
-    </h1>
+<h1 class="page-title">
+    Health Record
+</h1>
 
-    <p class="page-subtitle">
-        Your longitudinal digital health record.
-    </p>
+<p class="page-subtitle">
+    Your longitudinal digital health record.
+</p>
 
 
-    <div class="panel">
+<div class="panel">
 
-        <h2>
-            Patient Information
-        </h2>
+<h2>
+    Patient Information
+</h2>
 
-        <p>
-            <strong>Name:</strong>
-            <span id="recordName">—</span>
-        </p>
+<p>
+<strong>Name:</strong>
+<span id="recordName">—</span>
+</p>
 
-        <br>
+<br>
 
-        <p>
-            <strong>Date of Birth:</strong>
-            <span id="recordDob">—</span>
-        </p>
+<p>
+<strong>Date of Birth:</strong>
+<span id="recordDob">—</span>
+</p>
 
-        <br>
+<br>
 
-        <p>
-            <strong>Gender:</strong>
-            <span id="recordGender">—</span>
-        </p>
+<p>
+<strong>Gender:</strong>
+<span id="recordGender">—</span>
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= VISITS ================= -->
+<!-- VISITS -->
 
 <section
     id="visits"
     class="page"
 >
 
-    <h1 class="page-title">
-        Visit History
-    </h1>
+<h1 class="page-title">
+    Visit History
+</h1>
 
-    <p class="page-subtitle">
-        Your previous consultations and encounters.
-    </p>
+<p class="page-subtitle">
+    Your previous consultations and encounters.
+</p>
 
 
-    <div class="panel">
+<div class="panel">
 
-        <p style="color:#81919a;font-size:13px;">
-            Your previous visits will appear here.
-        </p>
+<p style="
+    color:#81919a;
+    font-size:13px;
+">
+    Previous visits will appear here.
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= PROFILE ================= -->
+<!-- PROFILE -->
 
 <section
     id="profile"
     class="page"
 >
 
-    <h1 class="page-title">
-        Profile
-    </h1>
+<h1 class="page-title">
+    Profile
+</h1>
 
-    <p class="page-subtitle">
-        Your registered personal information.
-    </p>
-
-
-    <div class="panel">
-
-        <div class="profile-grid">
-
-            <div class="profile-detail">
-
-                <small>
-                    Name
-                </small>
-
-                <strong id="profileNameField">
-                    —
-                </strong>
-
-            </div>
+<p class="page-subtitle">
+    Your registered information.
+</p>
 
 
-            <div class="profile-detail">
+<div class="panel">
 
-                <small>
-                    Date of Birth
-                </small>
+<div class="profile-grid">
 
-                <strong id="profileDob">
-                    —
-                </strong>
+<div class="profile-detail">
 
-            </div>
+<small>
+    Name
+</small>
 
+<strong id="profileName">
+    —
+</strong>
 
-            <div class="profile-detail">
-
-                <small>
-                    Gender
-                </small>
-
-                <strong id="profileGender">
-                    —
-                </strong>
-
-            </div>
+</div>
 
 
-            <div class="profile-detail">
+<div class="profile-detail">
 
-                <small>
-                    Mobile
-                </small>
+<small>
+    Date of Birth
+</small>
 
-                <strong id="profileMobile">
-                    —
-                </strong>
+<strong id="profileDob">
+    —
+</strong>
 
-            </div>
-
-
-            <div class="profile-detail">
-
-                <small>
-                    Email
-                </small>
-
-                <strong id="profileEmail">
-                    —
-                </strong>
-
-            </div>
+</div>
 
 
-            <div class="profile-detail">
+<div class="profile-detail">
 
-                <small>
-                    Emergency Contact
-                </small>
+<small>
+    Gender
+</small>
 
-                <strong id="profileEmergency">
-                    —
-                </strong>
+<strong id="profileGender">
+    —
+</strong>
 
-            </div>
-
-        </div>
+</div>
 
 
-        <div
-            class="profile-detail"
-            style="margin-top:10px;"
-        >
+<div class="profile-detail">
 
-            <small>
-                Address
-            </small>
+<small>
+    Mobile
+</small>
 
-            <strong id="profileAddress">
-                —
-            </strong>
+<strong id="profileMobile">
+    —
+</strong>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="profile-detail">
+
+<small>
+    Email
+</small>
+
+<strong id="profileEmail">
+    —
+</strong>
+
+</div>
+
+
+<div class="profile-detail">
+
+<small>
+    Emergency Contact
+</small>
+
+<strong id="profileEmergency">
+    —
+</strong>
+
+</div>
+
+</div>
+
+
+<div
+    class="profile-detail"
+    style="margin-top:10px;"
+>
+
+<small>
+    Address
+</small>
+
+<strong id="profileAddress">
+    —
+</strong>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- ================= CONSENT ================= -->
+<!-- CONSENT -->
 
 <section
     id="consent"
     class="page"
 >
 
-    <h1 class="page-title">
-        Consent & Privacy
-    </h1>
+<h1 class="page-title">
+    Consent & Privacy
+</h1>
 
-    <p class="page-subtitle">
-        Control how your health information is shared.
-    </p>
+<p class="page-subtitle">
+    Control access to your healthcare information.
+</p>
 
 
-    <div class="panel">
+<div class="panel">
 
-        <h2>
-            Your Data
-        </h2>
+<h2>
+    Your Data
+</h2>
 
-        <p style="color:#81919a;font-size:13px;line-height:1.7;">
+<p style="
+    color:#81919a;
+    font-size:13px;
+    line-height:1.7;
+">
 
-            In the production Luvio HealthLink system,
-            access to your health information will be controlled
-            through authentication, authorization and consent.
-            A Patient ID alone will not provide unrestricted access.
+In the production Luvio HealthLink system,
+health information will be protected through
+authentication, authorization, consent and audit controls.
 
-        </p>
+</p>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= DIGITAL ID ================= -->
+<!-- DIGITAL ID -->
 
 <section
     id="digital-id"
     class="page"
 >
 
-    <h1 class="page-title">
-        Digital Patient ID
-    </h1>
+<h1 class="page-title">
+    Digital Patient ID
+</h1>
 
-    <p class="page-subtitle">
-        Your unique Luvio patient identity.
-    </p>
+<p class="page-subtitle">
+    Your unique Luvio patient identity.
+</p>
 
 
-    <div class="panel" style="text-align:center;">
+<div
+    class="panel"
+    style="text-align:center;"
+>
 
-        <p style="color:#81919a;">
-            Your Luvio Patient ID
-        </p>
+<p style="color:#81919a;">
+    Luvio Patient ID
+</p>
 
-        <h2
-            id="bigPatientID"
-            style="
-                font-size:34px;
-                color:#087b77;
-                margin-top:10px;
-            "
-        >
-            —
-        </h2>
+<h2
+    id="bigPatientID"
+    style="
+        color:#087b77;
+        font-size:34px;
+        margin-top:8px;
+    "
+>
+    —
+</h2>
 
-    </div>
+</div>
 
 </section>
 
 
-<!-- ================= ONLINE CONSULTATION ================= -->
+<!-- =====================================================
+     ONLINE CONSULTATION
+===================================================== -->
 
 <section
     id="online-consultation"
     class="page"
 >
 
-    <div class="online-wrapper">
-
-        <div class="online-header">
-
-            <div>
-
-                <h1>
-                    Online Consultation
-                </h1>
-
-                <p>
-                    Connect with an available doctor online.
-                </p>
-
-            </div>
+<div class="online-wrapper">
 
 
-            <button
-                class="online-back"
-                onclick="showPageById('dashboard')"
-            >
-                ← Patient Dashboard
-            </button>
+<div class="online-header">
 
-        </div>
+<div>
+
+<h1>
+    Online Consultation
+</h1>
+
+<p>
+    Consult with an available Luvio doctor online.
+</p>
+
+</div>
 
 
-        <div
-            id="onlineConsultationContent"
-        ></div>
+<button
+    class="online-secondary"
+    onclick="showPageById('dashboard')"
+>
+    ← Patient Dashboard
+</button>
 
-    </div>
+</div>
+
+
+<div
+    id="onlineConsultationContent"
+></div>
+
+
+</div>
 
 </section>
 
@@ -2009,9 +2151,9 @@ button{
 
 <script>
 
-/* =========================================================
+/* =====================================================
    STORAGE
-========================================================= */
+===================================================== */
 
 const STORAGE_KEY =
     "luvio_patient_accounts";
@@ -2034,19 +2176,21 @@ let consultationState = {
 };
 
 
-/* =========================================================
+/* =====================================================
    STORAGE FUNCTIONS
-========================================================= */
+===================================================== */
 
 function getAccounts(){
 
     try{
 
         return JSON.parse(
-            localStorage.getItem(STORAGE_KEY) || "[]"
+            localStorage.getItem(
+                STORAGE_KEY
+            ) || "[]"
         );
 
-    }catch(e){
+    }catch(error){
 
         return [];
 
@@ -2070,10 +2214,12 @@ function getCurrentPatient(){
     try{
 
         return JSON.parse(
-            localStorage.getItem(CURRENT_KEY) || "null"
+            localStorage.getItem(
+                CURRENT_KEY
+            ) || "null"
         );
 
-    }catch(e){
+    }catch(error){
 
         return null;
 
@@ -2100,7 +2246,9 @@ function updateCurrentPatient(patient){
 
     const index =
         accounts.findIndex(
-            p => p.patientID === patient.patientID
+            p =>
+            p.patientID ===
+            patient.patientID
         );
 
 
@@ -2119,9 +2267,9 @@ function updateCurrentPatient(patient){
 }
 
 
-/* =========================================================
+/* =====================================================
    ENTRY
-========================================================= */
+===================================================== */
 
 function hideAllForms(){
 
@@ -2180,12 +2328,9 @@ function showOnlineConsultation(){
 
 
     /*
-       IMPORTANT:
+       ALREADY LOGGED IN
 
-       Already logged in?
-       Go directly to consultation.
-
-       No Patient ID request.
+       Do not ask for Patient ID again.
     */
 
     if(patient){
@@ -2247,9 +2392,9 @@ function backToEntry(){
 }
 
 
-/* =========================================================
-   SIGNUP
-========================================================= */
+/* =====================================================
+   CREATE HEALTH ID
+===================================================== */
 
 function createHealthID(){
 
@@ -2326,14 +2471,17 @@ function createHealthID(){
         getAccounts();
 
 
-    if(
-        accounts.some(
-            p => p.mobile === mobile
-        )
-    ){
+    const existing =
+        accounts.find(
+            p =>
+            p.mobile === mobile
+        );
+
+
+    if(existing){
 
         alert(
-            "A Luvio account already exists for this mobile number."
+            "A Luvio Health ID already exists for this mobile number. Please login."
         );
 
         return;
@@ -2343,8 +2491,9 @@ function createHealthID(){
 
     const patientID =
         "LH-" +
-        String(accounts.length + 1)
-            .padStart(6,"0");
+        String(
+            accounts.length + 1
+        ).padStart(6,"0");
 
 
     const patient = {
@@ -2415,9 +2564,9 @@ function createHealthID(){
 }
 
 
-/* =========================================================
+/* =====================================================
    LOGIN
-========================================================= */
+===================================================== */
 
 function sendLoginOTP(){
 
@@ -2441,7 +2590,8 @@ function sendLoginOTP(){
 
     const patient =
         getAccounts().find(
-            p => p.mobile === mobile
+            p =>
+            p.mobile === mobile
         );
 
 
@@ -2485,8 +2635,8 @@ function verifyLogin(){
 
 
     /*
-       Demo OTP.
-       Production will use real OTP authentication.
+       DEMO OTP
+       Production = real OTP service
     */
 
     if(otp !== "123456"){
@@ -2502,7 +2652,8 @@ function verifyLogin(){
 
     const patient =
         getAccounts().find(
-            p => p.mobile === mobile
+            p =>
+            p.mobile === mobile
         );
 
 
@@ -2534,9 +2685,9 @@ function verifyLogin(){
 }
 
 
-/* =========================================================
+/* =====================================================
    OPEN PORTAL
-========================================================= */
+===================================================== */
 
 function openPortal(patient){
 
@@ -2555,9 +2706,9 @@ function openPortal(patient){
 }
 
 
-/* =========================================================
+/* =====================================================
    POPULATE PATIENT
-========================================================= */
+===================================================== */
 
 function populatePatient(patient){
 
@@ -2568,34 +2719,38 @@ function populatePatient(patient){
     }
 
 
+    const name =
+        patient.name || "Patient";
+
+
     document.getElementById(
         "welcomeName"
     ).textContent =
-        patient.name || "Patient";
+        name;
 
 
     document.getElementById(
         "topName"
     ).textContent =
-        patient.name || "Patient";
+        name;
 
 
     document.getElementById(
         "topPatientID"
     ).textContent =
-        patient.patientID || "—";
+        patient.patientID;
 
 
     document.getElementById(
         "dashboardPatientID"
     ).textContent =
-        patient.patientID || "—";
+        patient.patientID;
 
 
     document.getElementById(
         "bigPatientID"
     ).textContent =
-        patient.patientID || "—";
+        patient.patientID;
 
 
     document.getElementById(
@@ -2617,7 +2772,7 @@ function populatePatient(patient){
 
 
     document.getElementById(
-        "profileNameField"
+        "profileName"
     ).textContent =
         patient.name || "—";
 
@@ -2683,9 +2838,12 @@ function populatePatient(patient){
 
 
     const initials =
-        patient.name
-            .split(" ")
-            .map(x => x[0])
+        name
+            .split(/\s+/)
+            .map(
+                word =>
+                word[0]
+            )
             .slice(0,2)
             .join("")
             .toUpperCase();
@@ -2702,26 +2860,27 @@ function populatePatient(patient){
 }
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
 
 function showPage(id,button){
 
     document
         .querySelectorAll(".page")
         .forEach(
-            p => p.classList.remove("active")
+            page =>
+            page.classList.remove("active")
         );
 
 
-    const page =
+    const target =
         document.getElementById(id);
 
 
-    if(page){
+    if(target){
 
-        page.classList.add("active");
+        target.classList.add("active");
 
     }
 
@@ -2729,7 +2888,8 @@ function showPage(id,button){
     document
         .querySelectorAll(".nav-button")
         .forEach(
-            b => b.classList.remove("active")
+            btn =>
+            btn.classList.remove("active")
         );
 
 
@@ -2757,18 +2917,7 @@ function showPage(id,button){
 
 function showPageById(id){
 
-    const button =
-        Array.from(
-            document.querySelectorAll(".nav-button")
-        ).find(
-            b =>
-            b.getAttribute("onclick") &&
-            b.getAttribute("onclick")
-                .includes("'" + id + "'")
-        );
-
-
-    showPage(id,button);
+    showPage(id,null);
 
 
     if(id === "online-consultation"){
@@ -2780,122 +2929,210 @@ function showPageById(id){
 }
 
 
-/* =========================================================
-   DOCTORS
-========================================================= */
+/* =====================================================
+   DOCTOR DIRECTORY — DEMO
+=====================================================
+
+   IMPORTANT:
+
+   These are only temporary demo doctors.
+
+   Later the Doctor Portal will provide this
+   information dynamically.
+===================================================== */
 
 const DOCTORS = [
 
-    {
-        id:"GM001",
-        name:"Dr. Arjun Sharma",
-        specialty:"General Medicine",
-        qualification:"MBBS, MD",
-        experience:"12 years",
-        fee:"₹500",
-        slotsToday:[
-            "10:00 AM",
-            "10:30 AM",
-            "11:00 AM",
-            "11:30 AM",
-            "12:00 PM"
-        ],
-        slotsTomorrow:[
-            "10:00 AM",
-            "10:30 AM",
-            "11:00 AM",
-            "11:30 AM"
-        ]
-    },
+{
+    id:"GM001",
+    name:"Dr. Arjun Sharma",
+    specialty:"General Medicine",
+    qualification:"MBBS, MD",
+    experience:"12 years",
+    fee:"₹500",
+    slotsToday:[
+        "10:00 AM",
+        "10:30 AM",
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM"
+    ],
+    slotsTomorrow:[
+        "10:00 AM",
+        "10:30 AM",
+        "11:00 AM",
+        "11:30 AM"
+    ]
+},
 
-    {
-        id:"GM002",
-        name:"Dr. Neha Kapoor",
-        specialty:"General Medicine",
-        qualification:"MBBS, DNB",
-        experience:"9 years",
-        fee:"₹450",
-        slotsToday:[
-            "2:00 PM",
-            "2:30 PM",
-            "3:00 PM",
-            "3:30 PM",
-            "4:00 PM"
-        ],
-        slotsTomorrow:[
-            "2:00 PM",
-            "2:30 PM",
-            "3:00 PM",
-            "3:30 PM"
-        ]
-    },
+{
+    id:"GM002",
+    name:"Dr. Neha Kapoor",
+    specialty:"General Medicine",
+    qualification:"MBBS, DNB",
+    experience:"9 years",
+    fee:"₹450",
+    slotsToday:[
+        "2:00 PM",
+        "2:30 PM",
+        "3:00 PM",
+        "3:30 PM",
+        "4:00 PM"
+    ],
+    slotsTomorrow:[
+        "2:00 PM",
+        "2:30 PM",
+        "3:00 PM",
+        "3:30 PM"
+    ]
+},
 
-    {
-        id:"CARD001",
-        name:"Dr. Rahul Mehta",
-        specialty:"Cardiology",
-        qualification:"MBBS, MD, DM Cardiology",
-        experience:"15 years",
-        fee:"₹900",
-        slotsToday:[
-            "10:00 AM",
-            "10:30 AM",
-            "11:00 AM",
-            "11:30 AM"
-        ],
-        slotsTomorrow:[
-            "10:00 AM",
-            "10:30 AM",
-            "11:00 AM"
-        ]
-    },
+{
+    id:"CARD001",
+    name:"Dr. Rahul Mehta",
+    specialty:"Cardiology",
+    qualification:"MBBS, MD, DM Cardiology",
+    experience:"15 years",
+    fee:"₹900",
+    slotsToday:[
+        "10:00 AM",
+        "10:30 AM",
+        "11:00 AM",
+        "11:30 AM"
+    ],
+    slotsTomorrow:[
+        "10:00 AM",
+        "10:30 AM",
+        "11:00 AM"
+    ]
+},
 
-    {
-        id:"CARD002",
-        name:"Dr. Priya Menon",
-        specialty:"Cardiology",
-        qualification:"MBBS, MD, DNB Cardiology",
-        experience:"11 years",
-        fee:"₹850",
-        slotsToday:[
-            "4:00 PM",
-            "4:30 PM",
-            "5:00 PM",
-            "5:30 PM"
-        ],
-        slotsTomorrow:[
-            "4:00 PM",
-            "4:30 PM",
-            "5:00 PM"
-        ]
-    },
+{
+    id:"CARD002",
+    name:"Dr. Priya Menon",
+    specialty:"Cardiology",
+    qualification:"MBBS, MD, DNB Cardiology",
+    experience:"11 years",
+    fee:"₹850",
+    slotsToday:[
+        "4:00 PM",
+        "4:30 PM",
+        "5:00 PM",
+        "5:30 PM"
+    ],
+    slotsTomorrow:[
+        "4:00 PM",
+        "4:30 PM",
+        "5:00 PM"
+    ]
+},
 
-    {
-        id:"PED001",
-        name:"Dr. Ananya Verma",
-        specialty:"Pediatrics",
-        qualification:"MBBS, MD Pediatrics",
-        experience:"10 years",
-        fee:"₹600",
-        slotsToday:[
-            "11:00 AM",
-            "11:30 AM",
-            "12:00 PM",
-            "12:30 PM"
-        ],
-        slotsTomorrow:[
-            "11:00 AM",
-            "11:30 AM",
-            "12:00 PM"
-        ]
-    }
+{
+    id:"DERM001",
+    name:"Dr. Aisha Khan",
+    specialty:"Dermatology",
+    qualification:"MBBS, MD Dermatology",
+    experience:"8 years",
+    fee:"₹600",
+    slotsToday:[
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM",
+        "12:30 PM"
+    ],
+    slotsTomorrow:[
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM"
+    ]
+},
+
+{
+    id:"PED001",
+    name:"Dr. Ananya Verma",
+    specialty:"Paediatrics",
+    qualification:"MBBS, MD Paediatrics",
+    experience:"10 years",
+    fee:"₹600",
+    slotsToday:[
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM",
+        "12:30 PM"
+    ],
+    slotsTomorrow:[
+        "11:00 AM",
+        "11:30 AM",
+        "12:00 PM"
+    ]
+}
 
 ];
 
 
-/* =========================================================
+/* =====================================================
+   FULL SPECIALTY LIST
+===================================================== */
+
+const SPECIALTIES = [
+
+"General Medicine",
+"Cardiology",
+"Dermatology",
+"Paediatrics",
+"Orthopaedics",
+"Gynaecology & Obstetrics",
+"ENT (Ear, Nose & Throat)",
+"Ophthalmology (Eye Care)",
+"Neurology",
+"Psychiatry",
+"Pulmonology (Chest Medicine)",
+"Gastroenterology",
+"Endocrinology",
+"Nephrology (Kidney Care)",
+"Urology",
+"Oncology",
+"Rheumatology",
+"Infectious Diseases",
+"Allergy & Immunology",
+"Physiotherapy & Rehabilitation",
+"General Surgery",
+"Plastic & Reconstructive Surgery",
+"Neurosurgery",
+"Cardiothoracic Surgery",
+"Vascular Surgery",
+"Paediatric Surgery",
+"Dental / Dentistry",
+"Nutrition & Dietetics",
+"Audiology",
+"Speech Therapy",
+"Anaesthesiology",
+"Emergency Medicine",
+"Geriatric Medicine",
+"Neonatology",
+"Reproductive Medicine",
+"Fertility & IVF",
+"Clinical Haematology",
+"Haematology",
+"Hepatology (Liver Care)",
+"Medical Genetics",
+"Nuclear Medicine",
+"Radiation Oncology",
+"Radiology",
+"Interventional Radiology",
+"Pathology",
+"Pain Medicine",
+"Sleep Medicine",
+"Sports Medicine",
+"Occupational Medicine",
+"Other"
+
+];
+
+
+/* =====================================================
    OPEN ONLINE CONSULTATION
-========================================================= */
+===================================================== */
 
 function openLoggedInOnlineConsultation(){
 
@@ -2906,7 +3143,7 @@ function openLoggedInOnlineConsultation(){
     if(!patient){
 
         alert(
-            "Please login to your Patient Portal first."
+            "Please login to your Luvio Patient Portal first."
         );
 
         return;
@@ -2926,9 +3163,9 @@ function openLoggedInOnlineConsultation(){
 }
 
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 function resetConsultation(){
 
@@ -2944,11 +3181,22 @@ function resetConsultation(){
 }
 
 
-/* =========================================================
-   ONLINE PAGE
-========================================================= */
+/* =====================================================
+   ONLINE START
+===================================================== */
 
 function renderOnlineConsultation(){
+
+    const patient =
+        getCurrentPatient();
+
+
+    if(!patient){
+
+        return;
+
+    }
+
 
     const content =
         document.getElementById(
@@ -2956,27 +3204,8 @@ function renderOnlineConsultation(){
         );
 
 
-    if(!content){
-
-        return;
-
-    }
-
-
-    const patient =
-        getCurrentPatient();
-
-
-    const requests =
-        patient?.consultationRequests || [];
-
-
     const pending =
-        requests.find(
-            r =>
-            r.status ===
-            "Waiting for Doctor's Confirmation"
-        );
+        getPendingConsultation(patient);
 
 
     if(pending){
@@ -2988,16 +3217,64 @@ function renderOnlineConsultation(){
     }
 
 
-    renderSpecialties();
+    /*
+       STEP 1
+       Patient details
+    */
+
+    content.innerHTML = `
+
+    <div class="online-card">
+
+        <h2>
+            1. Patient Details
+        </h2>
+
+        <p class="online-card-subtitle">
+            Your existing Luvio patient information will be used
+            for this consultation.
+        </p>
+
+
+        <div class="patient-details-box">
+
+            <div>
+                <strong>Name:</strong>
+                ${escapeHTML(patient.name)}
+            </div>
+
+            <div>
+                <strong>Luvio Patient ID:</strong>
+                ${escapeHTML(patient.patientID)}
+            </div>
+
+            <div>
+                <strong>Mobile:</strong>
+                ${escapeHTML(patient.mobile)}
+            </div>
+
+        </div>
+
+
+        <button
+            class="online-primary"
+            onclick="continueToSpecialty()"
+        >
+            Continue
+        </button>
+
+    </div>
+
+    `;
 
 }
 
 
-/* =========================================================
-   SPECIALTIES
-========================================================= */
+/* =====================================================
+   STEP 2 SPECIALTY
+===================================================== */
 
-function renderSpecialties(){
+function continueToSpecialty(){
 
     const content =
         document.getElementById(
@@ -3005,80 +3282,66 @@ function renderSpecialties(){
         );
 
 
-    const specialties = [
-
-        {
-            name:"General Medicine",
-            icon:"🩺"
-        },
-
-        {
-            name:"Cardiology",
-            icon:"❤️"
-        },
-
-        {
-            name:"Pediatrics",
-            icon:"👶"
-        }
-
-    ];
-
-
     content.innerHTML = `
 
-        <div class="online-card">
+    <div class="online-card">
 
-            <h2>
-                1. Select Specialty
-            </h2>
+        <h2>
+            2. Select Specialty
+        </h2>
 
-            <p class="online-card-subtitle">
-                Choose the specialty for your online consultation.
-            </p>
+        <p class="online-card-subtitle">
+            Choose the medical specialty you want to consult.
+        </p>
 
 
-            <div class="specialty-grid">
+        <div class="form-group">
 
-                ${specialties.map(
-                    specialty => `
+            <label>
+                Choose Specialty
+            </label>
 
-                    <button
-                        class="specialty-card"
-                        onclick="selectSpecialty('${specialty.name}')"
-                    >
 
-                        <div class="specialty-icon">
-                            ${specialty.icon}
-                        </div>
+            <select
+                id="specialtySelect"
+                class="specialty-select"
+                onchange="selectSpecialty(this.value)"
+            >
 
-                        <strong>
-                            ${specialty.name}
-                        </strong>
+                <option value="">
+                    Select Specialty
+                </option>
 
-                        <span>
-                            View available doctors
-                        </span>
-
-                    </button>
-
-                `
+                ${SPECIALTIES.map(
+                    specialty =>
+                    `<option value="${escapeHTML(specialty)}">
+                        ${escapeHTML(specialty)}
+                    </option>`
                 ).join("")}
 
-            </div>
+            </select>
 
         </div>
+
+    </div>
 
     `;
 
 }
 
 
-/* =========================================================
-   DOCTOR SELECTION
-========================================================= */
+/* =====================================================
+   SPECIALTY SELECTED
+===================================================== */
 
 function selectSpecialty(specialty){
+
+    if(!specialty){
+
+        return;
+
+    }
+
 
     consultationState.specialty =
         specialty;
@@ -3097,57 +3360,29 @@ function selectSpecialty(specialty){
         );
 
 
-    content.innerHTML = `
+    if(!doctors.length){
+
+        content.innerHTML = `
 
         <div class="online-card">
 
             <h2>
-                2. Select Doctor
+                3. Select Doctor
             </h2>
 
             <p class="online-card-subtitle">
-                Available ${specialty} doctors.
+                ${escapeHTML(specialty)}
             </p>
 
 
-            <div class="doctor-grid">
+            <div class="no-doctors">
 
-                ${doctors.map(
-                    doctor => `
+                No online doctors are currently available
+                for this specialty.
 
-                    <button
-                        class="doctor-card"
-                        onclick="selectDoctor('${doctor.id}')"
-                    >
+                <br><br>
 
-                        <div class="doctor-avatar">
-                            👨‍⚕️
-                        </div>
-
-                        <strong>
-                            ${doctor.name}
-                        </strong>
-
-                        <span>
-                            ${doctor.qualification}
-                        </span>
-
-                        <div class="doctor-tags">
-
-                            <span class="doctor-tag">
-                                ${doctor.experience}
-                            </span>
-
-                            <span class="doctor-tag">
-                                ${doctor.fee}
-                            </span>
-
-                        </div>
-
-                    </button>
-
-                `
-                ).join("")}
+                Please select another specialty.
 
             </div>
 
@@ -3156,31 +3391,118 @@ function selectSpecialty(specialty){
 
                 <button
                     class="online-secondary"
-                    onclick="renderSpecialties()"
+                    onclick="continueToSpecialty()"
                 >
-                    ← Back
+                    ← Change Specialty
                 </button>
 
             </div>
 
         </div>
 
+        `;
+
+        return;
+
+    }
+
+
+    content.innerHTML = `
+
+    <div class="online-card">
+
+        <h2>
+            3. Select Doctor
+        </h2>
+
+        <p class="online-card-subtitle">
+            Available ${escapeHTML(specialty)} doctors.
+        </p>
+
+
+        <div class="doctor-list">
+
+            ${doctors.map(
+                doctor => `
+
+                <button
+                    class="doctor-card"
+                    onclick="selectDoctor('${doctor.id}')"
+                >
+
+                    <div class="doctor-avatar">
+                        👨‍⚕️
+                    </div>
+
+                    <strong>
+                        ${escapeHTML(doctor.name)}
+                    </strong>
+
+                    <span>
+                        ${escapeHTML(doctor.qualification)}
+                    </span>
+
+
+                    <div class="doctor-tags">
+
+                        <span class="doctor-tag">
+                            ${escapeHTML(doctor.experience)}
+                        </span>
+
+                        <span class="doctor-tag">
+                            ${escapeHTML(doctor.fee)}
+                        </span>
+
+                    </div>
+
+                </button>
+
+            `
+            ).join("")}
+
+        </div>
+
+
+        <div class="online-actions">
+
+            <button
+                class="online-secondary"
+                onclick="continueToSpecialty()"
+            >
+                ← Change Specialty
+            </button>
+
+        </div>
+
+    </div>
+
     `;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    DOCTOR PROFILE
-========================================================= */
+===================================================== */
 
 function selectDoctor(id){
 
-    consultationState.doctor =
+    const doctor =
         DOCTORS.find(
-            doctor =>
-            doctor.id === id
+            item =>
+            item.id === id
         );
+
+
+    if(!doctor){
+
+        return;
+
+    }
+
+
+    consultationState.doctor =
+        doctor;
 
 
     consultationState.date =
@@ -3210,179 +3532,178 @@ function renderDoctorProfile(){
 
     content.innerHTML = `
 
-        <div class="online-card">
+    <div class="online-card">
 
-            <h2>
-                3. Doctor Profile & Availability
-            </h2>
+        <h2>
+            4. Doctor Profile & Availability
+        </h2>
 
-            <p class="online-card-subtitle">
-                Review the doctor and select an available consultation slot.
-            </p>
-
-
-            <div class="doctor-profile">
-
-                <div>
-
-                    <div class="doctor-profile-avatar">
-                        👨‍⚕️
-                    </div>
-
-                </div>
+        <p class="online-card-subtitle">
+            Review the doctor and choose an available consultation time.
+        </p>
 
 
-                <div>
+        <div class="doctor-profile">
 
-                    <h2>
-                        ${doctor.name}
-                    </h2>
+            <div>
 
-                    <div class="doctor-qualification">
-                        ${doctor.qualification}
-                    </div>
-
-
-                    <div class="profile-grid">
-
-                        <div class="profile-detail">
-
-                            <small>
-                                Specialty
-                            </small>
-
-                            <strong>
-                                ${doctor.specialty}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-detail">
-
-                            <small>
-                                Experience
-                            </small>
-
-                            <strong>
-                                ${doctor.experience}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-detail">
-
-                            <small>
-                                Consultation Fee
-                            </small>
-
-                            <strong>
-                                ${doctor.fee}
-                            </strong>
-
-                        </div>
-
-
-                        <div class="profile-detail">
-
-                            <small>
-                                Consultation Type
-                            </small>
-
-                            <strong>
-                                Video Consultation
-                            </strong>
-
-                        </div>
-
-                    </div>
-
+                <div class="doctor-profile-avatar">
+                    👨‍⚕️
                 </div>
 
             </div>
 
 
-            <div class="availability">
+            <div>
 
-                <h3>
-                    Doctor's Availability
-                </h3>
+                <h2>
+                    ${escapeHTML(doctor.name)}
+                </h2>
 
-                <p>
-                    This doctor is available only during the
-                    displayed consultation period. Select an
-                    individual time slot.
-                </p>
-
-
-                <div class="date-buttons">
-
-                    <button
-                        id="todayBtn"
-                        class="date-button active"
-                        onclick="selectDate('today')"
-                    >
-                        Today<br>
-                        ${getDate(0)}
-                    </button>
-
-
-                    <button
-                        id="tomorrowBtn"
-                        class="date-button"
-                        onclick="selectDate('tomorrow')"
-                    >
-                        Tomorrow<br>
-                        ${getDate(1)}
-                    </button>
-
+                <div class="doctor-qualification">
+                    ${escapeHTML(doctor.qualification)}
                 </div>
 
 
-                <div id="slotContainer">
+                <div class="profile-grid">
 
-                    ${renderSlots(
-                        doctor.slotsToday
-                    )}
+                    <div class="profile-detail">
+
+                        <small>
+                            Specialty
+                        </small>
+
+                        <strong>
+                            ${escapeHTML(doctor.specialty)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            Experience
+                        </small>
+
+                        <strong>
+                            ${escapeHTML(doctor.experience)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            Consultation Fee
+                        </small>
+
+                        <strong>
+                            ${escapeHTML(doctor.fee)}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="profile-detail">
+
+                        <small>
+                            Mode
+                        </small>
+
+                        <strong>
+                            Video Consultation
+                        </strong>
+
+                    </div>
 
                 </div>
-
-            </div>
-
-
-            <div class="online-actions">
-
-                <button
-                    class="online-secondary"
-                    onclick="selectSpecialty('${doctor.specialty}')"
-                >
-                    ← Change Doctor
-                </button>
-
-
-                <button
-                    id="confirmButton"
-                    class="online-primary"
-                    onclick="confirmConsultation()"
-                    disabled
-                    style="opacity:.5;"
-                >
-                    Confirm Consultation
-                </button>
 
             </div>
 
         </div>
+
+
+        <div class="availability">
+
+            <h3>
+                Doctor's Availability
+            </h3>
+
+            <p>
+                Select a date and then select one of the
+                doctor's available consultation slots.
+            </p>
+
+
+            <div class="date-buttons">
+
+                <button
+                    id="todayButton"
+                    class="date-button active"
+                    onclick="selectConsultationDate('today')"
+                >
+                    Today<br>
+                    ${getDate(0)}
+                </button>
+
+
+                <button
+                    id="tomorrowButton"
+                    class="date-button"
+                    onclick="selectConsultationDate('tomorrow')"
+                >
+                    Tomorrow<br>
+                    ${getDate(1)}
+                </button>
+
+            </div>
+
+
+            <div id="slotContainer">
+
+                ${renderSlots(
+                    doctor.slotsToday
+                )}
+
+            </div>
+
+        </div>
+
+
+        <div class="online-actions">
+
+            <button
+                class="online-secondary"
+                onclick="selectSpecialty('${escapeJS(doctor.specialty)}')"
+            >
+                ← Change Doctor
+            </button>
+
+
+            <button
+                id="reviewButton"
+                class="online-primary"
+                onclick="reviewConsultation()"
+                disabled
+                style="opacity:.5;"
+            >
+                Review & Continue
+            </button>
+
+        </div>
+
+    </div>
 
     `;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    DATE
-========================================================= */
+===================================================== */
 
 function getDate(offset){
 
@@ -3407,7 +3728,7 @@ function getDate(offset){
 }
 
 
-function selectDate(date){
+function selectConsultationDate(date){
 
     consultationState.date =
         date;
@@ -3417,21 +3738,21 @@ function selectDate(date){
         "";
 
 
-    const todayBtn =
+    const todayButton =
         document.getElementById(
-            "todayBtn"
+            "todayButton"
         );
 
 
-    const tomorrowBtn =
+    const tomorrowButton =
         document.getElementById(
-            "tomorrowBtn"
+            "tomorrowButton"
         );
 
 
-    if(todayBtn){
+    if(todayButton){
 
-        todayBtn.classList.toggle(
+        todayButton.classList.toggle(
             "active",
             date === "today"
         );
@@ -3439,9 +3760,9 @@ function selectDate(date){
     }
 
 
-    if(tomorrowBtn){
+    if(tomorrowButton){
 
-        tomorrowBtn.classList.toggle(
+        tomorrowButton.classList.toggle(
             "active",
             date === "tomorrow"
         );
@@ -3453,47 +3774,66 @@ function selectDate(date){
         consultationState.doctor;
 
 
+    const slots =
+        date === "today"
+        ? doctor.slotsToday
+        : doctor.slotsTomorrow;
+
+
     document.getElementById(
         "slotContainer"
     ).innerHTML =
-        renderSlots(
-            date === "today"
-            ? doctor.slotsToday
-            : doctor.slotsTomorrow
+        renderSlots(slots);
+
+
+    const reviewButton =
+        document.getElementById(
+            "reviewButton"
         );
+
+
+    if(reviewButton){
+
+        reviewButton.disabled =
+            true;
+
+        reviewButton.style.opacity =
+            ".5";
+
+    }
 
 }
 
+
+/* =====================================================
+   SLOTS
+===================================================== */
 
 function renderSlots(slots){
 
     return `
 
-        <div class="slot-grid">
+    <div class="slot-grid">
 
-            ${slots.map(
-                slot => `
+        ${slots.map(
+            slot => `
 
-                <button
-                    class="slot-button"
-                    onclick="selectTime('${slot}',this)"
-                >
-                    ${slot}
-                </button>
+            <button
+                class="slot-button"
+                onclick="selectTime('${escapeJS(slot)}',this)"
+            >
+                ${escapeHTML(slot)}
+            </button>
 
-            `
-            ).join("")}
+        `
+        ).join("")}
 
-        </div>
+    </div>
 
     `;
 
 }
 
-
-/* =========================================================
-   TIME
-========================================================= */
 
 function selectTime(time,button){
 
@@ -3504,32 +3844,219 @@ function selectTime(time,button){
     document
         .querySelectorAll(".slot-button")
         .forEach(
-            b =>
-            b.classList.remove("active")
+            btn =>
+            btn.classList.remove("active")
         );
 
 
     button.classList.add("active");
 
 
-    const confirm =
+    const reviewButton =
         document.getElementById(
-            "confirmButton"
+            "reviewButton"
         );
 
 
-    confirm.disabled =
-        false;
+    if(reviewButton){
 
-    confirm.style.opacity =
-        "1";
+        reviewButton.disabled =
+            false;
+
+        reviewButton.style.opacity =
+            "1";
+
+    }
 
 }
 
 
-/* =========================================================
-   CONFIRM
-========================================================= */
+/* =====================================================
+   REVIEW
+===================================================== */
+
+function reviewConsultation(){
+
+    if(
+        !consultationState.doctor ||
+        !consultationState.time
+    ){
+
+        alert(
+            "Please select an available consultation time."
+        );
+
+        return;
+
+    }
+
+
+    const content =
+        document.getElementById(
+            "onlineConsultationContent"
+        );
+
+
+    const doctor =
+        consultationState.doctor;
+
+
+    const date =
+        consultationState.date ===
+        "tomorrow"
+        ? getDate(1)
+        : getDate(0);
+
+
+    content.innerHTML = `
+
+    <div class="online-card">
+
+        <h2>
+            5. Review Consultation
+        </h2>
+
+        <p class="online-card-subtitle">
+            Please review the details before submitting your consultation request.
+        </p>
+
+
+        <div class="review-box">
+
+            <div class="review-row">
+
+                <span>
+                    Patient
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        getCurrentPatient().name
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Luvio Patient ID
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        getCurrentPatient().patientID
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Specialty
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        doctor.specialty
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Doctor
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        doctor.name
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Date
+                </span>
+
+                <strong>
+                    ${escapeHTML(date)}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Time
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        consultationState.time
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="review-row">
+
+                <span>
+                    Consultation Fee
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        doctor.fee
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="online-actions">
+
+            <button
+                class="online-secondary"
+                onclick="renderDoctorProfile()"
+            >
+                ← Change Time
+            </button>
+
+
+            <button
+                class="online-primary"
+                onclick="confirmConsultation()"
+            >
+                Confirm Consultation
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   CONFIRM CONSULTATION
+===================================================== */
 
 function confirmConsultation(){
 
@@ -3548,21 +4075,13 @@ function confirmConsultation(){
     }
 
 
-    if(!consultationState.doctor){
+    if(
+        !consultationState.doctor ||
+        !consultationState.time
+    ){
 
         alert(
-            "Please select a doctor."
-        );
-
-        return;
-
-    }
-
-
-    if(!consultationState.time){
-
-        alert(
-            "Please select an available time slot."
+            "Please complete the consultation details."
         );
 
         return;
@@ -3572,7 +4091,8 @@ function confirmConsultation(){
 
     if(!patient.consultationRequests){
 
-        patient.consultationRequests = [];
+        patient.consultationRequests =
+            [];
 
     }
 
@@ -3580,7 +4100,8 @@ function confirmConsultation(){
     const request = {
 
         id:
-            "OC-" + Date.now(),
+            "OC-" +
+            Date.now(),
 
         doctor:
             consultationState.doctor.name,
@@ -3592,12 +4113,13 @@ function confirmConsultation(){
             consultationState.doctor.specialty,
 
         date:
-            getDate(
-                consultationState.date ===
-                "tomorrow"
-                ? 1
-                : 0
-            ),
+            consultationState.date ===
+            "tomorrow"
+            ? getDate(1)
+            : getDate(0),
+
+        dateKey:
+            consultationState.date,
 
         time:
             consultationState.time,
@@ -3628,6 +4150,9 @@ function confirmConsultation(){
         type:
             "Online Consultation",
 
+        consultationID:
+            request.id,
+
         doctor:
             request.doctor,
 
@@ -3641,10 +4166,7 @@ function confirmConsultation(){
             request.time,
 
         status:
-            request.status,
-
-        consultationID:
-            request.id
+            request.status
 
     });
 
@@ -3664,9 +4186,37 @@ function confirmConsultation(){
 }
 
 
-/* =========================================================
-   WAITING
-========================================================= */
+/* =====================================================
+   GET PENDING
+===================================================== */
+
+function getPendingConsultation(patient){
+
+    if(
+        !patient ||
+        !patient.consultationRequests
+    ){
+
+        return null;
+
+    }
+
+
+    return patient.consultationRequests
+        .slice()
+        .reverse()
+        .find(
+            request =>
+            request.status ===
+            "Waiting for Doctor's Confirmation"
+        ) || null;
+
+}
+
+
+/* =====================================================
+   WAITING SCREEN
+===================================================== */
 
 function renderWaiting(request){
 
@@ -3678,168 +4228,438 @@ function renderWaiting(request){
 
     content.innerHTML = `
 
-        <div class="waiting-box">
+    <div class="waiting-box">
 
-            <div class="waiting-title">
-                Consultation Request Submitted
-            </div>
-
-            <p style="
-                color:#706d5d;
-                margin-top:7px;
-                font-size:13px;
-            ">
-                Your consultation request has been sent
-                to the doctor.
-            </p>
+        <div class="waiting-title">
+            Consultation Request Submitted
+        </div>
 
 
-            <div class="waiting-status">
-                🟡 Waiting for Doctor's Confirmation
-            </div>
+        <p style="
+            color:#706d5d;
+            font-size:13px;
+            margin-top:5px;
+        ">
+            Your online consultation request has been sent
+            to the doctor.
+        </p>
 
 
-            <div class="consultation-details">
-
-                <div class="consultation-detail">
-
-                    <small>
-                        Doctor
-                    </small>
-
-                    <strong>
-                        ${request.doctor}
-                    </strong>
-
-                </div>
+        <div class="waiting-status">
+            🟡 Waiting for Doctor's Confirmation
+        </div>
 
 
-                <div class="consultation-detail">
+        <div class="consultation-details">
 
-                    <small>
-                        Specialty
-                    </small>
+            <div class="consultation-detail">
 
-                    <strong>
-                        ${request.specialty}
-                    </strong>
+                <small>
+                    Doctor
+                </small>
 
-                </div>
-
-
-                <div class="consultation-detail">
-
-                    <small>
-                        Date
-                    </small>
-
-                    <strong>
-                        ${request.date}
-                    </strong>
-
-                </div>
-
-
-                <div class="consultation-detail">
-
-                    <small>
-                        Time
-                    </small>
-
-                    <strong>
-                        ${request.time}
-                    </strong>
-
-                </div>
-
-
-                <div class="consultation-detail">
-
-                    <small>
-                        Request ID
-                    </small>
-
-                    <strong>
-                        ${request.id}
-                    </strong>
-
-                </div>
-
-
-                <div class="consultation-detail">
-
-                    <small>
-                        Status
-                    </small>
-
-                    <strong>
-                        Waiting for Doctor's Confirmation
-                    </strong>
-
-                </div>
+                <strong>
+                    ${escapeHTML(
+                        request.doctor
+                    )}
+                </strong>
 
             </div>
 
 
-            <div class="online-actions">
+            <div class="consultation-detail">
 
-                <button
-                    class="online-secondary"
-                    onclick="showPageById('dashboard')"
-                >
-                    ← Back to Dashboard
-                </button>
+                <small>
+                    Specialty
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.specialty
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Date
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.date
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Time
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.time
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Request ID
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.id
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Status
+                </small>
+
+                <strong>
+                    Waiting for Doctor's Confirmation
+                </strong>
 
             </div>
 
         </div>
 
 
-        <div
-            class="online-card"
-            style="margin-top:20px;"
-        >
+        <div class="cancel-warning">
 
-            <h2>
-                What happens next?
-            </h2>
-
-            <p class="online-card-subtitle">
-
-                The doctor will review your request.
-                Once the Doctor Portal is connected,
-                the doctor will be able to confirm or
-                decline the consultation.
-
-            </p>
-
-
-            <div style="
-                color:#647c85;
-                font-size:13px;
-                line-height:2;
-            ">
-
-                ✓ Consultation request submitted<br>
-
-                🟡 Waiting for doctor's confirmation<br>
-
-                ○ Consultation link after confirmation<br>
-
-                ○ Consultation record stored in your health record
-
-            </div>
+            You can cancel this request while it is
+            waiting for the doctor's confirmation.
 
         </div>
+
+
+        <div class="online-actions">
+
+            <button
+                class="online-secondary"
+                onclick="showPageById('dashboard')"
+            >
+                ← Back to Dashboard
+            </button>
+
+
+            <button
+                class="cancel-button"
+                onclick="cancelConsultationRequest('${request.id}')"
+            >
+                ✕ Cancel Request
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        class="online-card"
+        style="margin-top:18px;"
+    >
+
+        <h2>
+            What happens next?
+        </h2>
+
+        <p class="online-card-subtitle">
+
+            The doctor will review your request.
+            Once the Doctor Portal is connected,
+            the doctor will be able to confirm or
+            decline the consultation.
+
+        </p>
+
+
+        <div style="
+            color:#647c85;
+            font-size:13px;
+            line-height:2;
+        ">
+
+            ✓ Request submitted<br>
+
+            🟡 Waiting for doctor's confirmation<br>
+
+            ○ Consultation link after confirmation<br>
+
+            ○ Prescription stored in your health record
+
+        </div>
+
+    </div>
 
     `;
 
 }
 
 
-/* =========================================================
-   DASHBOARD CONSULTATION
-========================================================= */
+/* =====================================================
+   CANCEL REQUEST
+===================================================== */
+
+function cancelConsultationRequest(requestID){
+
+    const patient =
+        getCurrentPatient();
+
+
+    if(!patient){
+
+        alert(
+            "Please login again."
+        );
+
+        return;
+
+    }
+
+
+    const request =
+        (patient.consultationRequests || [])
+            .find(
+                item =>
+                item.id === requestID
+            );
+
+
+    if(!request){
+
+        alert(
+            "Consultation request not found."
+        );
+
+        return;
+
+    }
+
+
+    if(
+        request.status !==
+        "Waiting for Doctor's Confirmation"
+    ){
+
+        alert(
+            "This consultation request can no longer be cancelled."
+        );
+
+        return;
+
+    }
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to cancel this online consultation request?"
+        );
+
+
+    if(!confirmed){
+
+        return;
+
+    }
+
+
+    request.status =
+        "Cancelled by Patient";
+
+
+    request.cancelledAt =
+        new Date().toISOString();
+
+
+    /*
+       Update corresponding appointment.
+    */
+
+    if(patient.appointments){
+
+        patient.appointments.forEach(
+            appointment => {
+
+                if(
+                    appointment.consultationID ===
+                    requestID
+                ){
+
+                    appointment.status =
+                        "Cancelled by Patient";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    updateCurrentPatient(
+        patient
+    );
+
+
+    renderCancelled(
+        request
+    );
+
+
+    renderDashboardConsultation();
+
+}
+
+
+/* =====================================================
+   CANCELLED SCREEN
+===================================================== */
+
+function renderCancelled(request){
+
+    const content =
+        document.getElementById(
+            "onlineConsultationContent"
+        );
+
+
+    content.innerHTML = `
+
+    <div class="cancelled-box">
+
+        <h2 style="
+            color:#555;
+            font-size:21px;
+        ">
+            Consultation Request Cancelled
+        </h2>
+
+
+        <p style="
+            color:#777;
+            font-size:13px;
+            margin-top:6px;
+        ">
+            Your online consultation request has been cancelled.
+        </p>
+
+
+        <div class="cancelled-status">
+            Consultation Cancelled
+        </div>
+
+
+        <div class="consultation-details">
+
+            <div class="consultation-detail">
+
+                <small>
+                    Doctor
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.doctor
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Specialty
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.specialty
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Date
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.date
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="consultation-detail">
+
+                <small>
+                    Time
+                </small>
+
+                <strong>
+                    ${escapeHTML(
+                        request.time
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="online-actions">
+
+            <button
+                class="online-secondary"
+                onclick="showPageById('dashboard')"
+            >
+                ← Dashboard
+            </button>
+
+
+            <button
+                class="online-primary"
+                onclick="openLoggedInOnlineConsultation()"
+            >
+                Book New Consultation
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   DASHBOARD CONSULTATION CARD
+===================================================== */
 
 function renderDashboardConsultation(){
 
@@ -3853,7 +4673,7 @@ function renderDashboardConsultation(){
         );
 
 
-    if(!card || !patient){
+    if(!patient || !card){
 
         return;
 
@@ -3874,36 +4694,6 @@ function renderDashboardConsultation(){
 
         card.innerHTML = `
 
-            <div>
-
-                <h3>
-                    🩺 Online Consultation
-                </h3>
-
-                <p>
-                    Consult an available doctor online using
-                    your existing Luvio patient record.
-                </p>
-
-            </div>
-
-
-            <button
-                class="online-primary"
-                onclick="openLoggedInOnlineConsultation()"
-            >
-                Start Online Consultation
-            </button>
-
-        `;
-
-        return;
-
-    }
-
-
-    card.innerHTML = `
-
         <div>
 
             <h3>
@@ -3911,24 +4701,8 @@ function renderDashboardConsultation(){
             </h3>
 
             <p>
-                ${latest.doctor}
-                ·
-                ${latest.specialty}
-                ·
-                ${latest.date}
-                ·
-                ${latest.time}
-            </p>
-
-            <p style="
-                margin-top:7px;
-                color:#715d09;
-                font-weight:800;
-                font-size:12px;
-            ">
-
-                🟡 ${latest.status}
-
+                Consult an available doctor online using
+                your Luvio health record.
             </p>
 
         </div>
@@ -3938,17 +4712,96 @@ function renderDashboardConsultation(){
             class="online-primary"
             onclick="openLoggedInOnlineConsultation()"
         >
-            View Request
+            Start Online Consultation
         </button>
+
+        `;
+
+        return;
+
+    }
+
+
+    let statusText =
+        latest.status;
+
+
+    let statusColor =
+        "#715d09";
+
+
+    if(
+        latest.status ===
+        "Cancelled by Patient"
+    ){
+
+        statusColor =
+            "#777";
+
+    }
+
+
+    card.innerHTML = `
+
+    <div>
+
+        <h3>
+            🩺 Online Consultation
+        </h3>
+
+        <p>
+            ${escapeHTML(
+                latest.doctor
+            )}
+            ·
+            ${escapeHTML(
+                latest.specialty
+            )}
+            ·
+            ${escapeHTML(
+                latest.date
+            )}
+            ·
+            ${escapeHTML(
+                latest.time
+            )}
+        </p>
+
+
+        <p style="
+            margin-top:7px;
+            color:${statusColor};
+            font-weight:800;
+            font-size:12px;
+        ">
+
+            ${latest.status ===
+              "Waiting for Doctor's Confirmation"
+              ? "🟡"
+              : "•"}
+
+            ${escapeHTML(statusText)}
+
+        </p>
+
+    </div>
+
+
+    <button
+        class="online-primary"
+        onclick="openLoggedInOnlineConsultation()"
+    >
+        View Consultation
+    </button>
 
     `;
 
 }
 
 
-/* =========================================================
+/* =====================================================
    APPOINTMENTS
-========================================================= */
+===================================================== */
 
 function renderAppointments(){
 
@@ -3973,7 +4826,13 @@ function renderAppointments(){
         );
 
 
-    if(!container){
+    const list =
+        document.getElementById(
+            "appointmentList"
+        );
+
+
+    if(!container || !list){
 
         return;
 
@@ -3984,6 +4843,18 @@ function renderAppointments(){
 
         container.innerHTML = "";
 
+
+        list.innerHTML = `
+
+        <div
+            class="data-row"
+            style="grid-template-columns:1fr;"
+        >
+            No appointments available.
+        </div>
+
+        `;
+
         return;
 
     }
@@ -3991,84 +4862,244 @@ function renderAppointments(){
 
     container.innerHTML = `
 
-        <div
-            class="online-card"
-            style="margin-bottom:20px;"
-        >
+    <div
+        class="online-card"
+        style="margin-bottom:20px;"
+    >
 
-            <h2>
-                🩺 Online Consultation Requests
-            </h2>
+        <h2>
+            🩺 Online Consultation Requests
+        </h2>
 
-            <p class="online-card-subtitle">
-                Your online consultation requests and their status.
-            </p>
+        <p class="online-card-subtitle">
+            Your online consultation requests and their current status.
+        </p>
 
 
-            ${requests
-                .slice()
-                .reverse()
-                .map(
-                    request => `
+        ${requests
+            .slice()
+            .reverse()
+            .map(
+                request => `
 
-                    <div
-                        style="
-                            border:1px solid #dfebee;
-                            border-radius:11px;
-                            padding:15px;
-                            margin-bottom:10px;
-                        "
+                <div
+                    style="
+                        border:1px solid #dfeaec;
+                        border-radius:10px;
+                        padding:14px;
+                        margin-bottom:9px;
+                    "
+                >
+
+                <strong
+                    style="color:#285064;"
+                >
+                    ${escapeHTML(
+                        request.doctor
+                    )}
+                </strong>
+
+
+                <div
+                    style="
+                        color:#7b8d96;
+                        font-size:12px;
+                        margin-top:4px;
+                    "
+                >
+
+                    ${escapeHTML(
+                        request.specialty
+                    )}
+
+                    ·
+
+                    ${escapeHTML(
+                        request.date
+                    )}
+
+                    ·
+
+                    ${escapeHTML(
+                        request.time
+                    )}
+
+                </div>
+
+
+                <div
+                    style="
+                        margin-top:7px;
+                        color:${
+                            request.status ===
+                            "Waiting for Doctor's Confirmation"
+                            ? "#715d09"
+                            : "#777"
+                        };
+                        font-size:11px;
+                        font-weight:800;
+                    "
+                >
+
+                    ${
+                        request.status ===
+                        "Waiting for Doctor's Confirmation"
+                        ? "🟡"
+                        : "•"
+                    }
+
+                    ${escapeHTML(
+                        request.status
+                    )}
+
+                </div>
+
+
+                ${
+                    request.status ===
+                    "Waiting for Doctor's Confirmation"
+
+                    ? `
+
+                    <button
+                        class="cancel-button"
+                        style="margin-top:10px;"
+                        onclick="cancelConsultationRequest('${request.id}')"
                     >
+                        ✕ Cancel Request
+                    </button>
 
-                        <strong
-                            style="color:#285064;"
-                        >
-                            ${request.doctor}
-                        </strong>
+                    `
 
+                    : ""
 
-                        <div
-                            style="
-                                color:#7b8d96;
-                                font-size:12px;
-                                margin-top:4px;
-                            "
-                        >
-                            ${request.specialty}
-                            ·
-                            ${request.date}
-                            ·
-                            ${request.time}
-                        </div>
+                }
+
+                </div>
+
+            `
+            )
+            .join("")}
+
+    </div>
+
+    `;
 
 
-                        <div
-                            style="
-                                margin-top:8px;
-                                color:#715d09;
-                                font-size:12px;
-                                font-weight:800;
-                            "
-                        >
-                            🟡 ${request.status}
-                        </div>
+    /*
+       Normal appointments
+    */
+
+    const appointments =
+        patient.appointments || [];
+
+
+    if(!appointments.length){
+
+        list.innerHTML = `
+
+        <div
+            class="data-row"
+            style="grid-template-columns:1fr;"
+        >
+            No appointments available.
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        appointments
+            .slice()
+            .reverse()
+            .map(
+                appointment => `
+
+                <div class="data-row">
+
+                    <div>
+                        ${escapeHTML(
+                            appointment.type ||
+                            "Appointment"
+                        )}
+                    </div>
+
+                    <div>
+                        ${escapeHTML(
+                            appointment.doctor ||
+                            "—"
+                        )}
+                    </div>
+
+                    <div>
+                        ${escapeHTML(
+                            appointment.date ||
+                            "—"
+                        )}
+
+                        ${
+                            appointment.time
+                            ? " · " +
+                              escapeHTML(
+                                  appointment.time
+                              )
+                            : ""
+                        }
 
                     </div>
 
-                `
-                )
-                .join("")}
+                    <div>
+                        ${escapeHTML(
+                            appointment.status ||
+                            "—"
+                        )}
+                    </div>
 
-        </div>
+                </div>
 
-    `;
+            `
+            )
+            .join("");
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJS(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+/* =====================================================
    LOGOUT
-========================================================= */
+===================================================== */
 
 function logout(){
 
@@ -4079,17 +5110,20 @@ function logout(){
 
     document.getElementById(
         "app"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "entryScreen"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
 
     document.getElementById(
         "entryOptions"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     hideAllForms();
@@ -4097,9 +5131,9 @@ function logout(){
 }
 
 
-/* =========================================================
-   INITIAL LOAD
-========================================================= */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 window.addEventListener(
     "load",
