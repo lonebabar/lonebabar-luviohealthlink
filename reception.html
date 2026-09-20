@@ -1,0 +1,3894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Luvio HealthLink | Reception Portal</title>
+
+<style>
+
+/* =====================================================
+   BASE
+===================================================== */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f4f8f9;
+    color:#234653;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.hidden{
+    display:none!important;
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+#loginScreen{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #edf9f7,
+            #f5fafb
+        );
+}
+
+.login-card{
+    width:100%;
+    max-width:460px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 15px 45px
+        rgba(20,70,85,.12);
+}
+
+.login-logo{
+    width:72px;
+    height:72px;
+
+    object-fit:contain;
+
+    display:block;
+
+    margin:0 auto 12px;
+}
+
+.login-card h1{
+    text-align:center;
+
+    color:#173f52;
+
+    font-size:29px;
+}
+
+.login-card h1 span{
+    color:#087b77;
+}
+
+.login-subtitle{
+    text-align:center;
+
+    color:#7d8f97;
+
+    font-size:13px;
+
+    margin:7px 0 25px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#496875;
+
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+
+    border:1px solid #d4e2e6;
+
+    border-radius:9px;
+
+    padding:11px;
+
+    background:white;
+
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:#087b77;
+}
+
+.primary-button{
+    width:100%;
+
+    border:0;
+
+    background:#087b77;
+
+    color:white;
+
+    padding:13px;
+
+    border-radius:9px;
+
+    font-weight:800;
+}
+
+.secondary-button{
+    width:100%;
+
+    border:1px solid #d5e2e5;
+
+    background:white;
+
+    color:#315b6b;
+
+    padding:12px;
+
+    border-radius:9px;
+
+    font-weight:700;
+
+    margin-top:10px;
+}
+
+
+/* =====================================================
+   APPLICATION
+===================================================== */
+
+#app{
+    display:none;
+
+    min-height:100vh;
+}
+
+.topbar{
+    height:70px;
+
+    background:white;
+
+    border-bottom:1px solid #e0eaed;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 25px;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:30;
+}
+
+.brand{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    text-decoration:none;
+}
+
+.brand img{
+    width:43px;
+    height:43px;
+
+    object-fit:contain;
+}
+
+.brand-name{
+    color:#173f52;
+
+    font-size:20px;
+
+    font-weight:800;
+}
+
+.brand-name span{
+    color:#087b77;
+}
+
+.user-area{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+}
+
+.user-info{
+    text-align:right;
+}
+
+.user-info strong{
+    display:block;
+
+    color:#315465;
+
+    font-size:13px;
+}
+
+.user-info small{
+    color:#8a999f;
+
+    font-size:11px;
+}
+
+.avatar{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:#e5f6f3;
+
+    color:#087b77;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:800;
+}
+
+.layout{
+    display:flex;
+
+    min-height:
+        calc(100vh - 70px);
+}
+
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sidebar{
+    width:245px;
+
+    flex-shrink:0;
+
+    background:#173f52;
+
+    padding:20px 12px;
+}
+
+.sidebar-title{
+    color:#9fc4ca;
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.4px;
+
+    padding:8px 13px;
+}
+
+.nav-button{
+    width:100%;
+
+    border:0;
+
+    background:transparent;
+
+    color:#d7e8eb;
+
+    padding:12px 13px;
+
+    text-align:left;
+
+    border-radius:9px;
+
+    margin-bottom:3px;
+
+    font-size:13px;
+}
+
+.nav-button:hover,
+.nav-button.active{
+    background:#25586a;
+
+    color:white;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+    flex:1;
+
+    min-width:0;
+
+    padding:28px;
+}
+
+.page{
+    display:none;
+
+    max-width:1150px;
+
+    margin:auto;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-title{
+    color:#173f52;
+
+    font-size:28px;
+
+    margin-bottom:6px;
+}
+
+.page-subtitle{
+    color:#7b8d96;
+
+    font-size:13px;
+
+    margin-bottom:22px;
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+.welcome{
+    margin-bottom:22px;
+}
+
+.welcome h1{
+    color:#173f52;
+
+    font-size:28px;
+}
+
+.welcome p{
+    color:#7b8d96;
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+.summary-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+}
+
+.summary-card{
+    background:white;
+
+    border:1px solid #e0eaed;
+
+    border-radius:13px;
+
+    padding:19px;
+}
+
+.summary-card span{
+    color:#83949c;
+
+    font-size:12px;
+}
+
+.summary-card strong{
+    display:block;
+
+    color:#234e61;
+
+    font-size:27px;
+
+    margin-top:8px;
+}
+
+
+/* =====================================================
+   PANELS
+===================================================== */
+
+.panel{
+    background:white;
+
+    border:1px solid #e0eaed;
+
+    border-radius:14px;
+
+    padding:21px;
+
+    margin-top:20px;
+}
+
+.panel h2{
+    color:#254e60;
+
+    font-size:18px;
+
+    margin-bottom:14px;
+}
+
+
+/* =====================================================
+   REGISTRATION
+===================================================== */
+
+.registration-card{
+    background:white;
+
+    border:1px solid #dfeaec;
+
+    border-radius:15px;
+
+    padding:24px;
+}
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:15px;
+}
+
+.form-grid .full{
+    grid-column:1 / -1;
+}
+
+.section-label{
+    color:#315566;
+
+    font-size:15px;
+
+    font-weight:800;
+
+    margin:
+        5px 0 15px;
+}
+
+
+/* =====================================================
+   VITALS
+===================================================== */
+
+.vitals-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:12px;
+}
+
+.vital-field{
+    background:#f7fbfc;
+
+    border:1px solid #dfeaec;
+
+    border-radius:10px;
+
+    padding:12px;
+}
+
+.vital-field label{
+    display:block;
+
+    color:#66808b;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+}
+
+.vital-field input{
+    width:100%;
+
+    border:1px solid #d4e2e6;
+
+    border-radius:8px;
+
+    padding:10px;
+
+    background:white;
+
+    outline:none;
+}
+
+.vital-field input:focus{
+    border-color:#087b77;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-box{
+    display:flex;
+
+    gap:10px;
+}
+
+.search-box input{
+    flex:1;
+
+    border:1px solid #d4e2e6;
+
+    border-radius:9px;
+
+    padding:11px;
+
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#087b77;
+}
+
+.search-button{
+    border:0;
+
+    background:#087b77;
+
+    color:white;
+
+    border-radius:9px;
+
+    padding:
+        0 20px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   PATIENT CARDS
+===================================================== */
+
+.patient-card{
+    background:white;
+
+    border:1px solid #dfeaec;
+
+    border-radius:13px;
+
+    padding:17px;
+
+    margin-top:11px;
+}
+
+.patient-card:hover{
+    border-color:#087b77;
+}
+
+.patient-card-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    gap:15px;
+}
+
+.patient-card h3{
+    color:#285064;
+
+    font-size:16px;
+}
+
+.patient-card p{
+    color:#7d8f97;
+
+    font-size:12px;
+
+    margin-top:4px;
+}
+
+.patient-id{
+    background:#edf9f7;
+
+    color:#087b77;
+
+    padding:8px 11px;
+
+    border-radius:8px;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.card-actions{
+    display:flex;
+
+    gap:9px;
+
+    margin-top:14px;
+
+    padding-top:13px;
+
+    border-top:
+        1px solid #e8eef0;
+}
+
+.open-button{
+    border:0;
+
+    background:#087b77;
+
+    color:white;
+
+    padding:10px 16px;
+
+    border-radius:8px;
+
+    font-weight:800;
+}
+
+.secondary-small{
+    border:1px solid #d2e1e5;
+
+    background:white;
+
+    color:#315b6b;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   QUEUE
+===================================================== */
+
+.queue-row{
+    display:grid;
+
+    grid-template-columns:
+        55px 1.4fr 1fr 1fr 1fr;
+
+    gap:12px;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+    border-bottom:
+        1px solid #edf2f3;
+
+    font-size:12px;
+}
+
+.queue-row:last-child{
+    border-bottom:0;
+}
+
+.queue-header{
+    background:#f6fafb;
+
+    color:#66808b;
+
+    font-size:10px;
+
+    font-weight:800;
+}
+
+.queue-number{
+    color:#087b77;
+
+    font-weight:800;
+}
+
+.status{
+    font-weight:800;
+}
+
+.status-waiting{
+    color:#80690b;
+}
+
+.status-in{
+    color:#087b77;
+}
+
+.status-completed{
+    color:#23733d;
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.success-card{
+    background:white;
+
+    border:1px solid #dcebe6;
+
+    border-radius:16px;
+
+    padding:35px;
+
+    text-align:center;
+
+    max-width:650px;
+
+    margin:30px auto;
+}
+
+.success-icon{
+    width:60px;
+    height:60px;
+
+    margin:0 auto 15px;
+
+    border-radius:50%;
+
+    background:#e3f7e9;
+
+    color:#23733d;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+}
+
+.success-card h2{
+    color:#173f52;
+
+    font-size:23px;
+}
+
+.success-card p{
+    color:#71858e;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    margin-top:8px;
+}
+
+.id-display{
+    background:#edf9f7;
+
+    border-radius:11px;
+
+    padding:16px;
+
+    margin-top:20px;
+
+    color:#087b77;
+
+    font-size:20px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
+
+.empty-state{
+    text-align:center;
+
+    padding:35px 20px;
+
+    color:#81919a;
+
+    font-size:13px;
+}
+
+.empty-icon{
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal-overlay{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+        rgba(15,48,58,.55);
+
+    z-index:200;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal-overlay.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+
+    max-width:620px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:17px;
+
+    padding:25px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.2);
+}
+
+.modal h2{
+    color:#173f52;
+
+    font-size:21px;
+}
+
+.modal p{
+    color:#71858e;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-top:6px;
+}
+
+.modal-actions{
+    display:flex;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.modal-actions button{
+    flex:1;
+
+    padding:11px;
+
+    border-radius:8px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    .summary-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .vitals-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .sidebar{
+        width:215px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .layout{
+        display:block;
+    }
+
+    .sidebar{
+        width:100%;
+
+        display:flex;
+
+        overflow-x:auto;
+
+        padding:8px;
+
+        position:sticky;
+
+        top:70px;
+
+        z-index:20;
+    }
+
+    .sidebar-title{
+        display:none;
+    }
+
+    .nav-button{
+        min-width:max-content;
+
+        margin:0 3px;
+    }
+
+    .content{
+        padding:18px;
+    }
+
+    .summary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid .full{
+        grid-column:auto;
+    }
+
+    .vitals-grid{
+        grid-template-columns:1fr;
+    }
+
+    .user-info{
+        display:none;
+    }
+
+    .patient-card-header{
+        flex-direction:column;
+    }
+
+    .queue-row{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .queue-header{
+        display:none;
+    }
+
+    .search-box{
+        flex-direction:column;
+    }
+
+    .search-button{
+        padding:11px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<div id="loginScreen">
+
+<div class="login-card">
+
+<img
+    src="luvio-logo.jpeg"
+    class="login-logo"
+    alt="Luvio HealthLink"
+>
+
+
+<h1>
+    Luvio <span>HealthLink</span>
+</h1>
+
+<p class="login-subtitle">
+    Reception Portal
+</p>
+
+
+<div class="form-group">
+
+<label>
+    Reception ID
+</label>
+
+<input
+    id="receptionLoginID"
+    type="text"
+    placeholder="Enter Reception ID"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Password
+</label>
+
+<input
+    id="receptionPassword"
+    type="password"
+    placeholder="Enter password"
+>
+
+</div>
+
+
+<button
+    class="primary-button"
+    onclick="receptionLogin()"
+>
+    Login to Reception Portal
+</button>
+
+
+<a
+    href="index.html"
+    class="secondary-button"
+    style="
+        display:block;
+        text-align:center;
+    "
+>
+    ← Back to Luvio HealthLink
+</a>
+
+
+<p style="
+    text-align:center;
+    color:#91a0a6;
+    font-size:10px;
+    margin-top:18px;
+">
+
+Demo Login:<br>
+
+Reception ID:
+<strong>
+REC001
+</strong>
+
+<br>
+
+Password:
+<strong>
+123456
+</strong>
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     APPLICATION
+===================================================== -->
+
+<div id="app">
+
+
+<!-- TOPBAR -->
+
+<header class="topbar">
+
+<a
+    href="index.html"
+    class="brand"
+>
+
+<img
+    src="luvio-logo.jpeg"
+    alt="Luvio HealthLink"
+>
+
+<div class="brand-name">
+    Luvio <span>HealthLink</span>
+</div>
+
+</a>
+
+
+<div class="user-area">
+
+<div class="user-info">
+
+<strong>
+    Reception
+</strong>
+
+<small>
+    Polyclinic Registration
+</small>
+
+</div>
+
+
+<div class="avatar">
+    R
+</div>
+
+</div>
+
+</header>
+
+
+<div class="layout">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+<div class="sidebar-title">
+    Reception
+</div>
+
+
+<button
+    class="nav-button active"
+    onclick="showPage('dashboard',this)"
+>
+    🏠 Dashboard
+</button>
+
+
+<button
+    class="nav-button"
+    onclick="showPage('new-patient',this)"
+>
+    👤 New Patient
+</button>
+
+
+<button
+    class="nav-button"
+    onclick="showPage('search-patient',this)"
+>
+    🔎 Search Patient
+</button>
+
+
+<button
+    class="nav-button"
+    onclick="showPage('queue',this)"
+>
+    👥 Today's Queue
+</button>
+
+
+<div class="sidebar-title">
+    Reception
+</div>
+
+
+<button
+    class="nav-button"
+    onclick="receptionLogout()"
+>
+    ↪ Logout
+</button>
+
+</aside>
+
+
+<!-- =====================================================
+     CONTENT
+===================================================== -->
+
+<main class="content">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    id="dashboard"
+    class="page active"
+>
+
+<div class="welcome">
+
+<h1>
+    Reception Dashboard
+</h1>
+
+<p>
+    Register patients, record vitals and assign them to the appropriate doctor.
+</p>
+
+</div>
+
+
+<div class="summary-grid">
+
+
+<div class="summary-card">
+
+<span>
+    Total Patients
+</span>
+
+<strong id="totalPatients">
+    0
+</strong>
+
+</div>
+
+
+<div class="summary-card">
+
+<span>
+    Today's Registrations
+</span>
+
+<strong id="todayRegistrations">
+    0
+</strong>
+
+</div>
+
+
+<div class="summary-card">
+
+<span>
+    Waiting Patients
+</span>
+
+<strong id="waitingCount">
+    0
+</strong>
+
+</div>
+
+
+<div class="summary-card">
+
+<span>
+    Doctors Available
+</span>
+
+<strong>
+    4
+</strong>
+
+</div>
+
+
+</div>
+
+
+<div class="panel">
+
+<h2>
+    Quick Registration
+</h2>
+
+<p style="
+    color:#71858e;
+    font-size:13px;
+    line-height:1.6;
+">
+
+For a patient visiting the polyclinic,
+search for an existing Luvio Patient ID first.
+If no record exists, create a new patient record,
+record their vitals and assign the appropriate doctor.
+
+</p>
+
+
+<button
+    class="primary-button"
+    style="margin-top:16px;"
+    onclick="showPage('new-patient')"
+>
+    + Register New Patient
+</button>
+
+</div>
+
+
+<div class="panel">
+
+<h2>
+    Today's Queue
+</h2>
+
+<div id="dashboardQueue">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     NEW PATIENT
+===================================================== -->
+
+<section
+    id="new-patient"
+    class="page"
+>
+
+<h1 class="page-title">
+    Register Patient
+</h1>
+
+<p class="page-subtitle">
+    Create a new Luvio Patient ID and prepare the patient for consultation.
+</p>
+
+
+<div class="registration-card">
+
+
+<div class="section-label">
+    1. Patient Information
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label>
+    Full Name *
+</label>
+
+<input
+    id="patientName"
+    type="text"
+    placeholder="Patient full name"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Date of Birth
+</label>
+
+<input
+    id="patientDOB"
+    type="date"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Gender
+</label>
+
+<select id="patientGender">
+
+<option value="">
+    Select Gender
+</option>
+
+<option>
+    Male
+</option>
+
+<option>
+    Female
+</option>
+
+<option>
+    Other
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Mobile Number *
+</label>
+
+<input
+    id="patientMobile"
+    type="tel"
+    placeholder="10-digit mobile number"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Email
+</label>
+
+<input
+    id="patientEmail"
+    type="email"
+    placeholder="Email address"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Emergency Contact
+</label>
+
+<input
+    id="patientEmergency"
+    type="tel"
+    placeholder="Emergency contact"
+>
+
+</div>
+
+
+<div class="form-group full">
+
+<label>
+    Address
+</label>
+
+<textarea
+    id="patientAddress"
+    placeholder="Patient address"
+    rows="3"
+></textarea>
+
+</div>
+
+
+</div>
+
+
+<div class="section-label" style="margin-top:25px;">
+    2. Today's Vitals
+</div>
+
+
+<div class="vitals-grid">
+
+
+<div class="vital-field">
+
+<label>
+    Blood Pressure
+</label>
+
+<input
+    id="vitalBP"
+    type="text"
+    placeholder="e.g. 120/80 mmHg"
+>
+
+</div>
+
+
+<div class="vital-field">
+
+<label>
+    Pulse
+</label>
+
+<input
+    id="vitalPulse"
+    type="text"
+    placeholder="e.g. 72 bpm"
+>
+
+</div>
+
+
+<div class="vital-field">
+
+<label>
+    SpO₂
+</label>
+
+<input
+    id="vitalSpO2"
+    type="text"
+    placeholder="e.g. 98%"
+>
+
+</div>
+
+
+<div class="vital-field">
+
+<label>
+    Temperature
+</label>
+
+<input
+    id="vitalTemperature"
+    type="text"
+    placeholder="e.g. 98.6 °F"
+>
+
+</div>
+
+
+<div class="vital-field">
+
+<label>
+    Weight
+</label>
+
+<input
+    id="vitalWeight"
+    type="text"
+    placeholder="e.g. 70 kg"
+>
+
+</div>
+
+
+<div class="vital-field">
+
+<label>
+    Height
+</label>
+
+<input
+    id="vitalHeight"
+    type="text"
+    placeholder="e.g. 170 cm"
+>
+
+</div>
+
+
+</div>
+
+
+<div class="section-label" style="margin-top:25px;">
+    3. Assign Doctor
+</div>
+
+
+<div class="form-grid">
+
+
+<div class="form-group">
+
+<label>
+    Specialty
+</label>
+
+<select
+    id="doctorSpecialty"
+    onchange="updateDoctorList()"
+>
+
+<option value="">
+    Select Specialty
+</option>
+
+<option value="General Medicine">
+    General Medicine
+</option>
+
+<option value="Cardiology">
+    Cardiology
+</option>
+
+<option value="Orthopaedics">
+    Orthopaedics
+</option>
+
+<option value="Dermatology">
+    Dermatology
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+    Doctor
+</label>
+
+<select id="doctorSelect">
+
+<option value="">
+    Select Doctor
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<div class="section-label" style="margin-top:25px;">
+    4. Patient Portal Access
+</div>
+
+
+<div
+    style="
+        background:#edf9f7;
+        border:1px solid #d5ebe8;
+        border-radius:10px;
+        padding:14px;
+        color:#496875;
+        font-size:12px;
+        line-height:1.6;
+    "
+>
+
+The patient will access the Luvio Patient Portal
+using their registered mobile number and an OTP.
+No permanent password is required for the patient.
+
+The patient's Luvio Patient ID will be generated
+automatically.
+
+</div>
+
+
+<button
+    class="primary-button"
+    style="margin-top:22px;"
+    onclick="registerPatient()"
+>
+    Create Patient & Add to Doctor Queue
+</button>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SEARCH PATIENT
+===================================================== -->
+
+<section
+    id="search-patient"
+    class="page"
+>
+
+<h1 class="page-title">
+    Search Patient
+</h1>
+
+<p class="page-subtitle">
+    Always search for an existing patient before creating a new record.
+</p>
+
+
+<div class="panel">
+
+<div class="search-box">
+
+<input
+    id="patientSearch"
+    type="text"
+    placeholder="Patient ID, name or mobile"
+>
+
+<button
+    class="search-button"
+    onclick="searchPatient()"
+>
+    Search
+</button>
+
+</div>
+
+</div>
+
+
+<div id="searchResults">
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     QUEUE
+===================================================== -->
+
+<section
+    id="queue"
+    class="page"
+>
+
+<h1 class="page-title">
+    Today's Patient Queue
+</h1>
+
+<p class="page-subtitle">
+    Patients registered at this polyclinic today.
+</p>
+
+
+<div class="panel">
+
+<div class="queue-row queue-header">
+
+<div>
+    #
+</div>
+
+<div>
+    Patient
+</div>
+
+<div>
+    Patient ID
+</div>
+
+<div>
+    Doctor
+</div>
+
+<div>
+    Status
+</div>
+
+</div>
+
+
+<div id="queueList">
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     REGISTRATION SUCCESS
+===================================================== -->
+
+<section
+    id="registration-success"
+    class="page"
+>
+
+<div
+    id="successContent"
+>
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+const PATIENT_STORAGE =
+    "luvio_patient_accounts";
+
+const RECEPTION_LOGIN_KEY =
+    "luvio_reception_logged_in";
+
+
+/* =====================================================
+   DOCTOR DIRECTORY
+===================================================== */
+
+const DOCTORS = [
+
+    {
+        id:"DOC001",
+        name:"Dr. Arjun Sharma",
+        specialty:"General Medicine"
+    },
+
+    {
+        id:"DOC002",
+        name:"Dr. Rahul Mehta",
+        specialty:"Cardiology"
+    },
+
+    {
+        id:"DOC003",
+        name:"Dr. Ananya Verma",
+        specialty:"Orthopaedics"
+    },
+
+    {
+        id:"DOC004",
+        name:"Dr. Aisha Khan",
+        specialty:"Dermatology"
+    }
+
+];
+
+
+/* =====================================================
+   STORAGE HELPERS
+===================================================== */
+
+function getPatients(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                PATIENT_STORAGE
+            ) || "[]"
+        );
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function savePatients(
+    patients
+){
+
+    localStorage.setItem(
+        PATIENT_STORAGE,
+        JSON.stringify(
+            patients
+        )
+    );
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+function receptionLogin(){
+
+    const id =
+        document
+            .getElementById(
+                "receptionLoginID"
+            )
+            .value
+            .trim();
+
+
+    const password =
+        document
+            .getElementById(
+                "receptionPassword"
+            )
+            .value
+            .trim();
+
+
+    if(
+        id !== "REC001" ||
+        password !== "123456"
+    ){
+
+        alert(
+            "Invalid reception login.\n\nDemo Login:\nReception ID: REC001\nPassword: 123456"
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        RECEPTION_LOGIN_KEY,
+        "1"
+    );
+
+
+    openReceptionPortal();
+
+}
+
+
+/* =====================================================
+   OPEN PORTAL
+===================================================== */
+
+function openReceptionPortal(){
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "app"
+    ).style.display =
+        "block";
+
+
+    refreshDashboard();
+
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function showPage(
+    id,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".page"
+        )
+        .forEach(
+            page =>
+            page.classList.remove(
+                "active"
+            )
+        );
+
+
+    const page =
+        document.getElementById(
+            id
+        );
+
+
+    if(page){
+
+        page.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document
+        .querySelectorAll(
+            ".nav-button"
+        )
+        .forEach(
+            btn =>
+            btn.classList.remove(
+                "active"
+            )
+        );
+
+
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if(id === "dashboard"){
+
+        refreshDashboard();
+
+    }
+
+
+    if(id === "queue"){
+
+        renderQueue();
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   DOCTOR LIST
+===================================================== */
+
+function updateDoctorList(){
+
+    const specialty =
+        document
+            .getElementById(
+                "doctorSpecialty"
+            )
+            .value;
+
+
+    const doctorSelect =
+        document
+            .getElementById(
+                "doctorSelect"
+            );
+
+
+    doctorSelect.innerHTML = `
+
+        <option value="">
+            Select Doctor
+        </option>
+
+    `;
+
+
+    if(!specialty){
+
+        return;
+
+    }
+
+
+    DOCTORS
+        .filter(
+            doctor =>
+            doctor.specialty ===
+            specialty
+        )
+        .forEach(
+            doctor => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    doctor.id;
+
+
+                option.textContent =
+                    doctor.name;
+
+
+                doctorSelect.appendChild(
+                    option
+                );
+
+            }
+        );
+
+}
+
+
+/* =====================================================
+   GENERATE PATIENT ID
+===================================================== */
+
+function generatePatientID(
+    patients
+){
+
+    let highest =
+        0;
+
+
+    patients.forEach(
+        patient => {
+
+            const match =
+                String(
+                    patient.patientID ||
+                    ""
+                )
+                .match(
+                    /^LH-(\d+)$/
+                );
+
+
+            if(match){
+
+                highest =
+                    Math.max(
+                        highest,
+                        parseInt(
+                            match[1],
+                            10
+                        )
+                    );
+
+            }
+
+        }
+    );
+
+
+    const next =
+        highest + 1;
+
+
+    return (
+        "LH-" +
+        String(
+            next
+        )
+        .padStart(
+            6,
+            "0"
+        )
+    );
+
+}
+
+
+/* =====================================================
+   CHECK EXISTING MOBILE
+===================================================== */
+
+function findPatientByMobile(
+    mobile
+){
+
+    return getPatients().find(
+        patient =>
+        String(
+            patient.mobile ||
+            ""
+        ) ===
+        String(
+            mobile
+        )
+    );
+
+}
+
+
+/* =====================================================
+   REGISTER PATIENT
+===================================================== */
+
+function registerPatient(){
+
+    const name =
+        document
+            .getElementById(
+                "patientName"
+            )
+            .value
+            .trim();
+
+
+    const dob =
+        document
+            .getElementById(
+                "patientDOB"
+            )
+            .value;
+
+
+    const gender =
+        document
+            .getElementById(
+                "patientGender"
+            )
+            .value;
+
+
+    const mobile =
+        document
+            .getElementById(
+                "patientMobile"
+            )
+            .value
+            .trim();
+
+
+    const email =
+        document
+            .getElementById(
+                "patientEmail"
+            )
+            .value
+            .trim();
+
+
+    const address =
+        document
+            .getElementById(
+                "patientAddress"
+            )
+            .value
+            .trim();
+
+
+    const emergency =
+        document
+            .getElementById(
+                "patientEmergency"
+            )
+            .value
+            .trim();
+
+
+    const bp =
+        document
+            .getElementById(
+                "vitalBP"
+            )
+            .value
+            .trim();
+
+
+    const pulse =
+        document
+            .getElementById(
+                "vitalPulse"
+            )
+            .value
+            .trim();
+
+
+    const spo2 =
+        document
+            .getElementById(
+                "vitalSpO2"
+            )
+            .value
+            .trim();
+
+
+    const temperature =
+        document
+            .getElementById(
+                "vitalTemperature"
+            )
+            .value
+            .trim();
+
+
+    const weight =
+        document
+            .getElementById(
+                "vitalWeight"
+            )
+            .value
+            .trim();
+
+
+    const height =
+        document
+            .getElementById(
+                "vitalHeight"
+            )
+            .value
+            .trim();
+
+
+    const specialty =
+        document
+            .getElementById(
+                "doctorSpecialty"
+            )
+            .value;
+
+
+    const doctorID =
+        document
+            .getElementById(
+                "doctorSelect"
+            )
+            .value;
+
+
+    if(!name){
+
+        alert(
+            "Please enter the patient's full name."
+        );
+
+        return;
+
+    }
+
+
+    if(!mobile){
+
+        alert(
+            "Please enter the patient's mobile number."
+        );
+
+        return;
+
+    }
+
+
+    if(!specialty){
+
+        alert(
+            "Please select the doctor's specialty."
+        );
+
+        return;
+
+    }
+
+
+    if(!doctorID){
+
+        alert(
+            "Please select the doctor."
+        );
+
+        return;
+
+    }
+
+
+    const patients =
+        getPatients();
+
+
+    /*
+       IMPORTANT:
+       Reception should search first.
+       We also prevent accidental duplicate
+       mobile registration here.
+    */
+
+    const existing =
+        findPatientByMobile(
+            mobile
+        );
+
+
+    if(existing){
+
+        alert(
+            "A patient with this mobile number already exists.\n\nPatient ID: " +
+            existing.patientID +
+            "\n\nPlease use Search Patient instead of creating a duplicate record."
+        );
+
+        return;
+
+    }
+
+
+    const doctor =
+        DOCTORS.find(
+            item =>
+            item.id ===
+            doctorID
+        );
+
+
+    const patientID =
+        generatePatientID(
+            patients
+        );
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .slice(
+                0,
+                10
+            );
+
+
+    const now =
+        new Date()
+            .toISOString();
+
+
+    /*
+       CREATE PATIENT
+    */
+
+    const patient = {
+
+        patientID,
+
+        name,
+
+        dob,
+
+        gender,
+
+        mobile,
+
+        email,
+
+        address,
+
+        emergency,
+
+        createdAt:
+            now,
+
+        registeredAt:
+            now,
+
+        registeredBy:
+            "REC001",
+
+        /*
+           Reception-recorded vitals
+        */
+
+        vitals:[
+
+            {
+
+                id:
+                    "VITAL-" +
+                    Date.now(),
+
+                date:
+                    today,
+
+                recordedAt:
+                    now,
+
+                recordedBy:
+                    "REC001",
+
+                bp,
+
+                pulse,
+
+                spo2,
+
+                temperature,
+
+                weight,
+
+                height
+
+            }
+
+        ],
+
+        /*
+           Doctor assignment
+        */
+
+        assignedDoctorId:
+            doctor.id,
+
+        assignedDoctor:
+            doctor.name,
+
+        assignedSpecialty:
+            doctor.specialty,
+
+        /*
+           Appointment / queue
+        */
+
+        appointments:[
+
+            {
+
+                id:
+                    "APPT-" +
+                    Date.now(),
+
+                date:
+                    today,
+
+                type:
+                    "Offline Consultation",
+
+                doctorId:
+                    doctor.id,
+
+                doctor:
+                    doctor.name,
+
+                specialty:
+                    doctor.specialty,
+
+                status:
+                    "Waiting",
+
+                createdAt:
+                    now
+
+            }
+
+        ],
+
+        /*
+           Future clinical data
+        */
+
+        prescriptions:[],
+
+        reports:[],
+
+        visits:[],
+
+        diagnoses:[],
+
+        diagnosticOrders:[],
+
+        consents:[],
+
+        consultationRequests:[]
+
+    };
+
+
+    patients.push(
+        patient
+    );
+
+
+    savePatients(
+        patients
+    );
+
+
+    showRegistrationSuccess(
+        patient,
+        doctor
+    );
+
+
+    clearRegistrationForm();
+
+
+    refreshDashboard();
+
+}
+
+
+/* =====================================================
+   REGISTRATION SUCCESS
+===================================================== */
+
+function showRegistrationSuccess(
+    patient,
+    doctor
+){
+
+    const container =
+        document.getElementById(
+            "successContent"
+        );
+
+
+    container.innerHTML = `
+
+    <div class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+
+        <h2>
+            Patient Registered Successfully
+        </h2>
+
+
+        <p>
+
+        The patient has been registered in
+        Luvio HealthLink and added to the
+        doctor's queue.
+
+        </p>
+
+
+        <div class="id-display">
+
+            ${escapeHTML(
+                patient.patientID
+            )}
+
+        </div>
+
+
+        <div
+            style="
+                margin-top:20px;
+                text-align:left;
+                background:#f6fafb;
+                border-radius:10px;
+                padding:15px;
+            "
+        >
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    padding:7px 0;
+                    font-size:12px;
+                    border-bottom:1px solid #e7eef0;
+                "
+            >
+
+                <span>
+                    Patient
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        patient.name
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    padding:7px 0;
+                    font-size:12px;
+                    border-bottom:1px solid #e7eef0;
+                "
+            >
+
+                <span>
+                    Doctor
+                </span>
+
+                <strong>
+                    ${escapeHTML(
+                        doctor.name
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div
+                style="
+                    display:flex;
+                    justify-content:space-between;
+                    padding:7px 0;
+                    font-size:12px;
+                "
+            >
+
+                <span>
+                    Status
+                </span>
+
+                <strong
+                    style="color:#80690b;"
+                >
+                    Waiting for Doctor
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                margin-top:20px;
+                background:#edf9f7;
+                border-radius:10px;
+                padding:14px;
+                text-align:left;
+                color:#496875;
+                font-size:12px;
+                line-height:1.6;
+            "
+        >
+
+            <strong>
+                Patient Portal Access
+            </strong>
+
+            <br>
+
+            The patient can access the Luvio
+            Patient Portal using their registered
+            mobile number and OTP.
+
+            <br><br>
+
+            No permanent password is required.
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:10px;
+                margin-top:20px;
+            "
+        >
+
+            <button
+                class="primary-button"
+                onclick="showPage('new-patient')"
+            >
+                Register Another Patient
+            </button>
+
+
+            <button
+                class="secondary-button"
+                style="margin-top:0;"
+                onclick="showPage('queue')"
+            >
+                View Queue
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+
+    showPage(
+        "registration-success"
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR REGISTRATION FORM
+===================================================== */
+
+function clearRegistrationForm(){
+
+    const ids = [
+
+        "patientName",
+        "patientDOB",
+        "patientMobile",
+        "patientEmail",
+        "patientEmergency",
+        "patientAddress",
+
+        "vitalBP",
+        "vitalPulse",
+        "vitalSpO2",
+        "vitalTemperature",
+        "vitalWeight",
+        "vitalHeight"
+
+    ];
+
+
+    ids.forEach(
+        id => {
+
+            const element =
+                document.getElementById(
+                    id
+                );
+
+
+            if(element){
+
+                element.value = "";
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "patientGender"
+    ).value = "";
+
+
+    document.getElementById(
+        "doctorSpecialty"
+    ).value = "";
+
+
+    document.getElementById(
+        "doctorSelect"
+    ).innerHTML = `
+
+        <option value="">
+            Select Doctor
+        </option>
+
+    `;
+
+}
+
+
+/* =====================================================
+   SEARCH PATIENT
+===================================================== */
+
+function searchPatient(){
+
+    const query =
+        document
+            .getElementById(
+                "patientSearch"
+            )
+            .value
+            .trim()
+            .toLowerCase();
+
+
+    if(!query){
+
+        alert(
+            "Enter a Patient ID, name or mobile number."
+        );
+
+        return;
+
+    }
+
+
+    const patients =
+        getPatients();
+
+
+    const matches =
+        patients.filter(
+            patient =>
+
+            String(
+                patient.patientID ||
+                ""
+            )
+            .toLowerCase()
+            .includes(query)
+
+            ||
+
+            String(
+                patient.name ||
+                ""
+            )
+            .toLowerCase()
+            .includes(query)
+
+            ||
+
+            String(
+                patient.mobile ||
+                ""
+            )
+            .includes(query)
+
+        );
+
+
+    const container =
+        document.getElementById(
+            "searchResults"
+        );
+
+
+    if(!matches.length){
+
+        container.innerHTML = `
+
+        <div class="panel">
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    🔎
+                </div>
+
+                No patient found.
+
+                <br><br>
+
+                If this is a new patient,
+                use "New Patient" to register them.
+
+            </div>
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        matches
+            .map(
+                patient =>
+                renderPatientCard(
+                    patient
+                )
+            )
+            .join("");
+
+}
+
+
+/* =====================================================
+   PATIENT CARD
+===================================================== */
+
+function renderPatientCard(
+    patient
+){
+
+    const latestVitals =
+        (
+            patient.vitals ||
+            []
+        )[
+            (
+                patient.vitals ||
+                []
+            ).length - 1
+        ] || {};
+
+
+    return `
+
+    <div class="patient-card">
+
+        <div class="patient-card-header">
+
+            <div>
+
+                <h3>
+                    ${escapeHTML(
+                        patient.name
+                    )}
+                </h3>
+
+                <p>
+
+                    ${escapeHTML(
+                        patient.mobile ||
+                        "No mobile"
+                    )}
+
+                    ·
+
+                    ${escapeHTML(
+                        patient.gender ||
+                        "Gender not recorded"
+                    )}
+
+                </p>
+
+            </div>
+
+
+            <div class="patient-id">
+
+                ${escapeHTML(
+                    patient.patientID
+                )}
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                display:grid;
+                grid-template-columns:
+                    repeat(4,1fr);
+                gap:8px;
+                margin-top:15px;
+            "
+        >
+
+            <div class="vital-field">
+
+                <label>
+                    BP
+                </label>
+
+                <strong>
+                    ${escapeHTML(
+                        latestVitals.bp ||
+                        "—"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="vital-field">
+
+                <label>
+                    Pulse
+                </label>
+
+                <strong>
+                    ${escapeHTML(
+                        latestVitals.pulse ||
+                        "—"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="vital-field">
+
+                <label>
+                    SpO₂
+                </label>
+
+                <strong>
+                    ${escapeHTML(
+                        latestVitals.spo2 ||
+                        "—"
+                    )}
+                </strong>
+
+            </div>
+
+
+            <div class="vital-field">
+
+                <label>
+                    Weight
+                </label>
+
+                <strong>
+                    ${escapeHTML(
+                        latestVitals.weight ||
+                        "—"
+                    )}
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="card-actions">
+
+            <button
+                class="open-button"
+                onclick="openPatientFromSearch(
+                    '${escapeJS(
+                        patient.patientID
+                    )}'
+                )"
+            >
+                View Patient
+            </button>
+
+
+            <button
+                class="secondary-small"
+                onclick="assignExistingPatient(
+                    '${escapeJS(
+                        patient.patientID
+                    )}'
+                )"
+            >
+                Add to Today's Queue
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   OPEN EXISTING PATIENT
+===================================================== */
+
+function openPatientFromSearch(
+    patientID
+){
+
+    const patient =
+        getPatients().find(
+            item =>
+            item.patientID ===
+            patientID
+        );
+
+
+    if(!patient){
+
+        return;
+
+    }
+
+
+    alert(
+        "Patient: " +
+        patient.name +
+        "\n\nPatient ID: " +
+        patient.patientID +
+        "\n\nThis patient is already registered in Luvio HealthLink."
+    );
+
+}
+
+
+/* =====================================================
+   ASSIGN EXISTING PATIENT
+===================================================== */
+
+function assignExistingPatient(
+    patientID
+){
+
+    const patients =
+        getPatients();
+
+
+    const patientIndex =
+        patients.findIndex(
+            item =>
+            item.patientID ===
+            patientID
+        );
+
+
+    if(
+        patientIndex === -1
+    ){
+
+        alert(
+            "Patient record not found."
+        );
+
+        return;
+
+    }
+
+
+    const patient =
+        patients[
+            patientIndex
+        ];
+
+
+    /*
+       For existing-patient queue assignment,
+       receptionist selects the doctor.
+    */
+
+    const specialty =
+        prompt(
+            "Enter specialty:\n\nGeneral Medicine\nCardiology\nOrthopaedics\nDermatology"
+        );
+
+
+    if(!specialty){
+
+        return;
+
+    }
+
+
+    const available =
+        DOCTORS.filter(
+            doctor =>
+            doctor.specialty
+                .toLowerCase() ===
+            specialty
+                .trim()
+                .toLowerCase()
+        );
+
+
+    if(!available.length){
+
+        alert(
+            "No doctor found for this specialty."
+        );
+
+        return;
+
+    }
+
+
+    const doctor =
+        available[0];
+
+
+    const now =
+        new Date()
+            .toISOString();
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .slice(
+                0,
+                10
+            );
+
+
+    if(!patient.appointments){
+
+        patient.appointments = [];
+
+    }
+
+
+    patient.appointments.push({
+
+        id:
+            "APPT-" +
+            Date.now(),
+
+        date:
+            today,
+
+        type:
+            "Offline Consultation",
+
+        doctorId:
+            doctor.id,
+
+        doctor:
+            doctor.name,
+
+        specialty:
+            doctor.specialty,
+
+        status:
+            "Waiting",
+
+        createdAt:
+            now
+
+    });
+
+
+    patient.assignedDoctorId =
+        doctor.id;
+
+
+    patient.assignedDoctor =
+        doctor.name;
+
+
+    patient.assignedSpecialty =
+        doctor.specialty;
+
+
+    savePatients(
+        patients
+    );
+
+
+    alert(
+        patient.name +
+        " has been added to " +
+        doctor.name +
+        "'s queue."
+    );
+
+
+    refreshDashboard();
+
+}
+
+
+/* =====================================================
+   QUEUE
+===================================================== */
+
+function getTodayQueue(){
+
+    const patients =
+        getPatients();
+
+
+    const queue = [];
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .slice(
+                0,
+                10
+            );
+
+
+    patients.forEach(
+        patient => {
+
+            (
+                patient.appointments ||
+                []
+            ).forEach(
+                appointment => {
+
+                    if(
+                        appointment.date ===
+                        today
+                    ){
+
+                        queue.push({
+
+                            patient,
+
+                            appointment
+
+                        });
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+    return queue;
+
+}
+
+
+/* =====================================================
+   RENDER QUEUE
+===================================================== */
+
+function renderQueue(){
+
+    const queue =
+        getTodayQueue();
+
+
+    const container =
+        document.getElementById(
+            "queueList"
+        );
+
+
+    if(!queue.length){
+
+        container.innerHTML = `
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                👥
+            </div>
+
+            No patients registered today.
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        queue
+            .map(
+                (
+                    item,
+                    index
+                ) => {
+
+                    const status =
+                        item.appointment.status ||
+                        "Waiting";
+
+
+                    let statusClass =
+                        "status-waiting";
+
+
+                    if(
+                        status ===
+                        "In Consultation"
+                    ){
+
+                        statusClass =
+                            "status-in";
+
+                    }
+
+
+                    if(
+                        status ===
+                        "Completed"
+                    ){
+
+                        statusClass =
+                            "status-completed";
+
+                    }
+
+
+                    return `
+
+                    <div class="queue-row">
+
+                        <div class="queue-number">
+                            ${index + 1}
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                ${escapeHTML(
+                                    item.patient.name
+                                )}
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+                            ${escapeHTML(
+                                item.patient.patientID
+                            )}
+                        </div>
+
+
+                        <div>
+
+                            ${escapeHTML(
+                                item.appointment.doctor ||
+                                "Not assigned"
+                            )}
+
+                        </div>
+
+
+                        <div
+                            class="status ${statusClass}"
+                        >
+
+                            ${escapeHTML(
+                                status
+                            )}
+
+                        </div>
+
+                    </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function refreshDashboard(){
+
+    const patients =
+        getPatients();
+
+
+    const queue =
+        getTodayQueue();
+
+
+    const today =
+        new Date()
+            .toISOString()
+            .slice(
+                0,
+                10
+            );
+
+
+    const todayRegistrations =
+        patients.filter(
+            patient =>
+            String(
+                patient.registeredAt ||
+                patient.createdAt ||
+                ""
+            ).slice(
+                0,
+                10
+            ) ===
+            today
+        ).length;
+
+
+    const waiting =
+        queue.filter(
+            item =>
+            (
+                item.appointment.status ||
+                "Waiting"
+            ) ===
+            "Waiting"
+        ).length;
+
+
+    document.getElementById(
+        "totalPatients"
+    ).textContent =
+        patients.length;
+
+
+    document.getElementById(
+        "todayRegistrations"
+    ).textContent =
+        todayRegistrations;
+
+
+    document.getElementById(
+        "waitingCount"
+    ).textContent =
+        waiting;
+
+
+    const dashboardQueue =
+        document.getElementById(
+            "dashboardQueue"
+        );
+
+
+    if(!queue.length){
+
+        dashboardQueue.innerHTML = `
+
+        <div class="empty-state">
+
+            <div class="empty-icon">
+                👥
+            </div>
+
+            No patients are currently
+            in today's queue.
+
+        </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    dashboardQueue.innerHTML =
+        queue
+            .slice(0,8)
+            .map(
+                (
+                    item,
+                    index
+                ) => `
+
+                <div
+                    style="
+                        display:flex;
+                        align-items:center;
+                        justify-content:space-between;
+                        gap:15px;
+                        padding:12px 0;
+                        border-bottom:1px solid #edf2f3;
+                    "
+                >
+
+                    <div>
+
+                        <strong
+                            style="
+                                color:#315566;
+                                font-size:13px;
+                            "
+                        >
+                            ${escapeHTML(
+                                item.patient.name
+                            )}
+                        </strong>
+
+                        <div
+                            style="
+                                color:#8a999f;
+                                font-size:10px;
+                                margin-top:4px;
+                            "
+                        >
+                            ${escapeHTML(
+                                item.patient.patientID
+                            )}
+                            ·
+                            ${escapeHTML(
+                                item.appointment.doctor ||
+                                "Not assigned"
+                            )}
+                        </div>
+
+                    </div>
+
+
+                    <span
+                        style="
+                            color:#80690b;
+                            font-size:11px;
+                            font-weight:800;
+                        "
+                    >
+                        ${escapeHTML(
+                            item.appointment.status ||
+                            "Waiting"
+                        )}
+                    </span>
+
+                </div>
+
+                `
+            )
+            .join("");
+
+}
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function receptionLogout(){
+
+    localStorage.removeItem(
+        RECEPTION_LOGIN_KEY
+    );
+
+
+    document.getElementById(
+        "app"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "loginScreen"
+    ).style.display =
+        "flex";
+
+}
+
+
+/* =====================================================
+   ESCAPE
+===================================================== */
+
+function escapeHTML(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escapeJS(
+    value
+){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+    .replace(
+        /'/g,
+        "\\'"
+    );
+
+}
+
+
+/* =====================================================
+   AUTO LOGIN
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        if(
+            localStorage.getItem(
+                RECEPTION_LOGIN_KEY
+            ) === "1"
+        ){
+
+            openReceptionPortal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>
