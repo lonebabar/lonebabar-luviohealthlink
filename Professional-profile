@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Profile | Luvio HealthLink</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f8fb;
+    color:#18324a;
+}
+
+header{
+    background:#0b6477;
+    color:white;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+header a{
+    color:white;
+    text-decoration:none;
+}
+
+.wrap{
+    max-width:1100px;
+    margin:35px auto;
+    padding:0 20px;
+}
+
+.card{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 8px 30px #0001;
+    margin-bottom:22px;
+}
+
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.profile-icon{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#e9f1f5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.profile-name{
+    margin:0 0 8px;
+    font-size:28px;
+}
+
+.professional-id{
+    color:#0b6477;
+    font-weight:bold;
+    font-size:17px;
+}
+
+.status{
+    display:inline-block;
+    margin-top:10px;
+    padding:7px 12px;
+    border-radius:20px;
+    background:#edf7fa;
+    color:#0b6477;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.section-title{
+    margin-top:0;
+    color:#0b6477;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+}
+
+.field{
+    margin-bottom:4px;
+}
+
+.field label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:6px;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd8e1;
+    border-radius:9px;
+    font-family:inherit;
+}
+
+.field textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.full{
+    grid-column:1 / -1;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+button,
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:12px 18px;
+    background:#0b6477;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+}
+
+.secondary{
+    background:#e9f1f5;
+    color:#18324a;
+}
+
+.info-row{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:15px;
+    padding:12px 0;
+    border-bottom:1px solid #edf0f2;
+}
+
+.info-label{
+    font-weight:bold;
+}
+
+.notice{
+    padding:14px;
+    background:#edf7fa;
+    border-radius:9px;
+    margin-bottom:18px;
+}
+
+.error{
+    padding:12px;
+    background:#fff0f0;
+    color:#a33;
+    border-radius:9px;
+    margin-bottom:15px;
+}
+
+.success{
+    padding:12px;
+    background:#eef9f0;
+    color:#26733a;
+    border-radius:9px;
+    margin-bottom:15px;
+}
+
+.hidden{
+    display:none;
+}
+
+.type-description{
+    padding:14px;
+    background:#f7fafc;
+    border-left:4px solid #0b6477;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+@media(max-width:700px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .full{
+        grid-column:auto;
+    }
+
+    .info-row{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <b>🩺 Luvio HealthLink</b>
+
+    <a href="professional.html">
+        ← Back to Professional Portal
+    </a>
+
+</header>
+
+
+<main class="wrap">
+
+
+<!-- ==================================================
+     PROFILE HEADER
+================================================== -->
+
+<section class="card">
+
+    <div class="profile-header">
+
+        <div class="profile-icon" id="profileIcon">
+            🩺
+        </div>
+
+        <div>
+
+            <h1 class="profile-name" id="displayName">
+                Professional Profile
+            </h1>
+
+            <div class="professional-id" id="displayId">
+                Professional ID
+            </div>
+
+            <div class="status" id="displayStatus">
+                Profile Status
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     VIEW PROFILE
+================================================== -->
+
+<section class="card" id="viewProfile">
+
+    <h2 class="section-title">
+        Professional Profile
+    </h2>
+
+    <div id="profileMessage"></div>
+
+    <div class="info-row">
+        <div class="info-label">
+            Professional Type
+        </div>
+        <div id="vType">—</div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-label">
+            Full Name
+        </div>
+        <div id="vName">—</div>
+    </div>
+
+
+    <!-- DOCTOR -->
+
+    <div id="doctorView" class="hidden">
+
+        <div class="info-row">
+            <div class="info-label">
+                Medical Qualification
+            </div>
+            <div id="vDoctorQualification">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Medical Specialization
+            </div>
+            <div id="vDoctorSpecialization">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Medical Registration Number
+            </div>
+            <div id="vDoctorRegistration">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Registration Authority
+            </div>
+            <div id="vDoctorAuthority">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Years of Experience
+            </div>
+            <div id="vDoctorExperience">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Areas of Expertise
+            </div>
+            <div id="vDoctorExpertise">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Consultation Mode
+            </div>
+            <div id="vDoctorMode">—</div>
+        </div>
+
+    </div>
+
+
+    <!-- PHARMACIST -->
+
+    <div id="pharmacistView" class="hidden">
+
+        <div class="info-row">
+            <div class="info-label">
+                Qualification
+            </div>
+            <div id="vPharmacistQualification">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Pharmacy Registration Number
+            </div>
+            <div id="vPharmacistRegistration">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Registration Authority
+            </div>
+            <div id="vPharmacistAuthority">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Experience
+            </div>
+            <div id="vPharmacistExperience">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Areas of Practice
+            </div>
+            <div id="vPharmacistExpertise">—</div>
+        </div>
+
+    </div>
+
+
+    <!-- LABORATORY PROFESSIONAL -->
+
+    <div id="labView" class="hidden">
+
+        <div class="info-row">
+            <div class="info-label">
+                Qualification
+            </div>
+            <div id="vLabQualification">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Laboratory Specialization / Department
+            </div>
+            <div id="vLabSpecialization">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Professional Registration Number
+            </div>
+            <div id="vLabRegistration">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Registration Authority
+            </div>
+            <div id="vLabAuthority">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Experience
+            </div>
+            <div id="vLabExperience">—</div>
+        </div>
+
+    </div>
+
+
+    <!-- NURSE -->
+
+    <div id="nurseView" class="hidden">
+
+        <div class="info-row">
+            <div class="info-label">
+                Nursing Qualification
+            </div>
+            <div id="vNurseQualification">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Nursing Specialization
+            </div>
+            <div id="vNurseSpecialization">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Nursing Registration Number
+            </div>
+            <div id="vNurseRegistration">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Registration Authority
+            </div>
+            <div id="vNurseAuthority">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Experience
+            </div>
+            <div id="vNurseExperience">—</div>
+        </div>
+
+    </div>
+
+
+    <!-- OTHER PROFESSIONAL -->
+
+    <div id="otherView" class="hidden">
+
+        <div class="info-row">
+            <div class="info-label">
+                Qualification
+            </div>
+            <div id="vOtherQualification">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Professional Specialization / Department
+            </div>
+            <div id="vOtherSpecialization">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Professional Registration Number
+            </div>
+            <div id="vOtherRegistration">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Registration Authority
+            </div>
+            <div id="vOtherAuthority">—</div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-label">
+                Experience
+            </div>
+            <div id="vOtherExperience">—</div>
+        </div>
+
+    </div>
+
+
+    <!-- COMMON -->
+
+    <div class="info-row">
+        <div class="info-label">
+            Mobile
+        </div>
+        <div id="vMobile">—</div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-label">
+            Email
+        </div>
+        <div id="vEmail">—</div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-label">
+            Languages
+        </div>
+        <div id="vLanguages">—</div>
+    </div>
+
+    <div class="info-row">
+        <div class="info-label">
+            Professional Biography
+        </div>
+        <div id="vBio">—</div>
+    </div>
+
+
+    <div class="actions">
+
+        <button onclick="editProfile()">
+            Edit Profile
+        </button>
+
+        <a
+            href="professional.html"
+            class="btn secondary"
+        >
+            Back to Professional Portal
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     EDIT PROFILE
+================================================== -->
+
+<section class="card hidden" id="editProfile">
+
+    <h2 class="section-title">
+        Edit Professional Profile
+    </h2>
+
+    <div id="editMessage"></div>
+
+
+    <div class="type-description" id="typeDescription">
+        Professional information
+    </div>
+
+
+    <div class="grid">
+
+
+        <!-- COMMON -->
+
+        <div class="field">
+
+            <label>
+                Professional Type
+            </label>
+
+            <select id="pType" onchange="changeProfessionalType()">
+
+                <option value="doctor">
+                    Doctor
+                </option>
+
+                <option value="pharmacist">
+                    Pharmacist
+                </option>
+
+                <option value="lab">
+                    Laboratory Professional
+                </option>
+
+                <option value="nurse">
+                    Nurse
+                </option>
+
+                <option value="other">
+                    Other Healthcare Professional
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Full Name *
+            </label>
+
+            <input
+                id="pName"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- DOCTOR FIELDS -->
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Medical Qualification
+            </label>
+
+            <input
+                id="pDoctorQualification"
+                type="text"
+                placeholder="MBBS, MD, MS, etc."
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Medical Specialization
+            </label>
+
+            <input
+                id="pDoctorSpecialization"
+                type="text"
+                placeholder="General Medicine, Cardiology..."
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Medical Registration Number
+            </label>
+
+            <input
+                id="pDoctorRegistration"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Medical Registration Authority
+            </label>
+
+            <input
+                id="pDoctorAuthority"
+                type="text"
+                placeholder="Relevant Medical Council"
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Years of Experience
+            </label>
+
+            <input
+                id="pDoctorExperience"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Areas of Expertise
+            </label>
+
+            <input
+                id="pDoctorExpertise"
+                type="text"
+                placeholder="Hypertension, diabetes..."
+            >
+
+        </div>
+
+
+        <div
+            class="field doctorField"
+        >
+
+            <label>
+                Consultation Mode
+            </label>
+
+            <select id="pDoctorMode">
+
+                <option value="">
+                    Select
+                </option>
+
+                <option value="In-person">
+                    In-person
+                </option>
+
+                <option value="Online">
+                    Online
+                </option>
+
+                <option value="Both">
+                    Both
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- PHARMACIST FIELDS -->
+
+        <div
+            class="field pharmacistField hidden"
+        >
+
+            <label>
+                Pharmacy Qualification
+            </label>
+
+            <input
+                id="pPharmacistQualification"
+                type="text"
+                placeholder="D.Pharm, B.Pharm, M.Pharm..."
+            >
+
+        </div>
+
+
+        <div
+            class="field pharmacistField hidden"
+        >
+
+            <label>
+                Pharmacy Registration Number
+            </label>
+
+            <input
+                id="pPharmacistRegistration"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field pharmacistField hidden"
+        >
+
+            <label>
+                Registration Authority
+            </label>
+
+            <input
+                id="pPharmacistAuthority"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field pharmacistField hidden"
+        >
+
+            <label>
+                Years of Experience
+            </label>
+
+            <input
+                id="pPharmacistExperience"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <div
+            class="field pharmacistField hidden"
+        >
+
+            <label>
+                Areas of Practice
+            </label>
+
+            <input
+                id="pPharmacistExpertise"
+                type="text"
+            >
+
+        </div>
+
+
+        <!-- LAB FIELDS -->
+
+        <div
+            class="field labField hidden"
+        >
+
+            <label>
+                Laboratory Qualification
+            </label>
+
+            <input
+                id="pLabQualification"
+                type="text"
+                placeholder="BMLT, DMLT, MSc..."
+            >
+
+        </div>
+
+
+        <div
+            class="field labField hidden"
+        >
+
+            <label>
+                Laboratory Specialization / Department
+            </label>
+
+            <input
+                id="pLabSpecialization"
+                type="text"
+                placeholder="Pathology, Biochemistry..."
+            >
+
+        </div>
+
+
+        <div
+            class="field labField hidden"
+        >
+
+            <label>
+                Professional Registration Number
+            </label>
+
+            <input
+                id="pLabRegistration"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field labField hidden"
+        >
+
+            <label>
+                Registration Authority
+            </label>
+
+            <input
+                id="pLabAuthority"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field labField hidden"
+        >
+
+            <label>
+                Years of Experience
+            </label>
+
+            <input
+                id="pLabExperience"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <!-- NURSE FIELDS -->
+
+        <div
+            class="field nurseField hidden"
+        >
+
+            <label>
+                Nursing Qualification
+            </label>
+
+            <input
+                id="pNurseQualification"
+                type="text"
+                placeholder="GNM, B.Sc Nursing, M.Sc Nursing..."
+            >
+
+        </div>
+
+
+        <div
+            class="field nurseField hidden"
+        >
+
+            <label>
+                Nursing Specialization
+            </label>
+
+            <input
+                id="pNurseSpecialization"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field nurseField hidden"
+        >
+
+            <label>
+                Nursing Registration Number
+            </label>
+
+            <input
+                id="pNurseRegistration"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field nurseField hidden"
+        >
+
+            <label>
+                Registration Authority
+            </label>
+
+            <input
+                id="pNurseAuthority"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field nurseField hidden"
+        >
+
+            <label>
+                Years of Experience
+            </label>
+
+            <input
+                id="pNurseExperience"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <!-- OTHER PROFESSIONAL -->
+
+        <div
+            class="field otherField hidden"
+        >
+
+            <label>
+                Qualification
+            </label>
+
+            <input
+                id="pOtherQualification"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field otherField hidden"
+        >
+
+            <label>
+                Professional Specialization / Department
+            </label>
+
+            <input
+                id="pOtherSpecialization"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field otherField hidden"
+        >
+
+            <label>
+                Professional Registration Number
+            </label>
+
+            <input
+                id="pOtherRegistration"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field otherField hidden"
+        >
+
+            <label>
+                Registration Authority
+            </label>
+
+            <input
+                id="pOtherAuthority"
+                type="text"
+            >
+
+        </div>
+
+
+        <div
+            class="field otherField hidden"
+        >
+
+            <label>
+                Years of Experience
+            </label>
+
+            <input
+                id="pOtherExperience"
+                type="number"
+                min="0"
+            >
+
+        </div>
+
+
+        <!-- COMMON CONTACT -->
+
+        <div class="field">
+
+            <label>
+                Mobile
+            </label>
+
+            <input
+                id="pMobile"
+                type="text"
+                maxlength="10"
+            >
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                Email
+            </label>
+
+            <input
+                id="pEmail"
+                type="email"
+            >
+
+        </div>
+
+
+        <div class="field full">
+
+            <label>
+                Languages
+            </label>
+
+            <input
+                id="pLanguages"
+                type="text"
+                placeholder="English, Hindi, Urdu..."
+            >
+
+        </div>
+
+
+        <div class="field full">
+
+            <label>
+                Professional Biography
+            </label>
+
+            <textarea
+                id="pBio"
+                placeholder="Write a short professional biography..."
+            ></textarea>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="notice">
+
+        Your Professional ID is generated by Luvio HealthLink.
+        It is your independent professional identity and cannot
+        be changed from this page.
+
+    </div>
+
+
+    <div class="actions">
+
+        <button onclick="saveProfile()">
+            Save Profile
+        </button>
+
+        <button
+            class="secondary"
+            onclick="cancelEdit()"
+        >
+            Cancel
+        </button>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+const ACCOUNT_KEY = "luvio_doctor_accounts";
+const CURRENT_KEY = "luvio_current_doctor";
+
+
+function getAccounts(){
+
+    return JSON.parse(
+        localStorage.getItem(ACCOUNT_KEY) || "[]"
+    );
+
+}
+
+
+function saveAccounts(accounts){
+
+    localStorage.setItem(
+        ACCOUNT_KEY,
+        JSON.stringify(accounts)
+    );
+
+}
+
+
+function getCurrentProfessional(){
+
+    return JSON.parse(
+        localStorage.getItem(CURRENT_KEY) || "null"
+    );
+
+}
+
+
+function formatType(type){
+
+    const types = {
+
+        doctor:
+            "Doctor",
+
+        pharmacist:
+            "Pharmacist",
+
+        lab:
+            "Laboratory Professional",
+
+        nurse:
+            "Nurse",
+
+        other:
+            "Other Healthcare Professional"
+
+    };
+
+    return types[type] ||
+           "Healthcare Professional";
+
+}
+
+
+function showCorrectView(type){
+
+    const sections = [
+        "doctorView",
+        "pharmacistView",
+        "labView",
+        "nurseView",
+        "otherView"
+    ];
+
+    sections.forEach(id => {
+
+        document
+            .getElementById(id)
+            .classList.add("hidden");
+
+    });
+
+
+    const selected =
+        type === "doctor"
+        ? "doctorView"
+        : type === "pharmacist"
+        ? "pharmacistView"
+        : type === "lab"
+        ? "labView"
+        : type === "nurse"
+        ? "nurseView"
+        : "otherView";
+
+
+    document
+        .getElementById(selected)
+        .classList.remove("hidden");
+
+}
+
+
+function loadProfile(){
+
+    const p =
+        getCurrentProfessional();
+
+
+    if(!p){
+
+        document.getElementById(
+            "profileMessage"
+        ).innerHTML = `
+            <div class="error">
+                No professional is currently logged in.
+                Please log in through the Professional Portal.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "displayName"
+    ).textContent =
+        p.name || "Professional";
+
+
+    document.getElementById(
+        "displayId"
+    ).textContent =
+        p.id || "Professional ID";
+
+
+    document.getElementById(
+        "displayStatus"
+    ).textContent =
+        p.status || "Pending Verification";
+
+
+    document.getElementById(
+        "vType"
+    ).textContent =
+        formatType(p.type);
+
+
+    document.getElementById(
+        "vName"
+    ).textContent =
+        p.name || "—";
+
+
+    document.getElementById(
+        "vMobile"
+    ).textContent =
+        p.mobile || "—";
+
+
+    document.getElementById(
+        "vEmail"
+    ).textContent =
+        p.email || "—";
+
+
+    document.getElementById(
+        "vLanguages"
+    ).textContent =
+        p.languages || "—";
+
+
+    document.getElementById(
+        "vBio"
+    ).textContent =
+        p.bio || "—";
+
+
+    showCorrectView(p.type);
+
+
+    if(p.type === "doctor"){
+
+        document.getElementById(
+            "vDoctorQualification"
+        ).textContent =
+            p.qualification || "—";
+
+        document.getElementById(
+            "vDoctorSpecialization"
+        ).textContent =
+            p.specialization || "—";
+
+        document.getElementById(
+            "vDoctorRegistration"
+        ).textContent =
+            p.registration || "—";
+
+        document.getElementById(
+            "vDoctorAuthority"
+        ).textContent =
+            p.authority || "—";
+
+        document.getElementById(
+            "vDoctorExperience"
+        ).textContent =
+            p.experience
+            ? p.experience + " years"
+            : "—";
+
+        document.getElementById(
+            "vDoctorExpertise"
+        ).textContent =
+            p.expertise || "—";
+
+        document.getElementById(
+            "vDoctorMode"
+        ).textContent =
+            p.consultationMode || "—";
+
+    }
+
+
+    if(p.type === "pharmacist"){
+
+        document.getElementById(
+            "vPharmacistQualification"
+        ).textContent =
+            p.qualification || "—";
+
+        document.getElementById(
+            "vPharmacistRegistration"
+        ).textContent =
+            p.registration || "—";
+
+        document.getElementById(
+            "vPharmacistAuthority"
+        ).textContent =
+            p.authority || "—";
+
+        document.getElementById(
+            "vPharmacistExperience"
+        ).textContent =
+            p.experience
+            ? p.experience + " years"
+            : "—";
+
+        document.getElementById(
+            "vPharmacistExpertise"
+        ).textContent =
+            p.expertise || "—";
+
+    }
+
+
+    if(p.type === "lab"){
+
+        document.getElementById(
+            "vLabQualification"
+        ).textContent =
+            p.qualification || "—";
+
+        document.getElementById(
+            "vLabSpecialization"
+        ).textContent =
+            p.specialization || "—";
+
+        document.getElementById(
+            "vLabRegistration"
+        ).textContent =
+            p.registration || "—";
+
+        document.getElementById(
+            "vLabAuthority"
+        ).textContent =
+            p.authority || "—";
+
+        document.getElementById(
+            "vLabExperience"
+        ).textContent =
+            p.experience
+            ? p.experience + " years"
+            : "—";
+
+    }
+
+
+    if(p.type === "nurse"){
+
+        document.getElementById(
+            "vNurseQualification"
+        ).textContent =
+            p.qualification || "—";
+
+        document.getElementById(
+            "vNurseSpecialization"
+        ).textContent =
+            p.specialization || "—";
+
+        document.getElementById(
+            "vNurseRegistration"
+        ).textContent =
+            p.registration || "—";
+
+        document.getElementById(
+            "vNurseAuthority"
+        ).textContent =
+            p.authority || "—";
+
+        document.getElementById(
+            "vNurseExperience"
+        ).textContent =
+            p.experience
+            ? p.experience + " years"
+            : "—";
+
+    }
+
+
+    if(p.type === "other"){
+
+        document.getElementById(
+            "vOtherQualification"
+        ).textContent =
+            p.qualification || "—";
+
+        document.getElementById(
+            "vOtherSpecialization"
+        ).textContent =
+            p.specialization || "—";
+
+        document.getElementById(
+            "vOtherRegistration"
+        ).textContent =
+            p.registration || "—";
+
+        document.getElementById(
+            "vOtherAuthority"
+        ).textContent =
+            p.authority || "—";
+
+        document.getElementById(
+            "vOtherExperience"
+        ).textContent =
+            p.experience
+            ? p.experience + " years"
+            : "—";
+
+    }
+
+}
+
+
+function hideAllFields(){
+
+    document
+        .querySelectorAll(
+            ".doctorField,.pharmacistField,.labField,.nurseField,.otherField"
+        )
+        .forEach(el => {
+
+            el.classList.add("hidden");
+
+        });
+
+}
+
+
+function changeProfessionalType(){
+
+    const type =
+        document.getElementById(
+            "pType"
+        ).value;
+
+
+    hideAllFields();
+
+
+    const description =
+        document.getElementById(
+            "typeDescription"
+        );
+
+
+    if(type === "doctor"){
+
+        document
+            .querySelectorAll(".doctorField")
+            .forEach(el =>
+                el.classList.remove("hidden")
+            );
+
+        description.textContent =
+            "Doctor profile: medical qualification, specialization, registration, experience and clinical professional information.";
+
+    }
+
+
+    else if(type === "pharmacist"){
+
+        document
+            .querySelectorAll(".pharmacistField")
+            .forEach(el =>
+                el.classList.remove("hidden")
+            );
+
+        description.textContent =
+            "Pharmacist profile: pharmacy qualification, registration, professional experience and areas of practice.";
+
+    }
+
+
+    else if(type === "lab"){
+
+        document
+            .querySelectorAll(".labField")
+            .forEach(el =>
+                el.classList.remove("hidden")
+            );
+
+        description.textContent =
+            "Laboratory professional profile: qualification, laboratory department/specialization, registration and experience.";
+
+    }
+
+
+    else if(type === "nurse"){
+
+        document
+            .querySelectorAll(".nurseField")
+            .forEach(el =>
+                el.classList.remove("hidden")
+            );
+
+        description.textContent =
+            "Nursing profile: nursing qualification, specialization, registration and professional experience.";
+
+    }
+
+
+    else{
+
+        document
+            .querySelectorAll(".otherField")
+            .forEach(el =>
+                el.classList.remove("hidden")
+            );
+
+        description.textContent =
+            "Healthcare professional profile: qualification, specialization, registration and professional experience.";
+
+    }
+
+}
+
+
+function editProfile(){
+
+    const p =
+        getCurrentProfessional();
+
+
+    if(!p){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "pType"
+    ).value =
+        p.type || "doctor";
+
+
+    document.getElementById(
+        "pName"
+    ).value =
+        p.name || "";
+
+
+    document.getElementById(
+        "pDoctorQualification"
+    ).value =
+        p.qualification || "";
+
+
+    document.getElementById(
+        "pDoctorSpecialization"
+    ).value =
+        p.specialization || "";
+
+
+    document.getElementById(
+        "pDoctorRegistration"
+    ).value =
+        p.registration || "";
+
+
+    document.getElementById(
+        "pDoctorAuthority"
+    ).value =
+        p.authority || "";
+
+
+    document.getElementById(
+        "pDoctorExperience"
+    ).value =
+        p.experience || "";
+
+
+    document.getElementById(
+        "pDoctorExpertise"
+    ).value =
+        p.expertise || "";
+
+
+    document.getElementById(
+        "pDoctorMode"
+    ).value =
+        p.consultationMode || "";
+
+
+    document.getElementById(
+        "pPharmacistQualification"
+    ).value =
+        p.qualification || "";
+
+
+    document.getElementById(
+        "pPharmacistRegistration"
+    ).value =
+        p.registration || "";
+
+
+    document.getElementById(
+        "pPharmacistAuthority"
+    ).value =
+        p.authority || "";
+
+
+    document.getElementById(
+        "pPharmacistExperience"
+    ).value =
+        p.experience || "";
+
+
+    document.getElementById(
+        "pPharmacistExpertise"
+    ).value =
+        p.expertise || "";
+
+
+    document.getElementById(
+        "pLabQualification"
+    ).value =
+        p.qualification || "";
+
+
+    document.getElementById(
+        "pLabSpecialization"
+    ).value =
+        p.specialization || "";
+
+
+    document.getElementById(
+        "pLabRegistration"
+    ).value =
+        p.registration || "";
+
+
+    document.getElementById(
+        "pLabAuthority"
+    ).value =
+        p.authority || "";
+
+
+    document.getElementById(
+        "pLabExperience"
+    ).value =
+        p.experience || "";
+
+
+    document.getElementById(
+        "pNurseQualification"
+    ).value =
+        p.qualification || "";
+
+
+    document.getElementById(
+        "pNurseSpecialization"
+    ).value =
+        p.specialization || "";
+
+
+    document.getElementById(
+        "pNurseRegistration"
+    ).value =
+        p.registration || "";
+
+
+    document.getElementById(
+        "pNurseAuthority"
+    ).value =
+        p.authority || "";
+
+
+    document.getElementById(
+        "pNurseExperience"
+    ).value =
+        p.experience || "";
+
+
+    document.getElementById(
+        "pOtherQualification"
+    ).value =
+        p.qualification || "";
+
+
+    document.getElementById(
+        "pOtherSpecialization"
+    ).value =
+        p.specialization || "";
+
+
+    document.getElementById(
+        "pOtherRegistration"
+    ).value =
+        p.registration || "";
+
+
+    document.getElementById(
+        "pOtherAuthority"
+    ).value =
+        p.authority || "";
+
+
+    document.getElementById(
+        "pOtherExperience"
+    ).value =
+        p.experience || "";
+
+
+    document.getElementById(
+        "pMobile"
+    ).value =
+        p.mobile || "";
+
+
+    document.getElementById(
+        "pEmail"
+    ).value =
+        p.email || "";
+
+
+    document.getElementById(
+        "pLanguages"
+    ).value =
+        p.languages || "";
+
+
+    document.getElementById(
+        "pBio"
+    ).value =
+        p.bio || "";
+
+
+    changeProfessionalType();
+
+
+    document.getElementById(
+        "viewProfile"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "editProfile"
+    ).classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function cancelEdit(){
+
+    document.getElementById(
+        "editProfile"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "viewProfile"
+    ).classList.remove("hidden");
+
+
+    document.getElementById(
+        "editMessage"
+    ).innerHTML = "";
+
+}
+
+
+function saveProfile(){
+
+    const current =
+        getCurrentProfessional();
+
+
+    if(!current){
+
+        return;
+
+    }
+
+
+    const name =
+        document.getElementById(
+            "pName"
+        ).value.trim();
+
+
+    const mobile =
+        document.getElementById(
+            "pMobile"
+        ).value.trim();
+
+
+    if(!name){
+
+        document.getElementById(
+            "editMessage"
+        ).innerHTML = `
+            <div class="error">
+                Full Name is required.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(
+        mobile &&
+        !/^\d{10}$/.test(mobile)
+    ){
+
+        document.getElementById(
+            "editMessage"
+        ).innerHTML = `
+            <div class="error">
+                Enter a valid 10-digit mobile number.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    const type =
+        document.getElementById(
+            "pType"
+        ).value;
+
+
+    current.type = type;
+
+    current.name = name;
+
+    current.mobile = mobile;
+
+    current.email =
+        document.getElementById(
+            "pEmail"
+        ).value.trim();
+
+    current.languages =
+        document.getElementById(
+            "pLanguages"
+        ).value.trim();
+
+    current.bio =
+        document.getElementById(
+            "pBio"
+        ).value.trim();
+
+
+    /*
+    ================================================
+    TYPE-SPECIFIC INFORMATION
+    ================================================
+    */
+
+
+    if(type === "doctor"){
+
+        current.qualification =
+            document.getElementById(
+                "pDoctorQualification"
+            ).value.trim();
+
+        current.specialization =
+            document.getElementById(
+                "pDoctorSpecialization"
+            ).value.trim();
+
+        current.registration =
+            document.getElementById(
+                "pDoctorRegistration"
+            ).value.trim();
+
+        current.authority =
+            document.getElementById(
+                "pDoctorAuthority"
+            ).value.trim();
+
+        current.experience =
+            document.getElementById(
+                "pDoctorExperience"
+            ).value;
+
+        current.expertise =
+            document.getElementById(
+                "pDoctorExpertise"
+            ).value.trim();
+
+        current.consultationMode =
+            document.getElementById(
+                "pDoctorMode"
+            ).value;
+
+    }
+
+
+    if(type === "pharmacist"){
+
+        current.qualification =
+            document.getElementById(
+                "pPharmacistQualification"
+            ).value.trim();
+
+        current.registration =
+            document.getElementById(
+                "pPharmacistRegistration"
+            ).value.trim();
+
+        current.authority =
+            document.getElementById(
+                "pPharmacistAuthority"
+            ).value.trim();
+
+        current.experience =
+            document.getElementById(
+                "pPharmacistExperience"
+            ).value;
+
+        current.expertise =
+            document.getElementById(
+                "pPharmacistExpertise"
+            ).value.trim();
+
+    }
+
+
+    if(type === "lab"){
+
+        current.qualification =
+            document.getElementById(
+                "pLabQualification"
+            ).value.trim();
+
+        current.specialization =
+            document.getElementById(
+                "pLabSpecialization"
+            ).value.trim();
+
+        current.registration =
+            document.getElementById(
+                "pLabRegistration"
+            ).value.trim();
+
+        current.authority =
+            document.getElementById(
+                "pLabAuthority"
+            ).value.trim();
+
+        current.experience =
+            document.getElementById(
+                "pLabExperience"
+            ).value;
+
+    }
+
+
+    if(type === "nurse"){
+
+        current.qualification =
+            document.getElementById(
+                "pNurseQualification"
+            ).value.trim();
+
+        current.specialization =
+            document.getElementById(
+                "pNurseSpecialization"
+            ).value.trim();
+
+        current.registration =
+            document.getElementById(
+                "pNurseRegistration"
+            ).value.trim();
+
+        current.authority =
+            document.getElementById(
+                "pNurseAuthority"
+            ).value.trim();
+
+        current.experience =
+            document.getElementById(
+                "pNurseExperience"
+            ).value;
+
+    }
+
+
+    if(type === "other"){
+
+        current.qualification =
+            document.getElementById(
+                "pOtherQualification"
+            ).value.trim();
+
+        current.specialization =
+            document.getElementById(
+                "pOtherSpecialization"
+            ).value.trim();
+
+        current.registration =
+            document.getElementById(
+                "pOtherRegistration"
+            ).value.trim();
+
+        current.authority =
+            document.getElementById(
+                "pOtherAuthority"
+            ).value.trim();
+
+        current.experience =
+            document.getElementById(
+                "pOtherExperience"
+            ).value;
+
+    }
+
+
+    /*
+    ================================================
+    SAVE TO PROFESSIONAL ACCOUNTS
+    ================================================
+    */
+
+    const accounts =
+        getAccounts();
+
+
+    const index =
+        accounts.findIndex(
+            x => x.id === current.id
+        );
+
+
+    if(index !== -1){
+
+        accounts[index] = {
+            ...accounts[index],
+            ...current
+        };
+
+        saveAccounts(accounts);
+
+    }
+
+
+    /*
+    ================================================
+    SAVE CURRENT PROFESSIONAL
+    ================================================
+    */
+
+    localStorage.setItem(
+        CURRENT_KEY,
+        JSON.stringify(current)
+    );
+
+
+    document.getElementById(
+        "editMessage"
+    ).innerHTML = `
+        <div class="success">
+            Professional profile updated successfully.
+        </div>
+    `;
+
+
+    loadProfile();
+
+
+    setTimeout(() => {
+
+        cancelEdit();
+
+    },800);
+
+}
+
+
+window.onload = function(){
+
+    loadProfile();
+
+};
+
+</script>
+
+</body>
+</html>
