@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Luvio HealthLink | Connected Digital Healthcare</title>
 
 <style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 *{
     margin:0;
     padding:0;
@@ -35,9 +42,10 @@ a{
     margin:auto;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 header{
     background:#ffffff;
@@ -78,35 +86,26 @@ header{
     color:#27a69a;
 }
 
-.tagline{
-    font-size:11px;
-    color:#718391;
-    margin-top:-4px;
-    letter-spacing:.3px;
-}
-
-/* NAV LINKS */
-
 .nav-links{
     display:flex;
     align-items:center;
-    gap:30px;
+    gap:28px;
 }
 
 .nav-links a{
-    font-size:15px;
+    font-size:14px;
     font-weight:600;
     color:#36566d;
-    transition:.2s;
 }
 
 .nav-links a:hover{
     color:#149b91;
 }
 
-/* =========================
-   LOGIN PORTAL DROPDOWN
-========================= */
+
+/* =========================================================
+   PORTAL DROPDOWN
+========================================================= */
 
 .portal{
     position:relative;
@@ -151,8 +150,6 @@ header{
     border-radius:8px;
     color:#24445a;
     font-size:14px;
-    font-weight:600;
-    transition:.2s;
 }
 
 .portal-menu a:hover{
@@ -160,18 +157,21 @@ header{
     color:#087e78;
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-    background:linear-gradient(
-        135deg,
-        #f0fbfa 0%,
-        #ffffff 58%,
-        #eef7f8 100%
-    );
-    padding:70px 0 75px;
+    background:
+        linear-gradient(
+            135deg,
+            #f0fbfa 0%,
+            #ffffff 58%,
+            #eef7f8 100%
+        );
+
+    padding:78px 0;
 }
 
 .hero-grid{
@@ -182,62 +182,58 @@ header{
 }
 
 .eyebrow{
-    display:inline-block;
-    color:#138c83;
-    background:#e4f6f3;
-    padding:7px 13px;
-    border-radius:30px;
     font-size:12px;
+    letter-spacing:1.8px;
     font-weight:800;
-    letter-spacing:1px;
-    margin-bottom:18px;
+    color:#149b91;
+    margin-bottom:12px;
 }
 
 .hero h1{
-    font-size:52px;
+    font-size:54px;
     line-height:1.08;
-    color:#153d56;
+    color:#123f54;
     margin-bottom:22px;
-    letter-spacing:-1px;
 }
 
 .hero h1 span{
-    color:#15988f;
+    display:block;
+    color:#149b91;
 }
 
 .hero p{
     font-size:18px;
-    color:#607789;
-    max-width:610px;
+    color:#607887;
+    max-width:650px;
     margin-bottom:28px;
 }
 
 .hero-buttons{
     display:flex;
-    gap:14px;
+    gap:12px;
     flex-wrap:wrap;
 }
 
 .primary-btn,
 .secondary-btn{
-    padding:14px 22px;
+    display:inline-block;
+    padding:13px 20px;
     border-radius:9px;
     font-weight:700;
-    display:inline-block;
 }
 
 .primary-btn{
-    background:#0b7075;
-    color:#fff;
+    background:#0d6870;
+    color:white;
 }
 
 .primary-btn:hover{
-    background:#085a5f;
+    background:#09545b;
 }
 
 .secondary-btn{
-    border:1px solid #bdd7da;
-    color:#17616b;
+    border:1px solid #b9d4d7;
+    color:#0d6870;
     background:white;
 }
 
@@ -245,54 +241,48 @@ header{
     background:#edf8f7;
 }
 
-.hero-photo-wrap{
-    position:relative;
-}
+.hero-card{
+    min-height:390px;
+    border-radius:25px;
 
-.hero-image{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    border-radius:24px;
-    display:block;
-    box-shadow:0 20px 50px rgba(21,73,85,.18);
-}
+    background:
+        linear-gradient(
+            145deg,
+            #0d6870,
+            #27a69a
+        );
 
-.hero-message{
-    position:absolute;
-    left:25px;
-    bottom:22px;
-    background:rgba(255,255,255,.94);
-    padding:13px 18px;
-    border-radius:12px;
-    font-weight:800;
-    color:#125d66;
-    box-shadow:0 8px 25px rgba(0,0,0,.1);
-}
+    padding:30px;
+    color:white;
 
-.hero-features{
     display:flex;
-    gap:22px;
-    margin-top:28px;
-    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    box-shadow:
+        0 20px 45px rgba(13,104,112,.18);
 }
 
-.hero-feature{
-    font-size:13px;
-    font-weight:700;
-    color:#557083;
+.hero-icon{
+    font-size:55px;
+    margin-bottom:18px;
 }
 
-.hero-feature::before{
-    content:"✓";
-    color:#15988f;
-    font-weight:900;
-    margin-right:7px;
+.hero-card h3{
+    font-size:27px;
+    margin-bottom:8px;
 }
 
-/* =========================
-   SECTIONS
-========================= */
+.hero-card p{
+    color:#e8ffff;
+    font-size:15px;
+    margin:0;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section{
     padding:80px 0;
@@ -300,212 +290,250 @@ section{
 
 .section-heading{
     text-align:center;
-    max-width:760px;
-    margin:0 auto 45px;
+    margin-bottom:45px;
 }
 
 .section-heading .small{
-    color:#15988f;
+    font-size:12px;
+    letter-spacing:1.8px;
     font-weight:800;
-    font-size:13px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+    color:#149b91;
+    margin-bottom:10px;
 }
 
 .section-heading h2{
     font-size:38px;
-    color:#183e56;
-    margin:10px 0 13px;
+    color:#16445a;
+    margin-bottom:10px;
 }
 
 .section-heading p{
-    color:#708392;
-    font-size:16px;
+    max-width:760px;
+    margin:auto;
+    color:#70838f;
 }
 
-/* =========================
-   CONNECTED HEALTHCARE
-========================= */
 
-.healthlink{
-    background:#ffffff;
-}
+/* =========================================================
+   CARDS
+========================================================= */
 
-.portal-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.portal-card{
-    border:1px solid #e1ebee;
-    border-radius:18px;
-    padding:27px;
-    background:white;
-    transition:.25s;
-    cursor:pointer;
-}
-
-.portal-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(20,76,88,.10);
-    border-color:#b9dedb;
-}
-
-.portal-icon{
-    width:55px;
-    height:55px;
-    border-radius:15px;
-    background:#e8f7f5;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-    margin-bottom:18px;
-}
-
-.portal-card h3{
-    color:#20465d;
-    font-size:19px;
-    margin-bottom:8px;
-}
-
-.portal-card p{
-    color:#718391;
-    font-size:14px;
-}
-
-/* =========================
-   ECOSYSTEM
-========================= */
-
-.ecosystem{
-    background:#f5fafb;
-}
-
-.ecosystem-grid{
+.grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:22px;
 }
 
-.ecosystem-card{
-    background:#fff;
+.card{
+    border:1px solid #e1ecef;
     border-radius:17px;
     padding:27px;
-    border:1px solid #e3edef;
+    background:#ffffff;
+
+    box-shadow:
+        0 8px 25px rgba(25,70,90,.05);
+
+    transition:.2s;
 }
 
-.ecosystem-card h3{
-    margin-bottom:9px;
-    color:#21475d;
+.card:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(25,70,90,.09);
 }
 
-.ecosystem-card p{
-    color:#708391;
+.card-icon{
+    font-size:34px;
+    margin-bottom:13px;
+}
+
+.card h3{
+    color:#164b60;
+    margin-bottom:7px;
+}
+
+.card p{
+    color:#71838f;
+    font-size:14px;
+    margin-bottom:16px;
+}
+
+.card-link{
+    font-weight:700;
+    color:#0b827b;
     font-size:14px;
 }
 
-/* =========================
-   STATS
-========================= */
-
-.stats{
-    background:#0d6670;
-    color:white;
-    padding:42px 0;
+.card-link:hover{
+    color:#095b57;
 }
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    text-align:center;
+
+/* =========================================================
+   CORE PORTALS
+========================================================= */
+
+.core{
+    background:#f8fbfc;
 }
 
-.stat{
-    padding:10px;
-    border-right:1px solid rgba(255,255,255,.2);
+
+/* =========================================================
+   ORGANIZATION
+========================================================= */
+
+.organization-section{
+    background:#ffffff;
 }
 
-.stat:last-child{
-    border-right:none;
+.org-card{
+    position:relative;
 }
 
-.stat h3{
-    font-size:30px;
-    margin-bottom:3px;
+.org-type{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:#149b91;
+    margin-bottom:5px;
 }
 
-.stat p{
-    opacity:.85;
+.org-features{
+    list-style:none;
+    margin:14px 0 18px;
+}
+
+.org-features li{
     font-size:13px;
+    color:#637987;
+    padding:4px 0;
 }
 
-/* =========================
-   HOW IT WORKS
-========================= */
+.org-features li::before{
+    content:"✓ ";
+    color:#149b91;
+    font-weight:bold;
+}
 
-.steps{
+
+/* =========================================================
+   PROFESSIONAL NETWORK
+========================================================= */
+
+.professional-section{
+    background:#eef8f7;
+}
+
+
+/* =========================================================
+   WORKFLOW
+========================================================= */
+
+.workflow-section{
+    background:#ffffff;
+}
+
+.workflow{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
+    gap:18px;
 }
 
 .step{
-    position:relative;
-    padding:25px;
-    border:1px solid #e1eaed;
-    border-radius:17px;
-    background:#fff;
+    background:#ffffff;
+    border-radius:15px;
+    padding:24px;
+    border:1px solid #dceced;
 }
 
 .step-number{
-    width:38px;
-    height:38px;
-    background:#e6f6f4;
-    color:#118b82;
+    width:35px;
+    height:35px;
+
     border-radius:50%;
+
+    background:#0d6870;
+    color:#ffffff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-weight:800;
-    margin-bottom:15px;
+
+    margin-bottom:12px;
 }
 
 .step h3{
-    color:#23485e;
-    margin-bottom:8px;
+    font-size:17px;
+    color:#164b60;
+    margin-bottom:6px;
 }
 
 .step p{
-    color:#738593;
-    font-size:14px;
+    font-size:13px;
+    color:#71838f;
 }
 
-/* =========================
+
+/* =========================================================
+   FUTURE MODULES
+========================================================= */
+
+.modules-section{
+    background:#f7fafb;
+}
+
+.module-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.module-list a{
+    padding:17px;
+
+    border:1px solid #e1ecef;
+    border-radius:12px;
+
+    font-weight:700;
+    color:#31576a;
+
+    background:#ffffff;
+}
+
+.module-list a:hover{
+    border-color:#7fc9c3;
+    color:#087e78;
+    background:#f1fbfa;
+}
+
+
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about{
-    background:#f6fafb;
+    background:#ffffff;
 }
 
 .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:45px;
+    gap:55px;
     align-items:center;
 }
 
 .about h2{
     font-size:38px;
-    color:#183e56;
-    margin-bottom:16px;
+    color:#16445a;
+    margin-bottom:18px;
 }
 
 .about p{
-    color:#708391;
-    margin-bottom:15px;
+    color:#687d8a;
+    margin-bottom:14px;
 }
 
 .about-list{
@@ -514,83 +542,71 @@ section{
 }
 
 .about-list li{
-    margin:10px 0;
-    color:#496575;
-    font-weight:600;
+    padding:8px 0;
+    border-bottom:1px solid #e0eaed;
 }
 
 .about-list li::before{
-    content:"✓";
-    color:#15988f;
-    margin-right:10px;
+    content:"✓ ";
+    color:#149b91;
+    font-weight:bold;
 }
 
 .about-box{
-    background:white;
-    border-radius:22px;
+    background:#f7fafb;
     padding:35px;
-    border:1px solid #e0ebee;
-    box-shadow:0 15px 35px rgba(24,72,84,.08);
+    border-radius:20px;
+    border:1px solid #e0eaed;
 }
 
 .about-box h3{
-    color:#0e6d72;
-    font-size:23px;
+    color:#0d6870;
+    font-size:24px;
     margin-bottom:12px;
 }
 
-/* =========================
+
+/* =========================================================
    CTA
-========================= */
+========================================================= */
 
 .cta{
-    padding:75px 0;
-    background:linear-gradient(
-        135deg,
-        #e9f8f6,
-        #f1f8fa
-    );
+    padding:60px 0;
 }
 
 .cta-box{
+    background:#0d6870;
+    color:#ffffff;
+    border-radius:22px;
     text-align:center;
-    max-width:800px;
-    margin:auto;
+    padding:50px 25px;
 }
 
-.cta h2{
-    font-size:39px;
-    color:#183e56;
-    margin-bottom:13px;
+.cta-box h2{
+    font-size:34px;
+    margin-bottom:10px;
 }
 
-.cta p{
-    color:#6e818d;
-    margin-bottom:25px;
+.cta-box p{
+    color:#dff8f7;
+    margin-bottom:22px;
 }
 
-.cta-buttons{
-    display:flex;
-    justify-content:center;
-    gap:12px;
-    flex-wrap:wrap;
-}
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer{
-    background:#123b4e;
-    color:white;
-    padding:45px 0 20px;
+    background:#123c4e;
+    color:#dceef2;
+    padding:55px 0 20px;
 }
 
 .footer-grid{
     display:grid;
     grid-template-columns:2fr 1fr 1fr 1fr;
     gap:35px;
-    padding-bottom:30px;
 }
 
 .footer-brand{
@@ -601,20 +617,20 @@ footer{
 }
 
 .footer-logo{
-    width:44px;
-    height:44px;
+    width:42px;
+    height:42px;
     border-radius:50%;
-    object-fit:contain;
-    background:white;
 }
 
-.footer h3{
-    margin-bottom:13px;
-}
-
-.footer p{
-    color:#c4d6dd;
+.footer-grid p{
     font-size:14px;
+    color:#b7d0d7;
+    max-width:430px;
+}
+
+.footer-grid h3{
+    color:#ffffff;
+    margin-bottom:12px;
 }
 
 .footer-links{
@@ -623,28 +639,27 @@ footer{
 
 .footer-links li{
     margin:8px 0;
-}
-
-.footer-links a{
-    color:#c4d6dd;
     font-size:14px;
+    color:#b7d0d7;
 }
 
 .footer-links a:hover{
-    color:white;
+    color:#ffffff;
 }
 
 .copyright{
-    border-top:1px solid rgba(255,255,255,.15);
+    border-top:1px solid rgba(255,255,255,.12);
+    margin-top:35px;
     padding-top:18px;
     text-align:center;
-    color:#b6cbd3;
-    font-size:13px;
+    font-size:12px;
+    color:#9fb9c2;
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:900px){
 
@@ -657,39 +672,22 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .hero{
-        padding:50px 0;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero-image{
-        height:350px;
-    }
-
-    .portal-grid,
-    .ecosystem-grid{
+    .grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .steps{
+    .workflow{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .stats-grid{
+    .module-list{
         grid-template-columns:repeat(2,1fr);
-        gap:20px;
-    }
-
-    .stat{
-        border-right:none;
     }
 
     .footer-grid{
         grid-template-columns:1fr 1fr;
     }
+
 }
 
 @media(max-width:600px){
@@ -702,10 +700,6 @@ footer{
         font-size:18px;
     }
 
-    .tagline{
-        font-size:9px;
-    }
-
     .logo-image{
         width:43px;
         height:43px;
@@ -716,33 +710,21 @@ footer{
         font-size:12px;
     }
 
-    .portal-menu{
-        right:0;
-        width:220px;
+    .hero{
+        padding:55px 0;
     }
 
     .hero h1{
-        font-size:34px;
+        font-size:37px;
     }
 
     .hero p{
         font-size:16px;
     }
 
-    .hero-image{
-        height:280px;
-    }
-
-    .hero-message{
-        left:12px;
-        right:12px;
-        bottom:12px;
-        font-size:13px;
-    }
-
-    .portal-grid,
-    .ecosystem-grid,
-    .steps,
+    .grid,
+    .workflow,
+    .module-list,
     .footer-grid{
         grid-template-columns:1fr;
     }
@@ -752,23 +734,19 @@ footer{
     }
 
     .section-heading h2,
-    .about h2,
-    .cta h2{
+    .about h2{
         font-size:30px;
     }
 
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .hero-buttons a{
-        text-align:center;
-    }
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -776,678 +754,1024 @@ footer{
 
 <header>
 
-    <div class="container navbar">
-
-        <a href="index.html" class="logo">
-
-            <img
-                src="luvio-logo.jpeg"
-                alt="Luvio HealthLink Logo"
-                class="logo-image"
-            >
-
-            <div>
-
-                <div class="logo-text">
-                    Luvio <span>HealthLink</span>
-                </div>
-
-                <div class="tagline">
-                    Your Personal Health Architecture.
-                </div>
-
-            </div>
-
-        </a>
+<div class="container navbar">
 
 
-        <nav class="nav-links">
+<a href="index.html" class="logo">
 
-            <a href="#healthlink">
-                HealthLink
-            </a>
+<img
+    src="luvio-logo.jpeg"
+    alt="Luvio HealthLink Logo"
+    class="logo-image"
+>
 
-            <a href="#ecosystem">
-                Ecosystem
-            </a>
+<div class="logo-text">
+    Luvio <span>HealthLink</span>
+</div>
 
-            <a href="#how-it-works">
-                How It Works
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </nav>
+</a>
 
 
-        <!-- LOGIN PORTAL -->
+<nav class="nav-links">
 
-        <div class="portal">
+<a href="#healthlink">
+    HealthLink
+</a>
 
-            <button
-                class="portal-button"
-                onclick="togglePortal()"
-            >
-                Login Portal ▾
-            </button>
+<a href="#organization">
+    Organization
+</a>
 
+<a href="#professionals">
+    Professionals
+</a>
 
-            <div
-                class="portal-menu"
-                id="portalMenu"
-            >
+<a href="#how-it-works">
+    How It Works
+</a>
 
-                <!-- CURRENTLY AVAILABLE -->
+<a href="#about">
+    About
+</a>
 
-                <a href="patient.html">
-                    👤 Patient Login
-                </a>
-
-                <a href="doctor.html">
-                    🩺 Doctor Login
-                </a>
-
-                <a href="reception.html">
-                    🏥 Reception / Polyclinic Login
-                </a>
+</nav>
 
 
-                <!-- FUTURE PORTALS -->
+<div class="portal">
 
-                <a href="pharmacy.html">
-                    💊 Pharmacy Login
-                </a>
+<button
+    class="portal-button"
+    onclick="togglePortal()"
+>
+    Portal Login ▾
+</button>
 
-                <a href="diagnostics.html">
-                    🧪 Diagnostic Login
-                </a>
 
-                <a href="hospital.html">
-                    🏨 Hospital Login
-                </a>
+<div
+    class="portal-menu"
+    id="portalMenu"
+>
 
-            </div>
+<a href="patient.html">
+    👤 Patient Login
+</a>
 
-        </div>
+<a href="doctor.html">
+    🩺 Doctor / Professional Login
+</a>
 
-    </div>
+<a href="organization.html">
+    🏢 Organization Login
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 </header>
+
 
 
 <!-- =========================================================
      HERO
 ========================================================= -->
 
-<section class="hero">
-
-    <div class="container hero-grid">
-
-        <div>
-
-            <div class="eyebrow">
-                CONNECTED DIGITAL HEALTHCARE
-            </div>
-
-
-            <h1>
-
-                One health record.
-
-                <span>
-                    Everywhere you need it.
-                </span>
-
-            </h1>
-
-
-            <p>
-
-                Luvio HealthLink connects patients, doctors, polyclinics,
-                pharmacies, diagnostic labs and hospitals around a secure,
-                longitudinal patient record.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <!-- ONLINE CONSULTATION -->
-
-                <a
-                    href="patient.html"
-                    class="primary-btn"
-                >
-                    Online Consultation
-                </a>
-
-
-                <!-- KEEP EXISTING HEALTHLINK EXPLORATION -->
-
-                <a
-                    href="#healthlink"
-                    class="secondary-btn"
-                >
-                    Explore HealthLink
-                </a>
-
-            </div>
-
-
-            <div class="hero-features">
-
-                <div class="hero-feature">
-                    Secure
-                </div>
-
-                <div class="hero-feature">
-                    Patient Centric
-                </div>
-
-                <div class="hero-feature">
-                    Integrated Care
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="hero-photo-wrap">
-
-            <img
-                src="IMG_1088.jpeg"
-                alt="Doctor consulting with a patient"
-                class="hero-image"
-            >
-
-            <div class="hero-message">
-                People. Partnership. Better Health.
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONNECTED HEALTHCARE
-========================================================= -->
-
 <section
+    class="hero"
     id="healthlink"
-    class="healthlink"
 >
 
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="small">
-                HEALTHLINK PORTAL
-            </div>
-
-            <h2>
-                Connected Healthcare
-            </h2>
-
-            <p>
-                One digital ecosystem connecting every important part
-                of the patient's healthcare journey.
-            </p>
-
-        </div>
+<div class="container hero-grid">
 
 
-        <div class="portal-grid">
+<div>
+
+<div class="eyebrow">
+    CONNECTED DIGITAL HEALTHCARE ECOSYSTEM
+</div>
 
 
-            <!-- PATIENT -->
+<h1>
 
-            <a
-                href="patient.html"
-                class="portal-card"
-            >
+    One health record.
 
-                <div class="portal-icon">
-                    👤
-                </div>
+    <span>
+        Everywhere you need it.
+    </span>
 
-                <h3>
-                    Patients
-                </h3>
-
-                <p>
-                    Access appointments, prescriptions, reports,
-                    visits and your longitudinal health record.
-                </p>
-
-            </a>
+</h1>
 
 
-            <!-- DOCTOR -->
+<p>
 
-            <a
-                href="doctor.html"
-                class="portal-card"
-            >
+Luvio HealthLink connects patients,
+independent healthcare professionals,
+polyclinics, pharmacies, diagnostic centres
+and hospitals around a connected digital
+healthcare ecosystem.
 
-                <div class="portal-icon">
-                    🩺
-                </div>
-
-                <h3>
-                    Doctors
-                </h3>
-
-                <p>
-                    Review patient history, create clinical records,
-                    prescriptions, tests and referrals.
-                </p>
-
-            </a>
+</p>
 
 
-            <!-- RECEPTION / POLYCLINIC -->
-
-            <a
-                href="reception.html"
-                class="portal-card"
-            >
-
-                <div class="portal-icon">
-                    🏥
-                </div>
-
-                <h3>
-                    Polyclinics
-                </h3>
-
-                <p>
-                    Manage registration, appointments, queues,
-                    doctors and patient encounters.
-                </p>
-
-            </a>
+<div class="hero-buttons">
 
 
-            <!-- PHARMACY -->
-
-            <a
-                href="pharmacy.html"
-                class="portal-card"
-            >
-
-                <div class="portal-icon">
-                    💊
-                </div>
-
-                <h3>
-                    Pharmacies
-                </h3>
-
-                <p>
-                    Receive authorized digital prescriptions
-                    and manage dispensing workflows.
-                </p>
-
-            </a>
+<a
+    class="primary-btn"
+    href="patient.html"
+>
+    Patient Portal
+</a>
 
 
-            <!-- DIAGNOSTICS -->
-
-            <a
-                href="diagnostics.html"
-                class="portal-card"
-            >
-
-                <div class="portal-icon">
-                    🧪
-                </div>
-
-                <h3>
-                    Diagnostics
-                </h3>
-
-                <p>
-                    Receive diagnostic orders and return reports
-                    directly to the patient's health record.
-                </p>
-
-            </a>
+<a
+    class="secondary-btn"
+    href="doctor.html"
+>
+    Doctor / Professional Portal
+</a>
 
 
-            <!-- HOSPITAL -->
-
-            <a
-                href="hospital.html"
-                class="portal-card"
-            >
-
-                <div class="portal-icon">
-                    🏨
-                </div>
-
-                <h3>
-                    Hospitals
-                </h3>
-
-                <p>
-                    Receive authorized referrals and return relevant
-                    hospital outcomes to the patient's care journey.
-                </p>
-
-            </a>
+<a
+    class="secondary-btn"
+    href="organization.html"
+>
+    Organization Portal
+</a>
 
 
-        </div>
+</div>
 
-    </div>
+</div>
+
+
+
+<div class="hero-card">
+
+<div class="hero-icon">
+    ⚕️
+</div>
+
+
+<h3>
+    Healthcare connected around the patient
+</h3>
+
+
+<p>
+
+Patient identity, professional identity
+and organization identity remain separate,
+while authorized relationships connect
+the right people and services.
+
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
+
 <!-- =========================================================
-     ECOSYSTEM
+     THREE CORE PORTALS
+========================================================= -->
+
+<section class="core">
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<div class="small">
+    MAIN HEALTHLINK PORTALS
+</div>
+
+<h2>
+    Three Core Entry Points
+</h2>
+
+<p>
+
+The main interface stays simple.
+Patients, professionals and organizations
+enter through their own portal.
+
+</p>
+
+</div>
+
+
+
+<div class="grid">
+
+
+<!-- PATIENT -->
+
+<div class="card">
+
+<div class="card-icon">
+    👤
+</div>
+
+<h3>
+    Patient
+</h3>
+
+<p>
+
+Access your Luvio Patient ID,
+appointments, prescriptions,
+diagnostic reports, health record,
+visit history, consent and
+online consultations.
+
+</p>
+
+<a
+    class="card-link"
+    href="patient.html"
+>
+    Open Patient Portal →
+</a>
+
+</div>
+
+
+
+<!-- PROFESSIONAL -->
+
+<div class="card">
+
+<div class="card-icon">
+    🩺
+</div>
+
+<h3>
+    Doctor / Professional
+</h3>
+
+<p>
+
+Independent professional identity
+for doctors and other healthcare
+professionals, with consultations,
+schedules, patients, records and
+organization associations.
+
+</p>
+
+<a
+    class="card-link"
+    href="doctor.html"
+>
+    Open Professional Portal →
+</a>
+
+</div>
+
+
+
+<!-- ORGANIZATION -->
+
+<div class="card">
+
+<div class="card-icon">
+    🏢
+</div>
+
+<h3>
+    Organization
+</h3>
+
+<p>
+
+Administrative workspace for
+polyclinics, standalone pharmacies,
+diagnostic centres and hospitals.
+
+</p>
+
+<a
+    class="card-link"
+    href="organization.html"
+>
+    Open Organization Portal →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ORGANIZATION PLATFORM
 ========================================================= -->
 
 <section
-    id="ecosystem"
-    class="ecosystem"
+    class="organization-section"
+    id="organization"
 >
 
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="small">
-                ONE CONNECTED ECOSYSTEM
-            </div>
-
-            <h2>
-                Healthcare that stays connected
-            </h2>
-
-            <p>
-                Luvio HealthLink brings healthcare stakeholders
-                together around the patient.
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <div class="ecosystem-grid">
+<div class="section-heading">
+
+<div class="small">
+    ORGANIZATION PLATFORM
+</div>
+
+<h2>
+    One Organization Portal.
+    Multiple Healthcare Businesses.
+</h2>
+
+<p>
+
+An organization chooses its operating
+type after entering the organization
+platform.
+
+Pharmacy is a first-class standalone
+organization type, not only a polyclinic
+feature.
+
+</p>
+
+</div>
 
 
-            <div class="ecosystem-card">
 
-                <h3>
-                    👤 Patient
-                </h3>
-
-                <p>
-                    A longitudinal record that follows the patient
-                    across participating healthcare services.
-                </p>
-
-            </div>
+<div class="grid">
 
 
-            <div class="ecosystem-card">
+<!-- POLYCLINIC -->
 
-                <h3>
-                    🩺 Doctor
-                </h3>
+<div class="card org-card">
 
-                <p>
-                    Relevant patient information available during
-                    consultation for better continuity of care.
-                </p>
+<div class="org-type">
+    ORGANIZATION TYPE
+</div>
 
-            </div>
+<div class="card-icon">
+    🏥
+</div>
 
+<h3>
+    Polyclinic
+</h3>
 
-            <div class="ecosystem-card">
-
-                <h3>
-                    🏥 Polyclinic
-                </h3>
-
-                <p>
-                    Digital registration, appointments, encounters
-                    and patient management.
-                </p>
-
-            </div>
+<p>
+Complete clinic administration
+and patient-care operations.
+</p>
 
 
-            <div class="ecosystem-card">
+<ul class="org-features">
 
-                <h3>
-                    💊 Pharmacy
-                </h3>
+<li>
+    Reception & Registration
+</li>
 
-                <p>
-                    Authorized digital prescriptions and medication
-                    dispensing information.
-                </p>
+<li>
+    Appointments & Queue
+</li>
 
-            </div>
+<li>
+    Doctors & Professional Associations
+</li>
 
+<li>
+    Patient Records
+</li>
 
-            <div class="ecosystem-card">
+<li>
+    Pharmacy Module
+</li>
 
-                <h3>
-                    🧪 Diagnostics
-                </h3>
+<li>
+    Diagnostics Module
+</li>
 
-                <p>
-                    Digital diagnostic orders and reports connected
-                    to the patient's record.
-                </p>
-
-            </div>
-
-
-            <div class="ecosystem-card">
-
-                <h3>
-                    🏨 Partner Hospitals
-                </h3>
-
-                <p>
-                    Secure referrals and authorized exchange of
-                    relevant healthcare information.
-                </p>
-
-            </div>
+</ul>
 
 
-        </div>
+<a
+    class="card-link"
+    href="organization.html?type=polyclinic"
+>
+    Polyclinic Workspace →
+</a>
 
-    </div>
+</div>
+
+
+
+<!-- STANDALONE PHARMACY -->
+
+<div class="card org-card">
+
+<div class="org-type">
+    ORGANIZATION TYPE
+</div>
+
+<div class="card-icon">
+    💊
+</div>
+
+<h3>
+    Standalone Pharmacy
+</h3>
+
+<p>
+
+A full-fledged pharmacy software
+workspace that can operate
+independently of any polyclinic.
+
+</p>
+
+
+<ul class="org-features">
+
+<li>
+    Inventory & Stock
+</li>
+
+<li>
+    Purchase Management
+</li>
+
+<li>
+    Purchase Returns
+</li>
+
+<li>
+    Sales / POS Billing
+</li>
+
+<li>
+    Sales Returns
+</li>
+
+<li>
+    GST Billing & Reports
+</li>
+
+<li>
+    Batch & Expiry Tracking
+</li>
+
+<li>
+    Supplier Management
+</li>
+
+<li>
+    Pharmacist & Staff Management
+</li>
+
+<li>
+    Profit & Sales Reports
+</li>
+
+</ul>
+
+
+<a
+    class="card-link"
+    href="organization.html?type=pharmacy"
+>
+    Pharmacy Workspace →
+</a>
+
+</div>
+
+
+
+<!-- DIAGNOSTICS -->
+
+<div class="card org-card">
+
+<div class="org-type">
+    ORGANIZATION TYPE
+</div>
+
+<div class="card-icon">
+    🧪
+</div>
+
+<h3>
+    Diagnostics
+</h3>
+
+<p>
+
+Diagnostic-centre administration
+and laboratory workflow.
+
+</p>
+
+
+<ul class="org-features">
+
+<li>
+    Test Catalogue
+</li>
+
+<li>
+    Sample Management
+</li>
+
+<li>
+    Diagnostic Orders
+</li>
+
+<li>
+    Billing
+</li>
+
+<li>
+    Reports
+</li>
+
+<li>
+    Partner Integrations
+</li>
+
+</ul>
+
+
+<a
+    class="card-link"
+    href="organization.html?type=diagnostics"
+>
+    Diagnostics Workspace →
+</a>
+
+</div>
+
+
+
+<!-- HOSPITAL -->
+
+<div class="card org-card">
+
+<div class="org-type">
+    ORGANIZATION TYPE
+</div>
+
+<div class="card-icon">
+    🏨
+</div>
+
+<h3>
+    Hospital
+</h3>
+
+<p>
+
+A broader organization workspace
+for hospital departments and
+connected healthcare operations.
+
+</p>
+
+
+<ul class="org-features">
+
+<li>
+    Departments & Staff
+</li>
+
+<li>
+    Doctors & Professionals
+</li>
+
+<li>
+    Patients
+</li>
+
+<li>
+    Admissions & Care
+</li>
+
+<li>
+    Pharmacy
+</li>
+
+<li>
+    Diagnostics
+</li>
+
+</ul>
+
+
+<a
+    class="card-link"
+    href="organization.html?type=hospital"
+>
+    Hospital Workspace →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================================================
-     STATS
+     PROFESSIONAL NETWORK
 ========================================================= -->
 
-<section class="stats">
+<section
+    class="professional-section"
+    id="professionals"
+>
 
-    <div class="container stats-grid">
-
-        <div class="stat">
-
-            <h3>
-                1
-            </h3>
-
-            <p>
-                Connected Patient Record
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <div class="stat">
+<div class="section-heading">
 
-            <h3>
-                6+
-            </h3>
+<div class="small">
+    PROFESSIONAL NETWORK
+</div>
 
-            <p>
-                Healthcare Stakeholders
-            </p>
+<h2>
+    Professional Identity & Associations
+</h2>
 
-        </div>
+<p>
 
+Doctors, pharmacists, laboratory
+professionals, nurses and other
+eligible professionals can maintain
+their own professional identity and
+associate with multiple organizations.
 
-        <div class="stat">
+</p>
 
-            <h3>
-                24/7
-            </h3>
-
-            <p>
-                Digital Access
-            </p>
-
-        </div>
+</div>
 
 
-        <div class="stat">
 
-            <h3>
-                ∞
-            </h3>
+<div class="grid">
 
-            <p>
-                Future Network Potential
-            </p>
 
-        </div>
+<!-- PROFESSIONAL IDENTITY -->
 
-    </div>
+<div class="card">
+
+<div class="card-icon">
+    🪪
+</div>
+
+<h3>
+    Professional Identity
+</h3>
+
+<p>
+
+Professionals register independently
+and maintain their professional
+profile, credentials and availability.
+
+</p>
+
+<a
+    class="card-link"
+    href="doctor.html"
+>
+    Professional Portal →
+</a>
+
+</div>
+
+
+
+<!-- ASSOCIATIONS -->
+
+<div class="card">
+
+<div class="card-icon">
+    🔗
+</div>
+
+<h3>
+    Organization Association
+</h3>
+
+<p>
+
+Organizations search registered
+professionals and send association
+requests. Professionals can accept
+or decline.
+
+</p>
+
+<a
+    class="card-link"
+    href="organization.html"
+>
+    Organization Associations →
+</a>
+
+</div>
+
+
+
+<!-- JOBS -->
+
+<div class="card">
+
+<div class="card-icon">
+    💼
+</div>
+
+<h3>
+    Jobs & Opportunities
+</h3>
+
+<p>
+
+Organizations can publish roles
+and professionals can discover
+opportunities and apply.
+
+</p>
+
+<a
+    class="card-link"
+    href="jobs.html"
+>
+    Jobs & Opportunities →
+</a>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- =========================================================
      HOW IT WORKS
 ========================================================= -->
 
-<section id="how-it-works">
+<section
+    class="workflow-section"
+    id="how-it-works"
+>
 
-    <div class="container">
-
-        <div class="section-heading">
-
-            <div class="small">
-                HOW IT WORKS
-            </div>
-
-            <h2>
-                One connected healthcare journey
-            </h2>
-
-            <p>
-                From registration to consultation, pharmacy,
-                diagnostics and referral.
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <div class="steps">
+<div class="section-heading">
+
+<div class="small">
+    HOW LUVIO HEALTHLINK WORKS
+</div>
+
+<h2>
+    Connected Without Losing Clear Ownership
+</h2>
+
+<p>
+
+Patient identity, professional identity
+and organization identity are separate.
+Authorized relationships connect them.
+
+</p>
+
+</div>
 
 
-            <div class="step">
 
-                <div class="step-number">
-                    1
-                </div>
-
-                <h3>
-                    Register
-                </h3>
-
-                <p>
-                    The patient is registered once and receives
-                    a unique Luvio Patient ID.
-                </p>
-
-            </div>
+<div class="workflow">
 
 
-            <div class="step">
+<div class="step">
 
-                <div class="step-number">
-                    2
-                </div>
+<div class="step-number">
+    1
+</div>
 
-                <h3>
-                    Consult
-                </h3>
+<h3>
+    Patient Identity
+</h3>
 
-                <p>
-                    Doctors review relevant information and
-                    document the consultation digitally.
-                </p>
+<p>
 
-            </div>
+The patient receives a unique
+Luvio Patient ID and uses secure
+authentication to access their record.
 
+</p>
 
-            <div class="step">
-
-                <div class="step-number">
-                    3
-                </div>
-
-                <h3>
-                    Connect
-                </h3>
-
-                <p>
-                    Prescriptions, diagnostic orders and referrals
-                    move to authorized healthcare partners.
-                </p>
-
-            </div>
+</div>
 
 
-            <div class="step">
 
-                <div class="step-number">
-                    4
-                </div>
+<div class="step">
 
-                <h3>
-                    Continue Care
-                </h3>
+<div class="step-number">
+    2
+</div>
 
-                <p>
-                    Reports, visits and relevant outcomes become
-                    part of the patient's continuing record.
-                </p>
+<h3>
+    Professional Identity
+</h3>
 
-            </div>
+<p>
+
+Doctors and other professionals
+register independently and can
+work with multiple organizations.
+
+</p>
+
+</div>
 
 
-        </div>
 
-    </div>
+<div class="step">
+
+<div class="step-number">
+    3
+</div>
+
+<h3>
+    Organization Workspace
+</h3>
+
+<p>
+
+Each organization manages its own
+operations, staff, services and
+authorized professional associations.
+
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-number">
+    4
+</div>
+
+<h3>
+    Connected Care
+</h3>
+
+<p>
+
+With appropriate authorization,
+consultations, prescriptions,
+diagnostics and referrals can
+move through the ecosystem.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
+
+
+
+<!-- =========================================================
+     FUTURE PLATFORM MODULES
+========================================================= -->
+
+<section
+    class="modules-section"
+>
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<div class="small">
+    PLATFORM MODULES
+</div>
+
+<h2>
+    Future-Ready Navigation
+</h2>
+
+<p>
+
+These links are already part of the
+main interface so the architecture
+does not need to be redesigned as
+new modules are built.
+
+</p>
+
+</div>
+
+
+
+<div class="module-list">
+
+
+<a href="patient.html">
+    👤 Patient Portal
+</a>
+
+
+<a href="doctor.html">
+    🩺 Doctor / Professional Portal
+</a>
+
+
+<a href="organization.html">
+    🏢 Organization Administration
+</a>
+
+
+<a href="organization.html?type=polyclinic">
+    🏥 Polyclinic
+</a>
+
+
+<a href="organization.html?type=pharmacy">
+    💊 Pharmacy Software
+</a>
+
+
+<a href="organization.html?type=diagnostics">
+    🧪 Diagnostics
+</a>
+
+
+<a href="organization.html?type=hospital">
+    🏨 Hospital
+</a>
+
+
+<a href="professional.html">
+    🪪 Professional Network
+</a>
+
+
+<a href="jobs.html">
+    💼 Jobs & Opportunities
+</a>
+
+
+<a href="online-consultation.html">
+    🩺 Online Consultation
+</a>
+
+
+<a href="reports.html">
+    📊 Reports & Analytics
+</a>
+
+
+<a href="admin.html">
+    ⚙️ Platform Administration
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
 
 
 <!-- =========================================================
@@ -1455,95 +1779,120 @@ footer{
 ========================================================= -->
 
 <section
-    id="about"
     class="about"
+    id="about"
 >
 
-    <div class="container about-grid">
-
-        <div>
-
-            <div
-                class="section-heading"
-                style="text-align:left;margin:0 0 20px;"
-            >
-
-                <div class="small">
-                    ABOUT LUVIO HEALTHLINK
-                </div>
-
-                <h2>
-                    Your Personal Health Architecture.
-                </h2>
-
-            </div>
+<div class="container about-grid">
 
 
-            <p>
-                Luvio HealthLink is designed to create a connected
-                digital healthcare environment where the patient's
-                journey remains at the centre.
-            </p>
+<div>
+
+<div class="eyebrow">
+    ABOUT LUVIO HEALTHLINK
+</div>
+
+<h2>
+    Your Personal Health Architecture.
+</h2>
 
 
-            <p>
-                The platform is designed to grow from a single
-                polyclinic into a wider network of participating
-                healthcare providers.
-            </p>
+<p>
+
+Luvio HealthLink is designed as
+a digital healthcare ecosystem
+rather than a single
+clinic-management application.
+
+</p>
 
 
-            <ul class="about-list">
+<p>
 
-                <li>
-                    Patient-centric healthcare
-                </li>
+The platform can start with one
+polyclinic, prove the workflow,
+and progressively connect additional
+organizations and professionals.
 
-                <li>
-                    Longitudinal digital health record
-                </li>
-
-                <li>
-                    Connected healthcare providers
-                </li>
-
-                <li>
-                    Secure and authorized data sharing
-                </li>
-
-                <li>
-                    Designed for future interoperability
-                </li>
-
-            </ul>
-
-        </div>
+</p>
 
 
-        <div class="about-box">
+<ul class="about-list">
 
-            <h3>
-                Built around the patient
-            </h3>
+<li>
+    Patient-centric longitudinal health record
+</li>
 
-            <p>
-                Luvio HealthLink is not simply a clinic management
-                system. It is designed as a healthcare ecosystem
-                connecting patients, doctors, clinics, pharmacies,
-                diagnostics and hospitals.
-            </p>
+<li>
+    Independent professional identity
+</li>
 
-            <p>
-                The platform can start small, prove the workflow
-                in one polyclinic and progressively expand into
-                a broader healthcare network.
-            </p>
+<li>
+    Organization-based operational workspaces
+</li>
 
-        </div>
+<li>
+    Explicit professional-to-organization associations
+</li>
 
-    </div>
+<li>
+    Connected pharmacy, diagnostics and hospital workflows
+</li>
+
+<li>
+    Online consultation
+</li>
+
+<li>
+    Future interoperability and authorized data sharing
+</li>
+
+</ul>
+
+</div>
+
+
+
+<div class="about-box">
+
+<h3>
+    Built to grow
+</h3>
+
+
+<p>
+
+The main interface remains simple
+while the platform underneath can
+expand into multiple healthcare
+organizations, professional networks
+and connected services.
+
+</p>
+
+
+<p>
+
+<strong>
+Important:
+</strong>
+
+A standalone pharmacy can operate
+its own complete pharmacy software
+without being a polyclinic.
+
+A pharmacy may also be associated
+with a polyclinic when required.
+
+</p>
+
+</div>
+
+
+</div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -1552,249 +1901,208 @@ footer{
 
 <section class="cta">
 
-    <div class="container">
+<div class="container">
 
-        <div class="cta-box">
+<div class="cta-box">
 
-            <h2>
-                Healthcare, connected around you.
-            </h2>
+<h2>
+    Healthcare, connected around you.
+</h2>
 
-            <p>
-                One record. Connected care. Better continuity.
-            </p>
-
-
-            <div class="cta-buttons">
-
-                <a
-                    href="patient.html"
-                    class="primary-btn"
-                >
-                    Patient Portal
-                </a>
+<p>
+    One record. Connected care. Better continuity.
+</p>
 
 
-                <a
-                    href="reception.html"
-                    class="secondary-btn"
-                >
-                    Reception Portal
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     CONTACT
-========================================================= -->
-
-<section
-    id="contact"
-    style="padding:65px 0;background:white;"
+<a
+    class="primary-btn"
+    href="patient.html"
 >
+    Open Patient Portal
+</a>
 
-    <div class="container">
+</div>
 
-        <div class="section-heading">
-
-            <div class="small">
-                CONTACT
-            </div>
-
-            <h2>
-                Connect with Luvio HealthLink
-            </h2>
-
-            <p>
-                Building a connected digital healthcare ecosystem
-                for patients and healthcare providers.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
+
 
 
 <!-- =========================================================
      FOOTER
 ========================================================= -->
 
-<footer>
+<footer
+    id="contact"
+>
 
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <!-- BRAND -->
-
-            <div>
-
-                <div class="footer-brand">
-
-                    <img
-                        src="luvio-logo.jpeg"
-                        alt="Luvio HealthLink Logo"
-                        class="footer-logo"
-                    >
-
-                    <strong>
-                        Luvio HealthLink
-                    </strong>
-
-                </div>
+<div class="container">
 
 
-                <p>
-                    Connecting patients, doctors, polyclinics,
-                    pharmacies, diagnostics and hospitals around
-                    a connected healthcare record.
-                </p>
-
-            </div>
+<div class="footer-grid">
 
 
-            <!-- HEALTHLINK -->
+<!-- BRAND -->
 
-            <div>
+<div>
 
-                <h3>
-                    HealthLink
-                </h3>
+<div class="footer-brand">
 
+<img
+    src="luvio-logo.jpeg"
+    class="footer-logo"
+    alt="Luvio HealthLink"
+>
 
-                <ul class="footer-links">
+<strong>
+    Luvio HealthLink
+</strong>
 
-                    <li>
-                        <a href="patient.html">
-                            Patients
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="doctor.html">
-                            Doctors
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="reception.html">
-                            Polyclinics
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="pharmacy.html">
-                            Pharmacies
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
+</div>
 
 
-            <!-- PLATFORM -->
+<p>
 
-            <div>
+Connecting patients, healthcare
+professionals, polyclinics,
+pharmacies, diagnostics and hospitals
+around a connected healthcare ecosystem.
 
-                <h3>
-                    Platform
-                </h3>
+</p>
 
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="#ecosystem">
-                            Ecosystem
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#how-it-works">
-                            How It Works
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#about">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="patient.html">
-                            Patient Portal
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
+</div>
 
 
-            <!-- PARTNERS -->
 
-            <div>
+<!-- PORTALS -->
 
-                <h3>
-                    Partners
-                </h3>
+<div>
 
+<h3>
+    Portals
+</h3>
 
-                <ul class="footer-links">
+<ul class="footer-links">
 
-                    <li>
-                        <a href="hospital.html">
-                            Hospitals
-                        </a>
-                    </li>
+<li>
+<a href="patient.html">
+    Patient
+</a>
+</li>
 
-                    <li>
-                        <a href="diagnostics.html">
-                            Diagnostics
-                        </a>
-                    </li>
+<li>
+<a href="doctor.html">
+    Doctor / Professional
+</a>
+</li>
 
-                    <li>
-                        <a href="pharmacy.html">
-                            Pharmacies
-                        </a>
-                    </li>
+<li>
+<a href="organization.html">
+    Organization
+</a>
+</li>
 
-                    <li>
-                        <a href="reception.html">
-                            Polyclinics
-                        </a>
-                    </li>
+</ul>
 
-                </ul>
-
-            </div>
+</div>
 
 
-        </div>
+
+<!-- ORGANIZATIONS -->
+
+<div>
+
+<h3>
+    Organizations
+</h3>
+
+<ul class="footer-links">
+
+<li>
+<a href="organization.html?type=polyclinic">
+    Polyclinic
+</a>
+</li>
+
+<li>
+<a href="organization.html?type=pharmacy">
+    Pharmacy
+</a>
+</li>
+
+<li>
+<a href="organization.html?type=diagnostics">
+    Diagnostics
+</a>
+</li>
+
+<li>
+<a href="organization.html?type=hospital">
+    Hospital
+</a>
+</li>
+
+</ul>
+
+</div>
 
 
-        <div class="copyright">
 
-            © 2026 Luvio HealthLink. All rights reserved.
+<!-- PLATFORM -->
 
-        </div>
+<div>
 
-    </div>
+<h3>
+    Platform
+</h3>
+
+<ul class="footer-links">
+
+<li>
+<a href="professional.html">
+    Professional Network
+</a>
+</li>
+
+<li>
+<a href="jobs.html">
+    Jobs & Opportunities
+</a>
+</li>
+
+<li>
+<a href="online-consultation.html">
+    Online Consultation
+</a>
+</li>
+
+<li>
+<a href="reports.html">
+    Reports
+</a>
+</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Luvio HealthLink.
+All rights reserved.
+
+</div>
+
+
+</div>
 
 </footer>
+
 
 
 <!-- =========================================================
@@ -1802,10 +2110,6 @@ footer{
 ========================================================= -->
 
 <script>
-
-/* =========================================================
-   LOGIN PORTAL DROPDOWN
-========================================================= */
 
 function togglePortal(){
 
@@ -1817,10 +2121,6 @@ function togglePortal(){
 }
 
 
-/* =========================================================
-   CLOSE DROPDOWN WHEN CLICKING OUTSIDE
-========================================================= */
-
 document.addEventListener(
     "click",
     function(event){
@@ -1831,9 +2131,7 @@ document.addEventListener(
         const menu =
             document.getElementById("portalMenu");
 
-
         if(
-            portal &&
             !portal.contains(event.target)
         ){
 
@@ -1846,5 +2144,7 @@ document.addEventListener(
 
 </script>
 
+
 </body>
+
 </html>
