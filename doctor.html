@@ -1,1070 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
 
-<meta charset="UTF-8">
+<meta charset="utf-8">
 
 <meta
     name="viewport"
-    content="width=device-width, initial-scale=1.0"
+    content="width=device-width,initial-scale=1"
 >
 
-<title>Luvio HealthLink | Doctor Portal</title>
+<title>Doctor / Professional Portal | Luvio HealthLink</title>
+
 
 <style>
 
-/* =====================================================
-   BASE
-===================================================== */
-
 *{
     box-sizing:border-box;
-    margin:0;
-    padding:0;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f4f8f9;
-    color:#234653;
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f8fb;
+    color:#18324a;
 }
 
-button,
-input,
-select,
-textarea{
-    font:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-.hidden{
-    display:none!important;
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-#loginScreen{
-    min-height:100vh;
+header{
+    background:#0b6477;
+    color:#fff;
+    padding:18px 6%;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-    background:
-        linear-gradient(
-            135deg,
-            #edf9f7,
-            #f5fafb
-        );
-}
-
-.login-card{
-    width:100%;
-    max-width:460px;
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    box-shadow:
-        0 15px 45px
-        rgba(20,70,85,.12);
-}
-
-.login-logo{
-    width:72px;
-    height:72px;
-    object-fit:contain;
-    display:block;
-    margin:0 auto 12px;
-}
-
-.login-card h1{
-    text-align:center;
-    color:#173f52;
-    font-size:29px;
-}
-
-.login-card h1 span{
-    color:#087b77;
-}
-
-.login-subtitle{
-    text-align:center;
-    color:#7d8f97;
-    font-size:13px;
-    margin:7px 0 25px;
-}
-
-.form-group{
-    margin-bottom:15px;
-}
-
-.form-group label{
-    display:block;
-    font-size:12px;
-    font-weight:700;
-    color:#496875;
-    margin-bottom:6px;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea{
-    width:100%;
-    border:1px solid #d4e2e6;
-    border-radius:9px;
-    padding:11px;
-    background:white;
-    outline:none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:#087b77;
-}
-
-.primary-button{
-    width:100%;
-    border:0;
-    background:#087b77;
-    color:white;
-    padding:13px;
-    border-radius:9px;
-    font-weight:800;
-}
-
-.secondary-button{
-    width:100%;
-    border:1px solid #d5e2e5;
-    background:white;
-    color:#315b6b;
-    padding:12px;
-    border-radius:9px;
-    font-weight:700;
-    margin-top:10px;
-}
-
-
-/* =====================================================
-   APPLICATION
-===================================================== */
-
-#app{
-    display:none;
-    min-height:100vh;
-}
-
-.topbar{
-    height:70px;
-    background:white;
-    border-bottom:1px solid #e0eaed;
-
-    display:flex;
-    align-items:center;
     justify-content:space-between;
-
-    padding:0 25px;
-
-    position:sticky;
-    top:0;
-    z-index:30;
+    align-items:center;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
+header a{
+    color:#fff;
     text-decoration:none;
 }
 
-.brand img{
-    width:43px;
-    height:43px;
-    object-fit:contain;
-}
-
-.brand-name{
-    color:#173f52;
-    font-size:20px;
-    font-weight:800;
-}
-
-.brand-name span{
-    color:#087b77;
-}
-
-.doctor-user{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.doctor-user-info{
-    text-align:right;
-}
-
-.doctor-user-info strong{
-    display:block;
-    color:#315465;
-    font-size:13px;
-}
-
-.doctor-user-info small{
-    color:#8a999f;
-    font-size:11px;
-}
-
-.avatar{
-    width:40px;
-    height:40px;
-    border-radius:50%;
-    background:#e5f6f3;
-    color:#087b77;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:800;
-}
-
-.layout{
-    display:flex;
-    min-height:calc(100vh - 70px);
-}
-
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.sidebar{
-    width:245px;
-    flex-shrink:0;
-    background:#173f52;
-    padding:20px 12px;
-}
-
-.sidebar-title{
-    color:#9fc4ca;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1.4px;
-    padding:8px 13px;
-}
-
-.nav-button{
-    width:100%;
-    border:0;
-    background:transparent;
-    color:#d7e8eb;
-
-    padding:12px 13px;
-
-    text-align:left;
-    border-radius:9px;
-    margin-bottom:3px;
-
-    font-size:13px;
-}
-
-.nav-button:hover,
-.nav-button.active{
-    background:#25586a;
-    color:white;
-}
-
-
-/* =====================================================
-   CONTENT
-===================================================== */
-
-.content{
-    flex:1;
-    min-width:0;
-    padding:28px;
-}
-
-.page{
-    display:none;
-    max-width:1200px;
-    margin:auto;
-}
-
-.page.active{
-    display:block;
-}
-
-.page-title{
-    color:#173f52;
-    font-size:28px;
-    margin-bottom:6px;
-}
-
-.page-subtitle{
-    color:#7b8d96;
-    font-size:13px;
-    margin-bottom:22px;
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-.welcome{
-    margin-bottom:22px;
-}
-
-.welcome h1{
-    color:#173f52;
-    font-size:28px;
-}
-
-.welcome p{
-    color:#7b8d96;
-    font-size:13px;
-    margin-top:5px;
-}
-
-.summary-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-    gap:14px;
-}
-
-.summary-card{
-    background:white;
-    border:1px solid #e0eaed;
-    border-radius:13px;
-    padding:19px;
-}
-
-.summary-card span{
-    color:#83949c;
-    font-size:12px;
-}
-
-.summary-card strong{
-    display:block;
-    color:#234e61;
-    font-size:27px;
-    margin-top:8px;
-}
-
-
-/* =====================================================
-   PANELS
-===================================================== */
-
-.panel{
-    background:white;
-    border:1px solid #e0eaed;
-    border-radius:14px;
-    padding:21px;
-    margin-top:20px;
-}
-
-.panel h2{
-    color:#254e60;
-    font-size:18px;
-    margin-bottom:14px;
-}
-
-
-/* =====================================================
-   QUEUE
-===================================================== */
-
-.queue-card{
-    background:white;
-    border:1px solid #dfeaec;
-    border-radius:13px;
-    padding:17px;
-    margin-bottom:11px;
-}
-
-.queue-card:hover{
-    border-color:#087b77;
-}
-
-.queue-header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-}
-
-.queue-header h3{
-    color:#285064;
-    font-size:16px;
-}
-
-.queue-header p{
-    color:#7d8f97;
-    font-size:12px;
-    margin-top:4px;
-}
-
-.queue-number{
-    width:34px;
-    height:34px;
-    border-radius:50%;
-    background:#e8f7f5;
-    color:#087b77;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:800;
-}
-
-.queue-details{
-    display:grid;
-    grid-template-columns:
-        repeat(5,1fr);
-    gap:8px;
-    margin-top:15px;
-}
-
-.detail-box{
-    background:#f6fafb;
-    border-radius:8px;
-    padding:10px;
-}
-
-.detail-box small{
-    display:block;
-    color:#8999a0;
-    font-size:9px;
-    margin-bottom:3px;
-}
-
-.detail-box strong{
-    color:#315566;
-    font-size:12px;
-}
-
-.queue-actions{
-    display:flex;
-    gap:9px;
-    margin-top:15px;
-    padding-top:14px;
-    border-top:1px solid #e8eef0;
-}
-
-.open-button{
-    border:0;
-    background:#087b77;
-    color:white;
-    padding:10px 17px;
-    border-radius:8px;
-    font-weight:800;
-}
-
-.secondary-small{
-    border:1px solid #d2e1e5;
-    background:white;
-    color:#315b6b;
-    padding:10px 15px;
-    border-radius:8px;
-    font-weight:700;
-}
-
-
-/* =====================================================
-   PATIENT DASHBOARD
-===================================================== */
-
-.patient-header{
-    background:white;
-    border:1px solid #dfeaec;
-    border-radius:15px;
-
-    padding:21px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.patient-header h2{
-    color:#173f52;
-    font-size:22px;
-}
-
-.patient-header p{
-    color:#7b8d96;
-    font-size:12px;
-    margin-top:4px;
-}
-
-.patient-id{
-    background:#edf9f7;
-    color:#087b77;
-    padding:10px 14px;
-    border-radius:9px;
-    font-weight:800;
-    white-space:nowrap;
-}
-
-
-/* =====================================================
-   PATIENT INFO GRID
-===================================================== */
-
-.info-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(2,1fr);
-    gap:15px;
-    margin-top:15px;
-}
-
-.info-card{
-    background:white;
-    border:1px solid #dfeaec;
-    border-radius:13px;
-    padding:18px;
-}
-
-.info-card.full{
-    grid-column:1 / -1;
-}
-
-.info-card h3{
-    color:#315566;
-    font-size:15px;
-    margin-bottom:13px;
-}
-
-.info-row{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-
-    padding:8px 0;
-
-    border-bottom:1px solid #edf2f3;
-
-    font-size:12px;
-}
-
-.info-row:last-child{
-    border-bottom:0;
-}
-
-.info-row span{
-    color:#84949b;
-}
-
-.info-row strong{
-    color:#315566;
-    text-align:right;
-}
-
-
-/* =====================================================
-   VITALS
-===================================================== */
-
-.vitals-grid{
-    display:grid;
-    grid-template-columns:
-        repeat(6,1fr);
-    gap:9px;
-}
-
-.vital-box{
-    background:#f6fafb;
-    border:1px solid #e0eaed;
-    border-radius:9px;
-    padding:12px;
-    text-align:center;
-}
-
-.vital-box small{
-    display:block;
-    color:#8999a0;
-    font-size:9px;
-    margin-bottom:5px;
-}
-
-.vital-box strong{
-    color:#285064;
-    font-size:14px;
-}
-
-
-/* =====================================================
-   MEDICATION / HISTORY
-===================================================== */
-
-.history-item{
-    border:1px solid #e1eaed;
-    border-radius:10px;
-    padding:13px;
-    margin-bottom:8px;
-}
-
-.history-item:last-child{
-    margin-bottom:0;
-}
-
-.history-item strong{
-    color:#315566;
-    font-size:13px;
-}
-
-.history-item p{
-    color:#7d8f97;
-    font-size:11px;
-    line-height:1.5;
-    margin-top:4px;
-}
-
-
-/* =====================================================
-   REPORTS
-===================================================== */
-
-.report-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-
-    border:1px solid #e0eaed;
-    border-radius:9px;
-
-    padding:12px;
-    margin-bottom:8px;
-}
-
-.report-row:last-child{
-    margin-bottom:0;
-}
-
-.report-row strong{
-    color:#315566;
-    font-size:12px;
-}
-
-.report-row small{
-    color:#8999a0;
-    display:block;
-    margin-top:3px;
-    font-size:10px;
-}
-
-
-/* =====================================================
-   CONSULTATION
-===================================================== */
-
-.workspace{
-    background:white;
-    border:1px solid #dfeaec;
-    border-radius:14px;
-    padding:21px;
-    margin-top:17px;
-}
-
-.workspace h2{
-    color:#254e60;
-    font-size:19px;
-    margin-bottom:17px;
-}
-
-.workspace-section{
-    margin-bottom:20px;
-}
-
-.workspace-section label{
-    display:block;
-    color:#496875;
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:7px;
-}
-
-.workspace-section textarea{
-    width:100%;
-    border:1px solid #d4e2e6;
-    border-radius:9px;
-    padding:11px;
-    min-height:85px;
-    resize:vertical;
-    outline:none;
-}
-
-.workspace-section textarea:focus{
-    border-color:#087b77;
-}
-
-
-/* =====================================================
-   PRESCRIPTION
-===================================================== */
-
-.medicine-row{
-    display:grid;
-    grid-template-columns:
-        2fr 1fr 1.2fr 1fr auto;
-    gap:7px;
-    margin-bottom:8px;
-}
-
-.medicine-row input{
-    border:1px solid #d4e2e6;
-    border-radius:7px;
-    padding:9px;
-    outline:none;
-}
-
-.medicine-row input:focus{
-    border-color:#087b77;
-}
-
-.remove-medicine{
-    border:1px solid #e1baba;
-    background:#fff6f6;
-    color:#a33c3c;
-    border-radius:7px;
-    padding:0 11px;
-}
-
-.add-medicine{
-    border:1px solid #cde0e3;
-    background:#f7fbfc;
-    color:#315b6b;
-    padding:9px 13px;
-    border-radius:8px;
-    font-weight:700;
-}
-
-
-/* =====================================================
-   CONFIRM
-===================================================== */
-
-.review-button{
-    width:100%;
-    border:0;
-    background:#087b77;
-    color:white;
-
-    padding:14px;
-
-    border-radius:9px;
-
-    font-weight:800;
-
-    margin-top:10px;
-}
-
-
-/* =====================================================
-   HISTORY TABLE
-===================================================== */
-
-.data-card{
-    background:white;
-    border:1px solid #dfeaec;
-    border-radius:14px;
-    overflow:hidden;
-}
-
-.data-row{
-    display:grid;
-    grid-template-columns:
-        1.3fr 1fr 1fr 1fr;
-    gap:15px;
-
-    padding:14px 17px;
-
-    border-bottom:1px solid #edf2f3;
-
-    font-size:12px;
-}
-
-.data-header{
-    background:#f6fafb;
-    color:#66808b;
-    font-weight:800;
-    font-size:10px;
-}
-
-.data-row:last-child{
-    border-bottom:0;
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-.search-box{
-    display:flex;
-    gap:10px;
-}
-
-.search-box input{
-    flex:1;
-    border:1px solid #d4e2e6;
-    border-radius:9px;
-    padding:11px;
-    outline:none;
-}
-
-.search-box button{
-    border:0;
-    background:#087b77;
-    color:white;
-    border-radius:9px;
+.wrap{
+    max-width:1100px;
+    margin:40px auto;
     padding:0 20px;
-    font-weight:800;
 }
 
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty-state{
-    text-align:center;
-    padding:35px 20px;
-    color:#81919a;
-    font-size:13px;
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 30px #0001;
+    margin-bottom:22px;
 }
 
-.empty-icon{
-    font-size:30px;
-    margin-bottom:10px;
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
 }
 
-
-/* =====================================================
-   MODAL
-===================================================== */
-
-.modal-overlay{
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    background:
-        rgba(15,48,58,.55);
-
-    z-index:200;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
+label{
+    display:block;
+    font-weight:bold;
+    margin:6px 0;
 }
 
-.modal-overlay.show{
-    display:flex;
-}
-
-.modal{
+input,
+select{
     width:100%;
-    max-width:700px;
-    max-height:90vh;
-    overflow:auto;
-
-    background:white;
-
-    border-radius:17px;
-    padding:25px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.2);
+    padding:12px;
+    border:1px solid #ccd8e1;
+    border-radius:9px;
+    font-size:15px;
 }
 
-.modal h2{
-    color:#173f52;
-    font-size:21px;
+button,
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:12px 18px;
+    background:#0b6477;
+    color:#fff;
+    font-weight:bold;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
 }
 
-.modal p{
-    color:#71858e;
-    font-size:12px;
-    line-height:1.6;
-    margin-top:6px;
+button:hover,
+.btn:hover{
+    background:#09586a;
 }
 
-.modal-actions{
+.secondary{
+    background:#e9f1f5;
+    color:#18324a;
+}
+
+.secondary:hover{
+    background:#dce8ee;
+}
+
+.danger{
+    background:#a94442;
+}
+
+.actions{
     display:flex;
     gap:10px;
+    flex-wrap:wrap;
     margin-top:20px;
 }
 
-.modal-actions button{
-    flex:1;
-    padding:11px;
-    border-radius:8px;
-    font-weight:800;
+.hidden{
+    display:none;
 }
 
-.close-button{
-    border:1px solid #d5e2e5;
-    background:white;
-    color:#315b6b;
+.notice{
+    padding:12px;
+    background:#edf7fa;
+    border-radius:9px;
+    margin:14px 0;
 }
 
-.confirm-modal-button{
-    border:0;
-    background:#087b77;
-    color:white;
+.error{
+    padding:12px;
+    background:#fff0f0;
+    color:#a33;
+    border-radius:9px;
+    margin-bottom:15px;
 }
 
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.status-confirmed{
-    color:#23733d;
-    font-weight:800;
+.success{
+    padding:12px;
+    background:#edf9f1;
+    color:#276b43;
+    border-radius:9px;
+    margin-bottom:15px;
 }
 
-.status-waiting{
-    color:#80690b;
-    font-weight:800;
+.id{
+    font-size:20px;
+    font-weight:bold;
+    color:#0b6477;
 }
 
-.status-completed{
-    color:#315b6b;
-    font-weight:800;
+.tiles{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:1000px){
-
-    .summary-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .queue-details{
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
-    .vitals-grid{
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
+.tile{
+    border:1px solid #dbe5eb;
+    padding:20px;
+    border-radius:12px;
 }
 
-@media(max-width:800px){
-
-    .sidebar{
-        width:210px;
-    }
-
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .info-card.full{
-        grid-column:auto;
-    }
-
+.tile h3{
+    margin-top:0;
+    color:#0b6477;
 }
 
 @media(max-width:700px){
 
-    .layout{
-        display:block;
-    }
-
-    .sidebar{
-        width:100%;
-
-        display:flex;
-
-        overflow-x:auto;
-
-        padding:8px;
-
-        position:sticky;
-        top:70px;
-
-        z-index:20;
-    }
-
-    .sidebar-title{
-        display:none;
-    }
-
-    .nav-button{
-        min-width:max-content;
-        margin:0 3px;
-    }
-
-    .content{
-        padding:18px;
-    }
-
-    .summary-grid{
+    .grid,
+    .tiles{
         grid-template-columns:1fr;
     }
 
-    .queue-details{
-        grid-template-columns:
-            repeat(2,1fr);
+    header{
+        padding:16px 20px;
     }
 
-    .vitals-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+    .wrap{
+        margin:25px auto;
+        padding:0 14px;
     }
 
-    .patient-header{
-        flex-direction:column;
-        align-items:flex-start;
+    .card{
+        padding:22px;
     }
 
-    .doctor-user-info{
-        display:none;
-    }
+}
 
-    .medicine-row{
-        grid-template-columns:1fr;
-    }
 
-    .search-box{
-        flex-direction:column;
-    }
+/* =====================================================
+   SIGN UP BUTTON
+===================================================== */
 
-    .search-box button{
-        padding:11px;
-    }
+.signup-button{
+    width:100%;
+    margin-top:10px;
+    padding:14px;
+    border:1px solid #0b8c87;
+    border-radius:9px;
+    background:white;
+    color:#0b7d79;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
 
-    .data-row{
-        grid-template-columns:
-            1fr 1fr;
-    }
+.signup-button:hover{
+    background:#eef9f8;
+}
 
+
+/* =====================================================
+   REGISTRATION SECTION
+===================================================== */
+
+.signup-title{
+    margin-top:0;
+    color:#17465a;
+}
+
+.signup-subtitle{
+    color:#718391;
+    margin-bottom:25px;
 }
 
 </style>
@@ -1075,271 +230,440 @@ button{
 <body>
 
 
-<!-- =====================================================
-     LOGIN
-===================================================== -->
+<header>
 
-<div id="loginScreen">
+    <b>
+        🩺 Luvio HealthLink
+    </b>
 
-<div class="login-card">
-
-<img
-    src="luvio-logo.jpeg"
-    class="login-logo"
-    alt="Luvio HealthLink"
->
-
-
-<h1>
-    Luvio <span>HealthLink</span>
-</h1>
-
-<p class="login-subtitle">
-    Doctor Portal
-</p>
-
-
-<div class="form-group">
-
-<label>
-    Doctor ID / Registered Mobile
-</label>
-
-<input
-    id="doctorLoginID"
-    type="text"
-    placeholder="Enter Doctor ID or mobile"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-    Password
-</label>
-
-<input
-    id="doctorPassword"
-    type="password"
-    placeholder="Enter password"
->
-
-</div>
-
-
-<button
-    class="primary-button"
-    onclick="doctorLogin()"
->
-    Login to Doctor Portal
-</button>
-
-
-<a
-    href="index.html"
-    class="secondary-button"
-    style="
-        display:block;
-        text-align:center;
-    "
->
-    ← Back to Luvio HealthLink
-</a>
-
-
-<p style="
-    text-align:center;
-    color:#91a0a6;
-    font-size:10px;
-    margin-top:18px;
-">
-
-Demo Login:<br>
-
-Doctor ID:
-<strong>
-DOC001
-</strong>
-
-<br>
-
-Password:
-<strong>
-123456
-</strong>
-
-</p>
-
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     APPLICATION
-===================================================== -->
-
-<div id="app">
-
-
-<!-- =====================================================
-     TOPBAR
-===================================================== -->
-
-<header class="topbar">
-
-<a
-    href="index.html"
-    class="brand"
->
-
-<img
-    src="luvio-logo.jpeg"
-    alt="Luvio HealthLink"
->
-
-<div class="brand-name">
-    Luvio <span>HealthLink</span>
-</div>
-
-</a>
-
-
-<div class="doctor-user">
-
-<div class="doctor-user-info">
-
-<strong id="doctorNameTop">
-    Dr. Arjun Sharma
-</strong>
-
-<small id="doctorSpecialtyTop">
-    General Medicine
-</small>
-
-</div>
-
-
-<div
-    class="avatar"
-    id="doctorAvatar"
->
-    AS
-</div>
-
-</div>
+    <a href="index.html">
+        ← Back to Luvio HealthLink
+    </a>
 
 </header>
 
 
-<div class="layout">
+
+<main class="wrap">
 
 
 <!-- =====================================================
-     SIDEBAR
+     LOGIN
 ===================================================== -->
 
-<aside class="sidebar">
-
-<div class="sidebar-title">
-    Doctor Portal
-</div>
-
-
-<button
-    class="nav-button active"
-    onclick="showPage('dashboard',this)"
+<section
+    id="login"
+    class="card"
 >
-    🏠 Dashboard
-</button>
+
+    <h1>
+        Doctor / Professional Portal
+    </h1>
+
+    <p>
+        Login to your Luvio HealthLink professional account.
+    </p>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('queue',this)"
->
-    👥 Today's Queue
-</button>
+    <div id="lm"></div>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('patients',this)"
->
-    👤 Patients
-</button>
+    <div class="grid">
 
 
-<button
-    class="nav-button"
-    onclick="showPage('history',this)"
->
-    📋 Consultation History
-</button>
+        <div>
+
+            <label>
+                Professional Type
+            </label>
+
+            <select id="lt">
+
+                <option value="doctor">
+                    Doctor
+                </option>
+
+                <option value="pharmacist">
+                    Pharmacist
+                </option>
+
+                <option value="lab">
+                    Laboratory Professional
+                </option>
+
+                <option value="nurse">
+                    Nurse
+                </option>
+
+                <option value="other">
+                    Other Healthcare Professional
+                </option>
+
+            </select>
+
+        </div>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('reports',this)"
->
-    🧪 Diagnostic Reports
-</button>
+        <div>
+
+            <label>
+                User ID
+            </label>
+
+            <input
+                id="lu"
+                placeholder="Enter User ID"
+            >
+
+        </div>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('prescriptions',this)"
->
-    💊 Prescriptions
-</button>
+        <div>
+
+            <label>
+                Password
+            </label>
+
+            <input
+                id="lp"
+                type="password"
+                placeholder="Enter password"
+            >
+
+        </div>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('referrals',this)"
->
-    🏥 Referrals
-</button>
+    </div>
 
 
-<div class="sidebar-title">
-    Doctor
-</div>
+    <div class="actions">
+
+        <button onclick="doLogin()">
+            Login to Doctor Portal
+        </button>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('schedule',this)"
->
-    🗓 My Schedule
-</button>
+        <!-- NEW SIGN UP BUTTON -->
+
+        <button
+            type="button"
+            class="signup-button"
+            onclick="signupScreen()"
+        >
+            Sign Up / Register
+        </button>
 
 
-<button
-    class="nav-button"
-    onclick="showPage('profile',this)"
->
-    👨‍⚕️ My Profile
-</button>
+        <button
+            type="button"
+            class="secondary"
+            onclick="goBack()"
+        >
+            ← Back to Luvio HealthLink
+        </button>
+
+    </div>
 
 
-<button
-    class="nav-button"
-    onclick="doctorLogout()"
->
-    ↪ Logout
-</button>
+    <div class="notice">
 
-</aside>
+        <b>New professional?</b><br>
+
+        Create your professional account using
+        <b>Sign Up / Register</b>.
+
+    </div>
+
+
+    <div
+        style="
+            text-align:center;
+            color:#9aa6ad;
+            margin-top:10px;
+            font-size:14px;
+        "
+    >
+
+        Demo Login:<br>
+
+        User ID:
+        <b>DOC001</b>
+        <br>
+
+        Password:
+        <b>123456</b>
+
+    </div>
+
+</section>
+
 
 
 <!-- =====================================================
-     CONTENT
+     SIGN UP / REGISTRATION
 ===================================================== -->
 
-<main class="content">
+<section
+    id="signup"
+    class="card hidden"
+>
+
+    <h2 class="signup-title">
+        Create Professional Account
+    </h2>
+
+
+    <p class="signup-subtitle">
+
+        Register your independent healthcare
+        professional identity with Luvio HealthLink.
+
+    </p>
+
+
+    <div id="sm"></div>
+
+
+    <div class="grid">
+
+
+        <!-- PROFESSIONAL TYPE -->
+
+        <div>
+
+            <label>
+                Professional Type *
+            </label>
+
+            <select id="pt">
+
+                <option value="doctor">
+                    Doctor
+                </option>
+
+                <option value="pharmacist">
+                    Pharmacist
+                </option>
+
+                <option value="lab">
+                    Laboratory Professional
+                </option>
+
+                <option value="nurse">
+                    Nurse
+                </option>
+
+                <option value="other">
+                    Other Healthcare Professional
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- FULL NAME -->
+
+        <div>
+
+            <label>
+                Full Name *
+            </label>
+
+            <input
+                id="pn"
+                placeholder="Enter full name"
+            >
+
+        </div>
+
+
+        <!-- SPECIALIZATION -->
+
+        <div>
+
+            <label>
+                Specialization / Department
+            </label>
+
+            <input
+                id="ps"
+                placeholder="e.g. General Medicine"
+            >
+
+        </div>
+
+
+        <!-- REGISTRATION NUMBER -->
+
+        <div>
+
+            <label>
+                Professional Registration Number *
+            </label>
+
+            <input
+                id="pr"
+                placeholder="Enter registration number"
+            >
+
+        </div>
+
+
+        <!-- MOBILE -->
+
+        <div>
+
+            <label>
+                Mobile *
+            </label>
+
+            <input
+                id="pm"
+                maxlength="10"
+                placeholder="10-digit mobile number"
+            >
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div>
+
+            <label>
+                Email *
+            </label>
+
+            <input
+                id="pe"
+                type="email"
+                placeholder="Enter email"
+            >
+
+        </div>
+
+
+        <!-- REGISTRATION AUTHORITY -->
+
+        <div>
+
+            <label>
+                Registration Authority
+            </label>
+
+            <input
+                id="pa"
+                placeholder="e.g. NMC / State Council"
+            >
+
+        </div>
+
+
+        <!-- EXPERIENCE -->
+
+        <div>
+
+            <label>
+                Experience (Years)
+            </label>
+
+            <input
+                id="px"
+                type="number"
+                placeholder="Years"
+            >
+
+        </div>
+
+
+        <!-- USER ID -->
+
+        <div>
+
+            <label>
+                Choose User ID *
+            </label>
+
+            <input
+                id="pu"
+                placeholder="Create your User ID"
+            >
+
+        </div>
+
+
+        <!-- PASSWORD -->
+
+        <div>
+
+            <label>
+                Password *
+            </label>
+
+            <input
+                id="pp"
+                type="password"
+                placeholder="Create password"
+            >
+
+        </div>
+
+
+        <!-- CONFIRM PASSWORD -->
+
+        <div>
+
+            <label>
+                Confirm Password *
+            </label>
+
+            <input
+                id="pc"
+                type="password"
+                placeholder="Confirm password"
+            >
+
+        </div>
+
+
+    </div>
+
+
+    <div class="notice">
+
+        <b>Verification:</b>
+
+        After registration, your professional account
+        will initially show
+
+        <b>Pending Verification</b>.
+
+    </div>
+
+
+    <div class="actions">
+
+
+        <button
+            onclick="register()"
+        >
+            Create Professional Account
+        </button>
+
+
+        <button
+            type="button"
+            class="secondary"
+            onclick="loginScreen()"
+        >
+            Already Registered? Login
+        </button>
+
+    </div>
+
+</section>
+
 
 
 <!-- =====================================================
@@ -1347,652 +671,529 @@ Password:
 ===================================================== -->
 
 <section
-    id="dashboard"
-    class="page active"
+    id="dash"
+    class="hidden"
 >
 
-<div class="welcome">
 
-<h1>
-    Good day,
-    <span id="welcomeDoctor">
-        Doctor
-    </span>
-</h1>
+    <div class="card">
 
-<p>
-    Your clinical workspace for today's patients.
-</p>
+        <h1 id="wn"></h1>
 
-</div>
+        <div
+            id="wid"
+            class="id"
+        ></div>
 
+        <p id="wm"></p>
 
-<div class="summary-grid">
 
+        <div class="notice">
 
-<div class="summary-card">
+            Status:
 
-<span>
-    Today's Patients
-</span>
+            <b id="ws">
+                Pending Verification
+            </b>
 
-<strong id="todayPatientsCount">
-    0
-</strong>
+        </div>
 
-</div>
 
+        <button
+            class="danger"
+            onclick="logout()"
+        >
+            Logout
+        </button>
 
-<div class="summary-card">
+    </div>
 
-<span>
-    Waiting
-</span>
 
-<strong id="waitingPatientsCount">
-    0
-</strong>
 
-</div>
+    <div class="card">
 
+        <h2>
+            Professional Workspace
+        </h2>
 
-<div class="summary-card">
 
-<span>
-    In Consultation
-</span>
+        <div class="tiles">
 
-<strong id="consultationCount">
-    0
-</strong>
 
-</div>
+            <div class="tile">
 
+                <h3>
+                    Organizations
+                </h3>
 
-<div class="summary-card">
+                <p>
+                    Manage future association requests.
+                </p>
 
-<span>
-    Completed
-</span>
+            </div>
 
-<strong id="completedPatientsCount">
-    0
-</strong>
 
-</div>
+            <div class="tile">
 
+                <h3>
+                    Opportunities
+                </h3>
 
-</div>
+                <p>
+                    View professional jobs and opportunities.
+                </p>
 
+            </div>
 
-<div class="panel">
 
-<h2>
-    👥 Today's Appointment Queue
-</h2>
+            <div class="tile">
 
-<div id="dashboardQueue">
+                <h3>
+                    Schedule
+                </h3>
 
-</div>
+                <p>
+                    Manage availability and appointments.
+                </p>
 
-</div>
+            </div>
 
-</section>
 
+            <div class="tile">
 
-<!-- =====================================================
-     QUEUE
-===================================================== -->
+                <h3>
+                    Patients
+                </h3>
 
-<section
-    id="queue"
-    class="page"
->
+                <p>
+                    Access authorized patient workflows.
+                </p>
 
-<h1 class="page-title">
-    Today's Patient Queue
-</h1>
+            </div>
 
-<p class="page-subtitle">
-    Patients registered by reception and assigned to you.
-</p>
 
+            <div class="tile">
 
-<div id="queueList">
+                <h3>
+                    Consultations
+                </h3>
 
-</div>
+                <p>
+                    Manage consultation records.
+                </p>
 
-</section>
+            </div>
 
 
-<!-- =====================================================
-     PATIENTS
-===================================================== -->
+            <div class="tile">
 
-<section
-    id="patients"
-    class="page"
->
+                <h3>
+                    Profile
+                </h3>
 
-<h1 class="page-title">
-    Patients
-</h1>
+                <p>
+                    Manage professional information.
+                </p>
 
-<p class="page-subtitle">
-    Search for an authorized patient record.
-</p>
+            </div>
 
 
-<div class="panel">
+        </div>
 
-<div class="search-box">
-
-<input
-    id="patientSearch"
-    type="text"
-    placeholder="Patient ID, name or mobile"
->
-
-<button
-    onclick="searchPatient()"
->
-    Search
-</button>
-
-</div>
-
-</div>
-
-
-<div
-    id="patientSearchResult"
-    style="margin-top:20px;"
-></div>
-
-</section>
-
-
-<!-- =====================================================
-     PATIENT DASHBOARD
-===================================================== -->
-
-<section
-    id="patient-dashboard"
-    class="page"
->
-
-<div id="patientDashboardContent">
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     CONSULTATION HISTORY
-===================================================== -->
-
-<section
-    id="history"
-    class="page"
->
-
-<h1 class="page-title">
-    Consultation History
-</h1>
-
-<p class="page-subtitle">
-    Consultations completed by you.
-</p>
-
-
-<div
-    id="historyList"
-    class="data-card"
->
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     REPORTS
-===================================================== -->
-
-<section
-    id="reports"
-    class="page"
->
-
-<h1 class="page-title">
-    Diagnostic Reports
-</h1>
-
-<p class="page-subtitle">
-    Diagnostic reports available in authorized patient records.
-</p>
-
-
-<div class="panel">
-
-<div class="empty-state">
-
-<div class="empty-icon">
-    🧪
-</div>
-
-Diagnostic reports will appear here
-when laboratory integration is connected.
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PRESCRIPTIONS
-===================================================== -->
-
-<section
-    id="prescriptions"
-    class="page"
->
-
-<h1 class="page-title">
-    Prescriptions
-</h1>
-
-<p class="page-subtitle">
-    Prescriptions issued by you.
-</p>
-
-
-<div
-    id="prescriptionList"
-    class="data-card"
->
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     REFERRALS
-===================================================== -->
-
-<section
-    id="referrals"
-    class="page"
->
-
-<h1 class="page-title">
-    Referrals
-</h1>
-
-<p class="page-subtitle">
-    Specialist and hospital referrals.
-</p>
-
-
-<div class="panel">
-
-<div class="empty-state">
-
-<div class="empty-icon">
-    🏥
-</div>
-
-Referrals will appear here as they are
-created during consultations.
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     SCHEDULE
-===================================================== -->
-
-<section
-    id="schedule"
-    class="page"
->
-
-<h1 class="page-title">
-    My Schedule
-</h1>
-
-<p class="page-subtitle">
-    Manage your availability for online consultations.
-</p>
-
-
-<div class="panel">
-
-<h2>
-    Online Consultation Availability
-</h2>
-
-
-<div class="form-group">
-
-<label>
-    Availability
-</label>
-
-<select id="onlineAvailability">
-
-<option value="enabled">
-    Available for Online Consultation
-</option>
-
-<option value="disabled">
-    Not Available
-</option>
-
-</select>
-
-</div>
-
-
-<div
-    style="
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:12px;
-    "
->
-
-<div class="form-group">
-
-<label>
-    Start Time
-</label>
-
-<input
-    id="availabilityStart"
-    type="time"
-    value="21:00"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-    End Time
-</label>
-
-<input
-    id="availabilityEnd"
-    type="time"
-    value="22:00"
->
-
-</div>
-
-</div>
-
-
-<button
-    class="primary-button"
-    onclick="saveSchedule()"
->
-    Save Availability
-</button>
-
-
-<p
-    id="scheduleSavedMessage"
-    style="
-        color:#23733d;
-        font-size:12px;
-        margin-top:10px;
-        display:none;
-    "
->
-    Availability saved.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     PROFILE
-===================================================== -->
-
-<section
-    id="profile"
-    class="page"
->
-
-<h1 class="page-title">
-    My Profile
-</h1>
-
-<p class="page-subtitle">
-    Doctor information.
-</p>
-
-
-<div class="info-card">
-
-<div class="info-row">
-
-<span>
-    Doctor ID
-</span>
-
-<strong>
-    DOC001
-</strong>
-
-</div>
-
-
-<div class="info-row">
-
-<span>
-    Name
-</span>
-
-<strong>
-    Dr. Arjun Sharma
-</strong>
-
-</div>
-
-
-<div class="info-row">
-
-<span>
-    Specialty
-</span>
-
-<strong>
-    General Medicine
-</strong>
-
-</div>
-
-
-<div class="info-row">
-
-<span>
-    Qualification
-</span>
-
-<strong>
-    MBBS, MD
-</strong>
-
-</div>
-
-
-<div class="info-row">
-
-<span>
-    Experience
-</span>
-
-<strong>
-    12 years
-</strong>
-
-</div>
-
-
-<div class="info-row">
-
-<span>
-    Online Consultation
-</span>
-
-<strong class="status-confirmed">
-    Enabled
-</strong>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
 </main>
 
-</div>
-
-</div>
-
-
-<!-- =====================================================
-     REVIEW MODAL
-===================================================== -->
-
-<div
-    id="reviewModal"
-    class="modal-overlay"
->
-
-<div class="modal">
-
-<h2>
-    Review & Confirm Consultation
-</h2>
-
-<p>
-    Please review the clinical information before
-    confirming the consultation.
-</p>
-
-
-<div
-    id="reviewContent"
-    style="margin-top:18px;"
-></div>
-
-
-<div class="modal-actions">
-
-<button
-    class="close-button"
-    onclick="closeReviewModal()"
->
-    Go Back
-</button>
-
-
-<button
-    class="confirm-modal-button"
-    onclick="saveConfirmedConsultation()"
->
-    ✓ Confirm Consultation
-</button>
-
-</div>
-
-</div>
-
-</div>
 
 
 <script>
 
 /* =====================================================
-   DOCTOR
-===================================================== */
-
-const DOCTOR = {
-
-    id:"DOC001",
-
-    name:"Dr. Arjun Sharma",
-
-    specialty:"General Medicine",
-
-    qualification:"MBBS, MD",
-
-    experience:"12 years"
-
-};
-
-
-/* =====================================================
    STORAGE
 ===================================================== */
 
-const PATIENT_STORAGE =
-    "luvio_patient_accounts";
+const K =
+    "luvio_doctor_accounts";
 
-const DOCTOR_LOGIN_KEY =
-    "luvio_doctor_logged_in";
-
-const DOCTOR_SCHEDULE_KEY =
-    "luvio_doctor_schedule";
+const C =
+    "luvio_current_doctor";
 
 
-/* =====================================================
-   PATIENT DATA
-===================================================== */
+function A(){
 
-function getPatients(){
-
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(
-                PATIENT_STORAGE
-            ) || "[]"
-        );
-
-    }catch(error){
-
-        return [];
-
-    }
+    return JSON.parse(
+        localStorage.getItem(K) || "[]"
+    );
 
 }
 
 
-function savePatients(
-    patients
-){
+function S(data){
 
     localStorage.setItem(
-        PATIENT_STORAGE,
-        JSON.stringify(patients)
+        K,
+        JSON.stringify(data)
     );
+
+}
+
+
+/* =====================================================
+   SCREEN CONTROL
+===================================================== */
+
+function hide(){
+
+    [
+        "login",
+        "signup",
+        "dash"
+    ].forEach(function(id){
+
+        document
+            .getElementById(id)
+            .classList.add("hidden");
+
+    });
+
+}
+
+
+function loginScreen(){
+
+    hide();
+
+    document
+        .getElementById("login")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("lm")
+        .innerHTML = "";
+
+}
+
+
+function signupScreen(){
+
+    hide();
+
+    document
+        .getElementById("signup")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("sm")
+        .innerHTML = "";
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function err(id,text){
+
+    document
+        .getElementById(id)
+        .innerHTML =
+        '<div class="error">' +
+        text +
+        '</div>';
+
+}
+
+
+/* =====================================================
+   PROFESSIONAL ID
+===================================================== */
+
+function nid(type){
+
+    let prefix = {
+
+        doctor:"DOC",
+
+        pharmacist:"PHARM",
+
+        lab:"LABPRO",
+
+        nurse:"NURSE",
+
+        other:"PROF"
+
+    }[type] || "PROF";
+
+
+    let accounts = A();
+
+
+    let numbers = accounts
+        .filter(function(x){
+
+            return x.id &&
+                   x.id.startsWith(
+                       prefix + "-"
+                   );
+
+        })
+        .map(function(x){
+
+            return parseInt(
+                x.id.split("-")[1]
+            ) || 0;
+
+        });
+
+
+    let highest =
+        numbers.length
+        ? Math.max(...numbers)
+        : 0;
+
+
+    return (
+        prefix +
+        "-" +
+        String(highest + 1)
+            .padStart(6,"0")
+    );
+
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
+
+function register(){
+
+    let accounts = A();
+
+
+    let type =
+        document
+            .getElementById("pt")
+            .value;
+
+
+    let name =
+        document
+            .getElementById("pn")
+            .value
+            .trim();
+
+
+    let registration =
+        document
+            .getElementById("pr")
+            .value
+            .trim();
+
+
+    let mobile =
+        document
+            .getElementById("pm")
+            .value
+            .trim();
+
+
+    let email =
+        document
+            .getElementById("pe")
+            .value
+            .trim();
+
+
+    let userId =
+        document
+            .getElementById("pu")
+            .value
+            .trim();
+
+
+    let password =
+        document
+            .getElementById("pp")
+            .value;
+
+
+    let confirmPassword =
+        document
+            .getElementById("pc")
+            .value;
+
+
+    /* REQUIRED */
+
+    if(
+        !name ||
+        !registration ||
+        !mobile ||
+        !email ||
+        !userId ||
+        !password
+    ){
+
+        return err(
+            "sm",
+            "Please fill all required fields."
+        );
+
+    }
+
+
+    /* MOBILE */
+
+    if(
+        !/^\d{10}$/.test(mobile)
+    ){
+
+        return err(
+            "sm",
+            "Enter a valid 10-digit mobile number."
+        );
+
+    }
+
+
+    /* PASSWORD */
+
+    if(
+        password !== confirmPassword
+    ){
+
+        return err(
+            "sm",
+            "Passwords do not match."
+        );
+
+    }
+
+
+    /* USER ID */
+
+    if(
+        accounts.some(function(x){
+
+            return (
+                x.userId &&
+                x.userId.toLowerCase() ===
+                userId.toLowerCase()
+            );
+
+        })
+    ){
+
+        return err(
+            "sm",
+            "User ID already exists."
+        );
+
+    }
+
+
+    /* MOBILE */
+
+    if(
+        accounts.some(function(x){
+
+            return x.mobile === mobile;
+
+        })
+    ){
+
+        return err(
+            "sm",
+            "This mobile number is already registered."
+        );
+
+    }
+
+
+    /* CREATE ACCOUNT */
+
+    let o = {
+
+        id:
+            nid(type),
+
+        type:
+            type,
+
+        name:
+            name,
+
+        specialization:
+            document
+                .getElementById("ps")
+                .value
+                .trim(),
+
+        registration:
+            registration,
+
+        mobile:
+            mobile,
+
+        email:
+            email,
+
+        authority:
+            document
+                .getElementById("pa")
+                .value
+                .trim(),
+
+        experience:
+            document
+                .getElementById("px")
+                .value,
+
+        userId:
+            userId,
+
+        password:
+            password,
+
+        status:
+            "Pending Verification",
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    accounts.push(o);
+
+    S(accounts);
+
+
+    alert(
+        "Registration successful.\n\n" +
+        "Your Professional ID is:\n" +
+        o.id
+    );
+
+
+    /* PRE-FILL LOGIN */
+
+    document
+        .getElementById("lt")
+        .value = type;
+
+
+    document
+        .getElementById("lu")
+        .value = userId;
+
+
+    loginScreen();
 
 }
 
@@ -2001,2942 +1202,156 @@ function savePatients(
    LOGIN
 ===================================================== */
 
-function doctorLogin(){
+function doLogin(){
 
-    const id =
+    let type =
         document
-            .getElementById(
-                "doctorLoginID"
-            )
+            .getElementById("lt")
+            .value;
+
+
+    let userId =
+        document
+            .getElementById("lu")
             .value
             .trim();
 
-    const password =
-        document
-            .getElementById(
-                "doctorPassword"
-            )
-            .value
-            .trim();
 
+    let password =
+        document
+            .getElementById("lp")
+            .value;
+
+
+    /* DEMO LOGIN */
 
     if(
-        id !== "DOC001" ||
-        password !== "123456"
+        type === "doctor" &&
+        userId === "DOC001" &&
+        password === "123456"
     ){
 
-        alert(
-            "Invalid doctor login.\n\nDemo Login:\nDoctor ID: DOC001\nPassword: 123456"
+        let demo = {
+
+            id:"DOC001",
+
+            type:"doctor",
+
+            name:"Demo Doctor",
+
+            specialization:
+                "General Medicine",
+
+            registration:
+                "DEMO-REG-001",
+
+            mobile:
+                "9999999999",
+
+            email:
+                "demo@luviohealthlink.com",
+
+            status:
+                "Verified"
+
+        };
+
+
+        localStorage.setItem(
+            C,
+            JSON.stringify(demo)
         );
 
+
+        open(demo);
+
         return;
+
+    }
+
+
+    /* REGISTERED PROFESSIONAL */
+
+    let o =
+        A().find(function(x){
+
+            return (
+                x.type === type &&
+                x.userId === userId &&
+                x.password === password
+            );
+
+        });
+
+
+    if(!o){
+
+        return err(
+            "lm",
+            "Invalid professional type, User ID or password."
+        );
 
     }
 
 
     localStorage.setItem(
-        DOCTOR_LOGIN_KEY,
-        "1"
+        C,
+        JSON.stringify(o)
     );
 
 
-    openDoctorPortal();
+    open(o);
 
 }
 
 
 /* =====================================================
-   OPEN PORTAL
+   OPEN DASHBOARD
 ===================================================== */
 
-function openDoctorPortal(){
+function open(o){
 
-    document.getElementById(
-        "loginScreen"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "app"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "doctorNameTop"
-    ).textContent =
-        DOCTOR.name;
-
-
-    document.getElementById(
-        "doctorSpecialtyTop"
-    ).textContent =
-        DOCTOR.specialty;
-
-
-    document.getElementById(
-        "welcomeDoctor"
-    ).textContent =
-        DOCTOR.name;
-
-
-    document.getElementById(
-        "doctorAvatar"
-    ).textContent =
-        "AS";
-
-
-    loadSchedule();
-
-
-    refreshAll();
-
-}
-
-
-/* =====================================================
-   NAVIGATION
-===================================================== */
-
-function showPage(
-    id,
-    button
-){
-
-    document
-        .querySelectorAll(".page")
-        .forEach(
-            page =>
-            page.classList.remove(
-                "active"
-            )
-        );
-
-
-    const page =
-        document.getElementById(
-            id
-        );
-
-
-    if(page){
-
-        page.classList.add(
-            "active"
-        );
-
-    }
+    hide();
 
 
     document
-        .querySelectorAll(
-            ".nav-button"
-        )
-        .forEach(
-            btn =>
-            btn.classList.remove(
-                "active"
-            )
-        );
-
-
-    if(button){
-
-        button.classList.add(
-            "active"
-        );
-
-    }
-
-
-    if(id === "dashboard"){
-
-        renderDashboard();
-
-    }
-
-
-    if(id === "queue"){
-
-        renderQueue();
-
-    }
-
-
-    if(id === "history"){
-
-        renderHistory();
-
-    }
-
-
-    if(id === "prescriptions"){
-
-        renderPrescriptions();
-
-    }
-
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-
-}
-
-
-/* =====================================================
-   TODAY KEY
-===================================================== */
-
-function todayKey(){
-
-    const now =
-        new Date();
-
-    return now.toISOString()
-        .slice(0,10);
-
-}
-
-
-/* =====================================================
-   GET DOCTOR QUEUE
-===================================================== */
-
-function getDoctorQueue(){
-
-    const patients =
-        getPatients();
-
-
-    const queue = [];
-
-
-    patients.forEach(
-        patient => {
-
-            const appointments =
-                patient.appointments ||
-                [];
-
-
-            appointments.forEach(
-                appointment => {
-
-                    const assignedDoctor =
-                        appointment.doctorId ||
-                        appointment.doctorID;
-
-
-                    const appointmentStatus =
-                        appointment.status ||
-                        "Waiting";
-
-
-                    /*
-                       Reception will eventually create
-                       these appointments.
-
-                       We also support a direct
-                       doctorId on the patient record
-                       for early testing.
-                    */
-
-                    const belongsToDoctor =
-                        assignedDoctor ===
-                        DOCTOR.id;
-
-
-                    const today =
-                        appointment.date ===
-                        todayKey()
-                        ||
-                        appointment.date ===
-                        new Date()
-                            .toLocaleDateString(
-                                "en-IN"
-                            );
-
-
-                    if(
-                        belongsToDoctor &&
-                        today &&
-                        appointmentStatus !==
-                        "Completed"
-                    ){
-
-                        queue.push({
-
-                            patient,
-
-                            appointment
-
-                        });
-
-                    }
-
-                }
-            );
-
-
-            /*
-               Fallback for a patient record
-               directly assigned to this doctor.
-            */
-
-            if(
-                patient.assignedDoctorId ===
-                DOCTOR.id &&
-                !appointments.length
-            ){
-
-                queue.push({
-
-                    patient,
-
-                    appointment:{
-
-                        id:
-                            "APPT-" +
-                            patient.patientID,
-
-                        status:"Waiting",
-
-                        type:"Offline",
-
-                        date:todayKey()
-
-                    }
-
-                });
-
-            }
-
-        }
-    );
-
-
-    return queue;
-
-}
-
-
-/* =====================================================
-   DASHBOARD
-===================================================== */
-
-function renderDashboard(){
-
-    const queue =
-        getDoctorQueue();
-
-
-    const waiting =
-        queue.filter(
-            item =>
-            (
-                item.appointment.status ||
-                "Waiting"
-            ) === "Waiting"
-        );
-
-
-    const inConsultation =
-        queue.filter(
-            item =>
-            item.appointment.status ===
-            "In Consultation"
-        );
-
-
-    const completed =
-        getPatients()
-            .reduce(
-                (
-                    total,
-                    patient
-                ) => {
-
-                    return total +
-                        (
-                            patient.visits ||
-                            []
-                        ).filter(
-                            visit =>
-                            visit.doctorID ===
-                            DOCTOR.id &&
-                            visit.date ===
-                            new Date()
-                                .toLocaleDateString(
-                                    "en-IN"
-                                )
-                        ).length;
-
-                },
-                0
-            );
-
-
-    document.getElementById(
-        "todayPatientsCount"
-    ).textContent =
-        queue.length;
-
-
-    document.getElementById(
-        "waitingPatientsCount"
-    ).textContent =
-        waiting.length;
-
-
-    document.getElementById(
-        "consultationCount"
-    ).textContent =
-        inConsultation.length;
-
-
-    document.getElementById(
-        "completedPatientsCount"
-    ).textContent =
-        completed;
-
-
-    const container =
-        document.getElementById(
-            "dashboardQueue"
-        );
-
-
-    if(!queue.length){
-
-        container.innerHTML = `
-
-        <div class="empty-state">
-
-            <div class="empty-icon">
-                👥
-            </div>
-
-            No patients are currently assigned
-            to your queue.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        queue
-            .slice(0,5)
-            .map(
-                (
-                    item,
-                    index
-                ) =>
-                renderQueueCard(
-                    item,
-                    index
-                )
-            )
-            .join("");
-
-}
-
-
-/* =====================================================
-   QUEUE PAGE
-===================================================== */
-
-function renderQueue(){
-
-    const queue =
-        getDoctorQueue();
-
-
-    const container =
-        document.getElementById(
-            "queueList"
-        );
-
-
-    if(!queue.length){
-
-        container.innerHTML = `
-
-        <div class="panel">
-
-            <div class="empty-state">
-
-                <div class="empty-icon">
-                    🩺
-                </div>
-
-                No patients are currently
-                assigned to your queue.
-
-                <br><br>
-
-                Reception-created appointments
-                will appear here.
-
-            </div>
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        queue
-            .map(
-                (
-                    item,
-                    index
-                ) =>
-                renderQueueCard(
-                    item,
-                    index
-                )
-            )
-            .join("");
-
-}
-
-
-/* =====================================================
-   QUEUE CARD
-===================================================== */
-
-function renderQueueCard(
-    item,
-    index
-){
-
-    const patient =
-        item.patient;
-
-
-    const appointment =
-        item.appointment;
-
-
-    const vitals =
-        getLatestVitals(
-            patient
-        );
-
-
-    return `
-
-    <div class="queue-card">
-
-        <div class="queue-header">
-
-            <div>
-
-                <h3>
-                    ${escapeHTML(
-                        patient.name
-                    )}
-                </h3>
-
-                <p>
-                    ${escapeHTML(
-                        patient.patientID
-                    )}
-                    ·
-                    ${
-                        appointment.type ||
-                        "Offline Consultation"
-                    }
-                </p>
-
-            </div>
-
-
-            <div class="queue-number">
-                ${index + 1}
-            </div>
-
-        </div>
-
-
-        <div class="queue-details">
-
-
-            <div class="detail-box">
-
-                <small>
-                    Patient ID
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.patientID
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    BP
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        vitals.bp || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    Pulse
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        vitals.pulse || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    SpO₂
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        vitals.spo2 || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="detail-box">
-
-                <small>
-                    Status
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        appointment.status ||
-                        "Waiting"
-                    )}
-                </strong>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="queue-actions">
-
-            <button
-                class="open-button"
-                onclick="openPatient(
-                    '${escapeJS(
-                        patient.patientID
-                    )}',
-                    '${escapeJS(
-                        appointment.id || ""
-                    )}'
-                )"
-            >
-                Open Patient
-            </button>
-
-
-            <button
-                class="secondary-small"
-                onclick="markInConsultation(
-                    '${escapeJS(
-                        patient.patientID
-                    )}',
-                    '${escapeJS(
-                        appointment.id || ""
-                    )}'
-                )"
-            >
-                Start Consultation
-            </button>
-
-        </div>
-
-    </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   LATEST VITALS
-===================================================== */
-
-function getLatestVitals(
-    patient
-){
-
-    if(
-        !patient.vitals ||
-        !patient.vitals.length
-    ){
-
-        return {};
-
-    }
-
-
-    return patient.vitals[
-        patient.vitals.length - 1
-    ] || {};
-
-}
-
-
-/* =====================================================
-   OPEN PATIENT
-===================================================== */
-
-let activePatientID =
-    null;
-
-let activeAppointmentID =
-    null;
-
-let pendingConsultation =
-    null;
-
-
-function openPatient(
-    patientID,
-    appointmentID
-){
-
-    const patient =
-        getPatients().find(
-            item =>
-            item.patientID ===
-            patientID
-        );
-
-
-    if(!patient){
-
-        alert(
-            "Patient record not found."
-        );
-
-        return;
-
-    }
-
-
-    activePatientID =
-        patientID;
-
-    activeAppointmentID =
-        appointmentID;
-
-
-    renderPatientDashboard(
-        patient
-    );
-
-
-    showPage(
-        "patient-dashboard"
-    );
-
-}
-
-
-/* =====================================================
-   MARK IN CONSULTATION
-===================================================== */
-
-function markInConsultation(
-    patientID,
-    appointmentID
-){
-
-    updateAppointmentStatus(
-        patientID,
-        appointmentID,
-        "In Consultation"
-    );
-
-
-    openPatient(
-        patientID,
-        appointmentID
-    );
-
-}
-
-
-/* =====================================================
-   UPDATE APPOINTMENT STATUS
-===================================================== */
-
-function updateAppointmentStatus(
-    patientID,
-    appointmentID,
-    status
-){
-
-    const patients =
-        getPatients();
-
-
-    const patientIndex =
-        patients.findIndex(
-            patient =>
-            patient.patientID ===
-            patientID
-        );
-
-
-    if(
-        patientIndex === -1
-    ){
-
-        return;
-
-    }
-
-
-    const patient =
-        patients[
-            patientIndex
-        ];
-
-
-    if(
-        !patient.appointments
-    ){
-
-        patient.appointments = [];
-
-    }
-
-
-    const appointment =
-        patient.appointments.find(
-            item =>
-            item.id ===
-            appointmentID
-        );
-
-
-    if(appointment){
-
-        appointment.status =
-            status;
-
-        appointment.updatedAt =
-            new Date().toISOString();
-
-    }
-
-
-    savePatients(
-        patients
-    );
-
-
-    refreshAll();
-
-}
-
-
-/* =====================================================
-   PATIENT DASHBOARD
-===================================================== */
-
-function renderPatientDashboard(
-    patient
-){
-
-    const vitals =
-        getLatestVitals(
-            patient
-        );
-
-
-    const medications =
-        getCurrentMedications(
-            patient
-        );
-
-
-    const reports =
-        patient.reports ||
-        [];
-
-
-    const visits =
-        patient.visits ||
-        [];
-
-
-    const diagnoses =
-        patient.diagnoses ||
-        [];
-
-
-    const container =
-        document.getElementById(
-            "patientDashboardContent"
-        );
-
-
-    container.innerHTML = `
-
-    <div class="patient-header">
-
-        <div>
-
-            <h2>
-                ${escapeHTML(
-                    patient.name
-                )}
-            </h2>
-
-            <p>
-                Complete authorized patient
-                clinical dashboard
-            </p>
-
-        </div>
-
-
-        <div class="patient-id">
-
-            ${escapeHTML(
-                patient.patientID
-            )}
-
-        </div>
-
-    </div>
-
-
-    <!-- PATIENT INFORMATION -->
-
-    <div class="info-grid">
-
-
-        <div class="info-card">
-
-            <h3>
-                👤 Patient Information
-            </h3>
-
-
-            <div class="info-row">
-
-                <span>
-                    Name
-                </span>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.name
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span>
-                    Date of Birth
-                </span>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.dob || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span>
-                    Gender
-                </span>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.gender || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span>
-                    Mobile
-                </span>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.mobile || "—"
-                    )}
-                </strong>
-
-            </div>
-
-
-            <div class="info-row">
-
-                <span>
-                    Emergency Contact
-                </span>
-
-                <strong>
-                    ${escapeHTML(
-                        patient.emergency || "—"
-                    )}
-                </strong>
-
-            </div>
-
-        </div>
-
-
-        <!-- VITALS -->
-
-        <div class="info-card">
-
-            <h3>
-                ❤️ Latest Vitals
-            </h3>
-
-
-            <div class="vitals-grid">
-
-
-                <div class="vital-box">
-
-                    <small>
-                        BP
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.bp || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-                <div class="vital-box">
-
-                    <small>
-                        Pulse
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.pulse || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-                <div class="vital-box">
-
-                    <small>
-                        SpO₂
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.spo2 || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-                <div class="vital-box">
-
-                    <small>
-                        Temp
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.temperature || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-                <div class="vital-box">
-
-                    <small>
-                        Weight
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.weight || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-                <div class="vital-box">
-
-                    <small>
-                        Height
-                    </small>
-
-                    <strong>
-                        ${escapeHTML(
-                            vitals.height || "—"
-                        )}
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-        <!-- CURRENT MEDICATIONS -->
-
-        <div class="info-card">
-
-            <h3>
-                💊 Current / Previous Medication
-            </h3>
-
-            ${
-                medications.length
-
-                ?
-
-                medications
-                    .slice()
-                    .reverse()
-                    .slice(0,6)
-                    .map(
-                        medication => `
-
-                        <div class="history-item">
-
-                            <strong>
-                                ${escapeHTML(
-                                    medication.name
-                                )}
-                            </strong>
-
-                            <p>
-                                ${escapeHTML(
-                                    medication.dose || ""
-                                )}
-
-                                ${
-                                    medication.frequency
-                                    ? " · " +
-                                      escapeHTML(
-                                          medication.frequency
-                                      )
-                                    : ""
-                                }
-
-                                ${
-                                    medication.duration
-                                    ? " · " +
-                                      escapeHTML(
-                                          medication.duration
-                                      )
-                                    : ""
-                                }
-                            </p>
-
-                        </div>
-
-                        `
-                    )
-                    .join("")
-
-                :
-
-                `
-                <div class="empty-state">
-                    No medication history available.
-                </div>
-                `
-
-            }
-
-        </div>
-
-
-        <!-- DIAGNOSES -->
-
-        <div class="info-card">
-
-            <h3>
-                🩺 Previous Diagnoses
-            </h3>
-
-            ${
-                diagnoses.length
-
-                ?
-
-                diagnoses
-                    .slice()
-                    .reverse()
-                    .slice(0,6)
-                    .map(
-                        diagnosis => `
-
-                        <div class="history-item">
-
-                            <strong>
-                                ${escapeHTML(
-                                    diagnosis.name ||
-                                    diagnosis.diagnosis ||
-                                    "Diagnosis"
-                                )}
-                            </strong>
-
-                            <p>
-                                ${
-                                    diagnosis.date
-                                    ? escapeHTML(
-                                        diagnosis.date
-                                      )
-                                    : ""
-                                }
-                            </p>
-
-                        </div>
-
-                        `
-                    )
-                    .join("")
-
-                :
-
-                `
-                <div class="empty-state">
-                    No previous diagnoses available.
-                </div>
-                `
-
-            }
-
-        </div>
-
-
-        <!-- REPORTS -->
-
-        <div class="info-card full">
-
-            <h3>
-                🧪 Laboratory & Diagnostic Reports
-            </h3>
-
-            ${
-                reports.length
-
-                ?
-
-                reports
-                    .slice()
-                    .reverse()
-                    .map(
-                        report => `
-
-                        <div class="report-row">
-
-                            <div>
-
-                                <strong>
-                                    ${escapeHTML(
-                                        report.name ||
-                                        report.test ||
-                                        "Diagnostic Report"
-                                    )}
-                                </strong>
-
-                                <small>
-                                    ${
-                                        report.lab
-                                        ? escapeHTML(
-                                            report.lab
-                                          ) + " · "
-                                        : ""
-                                    }
-
-                                    ${
-                                        report.date
-                                        ? escapeHTML(
-                                            report.date
-                                          )
-                                        : ""
-                                    }
-                                </small>
-
-                            </div>
-
-
-                            <button
-                                class="secondary-small"
-                                onclick="viewReport('${escapeJS(
-                                    report.id || ""
-                                )}')"
-                            >
-                                View
-                            </button>
-
-                        </div>
-
-                        `
-                    )
-                    .join("")
-
-                :
-
-                `
-                <div class="empty-state">
-                    No diagnostic reports available.
-                </div>
-                `
-
-            }
-
-        </div>
-
-
-        <!-- PREVIOUS VISITS -->
-
-        <div class="info-card full">
-
-            <h3>
-                📋 Previous Visits
-            </h3>
-
-            ${
-                visits.length
-
-                ?
-
-                visits
-                    .slice()
-                    .reverse()
-                    .slice(0,8)
-                    .map(
-                        visit => `
-
-                        <div class="history-item">
-
-                            <strong>
-                                ${
-                                    visit.date
-                                    ? escapeHTML(
-                                        visit.date
-                                      )
-                                    : "Visit"
-                                }
-                            </strong>
-
-                            <p>
-                                ${
-                                    visit.doctor
-                                    ? escapeHTML(
-                                        visit.doctor
-                                      )
-                                    : ""
-                                }
-
-                                ${
-                                    visit.diagnosis
-                                    ? " · Diagnosis: " +
-                                      escapeHTML(
-                                          visit.diagnosis
-                                      )
-                                    : ""
-                                }
-                            </p>
-
-                        </div>
-
-                        `
-                    )
-                    .join("")
-
-                :
-
-                `
-                <div class="empty-state">
-                    No previous visits available.
-                </div>
-                `
-
-            }
-
-        </div>
-
-
-    </div>
-
-
-    <!-- =================================================
-         CONSULTATION WORKSPACE
-    ================================================= -->
-
-    <div class="workspace">
-
-        <h2>
-            🩺 Today's Consultation
-        </h2>
-
-
-        <div class="workspace-section">
-
-            <label>
-                Chief Complaint
-            </label>
-
-            <textarea
-                id="chiefComplaint"
-                placeholder="Enter the patient's chief complaint"
-            ></textarea>
-
-        </div>
-
-
-        <div class="workspace-section">
-
-            <label>
-                History / Symptoms
-            </label>
-
-            <textarea
-                id="clinicalHistory"
-                placeholder="Enter relevant history and symptoms"
-            ></textarea>
-
-        </div>
-
-
-        <div class="workspace-section">
-
-            <label>
-                Examination
-            </label>
-
-            <textarea
-                id="examination"
-                placeholder="Enter examination findings"
-            ></textarea>
-
-        </div>
-
-
-        <div class="workspace-section">
-
-            <label>
-                Assessment / Diagnosis
-            </label>
-
-            <textarea
-                id="diagnosis"
-                placeholder="Enter assessment or diagnosis"
-            ></textarea>
-
-        </div>
-
-
-        <!-- PRESCRIPTION -->
-
-        <div class="workspace-section">
-
-            <label>
-                💊 Prescription
-            </label>
-
-
-            <div id="medicineContainer">
-
-                ${medicineRow()}
-
-            </div>
-
-
-            <button
-                class="add-medicine"
-                onclick="addMedicine()"
-            >
-                + Add Medicine
-            </button>
-
-        </div>
-
-
-        <!-- TESTS -->
-
-        <div class="workspace-section">
-
-            <label>
-                🧪 Investigations / Tests
-            </label>
-
-            <textarea
-                id="investigations"
-                placeholder="Enter tests or investigations required"
-            ></textarea>
-
-        </div>
-
-
-        <!-- REFERRAL -->
-
-        <div class="workspace-section">
-
-            <label>
-                🏥 Referral
-            </label>
-
-            <textarea
-                id="referral"
-                placeholder="Enter specialist or hospital referral if required"
-            ></textarea>
-
-        </div>
-
-
-        <!-- FOLLOW UP -->
-
-        <div class="workspace-section">
-
-            <label>
-                📅 Follow-up
-            </label>
-
-            <textarea
-                id="followUp"
-                placeholder="Enter follow-up instructions"
-            ></textarea>
-
-        </div>
-
-
-        <button
-            class="review-button"
-            onclick="reviewConsultation()"
-        >
-            Review & Confirm Consultation
-        </button>
-
-    </div>
-
-    `;
-
-}
-
-
-/* =====================================================
-   MEDICINE ROW
-===================================================== */
-
-function medicineRow(){
-
-    return `
-
-    <div class="medicine-row">
-
-        <input
-            placeholder="Medicine name"
-            class="medicine-name"
-        >
-
-        <input
-            placeholder="Dose"
-            class="medicine-dose"
-        >
-
-        <input
-            placeholder="Frequency"
-            class="medicine-frequency"
-        >
-
-        <input
-            placeholder="Duration"
-            class="medicine-duration"
-        >
-
-        <button
-            class="remove-medicine"
-            onclick="this.parentElement.remove()"
-        >
-            ×
-        </button>
-
-    </div>
-
-    `;
-
-}
-
-
-function addMedicine(){
-
-    document
-        .getElementById(
-            "medicineContainer"
-        )
-        .insertAdjacentHTML(
-            "beforeend",
-            medicineRow()
-        );
-
-}
-
-
-/* =====================================================
-   REVIEW CONSULTATION
-===================================================== */
-
-function reviewConsultation(){
-
-    if(!activePatientID){
-
-        alert(
-            "No patient selected."
-        );
-
-        return;
-
-    }
-
-
-    const diagnosis =
-        document
-            .getElementById(
-                "diagnosis"
-            )
-            .value
-            .trim();
-
-
-    if(!diagnosis){
-
-        alert(
-            "Please enter the assessment/diagnosis before confirming."
-        );
-
-        return;
-
-    }
-
-
-    const medicines =
-        collectMedicines();
-
-
-    const investigations =
-        document
-            .getElementById(
-                "investigations"
-            )
-            .value
-            .trim();
-
-
-    const chiefComplaint =
-        document
-            .getElementById(
-                "chiefComplaint"
-            )
-            .value
-            .trim();
-
-
-    const history =
-        document
-            .getElementById(
-                "clinicalHistory"
-            )
-            .value
-            .trim();
-
-
-    const examination =
-        document
-            .getElementById(
-                "examination"
-            )
-            .value
-            .trim();
-
-
-    const referral =
-        document
-            .getElementById(
-                "referral"
-            )
-            .value
-            .trim();
-
-
-    const followUp =
-        document
-            .getElementById(
-                "followUp"
-            )
-            .value
-            .trim();
-
-
-    pendingConsultation = {
-
-        patientID:
-            activePatientID,
-
-        appointmentID:
-            activeAppointmentID,
-
-        chiefComplaint,
-
-        history,
-
-        examination,
-
-        diagnosis,
-
-        medicines,
-
-        investigations,
-
-        referral,
-
-        followUp,
-
-        createdAt:
-            new Date().toISOString()
-
-    };
-
-
-    const patient =
-        getPatients().find(
-            item =>
-            item.patientID ===
-            activePatientID
-        );
-
-
-    document.getElementById(
-        "reviewContent"
-    ).innerHTML = `
-
-    <div class="info-card">
-
-        <div class="info-row">
-
-            <span>
-                Patient
-            </span>
-
-            <strong>
-                ${escapeHTML(
-                    patient.name
-                )}
-            </strong>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <span>
-                Patient ID
-            </span>
-
-            <strong>
-                ${escapeHTML(
-                    patient.patientID
-                )}
-            </strong>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <span>
-                Diagnosis
-            </span>
-
-            <strong>
-                ${escapeHTML(
-                    diagnosis
-                )}
-            </strong>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <span>
-                Medicines
-            </span>
-
-            <strong>
-                ${
-                    medicines.length
-                    ? medicines
-                        .map(
-                            medicine =>
-                            escapeHTML(
-                                medicine.name
-                            )
-                        )
-                        .join(", ")
-                    : "None"
-                }
-            </strong>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <span>
-                Tests
-            </span>
-
-            <strong>
-                ${
-                    investigations
-                    ? escapeHTML(
-                        investigations
-                      )
-                    : "None"
-                }
-            </strong>
-
-        </div>
-
-
-        <div class="info-row">
-
-            <span>
-                Referral
-            </span>
-
-            <strong>
-                ${
-                    referral
-                    ? escapeHTML(
-                        referral
-                      )
-                    : "None"
-                }
-            </strong>
-
-        </div>
-
-    </div>
-
-    `;
-
-
-    document.getElementById(
-        "reviewModal"
-    ).classList.add(
-        "show"
-    );
-
-}
-
-
-/* =====================================================
-   COLLECT MEDICINES
-===================================================== */
-
-function collectMedicines(){
-
-    const medicines = [];
+        .getElementById("dash")
+        .classList.remove("hidden");
 
 
     document
-        .querySelectorAll(
-            "#medicineContainer .medicine-row"
-        )
-        .forEach(
-            row => {
-
-                const name =
-                    row
-                        .querySelector(
-                            ".medicine-name"
-                        )
-                        .value
-                        .trim();
+        .getElementById("wn")
+        .textContent =
+        "Welcome, " + o.name;
 
 
-                if(name){
+    document
+        .getElementById("wid")
+        .textContent =
+        o.id;
 
-                    medicines.push({
 
-                        name,
-
-                        dose:
-                            row
-                                .querySelector(
-                                    ".medicine-dose"
-                                )
-                                .value
-                                .trim(),
-
-                        frequency:
-                            row
-                                .querySelector(
-                                    ".medicine-frequency"
-                                )
-                                .value
-                                .trim(),
-
-                        duration:
-                            row
-                                .querySelector(
-                                    ".medicine-duration"
-                                )
-                                .value
-                                .trim()
-
-                    });
-
-                }
-
-            }
+    document
+        .getElementById("wm")
+        .textContent =
+        o.type +
+        " • " +
+        (
+            o.specialization ||
+            "No specialization"
+        ) +
+        " • Registration: " +
+        (
+            o.registration ||
+            "Not available"
         );
 
 
-    return medicines;
-
-}
-
-
-/* =====================================================
-   CONFIRM CONSULTATION
-===================================================== */
-
-function saveConfirmedConsultation(){
-
-    if(!pendingConsultation){
-
-        return;
-
-    }
-
-
-    const patients =
-        getPatients();
-
-
-    const patientIndex =
-        patients.findIndex(
-            patient =>
-            patient.patientID ===
-            pendingConsultation.patientID
-        );
-
-
-    if(
-        patientIndex === -1
-    ){
-
-        alert(
-            "Patient record not found."
-        );
-
-        return;
-
-    }
-
-
-    const patient =
-        patients[
-            patientIndex
-        ];
-
-
-    /*
-       VISIT
-    */
-
-    if(!patient.visits){
-
-        patient.visits = [];
-
-    }
-
-
-    const visitID =
-        "VISIT-" +
-        Date.now();
-
-
-    patient.visits.push({
-
-        id:
-            visitID,
-
-        doctorID:
-            DOCTOR.id,
-
-        doctor:
-            DOCTOR.name,
-
-        specialty:
-            DOCTOR.specialty,
-
-        date:
-            new Date()
-                .toLocaleDateString(
-                    "en-IN"
-                ),
-
-        chiefComplaint:
-            pendingConsultation
-                .chiefComplaint,
-
-        history:
-            pendingConsultation
-                .history,
-
-        examination:
-            pendingConsultation
-                .examination,
-
-        diagnosis:
-            pendingConsultation
-                .diagnosis,
-
-        medicines:
-            pendingConsultation
-                .medicines,
-
-        investigations:
-            pendingConsultation
-                .investigations,
-
-        referral:
-            pendingConsultation
-                .referral,
-
-        followUp:
-            pendingConsultation
-                .followUp,
-
-        createdAt:
-            new Date().toISOString()
-
-    });
-
-
-    /*
-       DIAGNOSIS HISTORY
-    */
-
-    if(!patient.diagnoses){
-
-        patient.diagnoses = [];
-
-    }
-
-
-    if(
-        pendingConsultation
-            .diagnosis
-    ){
-
-        patient.diagnoses.push({
-
-            id:
-                "DX-" +
-                Date.now(),
-
-            name:
-                pendingConsultation
-                    .diagnosis,
-
-            doctor:
-                DOCTOR.name,
-
-            doctorID:
-                DOCTOR.id,
-
-            date:
-                new Date()
-                    .toLocaleDateString(
-                        "en-IN"
-                    )
-
-        });
-
-    }
-
-
-    /*
-       PRESCRIPTION
-    */
-
-    if(!patient.prescriptions){
-
-        patient.prescriptions = [];
-
-    }
-
-
-    if(
-        pendingConsultation
-            .medicines
-            .length
-    ){
-
-        patient.prescriptions.push({
-
-            id:
-                "RX-" +
-                Date.now(),
-
-            doctor:
-                DOCTOR.name,
-
-            doctorID:
-                DOCTOR.id,
-
-            specialty:
-                DOCTOR.specialty,
-
-            date:
-                new Date()
-                    .toLocaleDateString(
-                        "en-IN"
-                    ),
-
-            medicines:
-                pendingConsultation
-                    .medicines,
-
-            status:
-                "Confirmed",
-
-            /*
-               Future pharmacy integration
-            */
-
-            pharmacyStatus:
-                "Pending"
-
-        });
-
-    }
-
-
-    /*
-       DIAGNOSTIC ORDER
-    */
-
-    if(
-        pendingConsultation
-            .investigations
-    ){
-
-        if(!patient.diagnosticOrders){
-
-            patient.diagnosticOrders = [];
-
-        }
-
-
-        patient.diagnosticOrders.push({
-
-            id:
-                "LAB-" +
-                Date.now(),
-
-            doctor:
-                DOCTOR.name,
-
-            doctorID:
-                DOCTOR.id,
-
-            date:
-                new Date()
-                    .toLocaleDateString(
-                        "en-IN"
-                    ),
-
-            tests:
-                pendingConsultation
-                    .investigations,
-
-            status:
-                "Ordered",
-
-            /*
-               Future lab integration
-            */
-
-            labStatus:
-                "Pending"
-
-        });
-
-    }
-
-
-    /*
-       APPOINTMENT STATUS
-    */
-
-    if(
-        patient.appointments
-    ){
-
-        const appointment =
-            patient.appointments.find(
-                item =>
-                item.id ===
-                pendingConsultation
-                    .appointmentID
-            );
-
-
-        if(appointment){
-
-            appointment.status =
-                "Completed";
-
-            appointment.completedAt =
-                new Date()
-                    .toISOString();
-
-        }
-
-    }
-
-
-    savePatients(
-        patients
-    );
-
-
-    closeReviewModal();
-
-
-    alert(
-        "Consultation confirmed successfully.\n\nThe patient's record has been updated."
-    );
-
-
-    pendingConsultation =
-        null;
-
-
-    activePatientID =
-        null;
-
-    activeAppointmentID =
-        null;
-
-
-    refreshAll();
-
-
-    showPage(
-        "dashboard"
-    );
-
-}
-
-
-/* =====================================================
-   CLOSE REVIEW
-===================================================== */
-
-function closeReviewModal(){
-
-    document.getElementById(
-        "reviewModal"
-    ).classList.remove(
-        "show"
-    );
-
-}
-
-
-/* =====================================================
-   CURRENT MEDICATIONS
-===================================================== */
-
-function getCurrentMedications(
-    patient
-){
-
-    const prescriptions =
-        patient.prescriptions ||
-        [];
-
-
-    const medicines = [];
-
-
-    prescriptions.forEach(
-        prescription => {
-
-            (
-                prescription.medicines ||
-                []
-            ).forEach(
-                medicine => {
-
-                    medicines.push(
-                        medicine
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-    return medicines;
-
-}
-
-
-/* =====================================================
-   PATIENT SEARCH
-===================================================== */
-
-function searchPatient(){
-
-    const query =
-        document
-            .getElementById(
-                "patientSearch"
-            )
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    if(!query){
-
-        alert(
-            "Enter a Patient ID, name or mobile number."
-        );
-
-        return;
-
-    }
-
-
-    const patients =
-        getPatients();
-
-
-    const matches =
-        patients.filter(
-            patient =>
-
-            String(
-                patient.patientID ||
-                ""
-            )
-            .toLowerCase()
-            .includes(query)
-
-            ||
-
-            String(
-                patient.name ||
-                ""
-            )
-            .toLowerCase()
-            .includes(query)
-
-            ||
-
-            String(
-                patient.mobile ||
-                ""
-            )
-            .includes(query)
-
-        );
-
-
-    const container =
-        document.getElementById(
-            "patientSearchResult"
-        );
-
-
-    if(!matches.length){
-
-        container.innerHTML = `
-
-        <div class="panel">
-
-            <div class="empty-state">
-
-                No patient found.
-
-            </div>
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        matches
-            .map(
-                patient => `
-
-                <div class="queue-card">
-
-                    <div class="queue-header">
-
-                        <div>
-
-                            <h3>
-                                ${escapeHTML(
-                                    patient.name
-                                )}
-                            </h3>
-
-                            <p>
-                                ${escapeHTML(
-                                    patient.patientID
-                                )}
-                                ·
-                                ${escapeHTML(
-                                    patient.mobile ||
-                                    "No mobile"
-                                )}
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="queue-actions">
-
-                        <button
-                            class="open-button"
-                            onclick="openPatient(
-                                '${escapeJS(
-                                    patient.patientID
-                                )}',
-                                ''
-                            )"
-                        >
-                            Open Patient
-                        </button>
-
-                    </div>
-
-                </div>
-
-                `
-            )
-            .join("");
-
-}
-
-
-/* =====================================================
-   REPORT VIEW
-===================================================== */
-
-function viewReport(
-    reportID
-){
-
-    alert(
-        "Report viewer will be connected when the Diagnostic Portal is built."
-    );
-
-}
-
-
-/* =====================================================
-   HISTORY
-===================================================== */
-
-function renderHistory(){
-
-    const patients =
-        getPatients();
-
-
-    const visits = [];
-
-
-    patients.forEach(
-        patient => {
-
-            (
-                patient.visits ||
-                []
-            ).forEach(
-                visit => {
-
-                    if(
-                        visit.doctorID ===
-                        DOCTOR.id
-                    ){
-
-                        visits.push({
-
-                            patient,
-                            visit
-
-                        });
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    const container =
-        document.getElementById(
-            "historyList"
-        );
-
-
-    if(!visits.length){
-
-        container.innerHTML = `
-
-        <div class="empty-state">
-
-            No completed consultations yet.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML = `
-
-    <div class="data-row data-header">
-
-        <div>
-            Patient
-        </div>
-
-        <div>
-            Date
-        </div>
-
-        <div>
-            Diagnosis
-        </div>
-
-        <div>
-            Doctor
-        </div>
-
-    </div>
-
-    ` +
-
-    visits
-        .slice()
-        .reverse()
-        .map(
-            item => `
-
-            <div class="data-row">
-
-                <div>
-                    ${escapeHTML(
-                        item.patient.name
-                    )}
-                </div>
-
-                <div>
-                    ${escapeHTML(
-                        item.visit.date ||
-                        "—"
-                    )}
-                </div>
-
-                <div>
-                    ${escapeHTML(
-                        item.visit.diagnosis ||
-                        "—"
-                    )}
-                </div>
-
-                <div>
-                    ${escapeHTML(
-                        item.visit.doctor ||
-                        DOCTOR.name
-                    )}
-                </div>
-
-            </div>
-
-            `
-        )
-        .join("");
-
-}
-
-
-/* =====================================================
-   PRESCRIPTIONS
-===================================================== */
-
-function renderPrescriptions(){
-
-    const patients =
-        getPatients();
-
-
-    const prescriptions = [];
-
-
-    patients.forEach(
-        patient => {
-
-            (
-                patient.prescriptions ||
-                []
-            ).forEach(
-                prescription => {
-
-                    if(
-                        prescription.doctorID ===
-                        DOCTOR.id
-                    ){
-
-                        prescriptions.push({
-
-                            patient,
-
-                            prescription
-
-                        });
-
-                    }
-
-                }
-            );
-
-        }
-    );
-
-
-    const container =
-        document.getElementById(
-            "prescriptionList"
-        );
-
-
-    if(!prescriptions.length){
-
-        container.innerHTML = `
-
-        <div class="empty-state">
-
-            No prescriptions issued yet.
-
-        </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML = `
-
-    <div class="data-row data-header">
-
-        <div>
-            Patient
-        </div>
-
-        <div>
-            Date
-        </div>
-
-        <div>
-            Medicines
-        </div>
-
-        <div>
-            Status
-        </div>
-
-    </div>
-
-    ` +
-
-    prescriptions
-        .slice()
-        .reverse()
-        .map(
-            item => `
-
-            <div class="data-row">
-
-                <div>
-                    ${escapeHTML(
-                        item.patient.name
-                    )}
-                </div>
-
-                <div>
-                    ${escapeHTML(
-                        item.prescription.date ||
-                        "—"
-                    )}
-                </div>
-
-                <div>
-
-                    ${
-                        (
-                            item.prescription
-                                .medicines ||
-                            []
-                        )
-                        .map(
-                            medicine =>
-                            escapeHTML(
-                                medicine.name
-                            )
-                        )
-                        .join(", ")
-                    }
-
-                </div>
-
-                <div class="status-confirmed">
-
-                    ${escapeHTML(
-                        item.prescription.status ||
-                        "Confirmed"
-                    )}
-
-                </div>
-
-            </div>
-
-            `
-        )
-        .join("");
-
-}
-
-
-/* =====================================================
-   SCHEDULE
-===================================================== */
-
-function saveSchedule(){
-
-    const schedule = {
-
-        doctorID:
-            DOCTOR.id,
-
-        enabled:
-            document
-                .getElementById(
-                    "onlineAvailability"
-                )
-                .value ===
-            "enabled",
-
-        start:
-            document
-                .getElementById(
-                    "availabilityStart"
-                )
-                .value,
-
-        end:
-            document
-                .getElementById(
-                    "availabilityEnd"
-                )
-                .value
-
-    };
-
-
-    localStorage.setItem(
-        DOCTOR_SCHEDULE_KEY,
-        JSON.stringify(
-            schedule
-        )
-    );
-
-
-    document.getElementById(
-        "scheduleSavedMessage"
-    ).style.display =
-        "block";
-
-
-    setTimeout(
-        function(){
-
-            document.getElementById(
-                "scheduleSavedMessage"
-            ).style.display =
-                "none";
-
-        },
-        2500
-    );
-
-}
-
-
-function loadSchedule(){
-
-    try{
-
-        const schedule =
-            JSON.parse(
-                localStorage.getItem(
-                    DOCTOR_SCHEDULE_KEY
-                ) || "null"
-            );
-
-
-        if(!schedule){
-
-            return;
-
-        }
-
-
-        document.getElementById(
-            "onlineAvailability"
-        ).value =
-            schedule.enabled
-            ? "enabled"
-            : "disabled";
-
-
-        if(schedule.start){
-
-            document.getElementById(
-                "availabilityStart"
-            ).value =
-                schedule.start;
-
-        }
-
-
-        if(schedule.end){
-
-            document.getElementById(
-                "availabilityEnd"
-            ).value =
-                schedule.end;
-
-        }
-
-    }catch(error){
-
-        console.log(
-            "Schedule could not be loaded."
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   REFRESH
-===================================================== */
-
-function refreshAll(){
-
-    renderDashboard();
-
-    renderQueue();
-
-    renderHistory();
-
-    renderPrescriptions();
+    document
+        .getElementById("ws")
+        .textContent =
+        o.status ||
+        "Pending Verification";
 
 }
 
@@ -4945,81 +1360,23 @@ function refreshAll(){
    LOGOUT
 ===================================================== */
 
-function doctorLogout(){
+function logout(){
 
-    localStorage.removeItem(
-        DOCTOR_LOGIN_KEY
-    );
+    localStorage.removeItem(C);
 
-
-    document.getElementById(
-        "app"
-    ).style.display =
-        "none";
-
-
-    document.getElementById(
-        "loginScreen"
-    ).style.display =
-        "flex";
+    loginScreen();
 
 }
 
 
 /* =====================================================
-   ESCAPE HTML
+   BACK TO HOME
 ===================================================== */
 
-function escapeHTML(
-    value
-){
+function goBack(){
 
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
-
-}
-
-
-/* =====================================================
-   ESCAPE JS
-===================================================== */
-
-function escapeJS(
-    value
-){
-
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /\\/g,
-        "\\\\"
-    )
-    .replace(
-        /'/g,
-        "\\'"
-    );
+    window.location.href =
+        "index.html";
 
 }
 
@@ -5028,24 +1385,29 @@ function escapeJS(
    AUTO LOGIN
 ===================================================== */
 
-window.addEventListener(
-    "load",
-    function(){
+window.onload = function(){
 
-        if(
-            localStorage.getItem(
-                DOCTOR_LOGIN_KEY
-            ) === "1"
-        ){
+    let o =
+        JSON.parse(
+            localStorage.getItem(C) ||
+            "null"
+        );
 
-            openDoctorPortal();
 
-        }
+    if(o){
+
+        open(o);
+
+    }else{
+
+        loginScreen();
 
     }
-);
+
+};
 
 </script>
+
 
 </body>
 
