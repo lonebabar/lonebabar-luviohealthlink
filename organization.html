@@ -1,0 +1,3640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luvio HealthLink — Organization Portal</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --primary:#123b5d;
+    --primary2:#176b87;
+    --accent:#1ca6a8;
+    --light:#f4f8fb;
+    --border:#dce6ec;
+    --text:#19324a;
+    --muted:#6b7d8c;
+    --white:#ffffff;
+    --success:#16834b;
+    --warning:#c88916;
+    --danger:#c94343;
+    --shadow:0 8px 28px rgba(20,55,80,.08);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--light);
+    color:var(--text);
+}
+
+/* =========================
+   LOGIN / REGISTRATION
+========================= */
+
+.auth-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    background:
+        radial-gradient(circle at top right,rgba(28,166,168,.12),transparent 30%),
+        linear-gradient(135deg,#f5fafc,#edf5f8);
+}
+
+.auth-container{
+    width:100%;
+    max-width:1050px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:white;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(20,55,80,.12);
+}
+
+.auth-brand{
+    background:linear-gradient(145deg,#123b5d,#176b87);
+    color:white;
+    padding:55px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.auth-brand h1{
+    font-size:36px;
+    margin-bottom:12px;
+}
+
+.auth-brand .tagline{
+    font-size:15px;
+    opacity:.85;
+    margin-bottom:35px;
+}
+
+.auth-brand h2{
+    font-size:25px;
+    margin-bottom:14px;
+}
+
+.auth-brand p{
+    line-height:1.7;
+    opacity:.9;
+}
+
+.auth-points{
+    margin-top:30px;
+}
+
+.auth-point{
+    display:flex;
+    gap:12px;
+    margin:15px 0;
+    font-size:14px;
+}
+
+.auth-form{
+    padding:45px;
+}
+
+.auth-form h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.auth-subtitle{
+    color:var(--muted);
+    margin-bottom:28px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+.form-group label{
+    display:block;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px 13px;
+    border:1px solid var(--border);
+    border-radius:9px;
+    font-size:14px;
+    outline:none;
+    background:white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--accent);
+}
+
+.btn{
+    border:0;
+    border-radius:9px;
+    padding:12px 18px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#0d304b;
+}
+
+.btn-accent{
+    background:var(--accent);
+    color:white;
+}
+
+.btn-outline{
+    background:white;
+    color:var(--primary);
+    border:1px solid var(--border);
+}
+
+.btn-danger{
+    background:#fff0f0;
+    color:var(--danger);
+}
+
+.full{
+    width:100%;
+}
+
+.auth-switch{
+    margin-top:20px;
+    text-align:center;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.auth-switch a{
+    color:var(--primary2);
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.demo-note{
+    margin-top:20px;
+    padding:12px;
+    background:#f4f9fb;
+    border-radius:9px;
+    font-size:12px;
+    color:var(--muted);
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================
+   APP
+========================= */
+
+.app{
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    width:255px;
+    background:#102f47;
+    color:white;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    overflow-y:auto;
+    z-index:10;
+}
+
+.sidebar-brand{
+    padding:25px 20px;
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.sidebar-brand h2{
+    font-size:21px;
+}
+
+.sidebar-brand span{
+    display:block;
+    margin-top:5px;
+    font-size:11px;
+    opacity:.65;
+}
+
+.org-mini{
+    margin:15px;
+    padding:13px;
+    background:rgba(255,255,255,.07);
+    border-radius:10px;
+}
+
+.org-mini strong{
+    display:block;
+    font-size:13px;
+}
+
+.org-mini small{
+    opacity:.65;
+    font-size:11px;
+}
+
+.nav{
+    padding:10px;
+}
+
+.nav-section{
+    padding:15px 12px 7px;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#89a6ba;
+}
+
+.nav button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#dceaf1;
+    text-align:left;
+    padding:11px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:2px;
+    font-size:13px;
+}
+
+.nav button:hover,
+.nav button.active{
+    background:rgba(28,166,168,.18);
+    color:white;
+}
+
+.main{
+    margin-left:255px;
+    width:calc(100% - 255px);
+}
+
+.topbar{
+    height:72px;
+    background:white;
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    position:sticky;
+    top:0;
+    z-index:5;
+}
+
+.topbar-title{
+    font-weight:bold;
+    font-size:18px;
+}
+
+.topbar-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.role-badge{
+    padding:7px 11px;
+    border-radius:20px;
+    background:#edf8f8;
+    color:#147477;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.avatar{
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    background:var(--primary);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.content{
+    padding:30px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.page-header{
+    margin-bottom:25px;
+}
+
+.page-header h1{
+    font-size:28px;
+}
+
+.page-header p{
+    color:var(--muted);
+    margin-top:6px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:17px;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.stat-card small{
+    color:var(--muted);
+    font-size:12px;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.section-card{
+    background:white;
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    margin-bottom:20px;
+}
+
+.section-card h3{
+    margin-bottom:16px;
+}
+
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:17px;
+}
+
+.section-header h3{
+    margin:0;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:12px 10px;
+    border-bottom:1px solid #edf1f4;
+    text-align:left;
+    font-size:13px;
+}
+
+th{
+    font-size:11px;
+    text-transform:uppercase;
+    color:var(--muted);
+    letter-spacing:.4px;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.badge-success{
+    background:#eaf8f0;
+    color:var(--success);
+}
+
+.badge-warning{
+    background:#fff7e5;
+    color:var(--warning);
+}
+
+.badge-danger{
+    background:#fff0f0;
+    color:var(--danger);
+}
+
+.badge-neutral{
+    background:#eef3f6;
+    color:#607483;
+}
+
+/* =========================
+   ORGANIZATION TYPE
+========================= */
+
+.type-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.type-card{
+    border:1px solid var(--border);
+    padding:20px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.type-card:hover{
+    border-color:var(--accent);
+    transform:translateY(-2px);
+}
+
+.type-card.selected{
+    border:2px solid var(--accent);
+    background:#f2fbfb;
+}
+
+.type-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.type-card h3{
+    margin-bottom:6px;
+}
+
+.type-card p{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* =========================
+   PROFESSIONALS
+========================= */
+
+.search-row{
+    display:flex;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.search-row input{
+    flex:1;
+    padding:12px;
+    border:1px solid var(--border);
+    border-radius:9px;
+}
+
+.professional-result{
+    border:1px solid var(--border);
+    border-radius:11px;
+    padding:17px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:10px;
+}
+
+.prof-info strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.prof-info span{
+    font-size:12px;
+    color:var(--muted);
+}
+
+/* =========================
+   MODULE CARDS
+========================= */
+
+.module-card{
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:22px;
+    background:white;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.module-card:hover{
+    transform:translateY(-2px);
+    box-shadow:var(--shadow);
+}
+
+.module-icon{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.module-card h3{
+    margin-bottom:6px;
+}
+
+.module-card p{
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.5;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    padding:20px;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:100%;
+    max-width:620px;
+    max-height:90vh;
+    overflow-y:auto;
+    background:white;
+    border-radius:15px;
+    padding:25px;
+}
+
+.modal-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    border:0;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .type-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid-2{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:750px){
+    .sidebar{
+        width:0;
+        overflow:hidden;
+    }
+
+    .main{
+        margin-left:0;
+        width:100%;
+    }
+
+    .content{
+        padding:18px;
+    }
+
+    .topbar{
+        padding:0 18px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .auth-container{
+        grid-template-columns:1fr;
+    }
+
+    .auth-brand{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     AUTHENTICATION
+===================================================== -->
+
+<div id="authPage" class="auth-page">
+
+    <div class="auth-container">
+
+        <div class="auth-brand">
+
+            <h1>LUVIO HEALTHLINK</h1>
+
+            <div class="tagline">
+                Your Personal Health Architecture.
+            </div>
+
+            <h2>Organization Portal</h2>
+
+            <p>
+                Manage your healthcare organization, professionals,
+                staff, patients, appointments, pharmacy, diagnostics
+                and operational workflows from one connected platform.
+            </p>
+
+            <div class="auth-points">
+
+                <div class="auth-point">
+                    <span>✓</span>
+                    <span>One organization identity</span>
+                </div>
+
+                <div class="auth-point">
+                    <span>✓</span>
+                    <span>Connect verified professionals</span>
+                </div>
+
+                <div class="auth-point">
+                    <span>✓</span>
+                    <span>Manage multiple healthcare operations</span>
+                </div>
+
+                <div class="auth-point">
+                    <span>✓</span>
+                    <span>Connect with the wider HealthLink ecosystem</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- LOGIN -->
+
+        <div id="loginBox" class="auth-form">
+
+            <h2>Organization Login</h2>
+
+            <p class="auth-subtitle">
+                Sign in to your registered organization.
+            </p>
+
+            <div class="form-group">
+                <label>Organization ID</label>
+                <input id="loginOrgId"
+                       placeholder="e.g. POLY-000001">
+            </div>
+
+            <div class="form-group">
+                <label>Administrator ID</label>
+                <input id="loginAdminId"
+                       placeholder="e.g. ORG-ADMIN-000001">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input id="loginPassword"
+                       type="password"
+                       placeholder="Enter password">
+            </div>
+
+            <button class="btn btn-primary full"
+                    onclick="loginOrganization()">
+                Login
+            </button>
+
+            <div class="auth-switch">
+                New organization?
+                <a onclick="showRegister()">Register Organization</a>
+            </div>
+
+            <div class="demo-note">
+                Demo mode: data is stored in browser localStorage.
+                This is not suitable for production healthcare data.
+            </div>
+
+        </div>
+
+
+        <!-- REGISTRATION -->
+
+        <div id="registerBox" class="auth-form hidden">
+
+            <h2>Register Organization</h2>
+
+            <p class="auth-subtitle">
+                Create an organization on Luvio HealthLink.
+            </p>
+
+            <div class="form-group">
+                <label>Organization Type</label>
+                <select id="registerType">
+                    <option value="">Select organization type</option>
+                    <option value="Polyclinic">Polyclinic</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Diagnostics">Diagnostics</option>
+                    <option value="Hospital">Hospital</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Organization Name</label>
+                <input id="registerName"
+                       placeholder="Enter organization name">
+            </div>
+
+            <div class="form-group">
+                <label>Registration / Licence Number</label>
+                <input id="registerLicence"
+                       placeholder="Optional in demo">
+            </div>
+
+            <div class="form-group">
+                <label>City</label>
+                <input id="registerCity"
+                       placeholder="City">
+            </div>
+
+            <div class="form-group">
+                <label>Address</label>
+                <textarea id="registerAddress"
+                          rows="2"
+                          placeholder="Organization address"></textarea>
+            </div>
+
+            <hr style="border:0;border-top:1px solid var(--border);margin:22px 0;">
+
+            <h3 style="margin-bottom:15px;">
+                Organization Administrator
+            </h3>
+
+            <div class="form-group">
+                <label>Administrator Name</label>
+                <input id="registerAdminName"
+                       placeholder="Full name">
+            </div>
+
+            <div class="form-group">
+                <label>Mobile</label>
+                <input id="registerAdminMobile"
+                       placeholder="Mobile number">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input id="registerAdminEmail"
+                       type="email"
+                       placeholder="Email address">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input id="registerAdminPassword"
+                       type="password"
+                       placeholder="Create password">
+            </div>
+
+            <button class="btn btn-primary full"
+                    onclick="registerOrganization()">
+                Create Organization
+            </button>
+
+            <div class="auth-switch">
+                Already registered?
+                <a onclick="showLogin()">Organization Login</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div id="app" class="app hidden">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <h2>LUVIO HEALTHLINK</h2>
+
+            <span>Organization Portal</span>
+
+        </div>
+
+        <div class="org-mini">
+
+            <strong id="sideOrgName">
+                Organization
+            </strong>
+
+            <small id="sideOrgId">
+                ORG-000000
+            </small>
+
+        </div>
+
+
+        <nav class="nav">
+
+            <div class="nav-section">
+                Main
+            </div>
+
+            <button class="active"
+                    onclick="showPage('dashboard',this)">
+                🏠 Dashboard
+            </button>
+
+            <button onclick="showPage('profile',this)">
+                🏢 Organization Profile
+            </button>
+
+
+            <div class="nav-section">
+                People
+            </div>
+
+            <button onclick="showPage('professionals',this)">
+                👨‍⚕️ Professionals
+            </button>
+
+            <button onclick="showPage('staff',this)">
+                👥 Staff & Roles
+            </button>
+
+
+            <div class="nav-section">
+                Operations
+            </div>
+
+            <button onclick="showPage('patients',this)">
+                🧑‍🤝‍🧑 Patients
+            </button>
+
+            <button onclick="showPage('appointments',this)">
+                📅 Appointments
+            </button>
+
+            <button onclick="showPage('queue',this)">
+                🕐 Queue
+            </button>
+
+
+            <div class="nav-section">
+                Connected Services
+            </div>
+
+            <button onclick="showPage('pharmacy',this)">
+                💊 Pharmacy
+            </button>
+
+            <button onclick="showPage('diagnostics',this)">
+                🧪 Diagnostics
+            </button>
+
+            <button onclick="showPage('hospital',this)">
+                🏥 Hospital Operations
+            </button>
+
+
+            <div class="nav-section">
+                Business
+            </div>
+
+            <button onclick="showPage('jobs',this)">
+                💼 Jobs & Opportunities
+            </button>
+
+            <button onclick="showPage('reports',this)">
+                📊 Reports
+            </button>
+
+            <button onclick="showPage('settings',this)">
+                ⚙️ Settings
+            </button>
+
+            <button onclick="logoutOrganization()"
+                    style="margin-top:15px;color:#ffb8b8;">
+                🚪 Logout
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div class="topbar-title"
+                 id="topOrgName">
+                Organization Dashboard
+            </div>
+
+            <div class="topbar-right">
+
+                <span class="role-badge">
+                    Organization Admin
+                </span>
+
+                <div class="avatar"
+                     id="adminAvatar">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section id="page-dashboard"
+                     class="page active">
+
+                <div class="page-header">
+
+                    <h1>Organization Dashboard</h1>
+
+                    <p>
+                        Manage your organization and its connected
+                        healthcare operations.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <div class="card stat-card">
+                        <small>Professionals</small>
+                        <div class="stat-number"
+                             id="statProfessionals">
+                            0
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <small>Staff Members</small>
+                        <div class="stat-number"
+                             id="statStaff">
+                            0
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <small>Patients</small>
+                        <div class="stat-number"
+                             id="statPatients">
+                            0
+                        </div>
+                    </div>
+
+                    <div class="card stat-card">
+                        <small>Pending Requests</small>
+                        <div class="stat-number"
+                             id="statRequests">
+                            0
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Organization Overview</h3>
+
+                        <button class="btn btn-outline"
+                                onclick="showPage('profile')">
+                            View Profile
+                        </button>
+
+                    </div>
+
+                    <div class="grid-3">
+
+                        <div>
+                            <small style="color:var(--muted);">
+                                Organization ID
+                            </small>
+                            <p id="dashOrgId"
+                               style="font-weight:bold;margin-top:5px;">
+                            </p>
+                        </div>
+
+                        <div>
+                            <small style="color:var(--muted);">
+                                Type
+                            </small>
+                            <p id="dashOrgType"
+                               style="font-weight:bold;margin-top:5px;">
+                            </p>
+                        </div>
+
+                        <div>
+                            <small style="color:var(--muted);">
+                                Status
+                            </small>
+                            <p style="margin-top:5px;">
+                                <span class="badge badge-success">
+                                    Active
+                                </span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Organization Modules</h3>
+
+                    </div>
+
+                    <div class="grid-3">
+
+                        <div class="module-card"
+                             onclick="showPage('professionals')">
+
+                            <div class="module-icon">👨‍⚕️</div>
+
+                            <h3>Professionals</h3>
+
+                            <p>
+                                Find registered healthcare professionals
+                                and manage organization associations.
+                            </p>
+
+                        </div>
+
+
+                        <div class="module-card"
+                             onclick="showPage('staff')">
+
+                            <div class="module-icon">👥</div>
+
+                            <h3>Staff</h3>
+
+                            <p>
+                                Create internal staff accounts and
+                                manage their roles and permissions.
+                            </p>
+
+                        </div>
+
+
+                        <div class="module-card"
+                             onclick="showPage('appointments')">
+
+                            <div class="module-icon">📅</div>
+
+                            <h3>Appointments</h3>
+
+                            <p>
+                                Manage appointments and organization
+                                schedules.
+                            </p>
+
+                        </div>
+
+
+                        <div class="module-card"
+                             onclick="showPage('pharmacy')">
+
+                            <div class="module-icon">💊</div>
+
+                            <h3>Pharmacy</h3>
+
+                            <p>
+                                Connect and manage the pharmacy
+                                associated with this organization.
+                            </p>
+
+                        </div>
+
+
+                        <div class="module-card"
+                             onclick="showPage('diagnostics')">
+
+                            <div class="module-icon">🧪</div>
+
+                            <h3>Diagnostics</h3>
+
+                            <p>
+                                Manage diagnostic services and
+                                connected laboratory workflows.
+                            </p>
+
+                        </div>
+
+
+                        <div class="module-card"
+                             onclick="showPage('hospital')">
+
+                            <div class="module-icon">🏥</div>
+
+                            <h3>Hospital Operations</h3>
+
+                            <p>
+                                Hospital-specific operational modules
+                                become available when organization type
+                                is Hospital.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFILE
+            ================================================== -->
+
+            <section id="page-profile"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Organization Profile</h1>
+
+                    <p>
+                        Your organization's official HealthLink identity.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="grid-2">
+
+                        <div>
+                            <small>Organization Name</small>
+                            <h3 id="profileName"
+                                style="margin-top:7px;">
+                            </h3>
+                        </div>
+
+                        <div>
+                            <small>Organization ID</small>
+                            <h3 id="profileId"
+                                style="margin-top:7px;">
+                            </h3>
+                        </div>
+
+                        <div>
+                            <small>Organization Type</small>
+                            <p id="profileType"
+                               style="margin-top:7px;">
+                            </p>
+                        </div>
+
+                        <div>
+                            <small>Licence / Registration</small>
+                            <p id="profileLicence"
+                               style="margin-top:7px;">
+                            </p>
+                        </div>
+
+                        <div>
+                            <small>City</small>
+                            <p id="profileCity"
+                               style="margin-top:7px;">
+                            </p>
+                        </div>
+
+                        <div>
+                            <small>Address</small>
+                            <p id="profileAddress"
+                               style="margin-top:7px;">
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PROFESSIONALS
+            ================================================== -->
+
+            <section id="page-professionals"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Professionals</h1>
+
+                    <p>
+                        Find registered professionals and invite them
+                        to associate with your organization.
+                    </p>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Find a Registered Professional</h3>
+
+                    </div>
+
+                    <div class="search-row">
+
+                        <input id="professionalSearch"
+                               placeholder="Search by Professional ID, name or specialty">
+
+                        <button class="btn btn-primary"
+                                onclick="searchProfessionals()">
+                            Search
+                        </button>
+
+                    </div>
+
+                    <div id="professionalResults"></div>
+
+                    <div class="demo-note">
+                        Professional identities are independent.
+                        This organization cannot create a doctor's,
+                        pharmacist's or laboratory professional identity.
+                        It can only request an association with an
+                        already registered professional.
+                    </div>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Associated Professionals</h3>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Professional</th>
+                                    <th>Professional ID</th>
+                                    <th>Profession</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="associatedProfessionalsTable">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Association Requests</h3>
+
+                    </div>
+
+                    <div id="associationRequests"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 STAFF
+            ================================================== -->
+
+            <section id="page-staff"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Staff & Roles</h1>
+
+                    <p>
+                        Manage internal organization staff.
+                        Professional identities remain independent.
+                    </p>
+
+                </div>
+
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Staff Accounts</h3>
+
+                        <button class="btn btn-primary"
+                                onclick="openStaffModal()">
+                            + Add Staff
+                        </button>
+
+                    </div>
+
+                    <div class="table-wrap">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Staff ID</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="staffTable">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PATIENTS
+            ================================================== -->
+
+            <section id="page-patients"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Patients</h1>
+
+                    <p>
+                        Patients connected to this organization.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="search-row">
+
+                        <input placeholder="Search Patient ID, name or mobile">
+
+                        <button class="btn btn-primary">
+                            Search
+                        </button>
+
+                    </div>
+
+                    <div class="demo-note">
+                        Patient records shown here will eventually
+                        connect to the central Luvio Patient Identity
+                        and authorized Health Record system.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 APPOINTMENTS
+            ================================================== -->
+
+            <section id="page-appointments"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Appointments</h1>
+
+                    <p>
+                        Organization appointment management.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="grid-3">
+
+                        <div class="card">
+                            <small>Today's Appointments</small>
+                            <div class="stat-number">0</div>
+                        </div>
+
+                        <div class="card">
+                            <small>Confirmed</small>
+                            <div class="stat-number">0</div>
+                        </div>
+
+                        <div class="card">
+                            <small>Waiting</small>
+                            <div class="stat-number">0</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 QUEUE
+            ================================================== -->
+
+            <section id="page-queue"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Queue</h1>
+
+                    <p>
+                        Today's organization queue.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="demo-note">
+                        The live queue will connect to reception,
+                        appointments and the relevant professional's
+                        consultation workspace.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 PHARMACY
+            ================================================== -->
+
+            <section id="page-pharmacy"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Pharmacy</h1>
+
+                    <p>
+                        Pharmacy connection and management.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="grid-3">
+
+                        <div class="module-card">
+                            <div class="module-icon">💊</div>
+                            <h3>Medicine Database</h3>
+                            <p>
+                                Medicine catalogue and product information.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📦</div>
+                            <h3>Inventory</h3>
+                            <p>
+                                Stock, batches, expiry and stock alerts.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🧾</div>
+                            <h3>Sales & Billing</h3>
+                            <p>
+                                Sales, invoices and billing workflows.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🚚</div>
+                            <h3>Purchase</h3>
+                            <p>
+                                Suppliers, purchase orders and stock entry.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🧮</div>
+                            <h3>GST</h3>
+                            <p>
+                                Tax-related records and reports.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📊</div>
+                            <h3>Reports</h3>
+                            <p>
+                                Pharmacy business and inventory reports.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="demo-note" style="margin-top:20px;">
+                        This is the foundation for the standalone
+                        Luvio Pharmacy product as well as pharmacies
+                        connected to a Luvio Polyclinic or Hospital.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 DIAGNOSTICS
+            ================================================== -->
+
+            <section id="page-diagnostics"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Diagnostics</h1>
+
+                    <p>
+                        Diagnostic and laboratory operations.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="grid-3">
+
+                        <div class="module-card">
+                            <div class="module-icon">🧪</div>
+                            <h3>Test Catalogue</h3>
+                            <p>
+                                Manage available tests and services.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📋</div>
+                            <h3>Orders</h3>
+                            <p>
+                                Receive and manage diagnostic orders.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🔬</div>
+                            <h3>Samples</h3>
+                            <p>
+                                Sample collection and processing workflow.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📄</div>
+                            <h3>Reports</h3>
+                            <p>
+                                Prepare and release diagnostic reports.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🔗</div>
+                            <h3>Partner Connections</h3>
+                            <p>
+                                Connect with clinics, doctors and hospitals.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">💰</div>
+                            <h3>Billing</h3>
+                            <p>
+                                Diagnostic billing and financial records.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 HOSPITAL
+            ================================================== -->
+
+            <section id="page-hospital"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Hospital Operations</h1>
+
+                    <p>
+                        Advanced hospital-management functions.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="grid-3">
+
+                        <div class="module-card">
+                            <div class="module-icon">🧑‍⚕️</div>
+                            <h3>Doctors</h3>
+                            <p>
+                                Manage associations with registered doctors.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🩺</div>
+                            <h3>OPD</h3>
+                            <p>
+                                Outpatient consultation operations.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🚑</div>
+                            <h3>Emergency</h3>
+                            <p>
+                                Emergency department workflows.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🛏️</div>
+                            <h3>Wards & Beds</h3>
+                            <p>
+                                Bed and admission management.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">💊</div>
+                            <h3>Hospital Pharmacy</h3>
+                            <p>
+                                Pharmacy and medication operations.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">🧪</div>
+                            <h3>Hospital Diagnostics</h3>
+                            <p>
+                                Laboratory and diagnostic operations.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">💰</div>
+                            <h3>Billing</h3>
+                            <p>
+                                Patient and hospital billing.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📦</div>
+                            <h3>Purchase & Inventory</h3>
+                            <p>
+                                Hospital procurement and stock management.
+                            </p>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-icon">📊</div>
+                            <h3>Management Reports</h3>
+                            <p>
+                                Administrative and operational reports.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 JOBS
+            ================================================== -->
+
+            <section id="page-jobs"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Jobs & Opportunities</h1>
+
+                    <p>
+                        Find and connect with healthcare professionals.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <div class="section-header">
+
+                        <h3>Organization Opportunities</h3>
+
+                        <button class="btn btn-primary"
+                                onclick="openJobModal()">
+                            + Create Opportunity
+                        </button>
+
+                    </div>
+
+                    <div class="demo-note">
+                        Organizations will eventually be able to post
+                        professional opportunities. Registered
+                        professionals can discover these opportunities
+                        and apply through their Professional Portal.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 REPORTS
+            ================================================== -->
+
+            <section id="page-reports"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Reports</h1>
+
+                    <p>
+                        Organization-level reporting.
+                    </p>
+
+                </div>
+
+                <div class="grid-3">
+
+                    <div class="module-card">
+                        <div class="module-icon">👥</div>
+                        <h3>People Reports</h3>
+                        <p>
+                            Professionals, staff and patient statistics.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-icon">📅</div>
+                        <h3>Operations</h3>
+                        <p>
+                            Appointments, queue and consultation statistics.
+                        </p>
+                    </div>
+
+                    <div class="module-card">
+                        <div class="module-icon">💰</div>
+                        <h3>Financial</h3>
+                        <p>
+                            Organization financial reporting.
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 SETTINGS
+            ================================================== -->
+
+            <section id="page-settings"
+                     class="page">
+
+                <div class="page-header">
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Organization configuration.
+                    </p>
+
+                </div>
+
+                <div class="section-card">
+
+                    <h3>Organization Settings</h3>
+
+                    <div class="demo-note">
+                        Production settings will include organization
+                        verification, users, roles, permissions,
+                        security, notification preferences,
+                        integrations and audit controls.
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </div>
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     STAFF MODAL
+===================================================== -->
+
+<div id="staffModal"
+     class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>Add Organization Staff</h2>
+
+            <button class="close"
+                    onclick="closeModal('staffModal')">
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+            <label>Staff Name</label>
+            <input id="staffName"
+                   placeholder="Full name">
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+
+            <select id="staffRole">
+
+                <option value="">
+                    Select role
+                </option>
+
+                <option>
+                    Organization Administrator
+                </option>
+
+                <option>
+                    Receptionist
+                </option>
+
+                <option>
+                    Billing Staff
+                </option>
+
+                <option>
+                    Inventory Staff
+                </option>
+
+                <option>
+                    Pharmacy Staff
+                </option>
+
+                <option>
+                    Laboratory Staff
+                </option>
+
+                <option>
+                    Hospital Administrator
+                </option>
+
+                <option>
+                    Other Staff
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label>Mobile</label>
+            <input id="staffMobile"
+                   placeholder="Mobile number">
+        </div>
+
+        <button class="btn btn-primary"
+                onclick="createStaff()">
+            Create Staff Account
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ASSOCIATION MODAL
+===================================================== -->
+
+<div id="associationModal"
+     class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>Send Association Request</h2>
+
+            <button class="close"
+                    onclick="closeModal('associationModal')">
+                ×
+            </button>
+
+        </div>
+
+        <div id="associationDetails"></div>
+
+        <div class="form-group"
+             style="margin-top:20px;">
+
+            <label>
+                Organization Role
+            </label>
+
+            <input id="associationRole"
+                   placeholder="e.g. Cardiologist">
+
+        </div>
+
+        <div class="form-group">
+
+            <label>
+                Department
+            </label>
+
+            <input id="associationDepartment"
+                   placeholder="e.g. Cardiology">
+
+        </div>
+
+        <button class="btn btn-primary"
+                onclick="sendAssociationRequest()">
+            Send Request
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     JOB MODAL
+===================================================== -->
+
+<div id="jobModal"
+     class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h2>Create Professional Opportunity</h2>
+
+            <button class="close"
+                    onclick="closeModal('jobModal')">
+                ×
+            </button>
+
+        </div>
+
+        <div class="form-group">
+            <label>Position</label>
+            <input id="jobTitle"
+                   placeholder="e.g. Cardiologist">
+        </div>
+
+        <div class="form-group">
+            <label>Department</label>
+            <input id="jobDepartment"
+                   placeholder="Department">
+        </div>
+
+        <div class="form-group">
+            <label>Employment Type</label>
+
+            <select id="jobType">
+
+                <option>Full Time</option>
+                <option>Part Time</option>
+                <option>Visiting</option>
+                <option>Contract</option>
+                <option>Consultant</option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+
+            <textarea id="jobDescription"
+                      rows="4"
+                      placeholder="Describe the opportunity"></textarea>
+
+        </div>
+
+        <button class="btn btn-primary"
+                onclick="createJob()">
+            Publish Opportunity
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   STORAGE KEYS
+===================================================== */
+
+const ORG_KEY = "luvio_organizations";
+const CURRENT_ORG_KEY = "luvio_current_organization";
+const STAFF_KEY = "luvio_organization_staff";
+const ASSOCIATIONS_KEY = "luvio_professional_associations";
+const JOBS_KEY = "luvio_professional_jobs";
+
+
+/* =====================================================
+   DEMO PROFESSIONAL DIRECTORY
+   IMPORTANT:
+   These are NOT created by the organization.
+   They represent independently registered professionals.
+===================================================== */
+
+const demoProfessionals = [
+
+    {
+        id:"DOC-000001",
+        name:"Dr. Arjun Sharma",
+        profession:"Doctor",
+        specialty:"General Medicine"
+    },
+
+    {
+        id:"DOC-000002",
+        name:"Dr. Rahul Mehta",
+        profession:"Doctor",
+        specialty:"Cardiology"
+    },
+
+    {
+        id:"DOC-000003",
+        name:"Dr. Aisha Khan",
+        profession:"Doctor",
+        specialty:"Dermatology"
+    },
+
+    {
+        id:"PHARM-000001",
+        name:"Mohammad Ahmed",
+        profession:"Pharmacist",
+        specialty:"Registered Pharmacist"
+    },
+
+    {
+        id:"LABPRO-000001",
+        name:"Sahil Verma",
+        profession:"Lab Professional",
+        specialty:"Medical Laboratory Technology"
+    },
+
+    {
+        id:"NURSE-000001",
+        name:"Ananya Singh",
+        profession:"Nurse",
+        specialty:"Registered Nurse"
+    }
+
+];
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function getJSON(key, fallback){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(key)
+        ) || fallback;
+
+    }catch(e){
+
+        return fallback;
+
+    }
+
+}
+
+
+function saveJSON(key,value){
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(value)
+    );
+
+}
+
+
+function generateId(prefix, collection){
+
+    return prefix + "-" +
+        String(collection.length + 1)
+        .padStart(6,"0");
+
+}
+
+
+/* =====================================================
+   AUTH VIEW
+===================================================== */
+
+function showRegister(){
+
+    document.getElementById("loginBox")
+        .classList.add("hidden");
+
+    document.getElementById("registerBox")
+        .classList.remove("hidden");
+
+}
+
+
+function showLogin(){
+
+    document.getElementById("registerBox")
+        .classList.add("hidden");
+
+    document.getElementById("loginBox")
+        .classList.remove("hidden");
+
+}
+
+
+/* =====================================================
+   ORGANIZATION REGISTRATION
+===================================================== */
+
+function registerOrganization(){
+
+    const type =
+        document.getElementById("registerType").value;
+
+    const name =
+        document.getElementById("registerName").value.trim();
+
+    const licence =
+        document.getElementById("registerLicence").value.trim();
+
+    const city =
+        document.getElementById("registerCity").value.trim();
+
+    const address =
+        document.getElementById("registerAddress").value.trim();
+
+    const adminName =
+        document.getElementById("registerAdminName").value.trim();
+
+    const mobile =
+        document.getElementById("registerAdminMobile").value.trim();
+
+    const email =
+        document.getElementById("registerAdminEmail").value.trim();
+
+    const password =
+        document.getElementById("registerAdminPassword").value;
+
+
+    if(!type || !name || !adminName || !mobile || !password){
+
+        alert(
+            "Please complete organization type, organization name, administrator name, mobile and password."
+        );
+
+        return;
+
+    }
+
+
+    const organizations =
+        getJSON(ORG_KEY,[]);
+
+
+    let prefix = "ORG";
+
+    if(type === "Polyclinic") prefix = "POLY";
+    if(type === "Pharmacy") prefix = "PHARM";
+    if(type === "Diagnostics") prefix = "LAB";
+    if(type === "Hospital") prefix = "HOSP";
+
+
+    const organization = {
+
+        id:generateId(prefix,organizations),
+
+        type:type,
+
+        name:name,
+
+        licence:licence,
+
+        city:city,
+
+        address:address,
+
+        status:"Active",
+
+        createdAt:new Date().toISOString(),
+
+        admin:{
+
+            id:
+                "ORG-ADMIN-" +
+                String(organizations.length + 1)
+                .padStart(6,"0"),
+
+            name:adminName,
+
+            mobile:mobile,
+
+            email:email,
+
+            /*
+             * DEMO ONLY.
+             * Never store plaintext passwords
+             * like this in a production healthcare system.
+             */
+            password:password
+
+        },
+
+        professionals:[],
+
+        staff:[],
+
+        patients:[],
+
+        appointments:[],
+
+        queue:[],
+
+        jobs:[],
+
+        modules:{
+
+            pharmacy:false,
+
+            diagnostics:false,
+
+            hospital:
+                type === "Hospital"
+
+        }
+
+    };
+
+
+    organizations.push(organization);
+
+    saveJSON(
+        ORG_KEY,
+        organizations
+    );
+
+
+    alert(
+        "Organization created successfully.\n\n" +
+        "Organization ID: " + organization.id +
+        "\nAdministrator ID: " + organization.admin.id
+    );
+
+
+    document.getElementById("loginOrgId").value =
+        organization.id;
+
+    document.getElementById("loginAdminId").value =
+        organization.admin.id;
+
+    document.getElementById("loginPassword").value =
+        password;
+
+
+    showLogin();
+
+}
+
+
+/* =====================================================
+   ORGANIZATION LOGIN
+===================================================== */
+
+function loginOrganization(){
+
+    const orgId =
+        document.getElementById("loginOrgId")
+        .value.trim();
+
+    const adminId =
+        document.getElementById("loginAdminId")
+        .value.trim();
+
+    const password =
+        document.getElementById("loginPassword")
+        .value;
+
+
+    const organizations =
+        getJSON(ORG_KEY,[]);
+
+
+    const organization =
+        organizations.find(org =>
+
+            org.id === orgId &&
+            org.admin &&
+            org.admin.id === adminId &&
+            org.admin.password === password
+
+        );
+
+
+    if(!organization){
+
+        alert(
+            "Organization credentials not found."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        CURRENT_ORG_KEY,
+        organization.id
+    );
+
+
+    loadOrganization();
+
+}
+
+
+/* =====================================================
+   LOAD ORGANIZATION
+===================================================== */
+
+function getCurrentOrganization(){
+
+    const currentId =
+        localStorage.getItem(
+            CURRENT_ORG_KEY
+        );
+
+    const organizations =
+        getJSON(ORG_KEY,[]);
+
+    return organizations.find(
+        org => org.id === currentId
+    );
+
+}
+
+
+function loadOrganization(){
+
+    const organization =
+        getCurrentOrganization();
+
+
+    if(!organization){
+
+        document.getElementById("authPage")
+            .classList.remove("hidden");
+
+        document.getElementById("app")
+            .classList.add("hidden");
+
+        return;
+
+    }
+
+
+    document.getElementById("authPage")
+        .classList.add("hidden");
+
+    document.getElementById("app")
+        .classList.remove("hidden");
+
+
+    document.getElementById("sideOrgName")
+        .textContent =
+        organization.name;
+
+
+    document.getElementById("sideOrgId")
+        .textContent =
+        organization.id;
+
+
+    document.getElementById("topOrgName")
+        .textContent =
+        organization.name;
+
+
+    document.getElementById("adminAvatar")
+        .textContent =
+        organization.admin.name
+        .charAt(0)
+        .toUpperCase();
+
+
+    document.getElementById("dashOrgId")
+        .textContent =
+        organization.id;
+
+
+    document.getElementById("dashOrgType")
+        .textContent =
+        organization.type;
+
+
+    document.getElementById("profileName")
+        .textContent =
+        organization.name;
+
+
+    document.getElementById("profileId")
+        .textContent =
+        organization.id;
+
+
+    document.getElementById("profileType")
+        .textContent =
+        organization.type;
+
+
+    document.getElementById("profileLicence")
+        .textContent =
+        organization.licence || "Not provided";
+
+
+    document.getElementById("profileCity")
+        .textContent =
+        organization.city || "Not provided";
+
+
+    document.getElementById("profileAddress")
+        .textContent =
+        organization.address || "Not provided";
+
+
+    refreshDashboard();
+
+    renderStaff();
+
+    renderAssociations();
+
+}
+
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function refreshDashboard(){
+
+    const organization =
+        getCurrentOrganization();
+
+    if(!organization) return;
+
+
+    const associations =
+        getJSON(ASSOCIATIONS_KEY,[]);
+
+
+    const orgAssociations =
+        associations.filter(
+            a => a.organizationId === organization.id
+        );
+
+
+    const pending =
+        orgAssociations.filter(
+            a => a.status === "Pending"
+        );
+
+
+    const staff =
+        getJSON(STAFF_KEY,[])
+        .filter(
+            s => s.organizationId === organization.id
+        );
+
+
+    document.getElementById(
+        "statProfessionals"
+    ).textContent =
+        orgAssociations.filter(
+            a => a.status === "Accepted"
+        ).length;
+
+
+    document.getElementById(
+        "statStaff"
+    ).textContent =
+        staff.length;
+
+
+    document.getElementById(
+        "statPatients"
+    ).textContent =
+        organization.patients
+        ? organization.patients.length
+        : 0;
+
+
+    document.getElementById(
+        "statRequests"
+    ).textContent =
+        pending.length;
+
+}
+
+
+/* =====================================================
+   PAGE NAVIGATION
+===================================================== */
+
+function showPage(page,button){
+
+    document
+        .querySelectorAll(".page")
+        .forEach(
+            p => p.classList.remove("active")
+        );
+
+
+    const target =
+        document.getElementById(
+            "page-" + page
+        );
+
+
+    if(target){
+
+        target.classList.add("active");
+
+    }
+
+
+    document
+        .querySelectorAll(".nav button")
+        .forEach(
+            b => b.classList.remove("active")
+        );
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
+
+    if(page === "professionals"){
+
+        renderAssociations();
+
+    }
+
+
+    if(page === "staff"){
+
+        renderStaff();
+
+    }
+
+}
+
+
+/* =====================================================
+   PROFESSIONAL SEARCH
+===================================================== */
+
+function searchProfessionals(){
+
+    const query =
+        document.getElementById(
+            "professionalSearch"
+        )
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const results =
+        document.getElementById(
+            "professionalResults"
+        );
+
+
+    if(!query){
+
+        results.innerHTML =
+            "<p style='color:var(--muted);'>" +
+            "Enter a Professional ID, name or specialty." +
+            "</p>";
+
+        return;
+
+    }
+
+
+    const matches =
+        demoProfessionals.filter(
+            p =>
+                p.id.toLowerCase().includes(query) ||
+                p.name.toLowerCase().includes(query) ||
+                p.profession.toLowerCase().includes(query) ||
+                p.specialty.toLowerCase().includes(query)
+        );
+
+
+    if(!matches.length){
+
+        results.innerHTML =
+            "<div class='demo-note'>" +
+            "No registered professional found." +
+            "</div>";
+
+        return;
+
+    }
+
+
+    const associations =
+        getJSON(ASSOCIATIONS_KEY,[]);
+
+
+    const organization =
+        getCurrentOrganization();
+
+
+    results.innerHTML =
+        matches.map(p => {
+
+            const existing =
+                associations.find(
+                    a =>
+                        a.organizationId === organization.id &&
+                        a.professionalId === p.id
+                );
+
+
+            let action = "";
+
+            if(existing){
+
+                if(existing.status === "Accepted"){
+
+                    action =
+                        "<span class='badge badge-success'>" +
+                        "Already Associated" +
+                        "</span>";
+
+                }else{
+
+                    action =
+                        "<span class='badge badge-warning'>" +
+                        "Request Pending" +
+                        "</span>";
+
+                }
+
+            }else{
+
+                action =
+                    "<button class='btn btn-primary' " +
+                    "onclick=\"openAssociation('" +
+                    p.id +
+                    "')\">" +
+                    "Request Association" +
+                    "</button>";
+
+            }
+
+
+            return `
+
+                <div class="professional-result">
+
+                    <div class="prof-info">
+
+                        <strong>
+                            ${escapeHTML(p.name)}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(p.id)}
+                            ·
+                            ${escapeHTML(p.profession)}
+                            ·
+                            ${escapeHTML(p.specialty)}
+                        </span>
+
+                    </div>
+
+                    <div>
+                        ${action}
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =====================================================
+   ASSOCIATION REQUEST
+===================================================== */
+
+let selectedProfessional = null;
+
+
+function openAssociation(professionalId){
+
+    const professional =
+        demoProfessionals.find(
+            p => p.id === professionalId
+        );
+
+
+    if(!professional) return;
+
+
+    selectedProfessional =
+        professional;
+
+
+    document.getElementById(
+        "associationDetails"
+    ).innerHTML = `
+
+        <div class="card"
+             style="box-shadow:none;">
+
+            <strong>
+                ${escapeHTML(professional.name)}
+            </strong>
+
+            <p style="margin-top:7px;color:var(--muted);">
+                ${escapeHTML(professional.id)}
+                ·
+                ${escapeHTML(professional.profession)}
+                ·
+                ${escapeHTML(professional.specialty)}
+            </p>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "associationModal"
+    ).classList.add("show");
+
+}
+
+
+function sendAssociationRequest(){
+
+    if(!selectedProfessional) return;
+
+
+    const organization =
+        getCurrentOrganization();
+
+
+    const role =
+        document.getElementById(
+            "associationRole"
+        ).value.trim();
+
+
+    const department =
+        document.getElementById(
+            "associationDepartment"
+        ).value.trim();
+
+
+    if(!role){
+
+        alert(
+            "Please enter the professional's organization role."
+        );
+
+        return;
+
+    }
+
+
+    const associations =
+        getJSON(
+            ASSOCIATIONS_KEY,
+            []
+        );
+
+
+    associations.push({
+
+        id:
+            "ASSOC-" +
+            String(
+                associations.length + 1
+            ).padStart(6,"0"),
+
+        organizationId:
+            organization.id,
+
+        organizationName:
+            organization.name,
+
+        professionalId:
+            selectedProfessional.id,
+
+        professionalName:
+            selectedProfessional.name,
+
+        profession:
+            selectedProfessional.profession,
+
+        specialty:
+            selectedProfessional.specialty,
+
+        role:role,
+
+        department:department,
+
+        status:"Pending",
+
+        createdAt:
+            new Date().toISOString()
+
+    });
+
+
+    saveJSON(
+        ASSOCIATIONS_KEY,
+        associations
+    );
+
+
+    closeModal("associationModal");
+
+
+    document.getElementById(
+        "associationRole"
+    ).value = "";
+
+
+    document.getElementById(
+        "associationDepartment"
+    ).value = "";
+
+
+    selectedProfessional = null;
+
+
+    alert(
+        "Association request sent.\n\n" +
+        "The professional must accept the request from their Professional Portal."
+    );
+
+
+    renderAssociations();
+
+    refreshDashboard();
+
+}
+
+
+/* =====================================================
+   RENDER ASSOCIATIONS
+===================================================== */
+
+function renderAssociations(){
+
+    const organization =
+        getCurrentOrganization();
+
+    if(!organization) return;
+
+
+    const associations =
+        getJSON(
+            ASSOCIATIONS_KEY,
+            []
+        );
+
+
+    const orgAssociations =
+        associations.filter(
+            a =>
+                a.organizationId === organization.id
+        );
+
+
+    const table =
+        document.getElementById(
+            "associatedProfessionalsTable"
+        );
+
+
+    const requests =
+        document.getElementById(
+            "associationRequests"
+        );
+
+
+    const accepted =
+        orgAssociations.filter(
+            a => a.status === "Accepted"
+        );
+
+
+    if(!accepted.length){
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td colspan="5"
+                    style="color:var(--muted);">
+
+                    No professionals are currently associated.
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }else{
+
+        table.innerHTML =
+            accepted.map(a => `
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            ${escapeHTML(a.professionalName)}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${escapeHTML(a.professionalId)}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(a.profession)}
+                    </td>
+
+                    <td>
+                        ${escapeHTML(a.role)}
+                    </td>
+
+                    <td>
+                        <span class="badge badge-success">
+                            Accepted
+                        </span>
+                    </td>
+
+                </tr>
+
+            `).join("");
+
+    }
+
+
+    const pending =
+        orgAssociations.filter(
+            a => a.status === "Pending"
+        );
+
+
+    if(!pending.length){
+
+        requests.innerHTML =
+            "<div class='demo-note'>" +
+            "No pending association requests." +
+            "</div>";
+
+    }else{
+
+        requests.innerHTML =
+            pending.map(a => `
+
+                <div class="professional-result">
+
+                    <div class="prof-info">
+
+                        <strong>
+                            ${escapeHTML(a.professionalName)}
+                        </strong>
+
+                        <span>
+                            ${escapeHTML(a.professionalId)}
+                            ·
+                            ${escapeHTML(a.role)}
+                            ·
+                            Pending professional acceptance
+                        </span>
+
+                    </div>
+
+                    <span class="badge badge-warning">
+                        Pending
+                    </span>
+
+                </div>
+
+            `).join("");
+
+    }
+
+}
+
+
+/* =====================================================
+   STAFF
+===================================================== */
+
+function openStaffModal(){
+
+    document
+        .getElementById("staffModal")
+        .classList.add("show");
+
+}
+
+
+function createStaff(){
+
+    const organization =
+        getCurrentOrganization();
+
+
+    const name =
+        document.getElementById(
+            "staffName"
+        ).value.trim();
+
+
+    const role =
+        document.getElementById(
+            "staffRole"
+        ).value;
+
+
+    const mobile =
+        document.getElementById(
+            "staffMobile"
+        ).value.trim();
+
+
+    if(!name || !role){
+
+        alert(
+            "Please enter staff name and role."
+        );
+
+        return;
+
+    }
+
+
+    const staff =
+        getJSON(
+            STAFF_KEY,
+            []
+        );
+
+
+    const staffId =
+        "STAFF-" +
+        String(
+            staff.length + 1
+        ).padStart(6,"0");
+
+
+    staff.push({
+
+        id:staffId,
+
+        organizationId:
+            organization.id,
+
+        name:name,
+
+        role:role,
+
+        mobile:mobile,
+
+        status:"Active",
+
+        createdAt:
+            new Date().toISOString()
+
+    });
+
+
+    saveJSON(
+        STAFF_KEY,
+        staff
+    );
+
+
+    closeModal("staffModal");
+
+
+    document.getElementById(
+        "staffName"
+    ).value = "";
+
+
+    document.getElementById(
+        "staffRole"
+    ).value = "";
+
+
+    document.getElementById(
+        "staffMobile"
+    ).value = "";
+
+
+    renderStaff();
+
+    refreshDashboard();
+
+    alert(
+        "Staff account created."
+    );
+
+}
+
+
+function renderStaff(){
+
+    const organization =
+        getCurrentOrganization();
+
+
+    if(!organization) return;
+
+
+    const staff =
+        getJSON(
+            STAFF_KEY,
+            []
+        )
+        .filter(
+            s =>
+                s.organizationId ===
+                organization.id
+        );
+
+
+    const table =
+        document.getElementById(
+            "staffTable"
+        );
+
+
+    if(!staff.length){
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td colspan="4"
+                    style="color:var(--muted);">
+
+                    No internal staff accounts yet.
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        staff.map(s => `
+
+            <tr>
+
+                <td>
+                    <strong>
+                        ${escapeHTML(s.name)}
+                    </strong>
+                </td>
+
+                <td>
+                    ${escapeHTML(s.id)}
+                </td>
+
+                <td>
+                    ${escapeHTML(s.role)}
+                </td>
+
+                <td>
+                    <span class="badge badge-success">
+                        Active
+                    </span>
+                </td>
+
+            </tr>
+
+        `).join("");
+
+}
+
+
+/* =====================================================
+   JOB OPPORTUNITIES
+===================================================== */
+
+function openJobModal(){
+
+    document
+        .getElementById("jobModal")
+        .classList.add("show");
+
+}
+
+
+function createJob(){
+
+    const organization =
+        getCurrentOrganization();
+
+
+    const title =
+        document.getElementById(
+            "jobTitle"
+        ).value.trim();
+
+
+    const department =
+        document.getElementById(
+            "jobDepartment"
+        ).value.trim();
+
+
+    const type =
+        document.getElementById(
+            "jobType"
+        ).value;
+
+
+    const description =
+        document.getElementById(
+            "jobDescription"
+        ).value.trim();
+
+
+    if(!title){
+
+        alert(
+            "Please enter the position."
+        );
+
+        return;
+
+    }
+
+
+    const jobs =
+        getJSON(
+            JOBS_KEY,
+            []
+        );
+
+
+    jobs.push({
+
+        id:
+            "JOB-" +
+            String(
+                jobs.length + 1
+            ).padStart(6,"0"),
+
+        organizationId:
+            organization.id,
+
+        organizationName:
+            organization.name,
+
+        title:title,
+
+        department:department,
+
+        employmentType:type,
+
+        description:description,
+
+        status:"Open",
+
+        createdAt:
+            new Date().toISOString()
+
+    });
+
+
+    saveJSON(
+        JOBS_KEY,
+        jobs
+    );
+
+
+    closeModal("jobModal");
+
+
+    alert(
+        "Professional opportunity published."
+    );
+
+
+    document.getElementById(
+        "jobTitle"
+    ).value = "";
+
+
+    document.getElementById(
+        "jobDepartment"
+    ).value = "";
+
+
+    document.getElementById(
+        "jobDescription"
+    ).value = "";
+
+}
+
+
+/* =====================================================
+   MODALS
+===================================================== */
+
+function closeModal(id){
+
+    document
+        .getElementById(id)
+        .classList.remove("show");
+
+}
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        document
+            .querySelectorAll(".modal")
+            .forEach(modal => {
+
+                if(
+                    event.target === modal
+                ){
+
+                    modal.classList.remove("show");
+
+                }
+
+            });
+
+    }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logoutOrganization(){
+
+    localStorage.removeItem(
+        CURRENT_ORG_KEY
+    );
+
+    document
+        .getElementById("app")
+        .classList.add("hidden");
+
+    document
+        .getElementById("authPage")
+        .classList.remove("hidden");
+
+    showLogin();
+
+}
+
+
+/* =====================================================
+   BASIC HTML ESCAPE
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   STARTUP
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const current =
+            localStorage.getItem(
+                CURRENT_ORG_KEY
+            );
+
+
+        if(current){
+
+            loadOrganization();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
