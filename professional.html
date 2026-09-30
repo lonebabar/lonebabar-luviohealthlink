@@ -162,6 +162,10 @@ button{
     font-size:15px;
 }
 
+button:hover{
+    opacity:.92;
+}
+
 button.secondary{
     background:#e9f1f5;
     color:#18324a;
@@ -263,11 +267,18 @@ button.danger{
     border-radius:12px;
 
     text-align:left;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    width:100%;
 }
 
 .workspace-nav button:hover{
 
     background:#e9f1f5;
+
 }
 
 .workspace-nav button.active{
@@ -277,19 +288,23 @@ button.danger{
     color:white;
 
     border-color:#0b6477;
+
 }
 
 
 /* =====================================================
    WORKSPACE SECTIONS
+
+   IMPORTANT:
+   Only the section with "active" is displayed.
 ===================================================== */
 
 .workspace-section{
-    display:none;
+    display:none !important;
 }
 
 .workspace-section.active{
-    display:block;
+    display:block !important;
 }
 
 
@@ -444,6 +459,10 @@ th{
 
     }
 
+    .card{
+        padding:22px;
+    }
+
 }
 
 </style>
@@ -568,22 +587,32 @@ th{
 
     <div class="actions">
 
-        <button onclick="loginProfessional()">
+        <button
+            type="button"
+            onclick="loginProfessional()">
+
             Login
+
         </button>
 
+
         <button
+            type="button"
             class="secondary"
-            onclick="showSignup()"
-        >
+            onclick="showSignup()">
+
             Sign Up / Register
+
         </button>
 
+
         <button
+            type="button"
             class="secondary"
-            onclick="goHome()"
-        >
+            onclick="goHome()">
+
             ← Back
+
         </button>
 
     </div>
@@ -718,6 +747,7 @@ th{
             <input
                 id="signupMobile"
                 maxlength="10"
+                inputmode="numeric"
             >
 
         </div>
@@ -795,15 +825,22 @@ th{
 
     <div class="actions">
 
-        <button onclick="registerProfessional()">
+        <button
+            type="button"
+            onclick="registerProfessional()">
+
             Create Professional Account
+
         </button>
 
+
         <button
+            type="button"
             class="secondary"
-            onclick="showLogin()"
-        >
+            onclick="showLogin()">
+
             Already registered? Login
+
         </button>
 
     </div>
@@ -848,9 +885,12 @@ th{
         </div>
 
         <button
+            type="button"
             class="danger"
             onclick="logoutProfessional()">
+
             Logout
+
         </button>
 
     </div>
@@ -867,6 +907,7 @@ th{
 
 
             <button
+                type="button"
                 id="navProfile"
                 onclick="showWorkspace('profile')">
 
@@ -876,6 +917,7 @@ th{
 
 
             <button
+                type="button"
                 id="navOrganizations"
                 onclick="showWorkspace('organizations')">
 
@@ -885,6 +927,7 @@ th{
 
 
             <button
+                type="button"
                 id="navOpportunities"
                 onclick="showWorkspace('opportunities')">
 
@@ -894,6 +937,7 @@ th{
 
 
             <button
+                type="button"
                 id="navSchedule"
                 onclick="showWorkspace('schedule')">
 
@@ -903,6 +947,7 @@ th{
 
 
             <button
+                type="button"
                 id="navPatients"
                 onclick="showWorkspace('patients')">
 
@@ -912,6 +957,7 @@ th{
 
 
             <button
+                type="button"
                 id="navConsultations"
                 onclick="showWorkspace('consultations')">
 
@@ -952,8 +998,12 @@ th{
 
             <div class="actions">
 
-                <button onclick="editProfile()">
+                <button
+                    type="button"
+                    onclick="editProfile()">
+
                     Edit Profile
+
                 </button>
 
             </div>
@@ -1061,6 +1111,7 @@ th{
                         <input
                             id="editExperience"
                             type="number">
+
                     </div>
 
 
@@ -1072,7 +1123,8 @@ th{
 
                         <input
                             id="editMobile"
-                            maxlength="10">
+                            maxlength="10"
+                            inputmode="numeric">
 
                     </div>
 
@@ -1095,11 +1147,17 @@ th{
 
                 <div class="actions">
 
-                    <button onclick="saveProfile()">
+                    <button
+                        type="button"
+                        onclick="saveProfile()">
+
                         Save Changes
+
                     </button>
 
+
                     <button
+                        type="button"
                         class="secondary"
                         onclick="cancelEdit()">
 
@@ -1152,6 +1210,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Association Requests')">
 
@@ -1174,6 +1233,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('My Organizations')">
 
@@ -1196,6 +1256,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Find Organizations')">
 
@@ -1247,6 +1308,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Professional Jobs')">
 
@@ -1269,6 +1331,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Organization Invitations')">
 
@@ -1290,6 +1353,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('My Applications')">
 
@@ -1341,6 +1405,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Availability')">
 
@@ -1363,6 +1428,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Appointments')">
 
@@ -1385,6 +1451,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Online Consultation Schedule')">
 
@@ -1452,6 +1519,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Pending Patients')">
 
@@ -1474,6 +1542,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('My Patients')">
 
@@ -1496,6 +1565,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Patient Search')">
 
@@ -1547,6 +1617,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Consultation Queue')">
 
@@ -1569,6 +1640,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Consultation Records')">
 
@@ -1591,6 +1663,7 @@ th{
                     </p>
 
                     <button
+                        type="button"
                         class="secondary"
                         onclick="showDemoMessage('Clinical Workflow')">
 
@@ -1621,11 +1694,9 @@ th{
    STORAGE
 ===================================================== */
 
-const ACCOUNTS_KEY =
-    "luvio_doctor_accounts";
+const ACCOUNTS_KEY = "luvio_doctor_accounts";
 
-const CURRENT_KEY =
-    "luvio_current_doctor";
+const CURRENT_KEY = "luvio_current_doctor";
 
 
 /* =====================================================
@@ -1634,9 +1705,17 @@ const CURRENT_KEY =
 
 function getAccounts(){
 
-    return JSON.parse(
-        localStorage.getItem(ACCOUNTS_KEY) || "[]"
-    );
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(ACCOUNTS_KEY) || "[]"
+        );
+
+    }catch(error){
+
+        return [];
+
+    }
 
 }
 
@@ -1653,9 +1732,17 @@ function saveAccounts(accounts){
 
 function getCurrent(){
 
-    return JSON.parse(
-        localStorage.getItem(CURRENT_KEY) || "null"
-    );
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(CURRENT_KEY) || "null"
+        );
+
+    }catch(error){
+
+        return null;
+
+    }
 
 }
 
@@ -1671,7 +1758,7 @@ function saveCurrent(professional){
 
 
 /* =====================================================
-   LOGIN / SIGNUP
+   LOGIN / SIGNUP DISPLAY
 ===================================================== */
 
 function showLogin(){
@@ -1704,8 +1791,7 @@ function showSignup(){
 
 function goHome(){
 
-    window.location.href =
-        "index.html";
+    window.location.href = "index.html";
 
 }
 
@@ -1730,6 +1816,7 @@ function generateProfessionalId(type){
 
     };
 
+
     const prefix =
         prefixes[type] || "PROF";
 
@@ -1739,17 +1826,17 @@ function generateProfessionalId(type){
 
 
     const count =
-        accounts.filter(
-            x =>
-            x.id &&
-            x.id.startsWith(prefix + "-")
-        ).length + 1;
+        accounts.filter(function(x){
+
+            return x.id &&
+                   x.id.startsWith(prefix + "-");
+
+        }).length + 1;
 
 
     return prefix +
         "-" +
-        String(count)
-            .padStart(6,"0");
+        String(count).padStart(6,"0");
 
 }
 
@@ -1760,74 +1847,50 @@ function generateProfessionalId(type){
 
 function registerProfessional(){
 
-    const accounts =
-        getAccounts();
+    const accounts = getAccounts();
 
 
     const type =
-        document.getElementById(
-            "signupType"
-        ).value;
-
+        document.getElementById("signupType").value;
 
     const name =
-        document.getElementById(
-            "signupName"
-        ).value.trim();
-
+        document.getElementById("signupName").value.trim();
 
     const specialization =
-        document.getElementById(
-            "signupSpecialization"
-        ).value.trim();
-
+        document.getElementById("signupSpecialization")
+        .value.trim();
 
     const registration =
-        document.getElementById(
-            "signupRegistration"
-        ).value.trim();
-
+        document.getElementById("signupRegistration")
+        .value.trim();
 
     const authority =
-        document.getElementById(
-            "signupAuthority"
-        ).value.trim();
-
+        document.getElementById("signupAuthority")
+        .value.trim();
 
     const experience =
-        document.getElementById(
-            "signupExperience"
-        ).value;
-
+        document.getElementById("signupExperience")
+        .value;
 
     const mobile =
-        document.getElementById(
-            "signupMobile"
-        ).value.trim();
-
+        document.getElementById("signupMobile")
+        .value.trim();
 
     const email =
-        document.getElementById(
-            "signupEmail"
-        ).value.trim();
-
+        document.getElementById("signupEmail")
+        .value.trim();
 
     const userId =
-        document.getElementById(
-            "signupUser"
-        ).value.trim();
-
+        document.getElementById("signupUser")
+        .value.trim();
 
     const password =
-        document.getElementById(
-            "signupPassword"
-        ).value;
-
+        document.getElementById("signupPassword")
+        .value;
 
     const confirm =
-        document.getElementById(
-            "signupConfirm"
-        ).value;
+        document.getElementById("signupConfirm")
+        .value;
 
 
     if(
@@ -1848,9 +1911,7 @@ function registerProfessional(){
     }
 
 
-    if(
-        !/^\d{10}$/.test(mobile)
-    ){
+    if(!/^\d{10}$/.test(mobile)){
 
         showSignupError(
             "Enter a valid 10-digit mobile number."
@@ -1873,13 +1934,13 @@ function registerProfessional(){
 
 
     const existing =
-        accounts.some(
-            x =>
-            x.userId &&
-            x.userId.toLowerCase()
-            ===
-            userId.toLowerCase()
-        );
+        accounts.some(function(x){
+
+            return x.userId &&
+                x.userId.toLowerCase() ===
+                userId.toLowerCase();
+
+        });
 
 
     if(existing){
@@ -1934,14 +1995,9 @@ function registerProfessional(){
     };
 
 
-    accounts.push(
-        professional
-    );
+    accounts.push(professional);
 
-
-    saveAccounts(
-        accounts
-    );
+    saveAccounts(accounts);
 
 
     alert(
@@ -1961,6 +2017,11 @@ function registerProfessional(){
     ).value = userId;
 
 
+    document.getElementById(
+        "loginPassword"
+    ).value = "";
+
+
     showLogin();
 
 }
@@ -1972,7 +2033,7 @@ function showSignupError(message){
         "signupMessage"
     ).innerHTML =
         '<div class="error">' +
-        message +
+        escapeHTML(message) +
         '</div>';
 
 }
@@ -1985,21 +2046,13 @@ function showSignupError(message){
 function loginProfessional(){
 
     const type =
-        document.getElementById(
-            "loginType"
-        ).value;
-
+        document.getElementById("loginType").value;
 
     const userId =
-        document.getElementById(
-            "loginUser"
-        ).value.trim();
-
+        document.getElementById("loginUser").value.trim();
 
     const password =
-        document.getElementById(
-            "loginPassword"
-        ).value;
+        document.getElementById("loginPassword").value;
 
 
     const accounts =
@@ -2007,15 +2060,15 @@ function loginProfessional(){
 
 
     const professional =
-        accounts.find(
-            x =>
+        accounts.find(function(x){
 
-            x.type === type &&
+            return (
+                x.type === type &&
+                x.userId === userId &&
+                x.password === password
+            );
 
-            x.userId === userId &&
-
-            x.password === password
-        );
+        });
 
 
     if(!professional){
@@ -2032,14 +2085,9 @@ function loginProfessional(){
     }
 
 
-    saveCurrent(
-        professional
-    );
+    saveCurrent(professional);
 
-
-    openWorkspace(
-        professional
-    );
+    openWorkspace(professional);
 
 }
 
@@ -2048,9 +2096,7 @@ function loginProfessional(){
    OPEN WORKSPACE
 ===================================================== */
 
-function openWorkspace(
-    professional
-){
+function openWorkspace(professional){
 
     document.getElementById(
         "loginSection"
@@ -2070,8 +2116,7 @@ function openWorkspace(
     document.getElementById(
         "welcomeName"
     ).textContent =
-        "Welcome, " +
-        professional.name;
+        "Welcome, " + professional.name;
 
 
     document.getElementById(
@@ -2107,14 +2152,14 @@ function openWorkspace(
         "Pending Verification";
 
 
-    renderProfile(
-        professional
-    );
+    renderProfile(professional);
 
 
-    showWorkspace(
-        "profile"
-    );
+    /*
+       Always start on Profile.
+    */
+
+    showWorkspace("profile");
 
 }
 
@@ -2123,9 +2168,7 @@ function openWorkspace(
    PROFESSIONAL TYPE NAME
 ===================================================== */
 
-function professionalTypeName(
-    type
-){
+function professionalTypeName(type){
 
     const names = {
 
@@ -2147,10 +2190,8 @@ function professionalTypeName(
     };
 
 
-    return (
-        names[type] ||
-        "Healthcare Professional"
-    );
+    return names[type] ||
+           "Healthcare Professional";
 
 }
 
@@ -2159,9 +2200,7 @@ function professionalTypeName(
    PROFILE
 ===================================================== */
 
-function renderProfile(
-    professional
-){
+function renderProfile(professional){
 
     const fields = [
 
@@ -2205,8 +2244,7 @@ function renderProfile(
         [
             "Experience",
             professional.experience
-                ? professional.experience +
-                  " years"
+                ? professional.experience + " years"
                 : "Not provided"
         ],
 
@@ -2225,28 +2263,25 @@ function renderProfile(
 
     document.getElementById(
         "profileFields"
-    ).innerHTML = fields.map(
+    ).innerHTML = fields.map(function(item){
 
-        item =>
+        return `
+            <div class="profile-field">
 
-        `
-        <div class="profile-field">
+                <small>
+                    ${escapeHTML(item[0])}
+                </small>
 
-            <small>
-                ${escapeHTML(item[0])}
-            </small>
+                <strong>
+                    ${escapeHTML(
+                        item[1] || "Not provided"
+                    )}
+                </strong>
 
-            <strong>
-                ${escapeHTML(
-                    item[1] ||
-                    "Not provided"
-                )}
-            </strong>
+            </div>
+        `;
 
-        </div>
-        `
-
-    ).join("");
+    }).join("");
 
 }
 
@@ -2257,8 +2292,7 @@ function renderProfile(
 
 function editProfile(){
 
-    const p =
-        getCurrent();
+    const p = getCurrent();
 
 
     if(!p){
@@ -2266,59 +2300,41 @@ function editProfile(){
     }
 
 
-    document.getElementById(
-        "editName"
-    ).value =
+    document.getElementById("editName").value =
         p.name || "";
 
 
-    document.getElementById(
-        "editType"
-    ).value =
+    document.getElementById("editType").value =
         p.type || "doctor";
 
 
-    document.getElementById(
-        "editSpecialization"
-    ).value =
+    document.getElementById("editSpecialization").value =
         p.specialization || "";
 
 
-    document.getElementById(
-        "editRegistration"
-    ).value =
+    document.getElementById("editRegistration").value =
         p.registration || "";
 
 
-    document.getElementById(
-        "editAuthority"
-    ).value =
+    document.getElementById("editAuthority").value =
         p.authority || "";
 
 
-    document.getElementById(
-        "editExperience"
-    ).value =
+    document.getElementById("editExperience").value =
         p.experience || "";
 
 
-    document.getElementById(
-        "editMobile"
-    ).value =
+    document.getElementById("editMobile").value =
         p.mobile || "";
 
 
-    document.getElementById(
-        "editEmail"
-    ).value =
+    document.getElementById("editEmail").value =
         p.email || "";
 
 
     document.getElementById(
         "profileEdit"
-    ).classList.remove(
-        "hidden"
-    );
+    ).classList.remove("hidden");
 
 }
 
@@ -2327,17 +2343,14 @@ function cancelEdit(){
 
     document.getElementById(
         "profileEdit"
-    ).classList.add(
-        "hidden"
-    );
+    ).classList.add("hidden");
 
 }
 
 
 function saveProfile(){
 
-    const current =
-        getCurrent();
+    const current = getCurrent();
 
 
     if(!current){
@@ -2346,51 +2359,36 @@ function saveProfile(){
 
 
     const name =
-        document.getElementById(
-            "editName"
-        ).value.trim();
-
+        document.getElementById("editName")
+        .value.trim();
 
     const type =
-        document.getElementById(
-            "editType"
-        ).value;
-
+        document.getElementById("editType")
+        .value;
 
     const specialization =
-        document.getElementById(
-            "editSpecialization"
-        ).value.trim();
-
+        document.getElementById("editSpecialization")
+        .value.trim();
 
     const registration =
-        document.getElementById(
-            "editRegistration"
-        ).value.trim();
-
+        document.getElementById("editRegistration")
+        .value.trim();
 
     const authority =
-        document.getElementById(
-            "editAuthority"
-        ).value.trim();
-
+        document.getElementById("editAuthority")
+        .value.trim();
 
     const experience =
-        document.getElementById(
-            "editExperience"
-        ).value;
-
+        document.getElementById("editExperience")
+        .value;
 
     const mobile =
-        document.getElementById(
-            "editMobile"
-        ).value.trim();
-
+        document.getElementById("editMobile")
+        .value.trim();
 
     const email =
-        document.getElementById(
-            "editEmail"
-        ).value.trim();
+        document.getElementById("editEmail")
+        .value.trim();
 
 
     if(
@@ -2409,9 +2407,7 @@ function saveProfile(){
     }
 
 
-    if(
-        !/^\d{10}$/.test(mobile)
-    ){
+    if(!/^\d{10}$/.test(mobile)){
 
         alert(
             "Enter a valid 10-digit mobile number."
@@ -2427,10 +2423,11 @@ function saveProfile(){
 
 
     const index =
-        accounts.findIndex(
-            x =>
-            x.id === current.id
-        );
+        accounts.findIndex(function(x){
+
+            return x.id === current.id;
+
+        });
 
 
     if(index === -1){
@@ -2475,19 +2472,12 @@ function saveProfile(){
     };
 
 
-    saveAccounts(
-        accounts
-    );
+    saveAccounts(accounts);
+
+    saveCurrent(accounts[index]);
 
 
-    saveCurrent(
-        accounts[index]
-    );
-
-
-    renderProfile(
-        accounts[index]
-    );
+    renderProfile(accounts[index]);
 
 
     document.getElementById(
@@ -2522,78 +2512,99 @@ function saveProfile(){
 
 /* =====================================================
    WORKSPACE SWITCHING
+   THIS IS THE FIXED NAVIGATION
 ===================================================== */
 
-function showWorkspace(
-    section
-){
+function showWorkspace(section){
 
     const sections = [
-
         "profile",
-
         "organizations",
-
         "opportunities",
-
         "schedule",
-
         "patients",
-
         "consultations"
-
     ];
 
 
-    sections.forEach(
-        id => {
+    /*
+       1. Hide every section.
+    */
 
-            document.getElementById(
-                id
-            ).classList.remove(
-                "active"
-            );
+    sections.forEach(function(id){
+
+        const element =
+            document.getElementById(id);
+
+        if(element){
+
+            element.classList.remove("active");
+
+            element.style.display = "none";
 
         }
-    );
+
+    });
 
 
-    document.getElementById(
-        section
-    ).classList.add(
-        "active"
-    );
+    /*
+       2. Remove active state from
+          every navigation button.
+    */
 
-
-    const navButtons = [
+    const buttons = [
 
         "navProfile",
-
         "navOrganizations",
-
         "navOpportunities",
-
         "navSchedule",
-
         "navPatients",
-
         "navConsultations"
 
     ];
 
 
-    navButtons.forEach(
-        id => {
+    buttons.forEach(function(id){
 
-            document.getElementById(
-                id
-            ).classList.remove(
-                "active"
-            );
+        const button =
+            document.getElementById(id);
+
+        if(button){
+
+            button.classList.remove("active");
 
         }
-    );
 
+    });
+
+
+    /*
+       3. Find requested section.
+    */
+
+    const selected =
+        document.getElementById(section);
+
+
+    if(!selected){
+
+        return;
+
+    }
+
+
+    /*
+       4. Show requested section.
+    */
+
+    selected.classList.add("active");
+
+    selected.style.display = "block";
+
+
+    /*
+       5. Highlight corresponding button.
+    */
 
     const buttonMap = {
 
@@ -2618,22 +2629,39 @@ function showWorkspace(
     };
 
 
-    document.getElementById(
-        buttonMap[section]
-    ).classList.add(
-        "active"
-    );
+    const selectedButton =
+        document.getElementById(
+            buttonMap[section]
+        );
+
+
+    if(selectedButton){
+
+        selectedButton.classList.add("active");
+
+    }
+
+
+    /*
+       6. Scroll to the workspace content.
+    */
+
+    selected.scrollIntoView({
+
+        behavior:"smooth",
+
+        block:"start"
+
+    });
 
 }
 
 
 /* =====================================================
-   DEMO ACTION
+   DEMO ACTIONS
 ===================================================== */
 
-function showDemoMessage(
-    module
-){
+function showDemoMessage(module){
 
     alert(
 
@@ -2669,33 +2697,19 @@ function logoutProfessional(){
    ESCAPE HTML
 ===================================================== */
 
-function escapeHTML(
-    value
-){
+function escapeHTML(value){
 
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /&/g,
-        "&amp;"
-    )
-    .replace(
-        /</g,
-        "&lt;"
-    )
-    .replace(
-        />/g,
-        "&gt;"
-    )
-    .replace(
-        /"/g,
-        "&quot;"
-    )
-    .replace(
-        /'/g,
-        "&#039;"
-    );
+    return String(value ?? "")
+
+        .replace(/&/g,"&amp;")
+
+        .replace(/</g,"&lt;")
+
+        .replace(/>/g,"&gt;")
+
+        .replace(/"/g,"&quot;")
+
+        .replace(/'/g,"&#039;");
 
 }
 
@@ -2704,27 +2718,27 @@ function escapeHTML(
    PAGE LOAD
 ===================================================== */
 
-window.onload =
-function(){
+window.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-    const current =
-        getCurrent();
+        const current =
+            getCurrent();
 
 
-    if(current){
+        if(current){
 
-        openWorkspace(
-            current
-        );
+            openWorkspace(current);
+
+        }
+        else{
+
+            showLogin();
+
+        }
 
     }
-    else{
-
-        showLogin();
-
-    }
-
-};
+);
 
 </script>
 
