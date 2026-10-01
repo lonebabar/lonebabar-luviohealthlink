@@ -1,669 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Organizations | Luvio HealthLink</title>
+<title>My Organizations | Luvio HealthLink</title>
 
 <style>
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
     font-family:Arial, Helvetica, sans-serif;
     background:#f4f8fb;
-    color:#18324a;
-    line-height:1.6;
+    color:#20354d;
 }
-
-button,
-input,
-select{
-    font-family:inherit;
-}
-
-button{
-    cursor:pointer;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-.container{
-    width:92%;
-    max-width:1150px;
-    margin:auto;
-}
-
-/* =========================
-   HEADER
-========================= */
 
 header{
-    background:#ffffff;
-    border-bottom:1px solid #e1ebef;
-    padding:18px 0;
-}
-
-.header-inner{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
+    background:white;
+    border-bottom:1px solid #dce6ec;
+    padding:35px 5%;
 }
 
 .logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:20px;
-    font-weight:800;
-    color:#0b6477;
+    font-size:34px;
+    font-weight:700;
+    color:#2f687c;
 }
 
 .logo span{
-    color:#27a69a;
+    color:#55a69b;
 }
 
-.back-link{
-    color:#0b6477;
-    font-weight:600;
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main{
-    padding:40px 0 60px;
-}
-
-.card{
-    background:#ffffff;
-    border-radius:18px;
-    padding:28px;
-    margin-bottom:24px;
-    box-shadow:0 8px 30px rgba(0,0,0,.07);
-}
-
-h1{
-    margin-bottom:7px;
-}
-
-h2{
-    margin-bottom:8px;
-}
-
-h3{
-    margin-bottom:7px;
-}
-
-.subtitle{
-    color:#667b89;
-    margin-bottom:20px;
-}
-
-/* =========================
-   PROFESSIONAL HEADER
-========================= */
-
-.professional-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.professional-info p{
-    color:#647887;
-}
-
-.professional-id{
+.back{
     display:inline-block;
-    margin-top:8px;
-    padding:7px 13px;
-    border-radius:20px;
-    background:#edf7fa;
-    color:#0b6477;
+    margin-top:45px;
+    text-decoration:none;
+    color:#2f687c;
+    font-size:20px;
     font-weight:700;
 }
 
-/* =========================
-   TABS
-========================= */
+.container{
+    max-width:1100px;
+    margin:55px auto;
+    padding:0 25px;
+}
+
+.profile-card{
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
+    margin-bottom:45px;
+}
+
+.profile-card h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.profile-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:20px;
+}
+
+.badge{
+    background:#edf6f8;
+    color:#2f687c;
+    padding:10px 17px;
+    border-radius:30px;
+    font-weight:700;
+}
 
 .tabs{
+    background:white;
+    border-radius:25px;
+    padding:15px;
     display:flex;
-    gap:10px;
     flex-wrap:wrap;
-    margin-bottom:25px;
+    gap:12px;
+    box-shadow:0 15px 45px rgba(31,58,78,.06);
+    margin-bottom:35px;
 }
 
-.tab-button{
+.tab{
     border:none;
-    background:#e9f1f5;
-    color:#18324a;
-    padding:12px 18px;
-    border-radius:9px;
+    background:#eaf2f6;
+    color:#20354d;
+    padding:17px 25px;
+    border-radius:16px;
+    font-size:17px;
     font-weight:700;
+    cursor:pointer;
 }
 
-.tab-button.active{
-    background:#0b6477;
+.tab.active{
+    background:#2f687c;
     color:white;
 }
 
-/* =========================
-   SECTIONS
-========================= */
-
-.page-section{
+.section{
     display:none;
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
 }
 
-.page-section.active{
+.section.active{
     display:block;
 }
 
-/* =========================
-   ORGANIZATION CARDS
-========================= */
+.section h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
 
-.organization-list{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+.section-description{
+    color:#687b8b;
+    font-size:19px;
+    line-height:1.6;
+    margin-bottom:30px;
 }
 
 .organization-card{
-    border:1px solid #dce7ec;
-    border-radius:15px;
-    padding:22px;
-    background:#ffffff;
+    border:1px solid #dce7ed;
+    border-radius:22px;
+    padding:28px;
+    margin-bottom:20px;
+    background:#fbfdfe;
 }
 
-.organization-card:hover{
-    border-color:#0b6477;
-}
-
-.organization-top{
-    display:flex;
-    justify-content:space-between;
-    gap:15px;
-    align-items:flex-start;
-}
-
-.organization-icon{
-    font-size:30px;
+.organization-card h3{
+    font-size:25px;
     margin-bottom:8px;
 }
 
-.organization-type{
-    color:#647887;
-    font-size:14px;
+.org-type{
+    color:#2f687c;
+    font-weight:700;
+    margin-bottom:18px;
 }
 
-.organization-meta{
-    margin-top:15px;
-    padding-top:15px;
-    border-top:1px solid #edf1f3;
+.org-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:22px;
 }
 
-.organization-meta div{
+.info{
+    background:#f1f6f8;
+    padding:14px 17px;
+    border-radius:14px;
+}
+
+.info strong{
+    display:block;
+    font-size:13px;
+    color:#718392;
     margin-bottom:5px;
+    text-transform:uppercase;
 }
 
 .status{
     display:inline-block;
-    padding:6px 11px;
+    padding:8px 14px;
     border-radius:20px;
-    font-size:12px;
+    font-size:14px;
     font-weight:700;
+    margin-bottom:18px;
 }
 
 .status.active{
-    background:#effaf1;
-    color:#24743a;
+    background:#e4f5ec;
+    color:#27734a;
 }
 
 .status.pending{
-    background:#fff7e6;
-    color:#986500;
+    background:#fff3d9;
+    color:#986a16;
 }
 
 .status.declined{
-    background:#fff0f0;
-    color:#a33;
+    background:#fde9e9;
+    color:#a33b3b;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
-.actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:18px;
+.status.ended{
+    background:#edf0f2;
+    color:#65727b;
 }
 
-.btn{
+button{
+    font-family:inherit;
+}
+
+.primary-btn{
+    background:#2f687c;
+    color:white;
     border:none;
-    border-radius:9px;
-    padding:11px 17px;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
     font-weight:700;
+    cursor:pointer;
 }
 
-.primary{
-    background:#0b6477;
-    color:white;
+.secondary-btn{
+    background:#eaf2f6;
+    color:#20354d;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-.primary:hover{
-    background:#084e5d;
+.danger-btn{
+    background:#fde9e9;
+    color:#a33b3b;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
 }
 
-.secondary{
-    background:#e9f1f5;
-    color:#18324a;
+.action-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
 }
 
-.success-btn{
-    background:#278044;
-    color:white;
+.empty{
+    text-align:center;
+    padding:45px 20px;
+    background:#f7fafb;
+    border-radius:20px;
+    color:#718392;
+    font-size:18px;
 }
 
-.danger{
-    background:#c0392b;
-    color:white;
-}
-
-/* =========================
-   REQUEST CARDS
-========================= */
-
-.request-list{
+.search-box{
     display:grid;
-    gap:15px;
-}
-
-.request-card{
-    border:1px solid #dce7ec;
-    border-radius:14px;
-    padding:20px;
-    background:#fff;
-}
-
-.request-card p{
-    color:#647887;
-    margin:4px 0;
-}
-
-/* =========================
-   SEARCH
-========================= */
-
-.search-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:15px;
-    margin-bottom:20px;
+    grid-template-columns:2fr 1fr auto;
+    gap:12px;
+    margin-bottom:30px;
 }
 
 input,
 select{
     width:100%;
-    padding:13px;
+    padding:15px 17px;
     border:1px solid #ccd9e0;
-    border-radius:9px;
+    border-radius:13px;
+    font-size:16px;
     outline:none;
     background:white;
 }
 
 input:focus,
 select:focus{
-    border-color:#0b6477;
+    border-color:#2f687c;
 }
 
-.empty{
-    text-align:center;
-    padding:35px 20px;
-    background:#f8fbfc;
-    border-radius:12px;
-    color:#718492;
+.request-card{
+    border:1px solid #dce7ed;
+    border-radius:20px;
+    padding:25px;
+    margin-bottom:18px;
+    background:#fbfdfe;
 }
 
-/* =========================
-   MESSAGES
-========================= */
+.request-card h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.request-meta{
+    color:#687b8b;
+    line-height:1.7;
+    margin-bottom:18px;
+}
+
+.history-label{
+    margin-top:35px;
+    margin-bottom:18px;
+    font-size:24px;
+}
 
 .notice{
-    background:#edf7fa;
-    padding:14px;
-    border-radius:10px;
-    margin:15px 0;
+    background:#edf6f8;
+    border-left:5px solid #2f687c;
+    padding:18px 20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    line-height:1.6;
+    color:#49616f;
 }
 
-.success-message{
-    background:#effaf1;
-    color:#24743a;
-    padding:13px;
-    border-radius:9px;
-    margin-bottom:15px;
-}
+@media(max-width:700px){
 
-.error-message{
-    background:#fff0f0;
-    color:#a33;
-    padding:13px;
-    border-radius:9px;
-    margin-bottom:15px;
-}
+    header{
+        padding:30px 20px;
+    }
 
-/* =========================
-   FOOTER
-========================= */
+    .logo{
+        font-size:30px;
+    }
 
-footer{
-    text-align:center;
-    padding:25px;
-    color:#718492;
-}
+    .back{
+        font-size:18px;
+        margin-top:35px;
+    }
 
-/* =========================
-   MOBILE
-========================= */
+    .container{
+        margin:35px auto;
+        padding:0 18px;
+    }
 
-@media(max-width:800px){
+    .profile-card,
+    .section{
+        padding:30px 22px;
+        border-radius:23px;
+    }
 
-    .organization-list{
+    .profile-card h1{
+        font-size:36px;
+    }
+
+    .section h2{
+        font-size:30px;
+    }
+
+    .org-grid{
         grid-template-columns:1fr;
     }
 
-    .search-grid{
+    .search-box{
         grid-template-columns:1fr;
     }
 
-}
-
-@media(max-width:600px){
-
-    .header-inner{
-        flex-direction:column;
-        align-items:flex-start;
+    .tabs{
+        padding:12px;
     }
 
-    .professional-header{
-        flex-direction:column;
-        align-items:flex-start;
+    .tab{
+        width:100%;
     }
 
+    .action-row button{
+        width:100%;
+    }
 }
 
 </style>
-
 </head>
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
 
-<div class="container header-inner">
+    <div class="logo">
+        🩺 Luvio <span>HealthLink</span>
+    </div>
 
-<a href="index.html" class="logo">
-    🩺 Luvio <span>HealthLink</span>
-</a>
-
-<a
-href="professional.html"
-class="back-link">
-    ← Back to Professional Workspace
-</a>
-
-</div>
+    <a class="back" href="professional.html">
+        ← Back to Professional Workspace
+    </a>
 
 </header>
 
 
-<main>
-
 <div class="container">
 
 
-<!-- =========================
-     PROFESSIONAL HEADER
-========================= -->
+    <!-- PROFESSIONAL INFORMATION -->
 
-<section class="card">
+    <div class="profile-card">
 
-<div class="professional-header">
+        <h1 id="professionalName">
+            Professional
+        </h1>
 
-<div class="professional-info">
+        <p id="professionalType">
+            Healthcare Professional
+        </p>
 
-<h1 id="pageTitle">
-My Organizations
-</h1>
+        <div class="profile-meta">
 
-<p id="professionalName">
-Professional
-</p>
+            <div class="badge" id="professionalId">
+                Professional ID
+            </div>
 
-<span
-class="professional-id"
-id="professionalId">
-</span>
+            <div class="badge" id="professionalSpecialization">
+                Specialization
+            </div>
 
-</div>
+            <div class="badge" id="professionalStatus">
+                Active
+            </div>
 
-<a
-href="professional.html"
-class="btn secondary">
-Workspace
-</a>
+        </div>
 
-</div>
-
-</section>
+    </div>
 
 
-<!-- =========================
-     NAVIGATION TABS
-========================= -->
+    <!-- TABS -->
 
-<section class="card">
+    <div class="tabs">
 
-<div class="tabs">
+        <button
+            class="tab active"
+            onclick="showTab('myOrganizations', this)">
+            My Organizations
+        </button>
 
-<button
-type="button"
-class="tab-button active"
-id="tabOrganizations"
-onclick="showSection('organizations')">
+        <button
+            class="tab"
+            onclick="showTab('requests', this)">
+            Association Requests
+        </button>
 
-My Organizations
+        <button
+            class="tab"
+            onclick="showTab('findOrganizations', this)">
+            Find Organizations
+        </button>
 
-</button>
-
-
-<button
-type="button"
-class="tab-button"
-id="tabRequests"
-onclick="showSection('requests')">
-
-Association Requests
-
-</button>
+    </div>
 
 
-<button
-type="button"
-class="tab-button"
-id="tabFind"
-onclick="showSection('find')">
+    <!-- MY ORGANIZATIONS -->
 
-Find Organizations
+    <section
+        id="myOrganizations"
+        class="section active">
 
-</button>
+        <h2>My Organizations</h2>
 
-</div>
+        <p class="section-description">
+            Organizations where you currently have an active professional
+            association.
+        </p>
 
+        <div class="notice">
+            Your professional identity is independent of your organizations.
+            You can be associated with multiple organizations using the same
+            Professional ID.
+        </div>
 
-<!-- =========================
-     MY ORGANIZATIONS
-========================= -->
+        <div id="activeOrganizations"></div>
 
-<div
-id="organizations"
-class="page-section active">
+        <h3 class="history-label">
+            Association History
+        </h3>
 
-<h2>
-My Organizations
-</h2>
+        <div id="associationHistory"></div>
 
-<p class="subtitle">
-Organizations where you currently have an active professional association.
-</p>
-
-<div id="organizationsMessage"></div>
-
-<div
-id="organizationList"
-class="organization-list">
-</div>
-
-</div>
+    </section>
 
 
-<!-- =========================
-     ASSOCIATION REQUESTS
-========================= -->
+    <!-- ASSOCIATION REQUESTS -->
 
-<div
-id="requests"
-class="page-section">
+    <section
+        id="requests"
+        class="section">
 
-<h2>
-Association Requests
-</h2>
+        <h2>Association Requests</h2>
 
-<p class="subtitle">
-Review requests from healthcare organizations that want to associate with you.
-</p>
-
-<div id="requestMessage"></div>
-
-<div
-id="requestList"
-class="request-list">
-</div>
-
-</div>
+        <p class="section-description">
+            Manage requests between your professional identity and healthcare
+            organizations.
+        </p>
 
 
-<!-- =========================
-     FIND ORGANIZATIONS
-========================= -->
+        <h3 class="history-label">
+            Incoming Requests
+        </h3>
 
-<div
-id="find"
-class="page-section">
-
-<h2>
-Find Organizations
-</h2>
-
-<p class="subtitle">
-Search registered Luvio organizations and request a professional association.
-</p>
-
-<div class="notice">
-
-Your professional identity remains independent.
-Sending a request does not automatically create an association.
-The organization must also participate in the association process.
-
-</div>
+        <div id="incomingRequests"></div>
 
 
-<div class="search-grid">
+        <h3 class="history-label">
+            Sent Requests
+        </h3>
 
-<input
-type="text"
-id="organizationSearch"
-placeholder="Search organization name or city..."
-oninput="renderOrganizationsSearch()">
+        <div id="sentRequests"></div>
+
+    </section>
 
 
-<select
-id="organizationTypeFilter"
-onchange="renderOrganizationsSearch()">
+    <!-- FIND ORGANIZATIONS -->
 
-<option value="all">
-All Organization Types
-</option>
+    <section
+        id="findOrganizations"
+        class="section">
 
-<option value="polyclinic">
-Polyclinic
-</option>
+        <h2>Find Organizations</h2>
 
-<option value="pharmacy">
-Pharmacy
-</option>
+        <p class="section-description">
+            Find registered healthcare organizations and request a professional
+            association.
+        </p>
 
-<option value="diagnostics">
-Diagnostics
-</option>
 
-<option value="hospital">
-Hospital
-</option>
+        <div class="search-box">
 
-</select>
+            <input
+                id="organizationSearch"
+                type="text"
+                placeholder="Search organization or city..."
+                oninput="renderOrganizations()">
+
+            <select
+                id="organizationType"
+                onchange="renderOrganizations()">
+
+                <option value="All">All Organization Types</option>
+                <option value="Polyclinic">Polyclinic</option>
+                <option value="Pharmacy">Pharmacy</option>
+                <option value="Diagnostics">Diagnostics</option>
+                <option value="Hospital">Hospital</option>
+
+            </select>
+
+            <button
+                class="primary-btn"
+                onclick="renderOrganizations()">
+                Search
+            </button>
+
+        </div>
+
+
+        <div id="organizationResults"></div>
+
+    </section>
 
 </div>
-
-
-<div
-id="searchResults"
-class="organization-list">
-</div>
-
-</div>
-
-</section>
-
-</div>
-
-</main>
-
-
-<footer>
-
-© 2026 Luvio HealthLink. All rights reserved.
-
-</footer>
 
 
 <script>
 
 /* =========================================================
-   STORAGE KEYS
+   STORAGE
 ========================================================= */
 
 const PROFESSIONAL_ACCOUNTS_KEY =
@@ -680,14 +571,42 @@ const ASSOCIATIONS_KEY =
 
 
 /* =========================================================
-   BASIC STORAGE FUNCTIONS
+   HELPER
+========================================================= */
+
+function getArray(key){
+
+    try{
+
+        const data = JSON.parse(
+            localStorage.getItem(key) || "[]"
+        );
+
+        return Array.isArray(data) ? data : [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+/* =========================================================
+   CURRENT PROFESSIONAL
 ========================================================= */
 
 function getCurrentProfessional(){
 
+    const accounts =
+        getArray(PROFESSIONAL_ACCOUNTS_KEY);
+
+    let current = null;
+
     try{
 
-        return JSON.parse(
+        current = JSON.parse(
             localStorage.getItem(
                 CURRENT_PROFESSIONAL_KEY
             ) || "null"
@@ -695,57 +614,283 @@ function getCurrentProfessional(){
 
     }catch(error){
 
-        return null;
+        current = null;
 
     }
 
+
+    /*
+       The current professional may be stored as:
+
+       1. Complete professional object
+       2. Professional ID
+       3. User ID
+    */
+
+
+    if(current && typeof current === "object"){
+
+        const currentId =
+            current.id ||
+            current.professionalId ||
+            current.userId;
+
+        const found =
+            accounts.find(account =>
+                account.id === currentId ||
+                account.professionalId === currentId ||
+                account.userId === currentId
+            );
+
+        return found || current;
+
+    }
+
+
+    if(typeof current === "string"){
+
+        const found =
+            accounts.find(account =>
+                account.id === current ||
+                account.professionalId === current ||
+                account.userId === current
+            );
+
+        if(found){
+            return found;
+        }
+
+    }
+
+
+    return null;
+
 }
 
+
+const professional =
+    getCurrentProfessional();
+
+
+/* =========================================================
+   PROFESSIONAL INFORMATION
+========================================================= */
+
+function professionalValue(...values){
+
+    for(const value of values){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return value;
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+function loadProfessionalInformation(){
+
+    if(!professional){
+
+        document.getElementById(
+            "professionalName"
+        ).textContent = "Professional";
+
+        document.getElementById(
+            "professionalType"
+        ).textContent =
+            "Please log in through the Professional Portal.";
+
+        document.getElementById(
+            "professionalId"
+        ).textContent =
+            "Professional ID not available";
+
+        document.getElementById(
+            "professionalSpecialization"
+        ).textContent =
+            "Not available";
+
+        document.getElementById(
+            "professionalStatus"
+        ).textContent =
+            "Not logged in";
+
+        return;
+
+    }
+
+
+    const name =
+        professionalValue(
+            professional.name,
+            professional.fullName,
+            professional.full_name
+        );
+
+
+    const type =
+        professionalValue(
+            professional.professionalType,
+            professional.type,
+            professional.profession
+        );
+
+
+    const id =
+        professionalValue(
+            professional.id,
+            professional.professionalId,
+            professional.professionalID
+        );
+
+
+    const specialization =
+        professionalValue(
+            professional.specialization,
+            professional.department
+        );
+
+
+    const status =
+        professionalValue(
+            professional.status
+        ) || "Active";
+
+
+    document.getElementById(
+        "professionalName"
+    ).textContent =
+        name || "Professional";
+
+
+    document.getElementById(
+        "professionalType"
+    ).textContent =
+        type || "Healthcare Professional";
+
+
+    document.getElementById(
+        "professionalId"
+    ).textContent =
+        id || "Professional ID";
+
+
+    document.getElementById(
+        "professionalSpecialization"
+    ).textContent =
+        specialization || "Specialization not specified";
+
+
+    document.getElementById(
+        "professionalStatus"
+    ).textContent =
+        status;
+
+}
+
+
+/* =========================================================
+   ORGANIZATIONS
+========================================================= */
 
 function getOrganizations(){
 
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(
-                ORGANIZATIONS_KEY
-            ) || "[]"
-        );
-
-    }catch(error){
-
-        return [];
-
-    }
+    return getArray(ORGANIZATIONS_KEY);
 
 }
 
 
-function saveOrganizations(data){
+/* =========================================================
+   DEMO ORGANIZATIONS
+========================================================= */
+
+function ensureDemoOrganizations(){
+
+    let organizations =
+        getOrganizations();
+
+    if(organizations.length > 0){
+        return organizations;
+    }
+
+
+    organizations = [
+
+        {
+            id:"POLY-000001",
+            organizationId:"POLY-000001",
+            type:"Polyclinic",
+            name:"Luvio Polyclinic",
+            owner:"Luvio Healthcare",
+            city:"Srinagar",
+            state:"Jammu & Kashmir",
+            status:"Verified"
+        },
+
+        {
+            id:"HOSP-000001",
+            organizationId:"HOSP-000001",
+            type:"Hospital",
+            name:"Luvio Partner Hospital",
+            owner:"Luvio Healthcare",
+            city:"Srinagar",
+            state:"Jammu & Kashmir",
+            status:"Verified"
+        },
+
+        {
+            id:"PHARM-000001",
+            organizationId:"PHARM-000001",
+            type:"Pharmacy",
+            name:"Luvio Pharmacy",
+            owner:"Luvio Healthcare",
+            city:"Srinagar",
+            state:"Jammu & Kashmir",
+            status:"Verified"
+        },
+
+        {
+            id:"LAB-000001",
+            organizationId:"LAB-000001",
+            type:"Diagnostics",
+            name:"Luvio Diagnostics",
+            owner:"Luvio Healthcare",
+            city:"Srinagar",
+            state:"Jammu & Kashmir",
+            status:"Verified"
+        }
+
+    ];
+
 
     localStorage.setItem(
         ORGANIZATIONS_KEY,
-        JSON.stringify(data)
+        JSON.stringify(organizations)
     );
+
+
+    return organizations;
 
 }
 
 
+/* =========================================================
+   ASSOCIATIONS
+========================================================= */
+
 function getAssociations(){
 
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(
-                ASSOCIATIONS_KEY
-            ) || "[]"
-        );
-
-    }catch(error){
-
-        return [];
-
-    }
+    return getArray(ASSOCIATIONS_KEY);
 
 }
 
@@ -761,214 +906,109 @@ function saveAssociations(data){
 
 
 /* =========================================================
-   ORGANIZATION TYPE
+   PROFESSIONAL IDENTIFIERS
 ========================================================= */
 
-function organizationTypeName(type){
-
-    const names = {
-
-        polyclinic:"Polyclinic",
-
-        pharmacy:"Pharmacy",
-
-        diagnostics:"Diagnostics",
-
-        hospital:"Hospital"
-
-    };
-
-    return names[type] ||
-        "Healthcare Organization";
-
-}
-
-
-function organizationIcon(type){
-
-    const icons = {
-
-        polyclinic:"🏥",
-
-        pharmacy:"💊",
-
-        diagnostics:"🧪",
-
-        hospital:"🏨"
-
-    };
-
-    return icons[type] || "🏢";
-
-}
-
-
-/* =========================================================
-   PROFESSIONAL CHECK
-========================================================= */
-
-function requireProfessional(){
-
-    const professional =
-        getCurrentProfessional();
-
+function currentProfessionalId(){
 
     if(!professional){
-
-        document.body.innerHTML = `
-
-        <main style="
-            padding:60px 20px;
-            text-align:center;
-            font-family:Arial;
-            color:#18324a;
-        ">
-
-            <h1>
-                Professional Login Required
-            </h1>
-
-            <p style="margin:15px 0;">
-                Please login through the Professional Portal
-                before accessing Organizations.
-            </p>
-
-            <a
-            href="professional.html"
-            style="
-                display:inline-block;
-                padding:13px 20px;
-                background:#0b6477;
-                color:white;
-                border-radius:9px;
-                text-decoration:none;
-                font-weight:bold;
-            ">
-
-                Go to Professional Portal
-
-            </a>
-
-        </main>
-
-        `;
-
-        return null;
-
+        return "";
     }
 
-    return professional;
+    return professionalValue(
+        professional.id,
+        professional.professionalId,
+        professional.professionalID,
+        professional.userId
+    );
 
 }
 
 
-/* =========================================================
-   PAGE INITIALIZATION
-========================================================= */
-
-function initializePage(){
-
-    const professional =
-        requireProfessional();
-
+function currentProfessionalUserId(){
 
     if(!professional){
-
-        return;
-
+        return "";
     }
 
-
-    document
-        .getElementById("professionalName")
-        .textContent =
-        professional.name +
-        " • " +
-        professionalTypeName(
-            professional.type
-        );
-
-
-    document
-        .getElementById("professionalId")
-        .textContent =
-        professional.id;
-
-
-    renderMyOrganizations();
-
-    renderRequests();
-
-    renderOrganizationsSearch();
+    return professionalValue(
+        professional.userId,
+        professional.id,
+        professional.professionalId
+    );
 
 }
 
 
 /* =========================================================
-   SECTION SWITCHING
+   ROLE
 ========================================================= */
 
-function showSection(section){
+function defaultRole(){
 
-    const sections = [
-        "organizations",
-        "requests",
-        "find"
-    ];
+    if(!professional){
+        return "Healthcare Professional";
+    }
 
-
-    sections.forEach(id => {
-
-        document
-            .getElementById(id)
-            .classList.remove("active");
-
-    });
+    const type =
+        professionalValue(
+            professional.professionalType,
+            professional.type,
+            professional.profession
+        ).toLowerCase();
 
 
-    document
-        .getElementById(section)
-        .classList.add("active");
+    if(type.includes("doctor")){
+        return "Doctor";
+    }
+
+    if(type.includes("pharmacist")){
+        return "Pharmacist";
+    }
+
+    if(type.includes("laboratory")){
+        return "Laboratory Professional";
+    }
+
+    if(type.includes("nurse")){
+        return "Nurse";
+    }
+
+    return "Healthcare Professional";
+
+}
 
 
-    document
-        .getElementById("tabOrganizations")
-        .classList.remove("active");
+/* =========================================================
+   ORGANIZATION WORKSPACE
+========================================================= */
 
-    document
-        .getElementById("tabRequests")
-        .classList.remove("active");
+function organizationWorkspaceUrl(organization){
 
-    document
-        .getElementById("tabFind")
-        .classList.remove("active");
+    const type =
+        String(
+            organization.type || ""
+        ).toLowerCase();
 
 
-    if(section === "organizations"){
+    if(type === "polyclinic"){
+        return "polyclinic.html";
+    }
 
-        document
-            .getElementById("tabOrganizations")
-            .classList.add("active");
+    if(type === "pharmacy"){
+        return "pharmacy.html";
+    }
 
+    if(type === "diagnostics"){
+        return "diagnostics.html";
+    }
+
+    if(type === "hospital"){
+        return "hospital.html";
     }
 
 
-    if(section === "requests"){
-
-        document
-            .getElementById("tabRequests")
-            .classList.add("active");
-
-    }
-
-
-    if(section === "find"){
-
-        document
-            .getElementById("tabFind")
-            .classList.add("active");
-
-    }
+    return "organization.html";
 
 }
 
@@ -979,11 +1019,20 @@ function showSection(section){
 
 function renderMyOrganizations(){
 
-    const professional =
-        getCurrentProfessional();
+    const container =
+        document.getElementById(
+            "activeOrganizations"
+        );
 
 
     if(!professional){
+
+        container.innerHTML = `
+            <div class="empty">
+                Please log in through the Professional Portal
+                to view your organizations.
+            </div>
+        `;
 
         return;
 
@@ -993,61 +1042,37 @@ function renderMyOrganizations(){
     const organizations =
         getOrganizations();
 
-
     const associations =
         getAssociations();
 
 
+    const professionalId =
+        currentProfessionalId();
+
+
     const activeAssociations =
-        associations.filter(
-            association =>
+        associations.filter(association =>
 
-            association.professionalId ===
-            professional.id &&
+            (
+                association.professionalId === professionalId ||
+                association.professionalUserId === professionalId
+            ) &&
+            String(
+                association.status
+            ).toLowerCase() === "active"
 
-            association.status ===
-            "Active"
-
-        );
-
-
-    const container =
-        document.getElementById(
-            "organizationList"
         );
 
 
     if(activeAssociations.length === 0){
 
         container.innerHTML = `
-
-        <div class="empty">
-
-            <h3>
-                No Organizations Yet
-            </h3>
-
-            <p>
-                You are not currently associated
-                with any organization.
-            </p>
-
-            <div class="actions"
-                 style="justify-content:center;">
-
-                <button
-                type="button"
-                class="btn primary"
-                onclick="showSection('find')">
-
-                    Find Organizations
-
-                </button>
-
+            <div class="empty">
+                You currently have no active organization associations.
+                <br><br>
+                Use <strong>Find Organizations</strong>
+                to discover organizations and request an association.
             </div>
-
-        </div>
-
         `;
 
         return;
@@ -1055,134 +1080,157 @@ function renderMyOrganizations(){
     }
 
 
-    const cards =
-        activeAssociations.map(
-            association => {
+    container.innerHTML =
+        activeAssociations.map(association => {
 
             const organization =
-                organizations.find(
-                    organization =>
-                    organization.id ===
-                    association.organizationId
+                organizations.find(org =>
+                    org.id === association.organizationId ||
+                    org.organizationId === association.organizationId
                 );
 
 
             if(!organization){
 
-                return "";
+                return `
+                    <div class="organization-card">
+
+                        <h3>
+                            Organization
+                        </h3>
+
+                        <span class="status active">
+                            Active
+                        </span>
+
+                        <p>
+                            Organization ID:
+                            ${association.organizationId}
+                        </p>
+
+                    </div>
+                `;
 
             }
 
 
             return `
 
-            <div class="organization-card">
+                <div class="organization-card">
 
-                <div class="organization-top">
+                    <h3>
+                        ${escapeHtml(
+                            organization.name
+                        )}
+                    </h3>
 
-                    <div>
-
-                        <div class="organization-icon">
-
-                            ${organizationIcon(
-                                organization.type
-                            )}
-
-                        </div>
-
-                        <h3>
-                            ${escapeHTML(
-                                organization.name
-                            )}
-                        </h3>
-
-                        <div class="organization-type">
-
-                            ${organizationTypeName(
-                                organization.type
-                            )}
-
-                        </div>
-
+                    <div class="org-type">
+                        ${escapeHtml(
+                            organization.type ||
+                            "Healthcare Organization"
+                        )}
                     </div>
-
 
                     <span class="status active">
-
-                        Active
-
+                        Active Association
                     </span>
 
+                    <div class="org-grid">
+
+                        <div class="info">
+                            <strong>Organization ID</strong>
+                            ${escapeHtml(
+                                organization.id ||
+                                organization.organizationId ||
+                                "-"
+                            )}
+                        </div>
+
+                        <div class="info">
+                            <strong>Your Role</strong>
+                            ${escapeHtml(
+                                association.role ||
+                                defaultRole()
+                            )}
+                        </div>
+
+                        <div class="info">
+                            <strong>Department</strong>
+                            ${escapeHtml(
+                                association.department ||
+                                professional.specialization ||
+                                "Not specified"
+                            )}
+                        </div>
+
+                        <div class="info">
+                            <strong>City</strong>
+                            ${escapeHtml(
+                                organization.city ||
+                                "-"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="action-row">
+
+                        <button
+                            class="primary-btn"
+                            onclick="openOrganizationWorkspace(
+                                '${escapeJs(
+                                    organizationWorkspaceUrl(
+                                        organization
+                                    )
+                                )}'
+                            )">
+
+                            Open Workspace
+
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewOrganization(
+                                '${escapeJs(
+                                    organization.id ||
+                                    organization.organizationId
+                                )}'
+                            )">
+
+                            View Organization
+
+                        </button>
+
+                    </div>
+
                 </div>
-
-
-                <div class="organization-meta">
-
-                    <div>
-                        <strong>
-                            Organization ID:
-                        </strong>
-
-                        ${escapeHTML(
-                            organization.id
-                        )}
-
-                    </div>
-
-
-                    <div>
-                        <strong>
-                            Role:
-                        </strong>
-
-                        ${escapeHTML(
-                            association.role ||
-                            "Professional"
-                        )}
-
-                    </div>
-
-
-                    <div>
-                        <strong>
-                            City:
-                        </strong>
-
-                        ${escapeHTML(
-                            organization.city ||
-                            "Not provided"
-                        )}
-
-                    </div>
-
-                </div>
-
-            </div>
 
             `;
 
-        }
-    ).join("");
-
-
-    container.innerHTML =
-        cards ||
-        '<div class="empty">No active organizations found.</div>';
+        }).join("");
 
 }
 
 
 /* =========================================================
-   ASSOCIATION REQUESTS
+   ASSOCIATION HISTORY
 ========================================================= */
 
-function renderRequests(){
+function renderAssociationHistory(){
 
-    const professional =
-        getCurrentProfessional();
+    const container =
+        document.getElementById(
+            "associationHistory"
+        );
 
 
     if(!professional){
+
+        container.innerHTML =
+            `<div class="empty">
+                No association history available.
+            </div>`;
 
         return;
 
@@ -1192,48 +1240,34 @@ function renderRequests(){
     const organizations =
         getOrganizations();
 
-
     const associations =
         getAssociations();
 
+    const professionalId =
+        currentProfessionalId();
 
-    const requests =
-        associations.filter(
-            association =>
 
-            association.professionalId ===
-            professional.id &&
+    const history =
+        associations.filter(association =>
 
-            association.status ===
-            "Pending"
+            association.professionalId === professionalId ||
+            association.professionalUserId === professionalId
+
+        ).filter(association =>
+
+            String(
+                association.status
+            ).toLowerCase() !== "active"
 
         );
 
 
-    const container =
-        document.getElementById(
-            "requestList"
-        );
+    if(history.length === 0){
 
-
-    if(requests.length === 0){
-
-        container.innerHTML = `
-
-        <div class="empty">
-
-            <h3>
-                No Pending Requests
-            </h3>
-
-            <p>
-                You currently have no pending
-                organization association requests.
-            </p>
-
-        </div>
-
-        `;
+        container.innerHTML =
+            `<div class="empty">
+                No previous association records.
+            </div>`;
 
         return;
 
@@ -1241,244 +1275,337 @@ function renderRequests(){
 
 
     container.innerHTML =
-        requests.map(
-            request => {
+        history.map(association => {
 
             const organization =
-                organizations.find(
-                    organization =>
-                    organization.id ===
-                    request.organizationId
+                organizations.find(org =>
+                    org.id === association.organizationId ||
+                    org.organizationId === association.organizationId
                 );
 
 
-            if(!organization){
+            const status =
+                String(
+                    association.status || "Pending"
+                );
 
-                return "";
 
-            }
+            const statusClass =
+                status.toLowerCase();
 
 
             return `
 
-            <div class="request-card">
+                <div class="organization-card">
 
-                <div class="organization-top">
+                    <h3>
+                        ${escapeHtml(
+                            organization
+                                ? organization.name
+                                : "Organization"
+                        )}
+                    </h3>
 
-                    <div>
+                    <span class="status ${escapeHtml(
+                        statusClass
+                    )}">
+                        ${escapeHtml(status)}
+                    </span>
 
-                        <div class="organization-icon">
+                    <div class="org-grid">
 
-                            ${organizationIcon(
-                                organization.type
+                        <div class="info">
+                            <strong>Organization ID</strong>
+                            ${escapeHtml(
+                                association.organizationId ||
+                                "-"
                             )}
-
                         </div>
 
-                        <h3>
-
-                            ${escapeHTML(
-                                organization.name
+                        <div class="info">
+                            <strong>Role</strong>
+                            ${escapeHtml(
+                                association.role ||
+                                defaultRole()
                             )}
-
-                        </h3>
-
-                        <p>
-
-                            ${organizationTypeName(
-                                organization.type
-                            )}
-
-                        </p>
+                        </div>
 
                     </div>
 
+                </div>
 
-                    <span class="status pending">
+            `;
 
-                        Pending
+        }).join("");
+
+}
+
+
+/* =========================================================
+   INCOMING REQUESTS
+========================================================= */
+
+function renderIncomingRequests(){
+
+    const container =
+        document.getElementById(
+            "incomingRequests"
+        );
+
+
+    if(!professional){
+
+        container.innerHTML =
+            `<div class="empty">
+                Please log in first.
+            </div>`;
+
+        return;
+
+    }
+
+
+    const organizations =
+        getOrganizations();
+
+    const associations =
+        getAssociations();
+
+    const professionalId =
+        currentProfessionalId();
+
+
+    const incoming =
+        associations.filter(association =>
+
+            (
+                association.professionalId === professionalId ||
+                association.professionalUserId === professionalId
+            ) &&
+            String(
+                association.status
+            ).toLowerCase() === "pending" &&
+            (
+                association.requestDirection === "organization_to_professional" ||
+                association.requestedBy === "organization"
+            )
+
+        );
+
+
+    if(incoming.length === 0){
+
+        container.innerHTML =
+            `<div class="empty">
+                You have no incoming association requests.
+            </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        incoming.map(association => {
+
+            const organization =
+                organizations.find(org =>
+                    org.id === association.organizationId ||
+                    org.organizationId === association.organizationId
+                );
+
+
+            return `
+
+                <div class="request-card">
+
+                    <h3>
+                        ${escapeHtml(
+                            organization
+                                ? organization.name
+                                : "Healthcare Organization"
+                        )}
+                    </h3>
+
+                    <div class="request-meta">
+
+                        Organization Type:
+                        <strong>
+                            ${escapeHtml(
+                                organization?.type ||
+                                "Healthcare Organization"
+                            )}
+                        </strong>
+                        <br>
+
+                        Requested Role:
+                        <strong>
+                            ${escapeHtml(
+                                association.role ||
+                                defaultRole()
+                            )}
+                        </strong>
+
+                    </div>
+
+                    <div class="action-row">
+
+                        <button
+                            class="primary-btn"
+                            onclick="acceptRequest(
+                                '${escapeJs(
+                                    association.id
+                                )}'
+                            )">
+
+                            Accept
+
+                        </button>
+
+                        <button
+                            class="danger-btn"
+                            onclick="declineRequest(
+                                '${escapeJs(
+                                    association.id
+                                )}'
+                            )">
+
+                            Decline
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   SENT REQUESTS
+========================================================= */
+
+function renderSentRequests(){
+
+    const container =
+        document.getElementById(
+            "sentRequests"
+        );
+
+
+    if(!professional){
+
+        container.innerHTML =
+            `<div class="empty">
+                Please log in first.
+            </div>`;
+
+        return;
+
+    }
+
+
+    const organizations =
+        getOrganizations();
+
+    const associations =
+        getAssociations();
+
+    const professionalId =
+        currentProfessionalId();
+
+
+    const sent =
+        associations.filter(association =>
+
+            (
+                association.professionalId === professionalId ||
+                association.professionalUserId === professionalId
+            ) &&
+            (
+                association.requestDirection === "professional_to_organization" ||
+                association.requestedBy === "professional"
+            )
+
+        );
+
+
+    if(sent.length === 0){
+
+        container.innerHTML =
+            `<div class="empty">
+                You have not sent any organization association requests.
+            </div>`;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+        sent.map(association => {
+
+            const organization =
+                organizations.find(org =>
+                    org.id === association.organizationId ||
+                    org.organizationId === association.organizationId
+                );
+
+
+            const status =
+                association.status || "Pending";
+
+
+            const statusClass =
+                String(status).toLowerCase();
+
+
+            return `
+
+                <div class="request-card">
+
+                    <h3>
+                        ${escapeHtml(
+                            organization
+                                ? organization.name
+                                : "Healthcare Organization"
+                        )}
+                    </h3>
+
+                    <div class="request-meta">
+
+                        Type:
+                        ${escapeHtml(
+                            organization?.type ||
+                            "Healthcare Organization"
+                        )}
+                        <br>
+
+                        Requested Role:
+                        ${escapeHtml(
+                            association.role ||
+                            defaultRole()
+                        )}
+
+                    </div>
+
+                    <span class="status ${escapeHtml(
+                        statusClass
+                    )}">
+
+                        ${escapeHtml(status)}
 
                     </span>
 
                 </div>
 
-
-                <p>
-                    <strong>
-                        Organization ID:
-                    </strong>
-
-                    ${escapeHTML(
-                        organization.id
-                    )}
-                </p>
-
-
-                <p>
-                    <strong>
-                        Requested Role:
-                    </strong>
-
-                    ${escapeHTML(
-                        request.role ||
-                        "Professional"
-                    )}
-                </p>
-
-
-                <p>
-                    <strong>
-                        Location:
-                    </strong>
-
-                    ${escapeHTML(
-                        organization.city ||
-                        "Not provided"
-                    )}
-                </p>
-
-
-                <div class="actions">
-
-                    <button
-                    type="button"
-                    class="btn success-btn"
-                    onclick="acceptRequest('${request.id}')">
-
-                        Accept
-
-                    </button>
-
-
-                    <button
-                    type="button"
-                    class="btn danger"
-                    onclick="declineRequest('${request.id}')">
-
-                        Decline
-
-                    </button>
-
-                </div>
-
-            </div>
-
             `;
 
-        }
-    ).join("");
-
-}
-
-
-/* =========================================================
-   ACCEPT REQUEST
-========================================================= */
-
-function acceptRequest(requestId){
-
-    const associations =
-        getAssociations();
-
-
-    const index =
-        associations.findIndex(
-            association =>
-            association.id === requestId
-        );
-
-
-    if(index === -1){
-
-        return;
-
-    }
-
-
-    associations[index].status =
-        "Active";
-
-
-    associations[index].acceptedAt =
-        new Date().toISOString();
-
-
-    saveAssociations(
-        associations
-    );
-
-
-    document
-        .getElementById("requestMessage")
-        .innerHTML = `
-
-        <div class="success-message">
-
-            Organization association accepted successfully.
-
-        </div>
-
-        `;
-
-
-    renderRequests();
-
-    renderMyOrganizations();
-
-}
-
-
-/* =========================================================
-   DECLINE REQUEST
-========================================================= */
-
-function declineRequest(requestId){
-
-    const associations =
-        getAssociations();
-
-
-    const index =
-        associations.findIndex(
-            association =>
-            association.id === requestId
-        );
-
-
-    if(index === -1){
-
-        return;
-
-    }
-
-
-    associations[index].status =
-        "Declined";
-
-
-    associations[index].declinedAt =
-        new Date().toISOString();
-
-
-    saveAssociations(
-        associations
-    );
-
-
-    document
-        .getElementById("requestMessage")
-        .innerHTML = `
-
-        <div class="success-message">
-
-            Organization association request declined.
-
-        </div>
-
-        `;
-
-
-    renderRequests();
+        }).join("");
 
 }
 
@@ -1487,108 +1614,67 @@ function declineRequest(requestId){
    FIND ORGANIZATIONS
 ========================================================= */
 
-function renderOrganizationsSearch(){
+function renderOrganizations(){
 
-    const professional =
-        getCurrentProfessional();
-
-
-    if(!professional){
-
-        return;
-
-    }
+    const container =
+        document.getElementById(
+            "organizationResults"
+        );
 
 
     const organizations =
         getOrganizations();
 
-
     const associations =
         getAssociations();
 
+    const professionalId =
+        currentProfessionalId();
+
 
     const search =
-        document
-        .getElementById(
+        document.getElementById(
             "organizationSearch"
-        )
-        .value
+        ).value
         .trim()
         .toLowerCase();
 
 
-    const filter =
-        document
-        .getElementById(
-            "organizationTypeFilter"
-        )
-        .value;
+    const type =
+        document.getElementById(
+            "organizationType"
+        ).value;
 
 
     const results =
-        organizations.filter(
-            organization => {
+        organizations.filter(organization => {
 
-            if(filter !== "all" &&
-               organization.type !== filter){
-
-                return false;
-
-            }
-
-
-            if(!search){
-
-                return true;
-
-            }
+            const matchesSearch =
+                !search ||
+                String(
+                    organization.name || ""
+                ).toLowerCase().includes(search) ||
+                String(
+                    organization.city || ""
+                ).toLowerCase().includes(search);
 
 
-            const searchable = (
-
-                (organization.name || "") +
-                " " +
-                (organization.city || "") +
-                " " +
-                (organization.state || "") +
-                " " +
-                organizationTypeName(
-                    organization.type
-                )
-
-            ).toLowerCase();
+            const matchesType =
+                type === "All" ||
+                organization.type === type;
 
 
-            return searchable.includes(search);
+            return matchesSearch && matchesType;
 
-        }
-    );
-
-
-    const container =
-        document.getElementById(
-            "searchResults"
-        );
+        });
 
 
     if(results.length === 0){
 
-        container.innerHTML = `
-
-        <div class="empty">
-
-            <h3>
-                No Organizations Found
-            </h3>
-
-            <p>
-                No registered organizations match your search.
-            </p>
-
-        </div>
-
-        `;
+        container.innerHTML =
+            `<div class="empty">
+                No organizations found matching your search.
+            </div>`;
 
         return;
 
@@ -1596,79 +1682,105 @@ function renderOrganizationsSearch(){
 
 
     container.innerHTML =
-        results.map(
-            organization => {
+        results.map(organization => {
 
-            const association =
-                associations.find(
-                    item =>
-
-                    item.organizationId ===
-                    organization.id &&
-
-                    item.professionalId ===
-                    professional.id &&
+            const existing =
+                associations.find(association =>
 
                     (
-                        item.status === "Pending" ||
-                        item.status === "Active"
-                    )
+                        association.professionalId === professionalId ||
+                        association.professionalUserId === professionalId
+                    ) &&
+                    association.organizationId ===
+                        (
+                            organization.id ||
+                            organization.organizationId
+                        )
 
                 );
 
 
-            let actionHTML = "";
+            let actionHtml = "";
 
 
-            if(!association){
+            if(!professional){
 
-                actionHTML = `
-
-                <button
-                type="button"
-                class="btn primary"
-                onclick="sendAssociationRequest('${organization.id}')">
-
-                    Request Association
-
-                </button>
-
+                actionHtml = `
+                    <button
+                        class="secondary-btn"
+                        onclick="alert(
+                            'Please log in through the Professional Portal first.'
+                        )">
+                        Login Required
+                    </button>
                 `;
 
-            }
+            }else if(existing){
+
+                const status =
+                    existing.status || "Pending";
 
 
-            else if(
-                association.status ===
-                "Pending"
-            ){
+                if(
+                    String(status).toLowerCase() ===
+                    "active"
+                ){
 
-                actionHTML = `
+                    actionHtml = `
+                        <button
+                            class="secondary-btn"
+                            disabled>
+                            Already Associated
+                        </button>
+                    `;
 
-                <span class="status pending">
+                }else if(
+                    String(status).toLowerCase() ===
+                    "pending"
+                ){
 
-                    Request Pending
+                    actionHtml = `
+                        <button
+                            class="secondary-btn"
+                            disabled>
+                            Request Pending
+                        </button>
+                    `;
 
-                </span>
+                }else{
 
-                `;
+                    actionHtml = `
+                        <button
+                            class="primary-btn"
+                            onclick="sendAssociationRequest(
+                                '${escapeJs(
+                                    organization.id ||
+                                    organization.organizationId
+                                )}'
+                            )">
 
-            }
+                            Send Association Request
 
+                        </button>
+                    `;
 
-            else if(
-                association.status ===
-                "Active"
-            ){
+                }
 
-                actionHTML = `
+            }else{
 
-                <span class="status active">
+                actionHtml = `
+                    <button
+                        class="primary-btn"
+                        onclick="sendAssociationRequest(
+                            '${escapeJs(
+                                organization.id ||
+                                organization.organizationId
+                            )}'
+                        )">
 
-                    Already Associated
+                        Send Association Request
 
-                </span>
-
+                    </button>
                 `;
 
             }
@@ -1676,98 +1788,82 @@ function renderOrganizationsSearch(){
 
             return `
 
-            <div class="organization-card">
+                <div class="organization-card">
 
-                <div class="organization-top">
+                    <h3>
+                        ${escapeHtml(
+                            organization.name
+                        )}
+                    </h3>
 
-                    <div>
+                    <div class="org-type">
+                        ${escapeHtml(
+                            organization.type ||
+                            "Healthcare Organization"
+                        )}
+                    </div>
 
-                        <div class="organization-icon">
+                    <div class="org-grid">
 
-                            ${organizationIcon(
-                                organization.type
+                        <div class="info">
+                            <strong>Organization ID</strong>
+                            ${escapeHtml(
+                                organization.id ||
+                                organization.organizationId ||
+                                "-"
                             )}
-
                         </div>
 
-                        <h3>
-
-                            ${escapeHTML(
-                                organization.name
+                        <div class="info">
+                            <strong>City</strong>
+                            ${escapeHtml(
+                                organization.city ||
+                                "-"
                             )}
-
-                        </h3>
-
-                        <div class="organization-type">
-
-                            ${organizationTypeName(
-                                organization.type
-                            )}
-
                         </div>
+
+                        <div class="info">
+                            <strong>State</strong>
+                            ${escapeHtml(
+                                organization.state ||
+                                "-"
+                            )}
+                        </div>
+
+                        <div class="info">
+                            <strong>Status</strong>
+                            ${escapeHtml(
+                                organization.status ||
+                                "Registered"
+                            )}
+                        </div>
+
+                    </div>
+
+                    <div class="action-row">
+
+                        ${actionHtml}
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewOrganization(
+                                '${escapeJs(
+                                    organization.id ||
+                                    organization.organizationId
+                                )}'
+                            )">
+
+                            View Organization
+
+                        </button>
 
                     </div>
 
                 </div>
-
-
-                <div class="organization-meta">
-
-                    <div>
-
-                        <strong>
-                            Organization ID:
-                        </strong>
-
-                        ${escapeHTML(
-                            organization.id
-                        )}
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>
-                            City:
-                        </strong>
-
-                        ${escapeHTML(
-                            organization.city ||
-                            "Not provided"
-                        )}
-
-                    </div>
-
-
-                    <div>
-
-                        <strong>
-                            State:
-                        </strong>
-
-                        ${escapeHTML(
-                            organization.state ||
-                            "Not provided"
-                        )}
-
-                    </div>
-
-
-                    <div class="actions">
-
-                        ${actionHTML}
-
-                    </div>
-
-                </div>
-
-            </div>
 
             `;
 
-        }
-    ).join("");
+        }).join("");
 
 }
 
@@ -1780,11 +1876,32 @@ function sendAssociationRequest(
     organizationId
 ){
 
-    const professional =
-        getCurrentProfessional();
-
-
     if(!professional){
+
+        alert(
+            "Please log in through the Professional Portal first."
+        );
+
+        return;
+
+    }
+
+
+    const organizations =
+        getOrganizations();
+
+    const organization =
+        organizations.find(org =>
+            org.id === organizationId ||
+            org.organizationId === organizationId
+        );
+
+
+    if(!organization){
+
+        alert(
+            "Organization could not be found."
+        );
 
         return;
 
@@ -1795,59 +1912,75 @@ function sendAssociationRequest(
         getAssociations();
 
 
-    const existing =
-        associations.find(
-            association =>
+    const professionalId =
+        currentProfessionalId();
 
-            association.professionalId ===
-            professional.id &&
 
-            association.organizationId ===
-            organizationId &&
+    const duplicate =
+        associations.find(association =>
 
             (
-                association.status ===
-                "Pending" ||
-
-                association.status ===
-                "Active"
+                association.professionalId === professionalId ||
+                association.professionalUserId === professionalId
+            ) &&
+            association.organizationId === organizationId &&
+            (
+                association.status === "Pending" ||
+                association.status === "Active"
             )
 
         );
 
 
-    if(existing){
+    if(duplicate){
+
+        alert(
+            "An association already exists or is pending."
+        );
 
         return;
 
     }
 
 
-    const request = {
+    const newAssociation = {
 
         id:
             "ASSOC-" +
             Date.now(),
 
         professionalId:
-            professional.id,
+            professionalId,
 
         professionalUserId:
-            professional.userId,
+            currentProfessionalUserId(),
 
         professionalName:
-            professional.name,
+            professionalValue(
+                professional.name,
+                professional.fullName
+            ),
 
         organizationId:
             organizationId,
 
         role:
-            getDefaultRole(
-                professional.type
+            defaultRole(),
+
+        department:
+            professionalValue(
+                professional.specialization,
+                professional.department
             ),
 
         status:
             "Pending",
+
+        requestDirection:
+            "professional_to_organization",
+
+        requestedBy:
+            "professional",
 
         requestedAt:
             new Date().toISOString()
@@ -1856,7 +1989,7 @@ function sendAssociationRequest(
 
 
     associations.push(
-        request
+        newAssociation
     );
 
 
@@ -1865,69 +1998,283 @@ function sendAssociationRequest(
     );
 
 
+    alert(
+        "Association request sent successfully."
+    );
+
+
+    renderOrganizations();
+
+    renderSentRequests();
+
+}
+
+
+/* =========================================================
+   ACCEPT REQUEST
+========================================================= */
+
+function acceptRequest(
+    associationId
+){
+
+    const associations =
+        getAssociations();
+
+
+    const index =
+        associations.findIndex(
+            association =>
+                association.id ===
+                associationId
+        );
+
+
+    if(index === -1){
+        return;
+    }
+
+
+    associations[index].status =
+        "Active";
+
+    associations[index].acceptedAt =
+        new Date().toISOString();
+
+
+    saveAssociations(
+        associations
+    );
+
+
+    alert(
+        "Association accepted."
+    );
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   DECLINE REQUEST
+========================================================= */
+
+function declineRequest(
+    associationId
+){
+
+    const associations =
+        getAssociations();
+
+
+    const index =
+        associations.findIndex(
+            association =>
+                association.id ===
+                associationId
+        );
+
+
+    if(index === -1){
+        return;
+    }
+
+
+    associations[index].status =
+        "Declined";
+
+    associations[index].declinedAt =
+        new Date().toISOString();
+
+
+    saveAssociations(
+        associations
+    );
+
+
+    alert(
+        "Association request declined."
+    );
+
+
+    renderAll();
+
+}
+
+
+/* =========================================================
+   OPEN ORGANIZATION WORKSPACE
+========================================================= */
+
+function openOrganizationWorkspace(
+    url
+){
+
+    window.location.href =
+        url;
+
+}
+
+
+/* =========================================================
+   VIEW ORGANIZATION
+========================================================= */
+
+function viewOrganization(
+    organizationId
+){
+
+    const organizations =
+        getOrganizations();
+
+
+    const organization =
+        organizations.find(org =>
+            org.id === organizationId ||
+            org.organizationId === organizationId
+        );
+
+
+    if(!organization){
+        alert(
+            "Organization details could not be found."
+        );
+
+        return;
+    }
+
+
+    alert(
+
+        "Organization\n\n" +
+
+        "Name: " +
+        (organization.name || "-") +
+
+        "\nType: " +
+        (organization.type || "-") +
+
+        "\nOrganization ID: " +
+        (
+            organization.id ||
+            organization.organizationId ||
+            "-"
+        ) +
+
+        "\nCity: " +
+        (organization.city || "-") +
+
+        "\nState: " +
+        (organization.state || "-") +
+
+        "\nStatus: " +
+        (organization.status || "Registered")
+
+    );
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function showTab(
+    tabId,
+    button
+){
+
     document
-        .getElementById("organizationsMessage")
-        .innerHTML = `
+        .querySelectorAll(".section")
+        .forEach(section => {
 
-        <div class="success-message">
+            section.classList.remove(
+                "active"
+            );
 
-            Association request sent successfully.
-
-        </div>
-
-        `;
+        });
 
 
-    renderOrganizationsSearch();
+    document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
 
-    renderRequests();
+            tab.classList.remove(
+                "active"
+            );
 
-}
+        });
 
 
-/* =========================================================
-   DEFAULT PROFESSIONAL ROLE
-========================================================= */
+    document
+        .getElementById(tabId)
+        .classList.add("active");
 
-function getDefaultRole(type){
 
-    const roles = {
+    button.classList.add(
+        "active"
+    );
 
-        doctor:
-            "Doctor",
 
-        pharmacist:
-            "Pharmacist",
+    if(tabId === "findOrganizations"){
 
-        lab:
-            "Laboratory Professional",
+        renderOrganizations();
 
-        nurse:
-            "Nurse",
-
-        other:
-            "Healthcare Professional"
-
-    };
-
-    return roles[type] ||
-        "Healthcare Professional";
+    }
 
 }
 
 
 /* =========================================================
-   HTML ESCAPE
+   SECURITY / DISPLAY HELPERS
 ========================================================= */
 
-function escapeHTML(value){
+function escapeHtml(value){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    return String(
+        value ?? ""
+    )
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJs(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(/\\/g,"\\\\")
+    .replace(/'/g,"\\'");
+
+}
+
+
+/* =========================================================
+   RENDER EVERYTHING
+========================================================= */
+
+function renderAll(){
+
+    loadProfessionalInformation();
+
+    ensureDemoOrganizations();
+
+    renderMyOrganizations();
+
+    renderAssociationHistory();
+
+    renderIncomingRequests();
+
+    renderSentRequests();
+
+    renderOrganizations();
 
 }
 
@@ -1936,13 +2283,9 @@ function escapeHTML(value){
    START
 ========================================================= */
 
-window.addEventListener(
-    "DOMContentLoaded",
-    initializePage
-);
+renderAll();
 
 </script>
 
 </body>
-
 </html>
