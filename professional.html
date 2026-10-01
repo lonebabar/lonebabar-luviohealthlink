@@ -4,463 +4,321 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>
-Professional Portal | Luvio HealthLink
-</title>
+<title>Professional Portal | Luvio HealthLink</title>
 
 <style>
 
-/* =====================================================
-   GLOBAL
-===================================================== */
-
 *{
     box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-    margin:0;
     font-family:Arial, Helvetica, sans-serif;
     background:#f4f8fb;
     color:#18324a;
+    line-height:1.6;
 }
 
-.hidden{
-    display:none !important;
+button,
+input,
+select{
+    font-family:inherit;
 }
 
+button{
+    cursor:pointer;
+}
 
-/* =====================================================
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:auto;
+}
+
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
 header{
-    background:#0b6477;
-    color:white;
-    padding:18px 6%;
+    background:#ffffff;
+    border-bottom:1px solid #e1ebef;
+    padding:18px 0;
+}
 
+.header-inner{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
 }
 
-header a{
-    color:white;
-    text-decoration:none;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:800;
+    color:#0b6477;
 }
 
+.logo span{
+    color:#27a69a;
+}
 
-/* =====================================================
+.back-link{
+    color:#0b6477;
+    font-weight:600;
+}
+
+/* =========================
    MAIN
-===================================================== */
+========================= */
 
-.container{
-    max-width:1150px;
-    margin:35px auto;
-    padding:0 20px;
+main{
+    padding:45px 0;
 }
-
-
-/* =====================================================
-   CARDS
-===================================================== */
 
 .card{
-    background:white;
-    padding:30px;
+    background:#ffffff;
     border-radius:18px;
-
-    box-shadow:0 8px 30px #0001;
-
-    margin-bottom:22px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.07);
 }
 
-
-/* =====================================================
-   HEADINGS
-===================================================== */
-
 h1{
-    margin-top:0;
-    font-size:30px;
+    margin-bottom:8px;
 }
 
 h2{
-    margin-top:0;
+    margin-bottom:15px;
 }
 
-h3{
-    margin-top:0;
+.subtitle{
+    color:#647887;
+    margin-bottom:25px;
 }
 
-
-/* =====================================================
-   DESCRIPTION
-===================================================== */
-
-.description{
-    color:#536979;
-    line-height:1.7;
-    max-width:850px;
-}
-
-
-/* =====================================================
+/* =========================
    FORMS
-===================================================== */
+========================= */
 
-.form-grid{
+.grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:18px;
 }
 
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field.full{
+    grid-column:1 / -1;
+}
+
 label{
-    display:block;
-    font-weight:bold;
+    font-weight:700;
     margin-bottom:7px;
 }
 
 input,
-select,
-textarea{
+select{
     width:100%;
-    padding:12px;
-
-    border:1px solid #ccd8e1;
+    padding:13px;
+    border:1px solid #ccd9e0;
     border-radius:9px;
-
-    font-size:15px;
+    outline:none;
+    background:#fff;
 }
 
-textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-button{
-    border:0;
-    border-radius:9px;
-
-    padding:12px 18px;
-
-    background:#0b6477;
-    color:white;
-
-    font-weight:bold;
-    cursor:pointer;
-
-    font-size:15px;
-}
-
-button:hover{
-    opacity:.92;
-}
-
-button.secondary{
-    background:#e9f1f5;
-    color:#18324a;
-}
-
-button.danger{
-    background:#a94442;
+input:focus,
+select:focus{
+    border-color:#0b6477;
 }
 
 .actions{
     display:flex;
-    gap:10px;
+    gap:12px;
     flex-wrap:wrap;
-
-    margin-top:22px;
+    margin-top:25px;
 }
 
+.btn{
+    border:none;
+    border-radius:9px;
+    padding:13px 20px;
+    font-weight:700;
+}
 
-/* =====================================================
-   NOTICE
-===================================================== */
+.primary{
+    background:#0b6477;
+    color:white;
+}
+
+.primary:hover{
+    background:#084e5d;
+}
+
+.secondary{
+    background:#e9f1f5;
+    color:#18324a;
+}
+
+.danger{
+    background:#c0392b;
+    color:white;
+}
+
+/* =========================
+   MESSAGES
+========================= */
 
 .notice{
     background:#edf7fa;
-
     padding:14px;
-
     border-radius:10px;
-
-    margin:18px 0;
-
-    line-height:1.6;
-}
-
-.success{
-    background:#effaf1;
-    color:#24743a;
-
-    padding:14px;
-
-    border-radius:10px;
-
-    margin-bottom:15px;
+    margin:15px 0;
 }
 
 .error{
     background:#fff0f0;
     color:#a33;
-
-    padding:14px;
-
-    border-radius:10px;
-
+    padding:13px;
+    border-radius:9px;
     margin-bottom:15px;
 }
 
+.success{
+    background:#effaf1;
+    color:#24743a;
+    padding:13px;
+    border-radius:9px;
+    margin-bottom:15px;
+}
 
-/* =====================================================
-   PROFESSIONAL ID
-===================================================== */
+/* =========================
+   HIDDEN
+========================= */
+
+.hidden{
+    display:none;
+}
+
+/* =========================
+   PROFESSIONAL WORKSPACE
+========================= */
+
+.workspace-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
 
 .professional-id{
-    color:#0b6477;
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    margin:8px 0 15px;
-}
-
-
-/* =====================================================
-   WORKSPACE NAVIGATION
-===================================================== */
-
-.workspace-nav{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:12px;
-
-    margin-bottom:25px;
-}
-
-.workspace-nav button{
-
-    background:#f4f8fb;
-
-    color:#18324a;
-
-    border:1px solid #dbe5eb;
-
-    padding:18px 12px;
-
-    border-radius:12px;
-
-    text-align:left;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-    width:100%;
-}
-
-.workspace-nav button:hover{
-
-    background:#e9f1f5;
-
-}
-
-.workspace-nav button.active{
-
-    background:#0b6477;
-
-    color:white;
-
-    border-color:#0b6477;
-
-}
-
-
-/* =====================================================
-   WORKSPACE SECTIONS
-
-   IMPORTANT:
-   Only the section with "active" is displayed.
-===================================================== */
-
-.workspace-section{
-    display:none !important;
-}
-
-.workspace-section.active{
-    display:block !important;
-}
-
-
-/* =====================================================
-   DATA CARDS
-===================================================== */
-
-.data-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:15px;
-}
-
-.data-card{
-
-    border:1px solid #dbe5eb;
-
-    border-radius:12px;
-
-    padding:20px;
-
-    background:#fbfdfe;
-}
-
-.data-card p{
-
-    color:#536979;
-
-    line-height:1.5;
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-.profile-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
-    gap:15px;
-}
-
-.profile-field{
-
-    border:1px solid #dbe5eb;
-
-    border-radius:12px;
-
-    padding:16px;
-
-    background:#fbfdfe;
-}
-
-.profile-field small{
-
-    display:block;
-
-    color:#718492;
-
-    margin-bottom:5px;
-}
-
-.profile-field strong{
-
-    font-size:16px;
-
-    word-break:break-word;
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.status{
-
     display:inline-block;
-
-    padding:7px 13px;
-
-    border-radius:20px;
-
     background:#edf7fa;
-
     color:#0b6477;
-
-    font-weight:bold;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:700;
+    margin-top:8px;
 }
 
+/* =========================
+   WORKSPACE TILES
+========================= */
 
-/* =====================================================
-   TABLE
-===================================================== */
-
-.table-wrapper{
-    overflow-x:auto;
+.tiles{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:25px;
 }
 
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
+.tile{
+    display:block;
+    background:#ffffff;
+    border:1px solid #dce7ec;
+    border-radius:15px;
+    padding:25px;
+    min-height:155px;
+    transition:.2s;
+    cursor:pointer;
 }
 
-th,
-td{
-
-    padding:13px;
-
-    border-bottom:1px solid #e0e8ed;
-
-    text-align:left;
+.tile:hover{
+    transform:translateY(-3px);
+    border-color:#0b6477;
+    box-shadow:0 10px 25px rgba(11,100,119,.12);
 }
 
-th{
-
-    background:#f4f8fb;
+.tile-icon{
+    font-size:30px;
+    margin-bottom:12px;
 }
 
+.tile h3{
+    color:#0b6477;
+    margin-bottom:8px;
+}
 
-/* =====================================================
+.tile p{
+    color:#687d8b;
+    font-size:14px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#718492;
+}
+
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
-@media(max-width:750px){
+@media(max-width:800px){
 
-    .form-grid,
-    .profile-grid,
-    .data-grid,
-    .workspace-nav{
+    .tiles{
+        grid-template-columns:1fr 1fr;
+    }
 
+}
+
+@media(max-width:600px){
+
+    .grid{
         grid-template-columns:1fr;
-
     }
 
-    header{
+    .field.full{
+        grid-column:auto;
+    }
 
+    .tiles{
+        grid-template-columns:1fr;
+    }
+
+    .header-inner{
         flex-direction:column;
-
         align-items:flex-start;
-
-        gap:12px;
-
-    }
-
-    .card{
-        padding:22px;
     }
 
 }
@@ -469,1239 +327,621 @@ th{
 
 </head>
 
-
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      HEADER
-===================================================== -->
+========================= -->
 
 <header>
 
-    <b>
-        🩺 Luvio HealthLink
-    </b>
+<div class="container header-inner">
 
-    <a href="index.html">
-        ← Back to Luvio HealthLink
-    </a>
+<a href="index.html" class="logo">
+    🩺 Luvio <span>HealthLink</span>
+</a>
+
+<a href="index.html" class="back-link">
+    ← Back to Luvio HealthLink
+</a>
+
+</div>
 
 </header>
 
 
+<main>
+
 <div class="container">
 
 
-<!-- =====================================================
+<!-- =========================
+     ENTRY
+========================= -->
+
+<section id="entry" class="card">
+
+<h1>Professional Portal</h1>
+
+<p class="subtitle">
+Login or create your independent Luvio professional identity.
+</p>
+
+<div class="actions">
+
+<button
+class="btn primary"
+type="button"
+onclick="loginScreen()">
+Professional Login
+</button>
+
+<button
+class="btn secondary"
+type="button"
+onclick="signupScreen()">
+Sign Up / Register
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
      LOGIN
-===================================================== -->
+========================= -->
 
-<section id="loginSection"
-         class="card">
+<section id="login" class="card hidden">
 
-    <h1>
-        Professional Login
-    </h1>
+<h1>Professional Login</h1>
 
-    <p class="description">
+<p class="subtitle">
+Access your Luvio professional workspace.
+</p>
 
-        Sign in to your Luvio HealthLink professional account.
-        Your professional identity is independent of any single
-        healthcare organization and can connect with participating
-        healthcare organizations according to your professional
-        role and authorization.
+<div id="loginMessage"></div>
 
-    </p>
+<div class="grid">
 
-    <div id="loginMessage"></div>
+<div class="field">
 
+<label>Professional Type</label>
 
-    <div class="form-grid">
+<select id="loginType">
 
+<option value="doctor">
+Doctor
+</option>
 
-        <div>
+<option value="pharmacist">
+Pharmacist
+</option>
 
-            <label>
-                Professional Type
-            </label>
+<option value="lab">
+Laboratory Professional
+</option>
 
-            <select id="loginType">
+<option value="nurse">
+Nurse
+</option>
 
-                <option value="doctor">
-                    Doctor
-                </option>
+<option value="other">
+Other Healthcare Professional
+</option>
 
-                <option value="pharmacist">
-                    Pharmacist
-                </option>
-
-                <option value="lab">
-                    Laboratory Professional
-                </option>
-
-                <option value="nurse">
-                    Nurse
-                </option>
-
-                <option value="other">
-                    Other Healthcare Professional
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div>
-
-            <label>
-                User ID
-            </label>
-
-            <input
-                id="loginUser"
-                placeholder="Enter your User ID"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Password
-            </label>
-
-            <input
-                id="loginPassword"
-                type="password"
-                placeholder="Enter your password"
-            >
-
-        </div>
-
-
-    </div>
-
-
-    <div class="actions">
-
-        <button
-            type="button"
-            onclick="loginProfessional()">
-
-            Login
-
-        </button>
-
-
-        <button
-            type="button"
-            class="secondary"
-            onclick="showSignup()">
-
-            Sign Up / Register
-
-        </button>
-
-
-        <button
-            type="button"
-            class="secondary"
-            onclick="goHome()">
-
-            ← Back
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     REGISTRATION
-===================================================== -->
-
-<section id="signupSection"
-         class="card hidden">
-
-    <h1>
-        Create Professional Identity
-    </h1>
-
-    <p class="description">
-
-        Your professional identity belongs to you.
-        It can later be associated with multiple healthcare
-        organizations according to your role and permissions.
-
-    </p>
-
-    <div id="signupMessage"></div>
-
-
-    <div class="form-grid">
-
-
-        <div>
-
-            <label>
-                Professional Type *
-            </label>
-
-            <select id="signupType">
-
-                <option value="doctor">
-                    Doctor
-                </option>
-
-                <option value="pharmacist">
-                    Pharmacist
-                </option>
-
-                <option value="lab">
-                    Laboratory Professional
-                </option>
-
-                <option value="nurse">
-                    Nurse
-                </option>
-
-                <option value="other">
-                    Other Healthcare Professional
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Full Name *
-            </label>
-
-            <input id="signupName">
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Specialization / Department
-            </label>
-
-            <input id="signupSpecialization">
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Professional Registration Number *
-            </label>
-
-            <input id="signupRegistration">
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Registration Authority
-            </label>
-
-            <input id="signupAuthority">
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Experience (years)
-            </label>
-
-            <input
-                id="signupExperience"
-                type="number"
-                min="0"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Mobile *
-            </label>
-
-            <input
-                id="signupMobile"
-                maxlength="10"
-                inputmode="numeric"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Email *
-            </label>
-
-            <input
-                id="signupEmail"
-                type="email"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Choose User ID *
-            </label>
-
-            <input
-                id="signupUser"
-                placeholder="Example: regiJohn"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Password *
-            </label>
-
-            <input
-                id="signupPassword"
-                type="password"
-            >
-
-        </div>
-
-
-        <div>
-
-            <label>
-                Confirm Password *
-            </label>
-
-            <input
-                id="signupConfirm"
-                type="password"
-            >
-
-        </div>
-
-
-    </div>
-
-
-    <div class="notice">
-
-        Prototype verification status:
-        <strong>Pending Verification</strong>.
-
-        Production will require secure backend authentication,
-        professional verification and audit controls.
-
-    </div>
-
-
-    <div class="actions">
-
-        <button
-            type="button"
-            onclick="registerProfessional()">
-
-            Create Professional Account
-
-        </button>
-
-
-        <button
-            type="button"
-            class="secondary"
-            onclick="showLogin()">
-
-            Already registered? Login
-
-        </button>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROFESSIONAL WORKSPACE
-===================================================== -->
-
-<section id="workspace"
-         class="hidden">
-
-
-    <!-- =================================================
-         PROFESSIONAL HEADER
-    ================================================== -->
-
-    <div class="card">
-
-        <h1 id="welcomeName">
-            Welcome
-        </h1>
-
-        <div
-            id="professionalId"
-            class="professional-id">
-        </div>
-
-        <p id="professionalSummary"></p>
-
-        <div class="notice">
-
-            Status:
-            <span
-                id="verificationStatus"
-                class="status">
-            </span>
-
-        </div>
-
-        <button
-            type="button"
-            class="danger"
-            onclick="logoutProfessional()">
-
-            Logout
-
-        </button>
-
-    </div>
-
-
-
-    <!-- =================================================
-         WORKSPACE NAVIGATION
-    ================================================== -->
-
-    <div class="card">
-
-        <div class="workspace-nav">
-
-
-            <button
-                type="button"
-                id="navProfile"
-                onclick="showWorkspace('profile')">
-
-                👤 Profile
-
-            </button>
-
-
-            <button
-                type="button"
-                id="navOrganizations"
-                onclick="showWorkspace('organizations')">
-
-                🏢 Organizations
-
-            </button>
-
-
-            <button
-                type="button"
-                id="navOpportunities"
-                onclick="showWorkspace('opportunities')">
-
-                💼 Opportunities
-
-            </button>
-
-
-            <button
-                type="button"
-                id="navSchedule"
-                onclick="showWorkspace('schedule')">
-
-                📅 Schedule
-
-            </button>
-
-
-            <button
-                type="button"
-                id="navPatients"
-                onclick="showWorkspace('patients')">
-
-                👥 Patients
-
-            </button>
-
-
-            <button
-                type="button"
-                id="navConsultations"
-                onclick="showWorkspace('consultations')">
-
-                🩺 Consultations
-
-            </button>
-
-
-        </div>
-
-
-
-        <!-- =============================================
-             PROFILE
-        ============================================== -->
-
-        <div
-            id="profile"
-            class="workspace-section">
-
-            <h2>
-                Professional Profile
-            </h2>
-
-            <p class="description">
-
-                Your professional identity is independent
-                of any single healthcare organization.
-
-            </p>
-
-
-            <div
-                id="profileFields"
-                class="profile-grid">
-            </div>
-
-
-            <div class="actions">
-
-                <button
-                    type="button"
-                    onclick="editProfile()">
-
-                    Edit Profile
-
-                </button>
-
-            </div>
-
-
-            <div
-                id="profileEdit"
-                class="hidden">
-
-
-                <div class="notice">
-
-                    You can update your professional information.
-                    Your Professional ID and User ID remain fixed.
-
-                </div>
-
-
-                <div class="form-grid">
-
-
-                    <div>
-
-                        <label>
-                            Full Name
-                        </label>
-
-                        <input id="editName">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Professional Type
-                        </label>
-
-                        <select id="editType">
-
-                            <option value="doctor">
-                                Doctor
-                            </option>
-
-                            <option value="pharmacist">
-                                Pharmacist
-                            </option>
-
-                            <option value="lab">
-                                Laboratory Professional
-                            </option>
-
-                            <option value="nurse">
-                                Nurse
-                            </option>
-
-                            <option value="other">
-                                Other Healthcare Professional
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Specialization / Department
-                        </label>
-
-                        <input id="editSpecialization">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Registration Number
-                        </label>
-
-                        <input id="editRegistration">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Registration Authority
-                        </label>
-
-                        <input id="editAuthority">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Experience
-                        </label>
-
-                        <input
-                            id="editExperience"
-                            type="number">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Mobile
-                        </label>
-
-                        <input
-                            id="editMobile"
-                            maxlength="10"
-                            inputmode="numeric">
-
-                    </div>
-
-
-                    <div>
-
-                        <label>
-                            Email
-                        </label>
-
-                        <input
-                            id="editEmail"
-                            type="email">
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="actions">
-
-                    <button
-                        type="button"
-                        onclick="saveProfile()">
-
-                        Save Changes
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="cancelEdit()">
-
-                        Cancel
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             ORGANIZATIONS
-        ============================================== -->
-
-        <div
-            id="organizations"
-            class="workspace-section">
-
-            <h2>
-                My Organizations
-            </h2>
-
-            <p class="description">
-
-                Healthcare organizations can associate
-                professionals with their workplaces.
-                A professional may belong to more than
-                one organization.
-
-            </p>
-
-
-            <div class="data-grid">
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Association Requests
-                    </h3>
-
-                    <p>
-                        Review requests from polyclinics,
-                        pharmacies, diagnostic centers and hospitals.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Association Requests')">
-
-                        View Requests
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        My Organizations
-                    </h3>
-
-                    <p>
-                        Organizations where your professional
-                        identity has been associated.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('My Organizations')">
-
-                        View Organizations
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Find Organizations
-                    </h3>
-
-                    <p>
-                        Search participating healthcare
-                        organizations for professional opportunities.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Find Organizations')">
-
-                        Search
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             OPPORTUNITIES
-        ============================================== -->
-
-        <div
-            id="opportunities"
-            class="workspace-section">
-
-            <h2>
-                Professional Opportunities
-            </h2>
-
-            <p class="description">
-
-                Find professional roles, vacancies,
-                organization invitations and healthcare opportunities.
-
-            </p>
-
-
-            <div class="data-grid">
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Jobs
-                    </h3>
-
-                    <p>
-                        Browse healthcare jobs matching
-                        your professional type and specialization.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Professional Jobs')">
-
-                        Browse Jobs
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Invitations
-                    </h3>
-
-                    <p>
-                        Review direct invitations from
-                        participating organizations.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Organization Invitations')">
-
-                        View Invitations
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        My Applications
-                    </h3>
-
-                    <p>
-                        Track opportunities you have applied for.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('My Applications')">
-
-                        View Applications
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             SCHEDULE
-        ============================================== -->
-
-        <div
-            id="schedule"
-            class="workspace-section">
-
-            <h2>
-                My Schedule
-            </h2>
-
-            <p class="description">
-
-                Manage your professional availability,
-                working hours and appointments.
-
-            </p>
-
-
-            <div class="data-grid">
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Availability
-                    </h3>
-
-                    <p>
-                        Set the days and times when you are
-                        available for professional work.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Availability')">
-
-                        Manage Availability
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Appointments
-                    </h3>
-
-                    <p>
-                        View appointments connected to
-                        organizations where you work.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Appointments')">
-
-                        View Appointments
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Online Consultation
-                    </h3>
-
-                    <p>
-                        Manage availability for online
-                        patient consultations.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Online Consultation Schedule')">
-
-                        Manage Online Availability
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             PATIENTS
-        ============================================== -->
-
-        <div
-            id="patients"
-            class="workspace-section">
-
-            <h2>
-                Patients
-            </h2>
-
-            <p class="description">
-
-                Patients become available here through
-                authorized healthcare workflows and
-                professional-organization associations.
-
-            </p>
-
-
-            <div class="notice">
-
-                <strong>Important:</strong>
-
-                A professional does not automatically receive
-                access to every patient in Luvio HealthLink.
-
-                Patient access will be controlled through
-                organization assignment, consultation workflow
-                and appropriate authorization.
-
-            </div>
-
-
-            <div class="data-grid">
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Pending Patients
-                    </h3>
-
-                    <p>
-                        Patients assigned to you by an
-                        authorized organization and awaiting
-                        professional acceptance.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Pending Patients')">
-
-                        View Pending
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        My Patients
-                    </h3>
-
-                    <p>
-                        Patients you are currently authorized
-                        to manage through your professional role.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('My Patients')">
-
-                        View My Patients
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Search Patient
-                    </h3>
-
-                    <p>
-                        Search for a patient using the
-                        appropriate authorized patient identifier.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Patient Search')">
-
-                        Search Patient
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- =============================================
-             CONSULTATIONS
-        ============================================== -->
-
-        <div
-            id="consultations"
-            class="workspace-section">
-
-            <h2>
-                Consultations
-            </h2>
-
-            <p class="description">
-
-                Manage your consultation workflow from
-                patient assignment through completion.
-
-            </p>
-
-
-            <div class="data-grid">
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Today's Queue
-                    </h3>
-
-                    <p>
-                        Patients assigned to your current
-                        consultation queue.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Consultation Queue')">
-
-                        Open Queue
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Consultation Records
-                    </h3>
-
-                    <p>
-                        Review completed consultation
-                        records that you are authorized to access.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Consultation Records')">
-
-                        View Records
-
-                    </button>
-
-                </div>
-
-
-                <div class="data-card">
-
-                    <h3>
-                        Clinical Workflow
-                    </h3>
-
-                    <p>
-                        Future workflow for consultation,
-                        prescription, diagnostics and referrals.
-                    </p>
-
-                    <button
-                        type="button"
-                        class="secondary"
-                        onclick="showDemoMessage('Clinical Workflow')">
-
-                        Open Workflow
-
-                    </button>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
+</select>
 
 </div>
 
 
+<div class="field">
+
+<label>User ID</label>
+
+<input
+type="text"
+id="loginUserId"
+placeholder="Enter your User ID">
+
+</div>
+
+
+<div class="field">
+
+<label>Password</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter your password">
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<button
+class="btn primary"
+type="button"
+onclick="doLogin()">
+Login
+</button>
+
+<button
+class="btn secondary"
+type="button"
+onclick="signupScreen()">
+Sign Up / Register
+</button>
+
+<button
+class="btn secondary"
+type="button"
+onclick="entryScreen()">
+← Back
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SIGN UP
+========================= -->
+
+<section id="signup" class="card hidden">
+
+<h1>Create Professional Identity</h1>
+
+<p class="subtitle">
+Your professional identity is owned by you, not by a clinic,
+pharmacy, hospital or other organization.
+</p>
+
+<div id="signupMessage"></div>
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>Professional Type *</label>
+
+<select id="professionalType">
+
+<option value="doctor">
+Doctor
+</option>
+
+<option value="pharmacist">
+Pharmacist
+</option>
+
+<option value="lab">
+Laboratory Professional
+</option>
+
+<option value="nurse">
+Nurse
+</option>
+
+<option value="other">
+Other Healthcare Professional
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>Full Name *</label>
+
+<input
+type="text"
+id="professionalName"
+placeholder="Full name">
+
+</div>
+
+
+<div class="field">
+
+<label>Specialization / Department</label>
+
+<input
+type="text"
+id="specialization"
+placeholder="Specialization or department">
+
+</div>
+
+
+<div class="field">
+
+<label>Professional Registration Number *</label>
+
+<input
+type="text"
+id="registrationNumber"
+placeholder="Registration number">
+
+</div>
+
+
+<div class="field">
+
+<label>Mobile *</label>
+
+<input
+type="text"
+id="mobile"
+maxlength="10"
+placeholder="10-digit mobile number">
+
+</div>
+
+
+<div class="field">
+
+<label>Email *</label>
+
+<input
+type="email"
+id="email"
+placeholder="Email address">
+
+</div>
+
+
+<div class="field">
+
+<label>Registration Authority</label>
+
+<input
+type="text"
+id="registrationAuthority"
+placeholder="Registration authority">
+
+</div>
+
+
+<div class="field">
+
+<label>Experience (years)</label>
+
+<input
+type="number"
+id="experience"
+min="0"
+placeholder="Years">
+
+</div>
+
+
+<div class="field">
+
+<label>Choose User ID *</label>
+
+<input
+type="text"
+id="userId"
+placeholder="Choose your User ID">
+
+</div>
+
+
+<div class="field">
+
+<label>Password *</label>
+
+<input
+type="password"
+id="password"
+placeholder="Create password">
+
+</div>
+
+
+<div class="field">
+
+<label>Confirm Password *</label>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm password">
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+Your Professional ID will be generated automatically by Luvio HealthLink.
+
+Example:
+
+<strong>DOC-000001</strong>
+
+<br>
+
+Professional verification will be handled through the future
+Luvio verification system.
+
+</div>
+
+
+<div class="actions">
+
+<button
+class="btn primary"
+type="button"
+onclick="registerProfessional()">
+Create Professional Account
+</button>
+
+<button
+class="btn secondary"
+type="button"
+onclick="loginScreen()">
+Already Registered? Login
+</button>
+
+<button
+class="btn secondary"
+type="button"
+onclick="entryScreen()">
+← Back
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROFESSIONAL WORKSPACE
+========================= -->
+
+<section id="workspace" class="hidden">
+
+
+<div class="card">
+
+<div class="workspace-header">
+
+<div>
+
+<h1 id="welcomeName">
+Welcome
+</h1>
+
+<p id="professionalSummary">
+</p>
+
+<span
+class="professional-id"
+id="professionalId">
+</span>
+
+</div>
+
+
+<div>
+
+<button
+class="btn danger"
+type="button"
+onclick="logout()">
+Logout
+</button>
+
+</div>
+
+</div>
+
+
+<div class="notice">
+
+Status:
+<strong id="professionalStatus">
+Pending Verification
+</strong>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     WORKSPACE MODULES
+========================= -->
+
+<div class="card">
+
+<h2>Professional Workspace</h2>
+
+<p class="subtitle">
+Manage your professional identity, organizations,
+opportunities, schedule and authorized healthcare workflows.
+</p>
+
+
+<div class="tiles">
+
+
+<!-- PROFILE -->
+
+<a
+href="professional-profile.html"
+class="tile">
+
+<div class="tile-icon">
+👤
+</div>
+
+<h3>
+Profile
+</h3>
+
+<p>
+Manage your professional identity, registration,
+specialization and contact information.
+</p>
+
+</a>
+
+
+<!-- ORGANIZATIONS -->
+
+<a
+href="professional-organizations.html"
+class="tile">
+
+<div class="tile-icon">
+🏢
+</div>
+
+<h3>
+Organizations
+</h3>
+
+<p>
+View organizations and manage professional
+association requests.
+</p>
+
+</a>
+
+
+<!-- OPPORTUNITIES -->
+
+<a
+href="professional-opportunities.html"
+class="tile">
+
+<div class="tile-icon">
+💼
+</div>
+
+<h3>
+Opportunities
+</h3>
+
+<p>
+Explore professional jobs, roles and healthcare
+career opportunities.
+</p>
+
+</a>
+
+
+<!-- SCHEDULE -->
+
+<a
+href="professional-schedule.html"
+class="tile">
+
+<div class="tile-icon">
+📅
+</div>
+
+<h3>
+Schedule
+</h3>
+
+<p>
+Manage availability, appointments and your
+professional schedule.
+</p>
+
+</a>
+
+
+<!-- PATIENTS -->
+
+<a
+href="professional-patients.html"
+class="tile">
+
+<div class="tile-icon">
+👥
+</div>
+
+<h3>
+Patients
+</h3>
+
+<p>
+Access authorized patient assignments and
+professional patient workflows.
+</p>
+
+</a>
+
+
+<!-- CONSULTATIONS -->
+
+<a
+href="professional-consultations.html"
+class="tile">
+
+<div class="tile-icon">
+🩺
+</div>
+
+<h3>
+Consultations
+</h3>
+
+<p>
+Manage consultations, clinical documentation
+and connected care workflows.
+</p>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+</main>
+
+
+<footer>
+
+© 2026 Luvio HealthLink. All rights reserved.
+
+</footer>
+
 
 <script>
 
-/* =====================================================
+/* =========================
    STORAGE
-===================================================== */
+========================= */
 
 const ACCOUNTS_KEY = "luvio_doctor_accounts";
 
 const CURRENT_KEY = "luvio_current_doctor";
 
 
-/* =====================================================
-   STORAGE HELPERS
-===================================================== */
+/* =========================
+   ACCOUNT FUNCTIONS
+========================= */
 
 function getAccounts(){
 
@@ -1730,75 +970,9 @@ function saveAccounts(accounts){
 }
 
 
-function getCurrent(){
-
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(CURRENT_KEY) || "null"
-        );
-
-    }catch(error){
-
-        return null;
-
-    }
-
-}
-
-
-function saveCurrent(professional){
-
-    localStorage.setItem(
-        CURRENT_KEY,
-        JSON.stringify(professional)
-    );
-
-}
-
-
-/* =====================================================
-   LOGIN / SIGNUP DISPLAY
-===================================================== */
-
-function showLogin(){
-
-    document.getElementById("loginSection")
-        .classList.remove("hidden");
-
-    document.getElementById("signupSection")
-        .classList.add("hidden");
-
-    document.getElementById("workspace")
-        .classList.add("hidden");
-
-}
-
-
-function showSignup(){
-
-    document.getElementById("loginSection")
-        .classList.add("hidden");
-
-    document.getElementById("signupSection")
-        .classList.remove("hidden");
-
-    document.getElementById("workspace")
-        .classList.add("hidden");
-
-}
-
-
-function goHome(){
-
-    window.location.href = "index.html";
-
-}
-
-
-/* =====================================================
-   PROFESSIONAL ID
-===================================================== */
+/* =========================
+   ID GENERATOR
+========================= */
 
 function generateProfessionalId(type){
 
@@ -1816,34 +990,117 @@ function generateProfessionalId(type){
 
     };
 
-
     const prefix =
         prefixes[type] || "PROF";
 
 
-    const accounts =
-        getAccounts();
+    const accounts = getAccounts();
 
 
-    const count =
-        accounts.filter(function(x){
-
-            return x.id &&
-                   x.id.startsWith(prefix + "-");
-
-        }).length + 1;
+    let highest = 0;
 
 
-    return prefix +
+    accounts.forEach(account => {
+
+        if(
+            account.id &&
+            account.id.startsWith(prefix + "-")
+        ){
+
+            const number = parseInt(
+                account.id.split("-")[1],
+                10
+            );
+
+            if(!isNaN(number) && number > highest){
+
+                highest = number;
+
+            }
+
+        }
+
+    });
+
+
+    return (
+        prefix +
         "-" +
-        String(count).padStart(6,"0");
+        String(highest + 1).padStart(6,"0")
+    );
 
 }
 
 
-/* =====================================================
+/* =========================
+   SCREEN FUNCTIONS
+========================= */
+
+function hideAllScreens(){
+
+    document
+        .getElementById("entry")
+        .classList.add("hidden");
+
+    document
+        .getElementById("login")
+        .classList.add("hidden");
+
+    document
+        .getElementById("signup")
+        .classList.add("hidden");
+
+    document
+        .getElementById("workspace")
+        .classList.add("hidden");
+
+}
+
+
+function entryScreen(){
+
+    hideAllScreens();
+
+    document
+        .getElementById("entry")
+        .classList.remove("hidden");
+
+}
+
+
+function loginScreen(){
+
+    hideAllScreens();
+
+    document
+        .getElementById("login")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("loginMessage")
+        .innerHTML = "";
+
+}
+
+
+function signupScreen(){
+
+    hideAllScreens();
+
+    document
+        .getElementById("signup")
+        .classList.remove("hidden");
+
+    document
+        .getElementById("signupMessage")
+        .innerHTML = "";
+
+}
+
+
+/* =========================
    REGISTER
-===================================================== */
+========================= */
 
 function registerProfessional(){
 
@@ -1851,47 +1108,77 @@ function registerProfessional(){
 
 
     const type =
-        document.getElementById("signupType").value;
+        document
+        .getElementById("professionalType")
+        .value;
+
 
     const name =
-        document.getElementById("signupName").value.trim();
+        document
+        .getElementById("professionalName")
+        .value.trim();
+
 
     const specialization =
-        document.getElementById("signupSpecialization")
+        document
+        .getElementById("specialization")
         .value.trim();
+
 
     const registration =
-        document.getElementById("signupRegistration")
+        document
+        .getElementById("registrationNumber")
         .value.trim();
 
-    const authority =
-        document.getElementById("signupAuthority")
-        .value.trim();
-
-    const experience =
-        document.getElementById("signupExperience")
-        .value;
 
     const mobile =
-        document.getElementById("signupMobile")
+        document
+        .getElementById("mobile")
         .value.trim();
+
 
     const email =
-        document.getElementById("signupEmail")
+        document
+        .getElementById("email")
         .value.trim();
+
+
+    const authority =
+        document
+        .getElementById("registrationAuthority")
+        .value.trim();
+
+
+    const experience =
+        document
+        .getElementById("experience")
+        .value;
+
 
     const userId =
-        document.getElementById("signupUser")
+        document
+        .getElementById("userId")
         .value.trim();
 
+
     const password =
-        document.getElementById("signupPassword")
+        document
+        .getElementById("password")
         .value;
 
-    const confirm =
-        document.getElementById("signupConfirm")
+
+    const confirmPassword =
+        document
+        .getElementById("confirmPassword")
         .value;
 
+
+    const message =
+        document
+        .getElementById("signupMessage");
+
+
+    /* REQUIRED FIELDS */
 
     if(
         !name ||
@@ -1902,182 +1189,9 @@ function registerProfessional(){
         !password
     ){
 
-        showSignupError(
-            "Please fill all required fields."
-        );
-
-        return;
-
-    }
-
-
-    if(!/^\d{10}$/.test(mobile)){
-
-        showSignupError(
-            "Enter a valid 10-digit mobile number."
-        );
-
-        return;
-
-    }
-
-
-    if(password !== confirm){
-
-        showSignupError(
-            "Passwords do not match."
-        );
-
-        return;
-
-    }
-
-
-    const existing =
-        accounts.some(function(x){
-
-            return x.userId &&
-                x.userId.toLowerCase() ===
-                userId.toLowerCase();
-
-        });
-
-
-    if(existing){
-
-        showSignupError(
-            "This User ID already exists."
-        );
-
-        return;
-
-    }
-
-
-    const professional = {
-
-        id:
-            generateProfessionalId(type),
-
-        type:
-            type,
-
-        name:
-            name,
-
-        specialization:
-            specialization,
-
-        registration:
-            registration,
-
-        authority:
-            authority,
-
-        experience:
-            experience,
-
-        mobile:
-            mobile,
-
-        email:
-            email,
-
-        userId:
-            userId,
-
-        password:
-            password,
-
-        status:
-            "Pending Verification"
-
-    };
-
-
-    accounts.push(professional);
-
-    saveAccounts(accounts);
-
-
-    alert(
-        "Registration successful.\n\n" +
-        "Your Professional ID is:\n" +
-        professional.id
-    );
-
-
-    document.getElementById(
-        "loginType"
-    ).value = type;
-
-
-    document.getElementById(
-        "loginUser"
-    ).value = userId;
-
-
-    document.getElementById(
-        "loginPassword"
-    ).value = "";
-
-
-    showLogin();
-
-}
-
-
-function showSignupError(message){
-
-    document.getElementById(
-        "signupMessage"
-    ).innerHTML =
-        '<div class="error">' +
-        escapeHTML(message) +
-        '</div>';
-
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-function loginProfessional(){
-
-    const type =
-        document.getElementById("loginType").value;
-
-    const userId =
-        document.getElementById("loginUser").value.trim();
-
-    const password =
-        document.getElementById("loginPassword").value;
-
-
-    const accounts =
-        getAccounts();
-
-
-    const professional =
-        accounts.find(function(x){
-
-            return (
-                x.type === type &&
-                x.userId === userId &&
-                x.password === password
-            );
-
-        });
-
-
-    if(!professional){
-
-        document.getElementById(
-            "loginMessage"
-        ).innerHTML =
+        message.innerHTML =
             '<div class="error">' +
-            'Invalid professional type, User ID or password.' +
+            'Please fill all required fields.' +
             '</div>';
 
         return;
@@ -2085,110 +1199,257 @@ function loginProfessional(){
     }
 
 
-    saveCurrent(professional);
+    /* MOBILE */
 
-    openWorkspace(professional);
+    if(!/^\d{10}$/.test(mobile)){
 
-}
+        message.innerHTML =
+            '<div class="error">' +
+            'Enter a valid 10-digit mobile number.' +
+            '</div>';
 
+        return;
 
-/* =====================================================
-   OPEN WORKSPACE
-===================================================== */
-
-function openWorkspace(professional){
-
-    document.getElementById(
-        "loginSection"
-    ).classList.add("hidden");
+    }
 
 
-    document.getElementById(
-        "signupSection"
-    ).classList.add("hidden");
+    /* PASSWORD */
+
+    if(password !== confirmPassword){
+
+        message.innerHTML =
+            '<div class="error">' +
+            'Passwords do not match.' +
+            '</div>';
+
+        return;
+
+    }
 
 
-    document.getElementById(
-        "workspace"
-    ).classList.remove("hidden");
+    /* USER ID */
+
+    const duplicate =
+        accounts.some(
+            account =>
+            account.userId.toLowerCase() ===
+            userId.toLowerCase()
+        );
 
 
-    document.getElementById(
-        "welcomeName"
-    ).textContent =
-        "Welcome, " + professional.name;
+    if(duplicate){
+
+        message.innerHTML =
+            '<div class="error">' +
+            'This User ID already exists.' +
+            '</div>';
+
+        return;
+
+    }
 
 
-    document.getElementById(
-        "professionalId"
-    ).textContent =
-        professional.id;
+    /* CREATE ID */
+
+    const professionalId =
+        generateProfessionalId(type);
 
 
-    document.getElementById(
-        "professionalSummary"
-    ).textContent =
+    /* ACCOUNT */
 
-        professionalTypeName(
-            professional.type
-        ) +
+    const account = {
 
-        " • " +
+        id:professionalId,
 
-        (
-            professional.specialization ||
-            "No specialization"
-        ) +
+        type:type,
 
-        " • Registration: " +
+        name:name,
 
-        professional.registration;
+        specialization:specialization,
 
+        registration:registration,
 
-    document.getElementById(
-        "verificationStatus"
-    ).textContent =
-        professional.status ||
-        "Pending Verification";
+        mobile:mobile,
 
+        email:email,
 
-    renderProfile(professional);
+        authority:authority,
 
+        experience:experience,
 
-    /*
-       Always start on Profile.
-    */
+        userId:userId,
 
-    showWorkspace("profile");
+        password:password,
 
-}
-
-
-/* =====================================================
-   PROFESSIONAL TYPE NAME
-===================================================== */
-
-function professionalTypeName(type){
-
-    const names = {
-
-        doctor:
-            "Doctor",
-
-        pharmacist:
-            "Pharmacist",
-
-        lab:
-            "Laboratory Professional",
-
-        nurse:
-            "Nurse",
-
-        other:
-            "Other Healthcare Professional"
+        status:"Pending Verification"
 
     };
 
+
+    accounts.push(account);
+
+
+    saveAccounts(accounts);
+
+
+    alert(
+        "Professional registration successful.\n\n" +
+        "Your Professional ID is: " +
+        professionalId
+    );
+
+
+    /* PREPARE LOGIN */
+
+    document
+        .getElementById("loginType")
+        .value = type;
+
+
+    document
+        .getElementById("loginUserId")
+        .value = userId;
+
+
+    document
+        .getElementById("loginPassword")
+        .value = "";
+
+
+    loginScreen();
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function doLogin(){
+
+    const type =
+        document
+        .getElementById("loginType")
+        .value;
+
+
+    const userId =
+        document
+        .getElementById("loginUserId")
+        .value.trim();
+
+
+    const password =
+        document
+        .getElementById("loginPassword")
+        .value;
+
+
+    const message =
+        document
+        .getElementById("loginMessage");
+
+
+    const accounts = getAccounts();
+
+
+    const account =
+        accounts.find(
+            item =>
+            item.type === type &&
+            item.userId === userId &&
+            item.password === password
+        );
+
+
+    if(!account){
+
+        message.innerHTML =
+            '<div class="error">' +
+            'Invalid Professional Type, User ID or Password.' +
+            '</div>';
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        CURRENT_KEY,
+        JSON.stringify(account)
+    );
+
+
+    openWorkspace(account);
+
+}
+
+
+/* =========================
+   OPEN WORKSPACE
+========================= */
+
+function openWorkspace(account){
+
+    hideAllScreens();
+
+
+    document
+        .getElementById("workspace")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("welcomeName")
+        .textContent =
+        "Welcome, " + account.name;
+
+
+    document
+        .getElementById("professionalSummary")
+        .textContent =
+        getProfessionalTypeName(account.type) +
+        " • " +
+        (account.specialization ||
+        "No specialization") +
+        " • Registration: " +
+        account.registration;
+
+
+    document
+        .getElementById("professionalId")
+        .textContent =
+        account.id;
+
+
+    document
+        .getElementById("professionalStatus")
+        .textContent =
+        account.status ||
+        "Pending Verification";
+
+}
+
+
+/* =========================
+   TYPE NAME
+========================= */
+
+function getProfessionalTypeName(type){
+
+    const names = {
+
+        doctor:"Doctor",
+
+        pharmacist:"Pharmacist",
+
+        lab:"Laboratory Professional",
+
+        nurse:"Nurse",
+
+        other:"Other Healthcare Professional"
+
+    };
 
     return names[type] ||
            "Healthcare Professional";
@@ -2196,544 +1457,52 @@ function professionalTypeName(type){
 }
 
 
-/* =====================================================
-   PROFILE
-===================================================== */
-
-function renderProfile(professional){
-
-    const fields = [
-
-        [
-            "Professional ID",
-            professional.id
-        ],
-
-        [
-            "User ID",
-            professional.userId
-        ],
-
-        [
-            "Professional Type",
-            professionalTypeName(
-                professional.type
-            )
-        ],
-
-        [
-            "Full Name",
-            professional.name
-        ],
-
-        [
-            "Specialization / Department",
-            professional.specialization
-        ],
-
-        [
-            "Registration Number",
-            professional.registration
-        ],
-
-        [
-            "Registration Authority",
-            professional.authority
-        ],
-
-        [
-            "Experience",
-            professional.experience
-                ? professional.experience + " years"
-                : "Not provided"
-        ],
-
-        [
-            "Mobile",
-            professional.mobile
-        ],
-
-        [
-            "Email",
-            professional.email
-        ]
-
-    ];
-
-
-    document.getElementById(
-        "profileFields"
-    ).innerHTML = fields.map(function(item){
-
-        return `
-            <div class="profile-field">
-
-                <small>
-                    ${escapeHTML(item[0])}
-                </small>
-
-                <strong>
-                    ${escapeHTML(
-                        item[1] || "Not provided"
-                    )}
-                </strong>
-
-            </div>
-        `;
-
-    }).join("");
-
-}
-
-
-/* =====================================================
-   EDIT PROFILE
-===================================================== */
-
-function editProfile(){
-
-    const p = getCurrent();
-
-
-    if(!p){
-        return;
-    }
-
-
-    document.getElementById("editName").value =
-        p.name || "";
-
-
-    document.getElementById("editType").value =
-        p.type || "doctor";
-
-
-    document.getElementById("editSpecialization").value =
-        p.specialization || "";
-
-
-    document.getElementById("editRegistration").value =
-        p.registration || "";
-
-
-    document.getElementById("editAuthority").value =
-        p.authority || "";
-
-
-    document.getElementById("editExperience").value =
-        p.experience || "";
-
-
-    document.getElementById("editMobile").value =
-        p.mobile || "";
-
-
-    document.getElementById("editEmail").value =
-        p.email || "";
-
-
-    document.getElementById(
-        "profileEdit"
-    ).classList.remove("hidden");
-
-}
-
-
-function cancelEdit(){
-
-    document.getElementById(
-        "profileEdit"
-    ).classList.add("hidden");
-
-}
-
-
-function saveProfile(){
-
-    const current = getCurrent();
-
-
-    if(!current){
-        return;
-    }
-
-
-    const name =
-        document.getElementById("editName")
-        .value.trim();
-
-    const type =
-        document.getElementById("editType")
-        .value;
-
-    const specialization =
-        document.getElementById("editSpecialization")
-        .value.trim();
-
-    const registration =
-        document.getElementById("editRegistration")
-        .value.trim();
-
-    const authority =
-        document.getElementById("editAuthority")
-        .value.trim();
-
-    const experience =
-        document.getElementById("editExperience")
-        .value;
-
-    const mobile =
-        document.getElementById("editMobile")
-        .value.trim();
-
-    const email =
-        document.getElementById("editEmail")
-        .value.trim();
-
-
-    if(
-        !name ||
-        !registration ||
-        !mobile ||
-        !email
-    ){
-
-        alert(
-            "Please complete the required fields."
-        );
-
-        return;
-
-    }
-
-
-    if(!/^\d{10}$/.test(mobile)){
-
-        alert(
-            "Enter a valid 10-digit mobile number."
-        );
-
-        return;
-
-    }
-
-
-    const accounts =
-        getAccounts();
-
-
-    const index =
-        accounts.findIndex(function(x){
-
-            return x.id === current.id;
-
-        });
-
-
-    if(index === -1){
-
-        alert(
-            "Professional account could not be found."
-        );
-
-        return;
-
-    }
-
-
-    accounts[index] = {
-
-        ...accounts[index],
-
-        name:
-            name,
-
-        type:
-            type,
-
-        specialization:
-            specialization,
-
-        registration:
-            registration,
-
-        authority:
-            authority,
-
-        experience:
-            experience,
-
-        mobile:
-            mobile,
-
-        email:
-            email
-
-    };
-
-
-    saveAccounts(accounts);
-
-    saveCurrent(accounts[index]);
-
-
-    renderProfile(accounts[index]);
-
-
-    document.getElementById(
-        "professionalSummary"
-    ).textContent =
-
-        professionalTypeName(
-            accounts[index].type
-        ) +
-
-        " • " +
-
-        (
-            accounts[index].specialization ||
-            "No specialization"
-        ) +
-
-        " • Registration: " +
-
-        accounts[index].registration;
-
-
-    cancelEdit();
-
-
-    alert(
-        "Professional profile updated successfully."
-    );
-
-}
-
-
-/* =====================================================
-   WORKSPACE SWITCHING
-   THIS IS THE FIXED NAVIGATION
-===================================================== */
-
-function showWorkspace(section){
-
-    const sections = [
-        "profile",
-        "organizations",
-        "opportunities",
-        "schedule",
-        "patients",
-        "consultations"
-    ];
-
-
-    /*
-       1. Hide every section.
-    */
-
-    sections.forEach(function(id){
-
-        const element =
-            document.getElementById(id);
-
-        if(element){
-
-            element.classList.remove("active");
-
-            element.style.display = "none";
-
-        }
-
-    });
-
-
-    /*
-       2. Remove active state from
-          every navigation button.
-    */
-
-    const buttons = [
-
-        "navProfile",
-        "navOrganizations",
-        "navOpportunities",
-        "navSchedule",
-        "navPatients",
-        "navConsultations"
-
-    ];
-
-
-    buttons.forEach(function(id){
-
-        const button =
-            document.getElementById(id);
-
-        if(button){
-
-            button.classList.remove("active");
-
-        }
-
-    });
-
-
-    /*
-       3. Find requested section.
-    */
-
-    const selected =
-        document.getElementById(section);
-
-
-    if(!selected){
-
-        return;
-
-    }
-
-
-    /*
-       4. Show requested section.
-    */
-
-    selected.classList.add("active");
-
-    selected.style.display = "block";
-
-
-    /*
-       5. Highlight corresponding button.
-    */
-
-    const buttonMap = {
-
-        profile:
-            "navProfile",
-
-        organizations:
-            "navOrganizations",
-
-        opportunities:
-            "navOpportunities",
-
-        schedule:
-            "navSchedule",
-
-        patients:
-            "navPatients",
-
-        consultations:
-            "navConsultations"
-
-    };
-
-
-    const selectedButton =
-        document.getElementById(
-            buttonMap[section]
-        );
-
-
-    if(selectedButton){
-
-        selectedButton.classList.add("active");
-
-    }
-
-
-    /*
-       6. Scroll to the workspace content.
-    */
-
-    selected.scrollIntoView({
-
-        behavior:"smooth",
-
-        block:"start"
-
-    });
-
-}
-
-
-/* =====================================================
-   DEMO ACTIONS
-===================================================== */
-
-function showDemoMessage(module){
-
-    alert(
-
-        module +
-
-        " is prepared in the Professional System.\n\n" +
-
-        "We will make this module fully functional next."
-
-    );
-
-}
-
-
-/* =====================================================
+/* =========================
    LOGOUT
-===================================================== */
+========================= */
 
-function logoutProfessional(){
+function logout(){
 
     localStorage.removeItem(
         CURRENT_KEY
     );
 
-
-    window.location.href =
-        "index.html";
+    entryScreen();
 
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHTML(value){
-
-    return String(value ?? "")
-
-        .replace(/&/g,"&amp;")
-
-        .replace(/</g,"&lt;")
-
-        .replace(/>/g,"&gt;")
-
-        .replace(/"/g,"&quot;")
-
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =====================================================
-   PAGE LOAD
-===================================================== */
+/* =========================
+   AUTO LOGIN
+========================= */
 
 window.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        const current =
-            getCurrent();
+        try{
+
+            const current =
+                JSON.parse(
+                    localStorage.getItem(
+                        CURRENT_KEY
+                    ) || "null"
+                );
 
 
-        if(current){
+            if(current){
 
-            openWorkspace(current);
+                openWorkspace(current);
 
-        }
-        else{
+            }else{
 
-            showLogin();
+                entryScreen();
+
+            }
+
+        }catch(error){
+
+            entryScreen();
 
         }
 
@@ -2743,4 +1512,5 @@ window.addEventListener(
 </script>
 
 </body>
+
 </html>
