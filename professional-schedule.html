@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Schedule | Luvio HealthLink</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f8fb;
+    color:#20354d;
+}
+
+header{
+    background:white;
+    border-bottom:1px solid #dce6ec;
+    padding:35px 5%;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:#2f687c;
+}
+
+.logo span{
+    color:#55a69b;
+}
+
+.back{
+    display:inline-block;
+    margin-top:45px;
+    text-decoration:none;
+    color:#2f687c;
+    font-size:20px;
+    font-weight:700;
+}
+
+.container{
+    max-width:1100px;
+    margin:55px auto;
+    padding:0 25px;
+}
+
+
+/* PROFESSIONAL CARD */
+
+.profile-card{
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
+    margin-bottom:35px;
+}
+
+.profile-card h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.profile-card p{
+    color:#687b8b;
+    font-size:20px;
+}
+
+.profile-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:22px;
+}
+
+.badge{
+    background:#edf6f8;
+    color:#2f687c;
+    padding:10px 17px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+
+/* TABS */
+
+.tabs{
+    background:white;
+    border-radius:25px;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    box-shadow:0 15px 45px rgba(31,58,78,.06);
+    margin-bottom:35px;
+}
+
+.tab{
+    border:none;
+    background:#eaf2f6;
+    color:#20354d;
+    padding:17px 25px;
+    border-radius:16px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.tab.active{
+    background:#2f687c;
+    color:white;
+}
+
+
+/* SECTIONS */
+
+.section{
+    display:none;
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
+}
+
+.section.active{
+    display:block;
+}
+
+.section h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.section-description{
+    color:#687b8b;
+    font-size:19px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+
+/* DATE HEADER */
+
+.date-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.date-header h3{
+    font-size:25px;
+}
+
+
+/* APPOINTMENT CARD */
+
+.appointment-card{
+    border:1px solid #dce7ed;
+    border-radius:22px;
+    padding:27px;
+    margin-bottom:18px;
+    background:#fbfdfe;
+}
+
+.appointment-time{
+    color:#2f687c;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.appointment-card h3{
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.organization-name{
+    color:#687b8b;
+    margin-bottom:18px;
+}
+
+.appointment-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.info{
+    background:#f1f6f8;
+    padding:14px 17px;
+    border-radius:14px;
+}
+
+.info strong{
+    display:block;
+    font-size:13px;
+    color:#718392;
+    margin-bottom:5px;
+    text-transform:uppercase;
+}
+
+
+/* STATUS */
+
+.status{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.status.confirmed{
+    background:#e4f5ec;
+    color:#27734a;
+}
+
+.status.pending{
+    background:#fff3d9;
+    color:#986a16;
+}
+
+.status.cancelled{
+    background:#fde9e9;
+    color:#a33b3b;
+}
+
+.status.completed{
+    background:#eaf2f6;
+    color:#2f687c;
+}
+
+
+/* BUTTONS */
+
+.primary-btn{
+    background:#2f687c;
+    color:white;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.secondary-btn{
+    background:#eaf2f6;
+    color:#20354d;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.danger-btn{
+    background:#fde9e9;
+    color:#a33b3b;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.action-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+
+/* FILTER */
+
+.filter-row{
+    display:grid;
+    grid-template-columns:1fr 1fr auto;
+    gap:12px;
+    margin-bottom:30px;
+}
+
+input,
+select{
+    width:100%;
+    padding:15px 17px;
+    border:1px solid #ccd9e0;
+    border-radius:13px;
+    font-size:16px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    border-color:#2f687c;
+}
+
+
+/* CALENDAR */
+
+.calendar-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.calendar-header h3{
+    font-size:27px;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:8px;
+}
+
+.day-name{
+    background:#2f687c;
+    color:white;
+    padding:12px 5px;
+    text-align:center;
+    border-radius:10px;
+    font-weight:700;
+}
+
+.day{
+    min-height:100px;
+    border:1px solid #dce7ed;
+    border-radius:12px;
+    padding:10px;
+    background:#fbfdfe;
+    cursor:pointer;
+}
+
+.day:hover{
+    border-color:#2f687c;
+}
+
+.day-number{
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.day.has-event{
+    background:#edf6f8;
+}
+
+.event-dot{
+    font-size:12px;
+    color:#2f687c;
+    font-weight:700;
+}
+
+
+/* AVAILABILITY */
+
+.availability-card{
+    border:1px solid #dce7ed;
+    border-radius:22px;
+    padding:28px;
+    margin-bottom:18px;
+}
+
+.availability-card h3{
+    font-size:23px;
+    margin-bottom:20px;
+}
+
+.availability-row{
+    display:grid;
+    grid-template-columns:150px 1fr auto;
+    gap:15px;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #edf1f3;
+}
+
+.availability-row:last-child{
+    border-bottom:none;
+}
+
+.toggle{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.toggle input{
+    width:auto;
+}
+
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    padding:45px 20px;
+    background:#f7fafb;
+    border-radius:20px;
+    color:#718392;
+    font-size:18px;
+}
+
+
+/* NOTICE */
+
+.notice{
+    background:#edf6f8;
+    border-left:5px solid #2f687c;
+    padding:18px 20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    line-height:1.6;
+    color:#49616f;
+}
+
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(20,40,55,.55);
+    z-index:1000;
+    padding:25px;
+    overflow:auto;
+}
+
+.modal.active{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    width:100%;
+    max-width:700px;
+    background:white;
+    border-radius:28px;
+    padding:40px;
+}
+
+.modal-content h2{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.modal-content p{
+    color:#687b8b;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    float:right;
+    border:none;
+    background:#eaf2f6;
+    border-radius:50%;
+    width:42px;
+    height:42px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        padding:30px 20px;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+
+    .back{
+        font-size:18px;
+        margin-top:35px;
+    }
+
+    .container{
+        margin:35px auto;
+        padding:0 18px;
+    }
+
+    .profile-card,
+    .section{
+        padding:30px 22px;
+        border-radius:23px;
+    }
+
+    .profile-card h1{
+        font-size:36px;
+    }
+
+    .section h2{
+        font-size:30px;
+    }
+
+    .filter-row{
+        grid-template-columns:1fr;
+    }
+
+    .appointment-grid{
+        grid-template-columns:1fr;
+    }
+
+    .calendar{
+        gap:4px;
+    }
+
+    .day{
+        min-height:65px;
+        padding:6px;
+    }
+
+    .day-name{
+        font-size:12px;
+        padding:9px 3px;
+    }
+
+    .event-dot{
+        font-size:9px;
+    }
+
+    .availability-row{
+        grid-template-columns:1fr;
+    }
+
+    .action-row button{
+        width:100%;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🩺 Luvio <span>HealthLink</span>
+    </div>
+
+    <a
+        class="back"
+        href="professional.html">
+
+        ← Back to Professional Workspace
+
+    </a>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- PROFESSIONAL -->
+
+    <div class="profile-card">
+
+        <h1 id="professionalName">
+            Professional
+        </h1>
+
+        <p id="professionalType">
+            Healthcare Professional
+        </p>
+
+        <div class="profile-meta">
+
+            <div
+                class="badge"
+                id="professionalId">
+
+                Professional ID
+
+            </div>
+
+            <div
+                class="badge"
+                id="professionalSpecialization">
+
+                Specialization
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <button
+            class="tab active"
+            onclick="showTab('today',this)">
+
+            Today's Schedule
+
+        </button>
+
+        <button
+            class="tab"
+            onclick="showTab('upcoming',this)">
+
+            Upcoming
+
+        </button>
+
+        <button
+            class="tab"
+            onclick="showTab('calendar',this)">
+
+            Calendar
+
+        </button>
+
+        <button
+            class="tab"
+            onclick="showTab('availability',this)">
+
+            Availability
+
+        </button>
+
+    </div>
+
+
+    <!-- TODAY -->
+
+    <section
+        id="today"
+        class="section active">
+
+        <div class="date-header">
+
+            <div>
+
+                <h2>
+                    Today's Schedule
+                </h2>
+
+                <p
+                    class="section-description"
+                    id="todayDate">
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="filter-row">
+
+            <select
+                id="todayOrganization"
+                onchange="renderToday()">
+
+                <option value="All">
+                    All Organizations
+                </option>
+
+                <option value="Luvio Polyclinic">
+                    Luvio Polyclinic
+                </option>
+
+                <option value="Luvio Partner Hospital">
+                    Luvio Partner Hospital
+                </option>
+
+                <option value="Online Consultation">
+                    Online Consultation
+                </option>
+
+            </select>
+
+
+            <select
+                id="todayStatus"
+                onchange="renderToday()">
+
+                <option value="All">
+                    All Status
+                </option>
+
+                <option value="Confirmed">
+                    Confirmed
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="Completed">
+                    Completed
+                </option>
+
+                <option value="Cancelled">
+                    Cancelled
+                </option>
+
+            </select>
+
+
+            <button
+                class="secondary-btn"
+                onclick="clearTodayFilters()">
+
+                Clear
+
+            </button>
+
+        </div>
+
+
+        <div id="todayResults"></div>
+
+    </section>
+
+
+    <!-- UPCOMING -->
+
+    <section
+        id="upcoming"
+        class="section">
+
+        <h2>
+            Upcoming Schedule
+        </h2>
+
+        <p class="section-description">
+
+            View appointments and professional commitments
+            scheduled for the coming days.
+
+        </p>
+
+
+        <div id="upcomingResults"></div>
+
+    </section>
+
+
+    <!-- CALENDAR -->
+
+    <section
+        id="calendar"
+        class="section">
+
+        <div class="calendar-header">
+
+            <button
+                class="secondary-btn"
+                onclick="changeMonth(-1)">
+
+                ← Previous
+
+            </button>
+
+            <h3 id="calendarTitle"></h3>
+
+            <button
+                class="secondary-btn"
+                onclick="changeMonth(1)">
+
+                Next →
+
+            </button>
+
+        </div>
+
+
+        <div class="calendar">
+
+            <div class="day-name">Sun</div>
+            <div class="day-name">Mon</div>
+            <div class="day-name">Tue</div>
+            <div class="day-name">Wed</div>
+            <div class="day-name">Thu</div>
+            <div class="day-name">Fri</div>
+            <div class="day-name">Sat</div>
+
+            <div id="calendarDays"
+                 style="display:contents;">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AVAILABILITY -->
+
+    <section
+        id="availability"
+        class="section">
+
+        <h2>
+            Availability
+        </h2>
+
+        <p class="section-description">
+
+            Set your professional availability for appointments
+            and online consultations.
+
+        </p>
+
+
+        <div class="notice">
+
+            Availability is connected to your professional identity.
+            Organization-specific schedules can be configured
+            later within each authorized organization workspace.
+
+        </div>
+
+
+        <div
+            id="availabilityList"
+            class="availability-card">
+
+        </div>
+
+
+        <button
+            class="primary-btn"
+            onclick="saveAvailability()">
+
+            Save Availability
+
+        </button>
+
+    </section>
+
+</div>
+
+
+<!-- APPOINTMENT MODAL -->
+
+<div
+    id="appointmentModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            onclick="closeAppointment()">
+
+            ×
+
+        </button>
+
+        <h2 id="modalPatient">
+            Appointment
+        </h2>
+
+        <p id="modalOrganization"></p>
+
+        <div
+            id="modalDetails">
+        </div>
+
+        <div class="action-row">
+
+            <button
+                class="primary-btn"
+                onclick="openConsultation()">
+
+                Open Consultation
+
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="closeAppointment()">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const PROFESSIONAL_ACCOUNTS_KEY =
+    "luvio_doctor_accounts";
+
+const CURRENT_PROFESSIONAL_KEY =
+    "luvio_current_doctor";
+
+const SCHEDULE_KEY =
+    "luvio_professional_schedule";
+
+const AVAILABILITY_KEY =
+    "luvio_professional_availability";
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function getArray(key){
+
+    try{
+
+        const data =
+            JSON.parse(
+                localStorage.getItem(key) || "[]"
+            );
+
+        return Array.isArray(data)
+            ? data
+            : [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function saveArray(key,data){
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(data)
+    );
+
+}
+
+
+function getObject(key, fallback){
+
+    try{
+
+        const data =
+            JSON.parse(
+                localStorage.getItem(key)
+            );
+
+        return data || fallback;
+
+    }catch(error){
+
+        return fallback;
+
+    }
+
+}
+
+
+function saveObject(key,data){
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(data)
+    );
+
+}
+
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJs(value){
+
+    return String(value ?? "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'");
+
+}
+
+
+function professionalValue(...values){
+
+    for(const value of values){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return value;
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL SESSION
+========================================================= */
+
+function getCurrentProfessional(){
+
+    const accounts =
+        getArray(
+            PROFESSIONAL_ACCOUNTS_KEY
+        );
+
+
+    let current = null;
+
+    try{
+
+        current =
+            JSON.parse(
+                localStorage.getItem(
+                    CURRENT_PROFESSIONAL_KEY
+                ) || "null"
+            );
+
+    }catch(error){
+
+        current = null;
+
+    }
+
+
+    if(
+        current &&
+        typeof current === "object"
+    ){
+
+        const currentId =
+            current.id ||
+            current.professionalId ||
+            current.userId;
+
+
+        const found =
+            accounts.find(account =>
+
+                account.id === currentId ||
+                account.professionalId === currentId ||
+                account.userId === currentId
+
+            );
+
+
+        return found || current;
+
+    }
+
+
+    if(typeof current === "string"){
+
+        return accounts.find(account =>
+
+            account.id === current ||
+            account.professionalId === current ||
+            account.userId === current
+
+        ) || null;
+
+    }
+
+
+    return null;
+
+}
+
+
+const professional =
+    getCurrentProfessional();
+
+
+/* =========================================================
+   PROFESSIONAL INFORMATION
+========================================================= */
+
+function loadProfessional(){
+
+    if(!professional){
+
+        document.getElementById(
+            "professionalName"
+        ).textContent =
+            "Professional";
+
+        document.getElementById(
+            "professionalType"
+        ).textContent =
+            "Please log in through the Professional Portal.";
+
+        document.getElementById(
+            "professionalId"
+        ).textContent =
+            "Professional ID not available";
+
+        document.getElementById(
+            "professionalSpecialization"
+        ).textContent =
+            "Not available";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "professionalName"
+    ).textContent =
+
+        professionalValue(
+            professional.name,
+            professional.fullName
+        ) || "Professional";
+
+
+    document.getElementById(
+        "professionalType"
+    ).textContent =
+
+        professionalValue(
+            professional.professionalType,
+            professional.type,
+            professional.profession
+        ) || "Healthcare Professional";
+
+
+    document.getElementById(
+        "professionalId"
+    ).textContent =
+
+        professionalValue(
+            professional.id,
+            professional.professionalId,
+            professional.professionalID
+        ) || "Professional ID";
+
+
+    document.getElementById(
+        "professionalSpecialization"
+    ).textContent =
+
+        professionalValue(
+            professional.specialization,
+            professional.department
+        ) || "Specialization not specified";
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL ID
+========================================================= */
+
+function currentProfessionalId(){
+
+    if(!professional){
+
+        return "";
+
+    }
+
+    return professionalValue(
+        professional.id,
+        professional.professionalId,
+        professional.professionalID,
+        professional.userId
+    );
+
+}
+
+
+/* =========================================================
+   DATE HELPERS
+========================================================= */
+
+function dateOnly(date){
+
+    const d = new Date(date);
+
+    const year =
+        d.getFullYear();
+
+    const month =
+        String(
+            d.getMonth()+1
+        ).padStart(2,"0");
+
+    const day =
+        String(
+            d.getDate()
+        ).padStart(2,"0");
+
+    return `${year}-${month}-${day}`;
+
+}
+
+
+function formatDate(date){
+
+    return new Date(date)
+        .toLocaleDateString(
+            "en-IN",
+            {
+                weekday:"long",
+                day:"numeric",
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+}
+
+
+function formatShortDate(date){
+
+    return new Date(date)
+        .toLocaleDateString(
+            "en-IN",
+            {
+                day:"numeric",
+                month:"short",
+                year:"numeric"
+            }
+        );
+
+}
+
+
+/* =========================================================
+   DEMO SCHEDULE
+========================================================= */
+
+function ensureDemoSchedule(){
+
+    let schedule =
+        getArray(
+            SCHEDULE_KEY
+        );
+
+
+    if(schedule.length > 0){
+
+        return schedule;
+
+    }
+
+
+    const today =
+        new Date();
+
+
+    const todayString =
+        dateOnly(today);
+
+
+    const tomorrow =
+        new Date(today);
+
+    tomorrow.setDate(
+        tomorrow.getDate()+1
+    );
+
+
+    const dayAfter =
+        new Date(today);
+
+    dayAfter.setDate(
+        dayAfter.getDate()+2
+    );
+
+
+    schedule = [
+
+        {
+            id:"APT-000001",
+
+            professionalId:
+                currentProfessionalId(),
+
+            date:
+                todayString,
+
+            time:
+                "10:00 AM",
+
+            patientName:
+                "Patient A",
+
+            patientId:
+                "LH-000001",
+
+            organizationName:
+                "Luvio Polyclinic",
+
+            organizationType:
+                "Polyclinic",
+
+            appointmentType:
+                "In-Person Consultation",
+
+            department:
+                "General Medicine",
+
+            status:
+                "Confirmed",
+
+            reason:
+                "General consultation"
+
+        },
+
+
+        {
+            id:"APT-000002",
+
+            professionalId:
+                currentProfessionalId(),
+
+            date:
+                todayString,
+
+            time:
+                "10:30 AM",
+
+            patientName:
+                "Patient B",
+
+            patientId:
+                "LH-000002",
+
+            organizationName:
+                "Luvio Polyclinic",
+
+            organizationType:
+                "Polyclinic",
+
+            appointmentType:
+                "In-Person Consultation",
+
+            department:
+                "General Medicine",
+
+            status:
+                "Pending",
+
+            reason:
+                "Follow-up consultation"
+
+        },
+
+
+        {
+            id:"APT-000003",
+
+            professionalId:
+                currentProfessionalId(),
+
+            date:
+                todayString,
+
+            time:
+                "12:00 PM",
+
+            patientName:
+                "Patient C",
+
+            patientId:
+                "LH-000003",
+
+            organizationName:
+                "Online Consultation",
+
+            organizationType:
+                "Online",
+
+            appointmentType:
+                "Online Consultation",
+
+            department:
+                "General Medicine",
+
+            status:
+                "Confirmed",
+
+            reason:
+                "Online medical consultation"
+
+        },
+
+
+        {
+            id:"APT-000004",
+
+            professionalId:
+                currentProfessionalId(),
+
+            date:
+                dateOnly(tomorrow),
+
+            time:
+                "09:30 AM",
+
+            patientName:
+                "Patient D",
+
+            patientId:
+                "LH-000004",
+
+            organizationName:
+                "Luvio Partner Hospital",
+
+            organizationType:
+                "Hospital",
+
+            appointmentType:
+                "Consultation",
+
+            department:
+                "General Medicine",
+
+            status:
+                "Confirmed",
+
+            reason:
+                "Specialist consultation"
+
+        },
+
+
+        {
+            id:"APT-000005",
+
+            professionalId:
+                currentProfessionalId(),
+
+            date:
+                dateOnly(dayAfter),
+
+            time:
+                "11:00 AM",
+
+            patientName:
+                "Patient E",
+
+            patientId:
+                "LH-000005",
+
+            organizationName:
+                "Luvio Polyclinic",
+
+            organizationType:
+                "Polyclinic",
+
+            appointmentType:
+                "Follow-up",
+
+            department:
+                "General Medicine",
+
+            status:
+                "Confirmed",
+
+            reason:
+                "Follow-up visit"
+
+        }
+
+    ];
+
+
+    saveArray(
+        SCHEDULE_KEY,
+        schedule
+    );
+
+
+    return schedule;
+
+}
+
+
+/* =========================================================
+   TODAY
+========================================================= */
+
+function renderToday(){
+
+    const container =
+        document.getElementById(
+            "todayResults"
+        );
+
+
+    const schedule =
+        ensureDemoSchedule();
+
+
+    const today =
+        dateOnly(
+            new Date()
+        );
+
+
+    document.getElementById(
+        "todayDate"
+    ).textContent =
+        formatDate(
+            new Date()
+        );
+
+
+    const organization =
+        document.getElementById(
+            "todayOrganization"
+        ).value;
+
+
+    const status =
+        document.getElementById(
+            "todayStatus"
+        ).value;
+
+
+    const results =
+        schedule.filter(item => {
+
+            const professionalMatch =
+                !item.professionalId ||
+                item.professionalId ===
+                currentProfessionalId();
+
+
+            const dateMatch =
+                item.date === today;
+
+
+            const organizationMatch =
+                organization === "All" ||
+                item.organizationName ===
+                organization;
+
+
+            const statusMatch =
+                status === "All" ||
+                item.status === status;
+
+
+            return (
+                professionalMatch &&
+                dateMatch &&
+                organizationMatch &&
+                statusMatch
+            );
+
+        });
+
+
+    renderAppointmentList(
+        container,
+        results
+    );
+
+}
+
+
+/* =========================================================
+   UPCOMING
+========================================================= */
+
+function renderUpcoming(){
+
+    const container =
+        document.getElementById(
+            "upcomingResults"
+        );
+
+
+    const schedule =
+        ensureDemoSchedule();
+
+
+    const today =
+        dateOnly(
+            new Date()
+        );
+
+
+    const results =
+        schedule.filter(item =>
+
+            (
+                !item.professionalId ||
+                item.professionalId ===
+                currentProfessionalId()
+            ) &&
+            item.date >= today
+
+        );
+
+
+    if(results.length === 0){
+
+        container.innerHTML =
+            `<div class="empty">
+                No upcoming appointments.
+            </div>`;
+
+        return;
+
+    }
+
+
+    const grouped = {};
+
+
+    results.forEach(item => {
+
+        if(!grouped[item.date]){
+
+            grouped[item.date] = [];
+
+        }
+
+        grouped[item.date].push(item);
+
+    });
+
+
+    container.innerHTML =
+        Object.keys(grouped)
+        .sort()
+        .map(date => `
+
+            <div
+                class="date-header"
+                style="margin-top:25px;">
+
+                <h3>
+                    ${escapeHtml(
+                        formatDate(
+                            new Date(date)
+                        )
+                    )}
+                </h3>
+
+            </div>
+
+            ${grouped[date]
+                .map(item =>
+                    appointmentCard(item)
+                )
+                .join("")}
+
+        `)
+        .join("");
+
+}
+
+
+/* =========================================================
+   APPOINTMENT CARD
+========================================================= */
+
+function appointmentCard(item){
+
+    const statusClass =
+        String(
+            item.status || ""
+        ).toLowerCase();
+
+
+    return `
+
+        <div class="appointment-card">
+
+            <div class="appointment-time">
+
+                ${escapeHtml(
+                    item.time
+                )}
+
+            </div>
+
+
+            <h3>
+
+                ${escapeHtml(
+                    item.patientName
+                )}
+
+            </h3>
+
+
+            <div class="organization-name">
+
+                ${escapeHtml(
+                    item.organizationName
+                )}
+
+            </div>
+
+
+            <span class="status ${escapeHtml(
+                statusClass
+            )}">
+
+                ${escapeHtml(
+                    item.status
+                )}
+
+            </span>
+
+
+            <div class="appointment-grid">
+
+                <div class="info">
+
+                    <strong>
+                        Patient ID
+                    </strong>
+
+                    ${escapeHtml(
+                        item.patientId
+                    )}
+
+                </div>
+
+
+                <div class="info">
+
+                    <strong>
+                        Appointment Type
+                    </strong>
+
+                    ${escapeHtml(
+                        item.appointmentType
+                    )}
+
+                </div>
+
+
+                <div class="info">
+
+                    <strong>
+                        Department
+                    </strong>
+
+                    ${escapeHtml(
+                        item.department
+                    )}
+
+                </div>
+
+
+                <div class="info">
+
+                    <strong>
+                        Reason
+                    </strong>
+
+                    ${escapeHtml(
+                        item.reason
+                    )}
+
+                </div>
+
+            </div>
+
+
+            <div class="action-row">
+
+                <button
+                    class="primary-btn"
+                    onclick="viewAppointment(
+                        '${escapeJs(item.id)}'
+                    )">
+
+                    View Appointment
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   VIEW APPOINTMENT
+========================================================= */
+
+function viewAppointment(
+    appointmentId
+){
+
+    const schedule =
+        ensureDemoSchedule();
+
+
+    const item =
+        schedule.find(
+            appointment =>
+                appointment.id ===
+                appointmentId
+        );
+
+
+    if(!item){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "modalPatient"
+    ).textContent =
+        item.patientName;
+
+
+    document.getElementById(
+        "modalOrganization"
+    ).textContent =
+        item.organizationName;
+
+
+    document.getElementById(
+        "modalDetails"
+    ).innerHTML = `
+
+        <div class="appointment-grid">
+
+            <div class="info">
+
+                <strong>
+                    Patient ID
+                </strong>
+
+                ${escapeHtml(
+                    item.patientId
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Date
+                </strong>
+
+                ${escapeHtml(
+                    formatShortDate(
+                        item.date
+                    )
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Time
+                </strong>
+
+                ${escapeHtml(
+                    item.time
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Appointment Type
+                </strong>
+
+                ${escapeHtml(
+                    item.appointmentType
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Department
+                </strong>
+
+                ${escapeHtml(
+                    item.department
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Status
+                </strong>
+
+                ${escapeHtml(
+                    item.status
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.getElementById(
+        "appointmentModal"
+    ).classList.add(
+        "active"
+    );
+
+
+    window.currentAppointmentId =
+        appointmentId;
+
+}
+
+
+/* =========================================================
+   CLOSE APPOINTMENT
+========================================================= */
+
+function closeAppointment(){
+
+    document.getElementById(
+        "appointmentModal"
+    ).classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   CONSULTATION
+========================================================= */
+
+function openConsultation(){
+
+    if(!window.currentAppointmentId){
+
+        return;
+
+    }
+
+
+    /*
+       The consultation page will be connected
+       when we build professional-consultations.html.
+    */
+
+    window.location.href =
+        "professional-consultations.html";
+
+}
+
+
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+let calendarDate =
+    new Date();
+
+
+function renderCalendar(){
+
+    const calendar =
+        document.getElementById(
+            "calendarDays"
+        );
+
+
+    const year =
+        calendarDate.getFullYear();
+
+
+    const month =
+        calendarDate.getMonth();
+
+
+    document.getElementById(
+        "calendarTitle"
+    ).textContent =
+
+        new Date(
+            year,
+            month,
+            1
+        ).toLocaleDateString(
+            "en-IN",
+            {
+                month:"long",
+                year:"numeric"
+            }
+        );
+
+
+    const firstDay =
+        new Date(
+            year,
+            month,
+            1
+        ).getDay();
+
+
+    const daysInMonth =
+        new Date(
+            year,
+            month + 1,
+            0
+        ).getDate();
+
+
+    const schedule =
+        ensureDemoSchedule();
+
+
+    let html = "";
+
+
+    for(
+        let i = 0;
+        i < firstDay;
+        i++
+    ){
+
+        html += `
+            <div class="day"></div>
+        `;
+
+    }
+
+
+    for(
+        let day = 1;
+        day <= daysInMonth;
+        day++
+    ){
+
+        const current =
+            new Date(
+                year,
+                month,
+                day
+            );
+
+
+        const date =
+            dateOnly(current);
+
+
+        const events =
+            schedule.filter(item =>
+                item.date === date
+            );
+
+
+        html += `
+
+            <div
+                class="day ${
+                    events.length
+                        ? "has-event"
+                        : ""
+                }"
+                onclick="showCalendarDate(
+                    '${escapeJs(date)}'
+                )">
+
+                <div class="day-number">
+
+                    ${day}
+
+                </div>
+
+                ${
+                    events.length
+
+                    ?
+
+                    `<div class="event-dot">
+                        ${events.length}
+                        appointment${
+                            events.length > 1
+                            ? "s"
+                            : ""
+                        }
+                    </div>`
+
+                    :
+
+                    ""
+
+                }
+
+            </div>
+
+        `;
+
+    }
+
+
+    calendar.innerHTML =
+        html;
+
+}
+
+
+/* =========================================================
+   CHANGE MONTH
+========================================================= */
+
+function changeMonth(
+    amount
+){
+
+    calendarDate.setMonth(
+        calendarDate.getMonth() +
+        amount
+    );
+
+
+    renderCalendar();
+
+}
+
+
+/* =========================================================
+   CALENDAR DATE
+========================================================= */
+
+function showCalendarDate(
+    date
+){
+
+    const schedule =
+        ensureDemoSchedule();
+
+
+    const results =
+        schedule.filter(
+            item =>
+                item.date === date
+        );
+
+
+    if(results.length === 0){
+
+        alert(
+            "No appointments scheduled for this date."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        formatDate(
+            new Date(date)
+        ) +
+
+        "\n\nAppointments: " +
+        results.length
+
+    );
+
+}
+
+
+/* =========================================================
+   AVAILABILITY
+========================================================= */
+
+const defaultAvailability = {
+
+    Monday:{
+        enabled:true,
+        start:"09:00",
+        end:"17:00"
+    },
+
+    Tuesday:{
+        enabled:true,
+        start:"09:00",
+        end:"17:00"
+    },
+
+    Wednesday:{
+        enabled:true,
+        start:"09:00",
+        end:"17:00"
+    },
+
+    Thursday:{
+        enabled:true,
+        start:"09:00",
+        end:"17:00"
+    },
+
+    Friday:{
+        enabled:true,
+        start:"09:00",
+        end:"17:00"
+    },
+
+    Saturday:{
+        enabled:true,
+        start:"09:00",
+        end:"13:00"
+    },
+
+    Sunday:{
+        enabled:false,
+        start:"09:00",
+        end:"13:00"
+    }
+
+};
+
+
+function renderAvailability(){
+
+    let availability =
+        getObject(
+            AVAILABILITY_KEY,
+            defaultAvailability
+        );
+
+
+    const container =
+        document.getElementById(
+            "availabilityList"
+        );
+
+
+    const days =
+        Object.keys(
+            defaultAvailability
+        );
+
+
+    container.innerHTML = `
+
+        <h3>
+            Weekly Availability
+        </h3>
+
+        ${
+            days.map(day => `
+
+                <div
+                    class="availability-row">
+
+                    <strong>
+                        ${day}
+                    </strong>
+
+
+                    <div>
+
+                        <input
+                            type="time"
+                            id="${day}-start"
+                            value="${
+                                availability[day]?.start ||
+                                "09:00"
+                            }">
+
+                        <input
+                            type="time"
+                            id="${day}-end"
+                            value="${
+                                availability[day]?.end ||
+                                "17:00"
+                            }">
+
+                    </div>
+
+
+                    <label class="toggle">
+
+                        <input
+                            type="checkbox"
+                            id="${day}-enabled"
+                            ${
+                                availability[day]?.enabled
+                                ? "checked"
+                                : ""
+                            }>
+
+                        Available
+
+                    </label>
+
+                </div>
+
+            `).join("")
+        }
+
+    `;
+
+}
+
+
+/* =========================================================
+   SAVE AVAILABILITY
+========================================================= */
+
+function saveAvailability(){
+
+    const days =
+        Object.keys(
+            defaultAvailability
+        );
+
+
+    const availability = {};
+
+
+    days.forEach(day => {
+
+        availability[day] = {
+
+            enabled:
+                document.getElementById(
+                    `${day}-enabled`
+                ).checked,
+
+            start:
+                document.getElementById(
+                    `${day}-start`
+                ).value,
+
+            end:
+                document.getElementById(
+                    `${day}-end`
+                ).value
+
+        };
+
+    });
+
+
+    saveObject(
+        AVAILABILITY_KEY,
+        availability
+    );
+
+
+    alert(
+        "Availability saved successfully."
+    );
+
+}
+
+
+/* =========================================================
+   CLEAR TODAY FILTERS
+========================================================= */
+
+function clearTodayFilters(){
+
+    document.getElementById(
+        "todayOrganization"
+    ).value =
+        "All";
+
+
+    document.getElementById(
+        "todayStatus"
+    ).value =
+        "All";
+
+
+    renderToday();
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function showTab(
+    tabId,
+    button
+){
+
+    document
+        .querySelectorAll(
+            ".section"
+        )
+        .forEach(section => {
+
+            section.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(
+            ".tab"
+        )
+        .forEach(tab => {
+
+            tab.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    document
+        .getElementById(
+            tabId
+        )
+        .classList.add(
+            "active"
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    if(tabId === "today"){
+
+        renderToday();
+
+    }
+
+
+    if(tabId === "upcoming"){
+
+        renderUpcoming();
+
+    }
+
+
+    if(tabId === "calendar"){
+
+        renderCalendar();
+
+    }
+
+
+    if(tabId === "availability"){
+
+        renderAvailability();
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadProfessional();
+
+ensureDemoSchedule();
+
+renderToday();
+
+renderUpcoming();
+
+renderCalendar();
+
+renderAvailability();
+
+
+/* CLOSE MODAL */
+
+document
+    .getElementById(
+        "appointmentModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeAppointment();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
