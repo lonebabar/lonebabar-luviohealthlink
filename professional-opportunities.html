@@ -1,0 +1,2181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Opportunities | Luvio HealthLink</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f8fb;
+    color:#20354d;
+}
+
+header{
+    background:white;
+    border-bottom:1px solid #dce6ec;
+    padding:35px 5%;
+}
+
+.logo{
+    font-size:34px;
+    font-weight:700;
+    color:#2f687c;
+}
+
+.logo span{
+    color:#55a69b;
+}
+
+.back{
+    display:inline-block;
+    margin-top:45px;
+    text-decoration:none;
+    color:#2f687c;
+    font-size:20px;
+    font-weight:700;
+}
+
+.container{
+    max-width:1100px;
+    margin:55px auto;
+    padding:0 25px;
+}
+
+
+/* PROFESSIONAL CARD */
+
+.profile-card{
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
+    margin-bottom:35px;
+}
+
+.profile-card h1{
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.profile-card p{
+    color:#687b8b;
+    font-size:20px;
+}
+
+.profile-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:22px;
+}
+
+.badge{
+    background:#edf6f8;
+    color:#2f687c;
+    padding:10px 17px;
+    border-radius:30px;
+    font-weight:700;
+}
+
+
+/* TABS */
+
+.tabs{
+    background:white;
+    border-radius:25px;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    box-shadow:0 15px 45px rgba(31,58,78,.06);
+    margin-bottom:35px;
+}
+
+.tab{
+    border:none;
+    background:#eaf2f6;
+    color:#20354d;
+    padding:17px 25px;
+    border-radius:16px;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.tab.active{
+    background:#2f687c;
+    color:white;
+}
+
+
+/* SECTIONS */
+
+.section{
+    display:none;
+    background:white;
+    border-radius:28px;
+    padding:45px;
+    box-shadow:0 15px 45px rgba(31,58,78,.08);
+}
+
+.section.active{
+    display:block;
+}
+
+.section h2{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.section-description{
+    color:#687b8b;
+    font-size:19px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+
+/* SEARCH */
+
+.search-box{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.search-box.second{
+    grid-template-columns:1fr 1fr auto;
+    margin-bottom:35px;
+}
+
+input,
+select{
+    width:100%;
+    padding:15px 17px;
+    border:1px solid #ccd9e0;
+    border-radius:13px;
+    font-size:16px;
+    outline:none;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    border-color:#2f687c;
+}
+
+
+/* BUTTONS */
+
+.primary-btn{
+    background:#2f687c;
+    color:white;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.secondary-btn{
+    background:#eaf2f6;
+    color:#20354d;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.danger-btn{
+    background:#fde9e9;
+    color:#a33b3b;
+    border:none;
+    border-radius:13px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.action-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+
+/* OPPORTUNITY CARD */
+
+.opportunity-card{
+    border:1px solid #dce7ed;
+    border-radius:22px;
+    padding:28px;
+    margin-bottom:20px;
+    background:#fbfdfe;
+}
+
+.opportunity-card h3{
+    font-size:25px;
+    margin-bottom:8px;
+}
+
+.organization-name{
+    color:#2f687c;
+    font-weight:700;
+    font-size:17px;
+    margin-bottom:18px;
+}
+
+.opportunity-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.info{
+    background:#f1f6f8;
+    padding:14px 17px;
+    border-radius:14px;
+}
+
+.info strong{
+    display:block;
+    font-size:13px;
+    color:#718392;
+    margin-bottom:5px;
+    text-transform:uppercase;
+}
+
+
+/* STATUS */
+
+.status{
+    display:inline-block;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:18px;
+}
+
+.status.open{
+    background:#e4f5ec;
+    color:#27734a;
+}
+
+.status.pending{
+    background:#fff3d9;
+    color:#986a16;
+}
+
+.status.applied{
+    background:#eaf2f6;
+    color:#2f687c;
+}
+
+.status.accepted{
+    background:#e4f5ec;
+    color:#27734a;
+}
+
+.status.rejected{
+    background:#fde9e9;
+    color:#a33b3b;
+}
+
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    padding:45px 20px;
+    background:#f7fafb;
+    border-radius:20px;
+    color:#718392;
+    font-size:18px;
+}
+
+
+/* NOTICE */
+
+.notice{
+    background:#edf6f8;
+    border-left:5px solid #2f687c;
+    padding:18px 20px;
+    border-radius:12px;
+    margin-bottom:25px;
+    line-height:1.6;
+    color:#49616f;
+}
+
+
+/* MODAL */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(20,40,55,.55);
+    z-index:1000;
+    padding:25px;
+    overflow:auto;
+}
+
+.modal.active{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    width:100%;
+    max-width:700px;
+    background:white;
+    border-radius:28px;
+    padding:40px;
+}
+
+.modal-content h2{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.modal-content p{
+    color:#687b8b;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.close-btn{
+    float:right;
+    border:none;
+    background:#eaf2f6;
+    border-radius:50%;
+    width:42px;
+    height:42px;
+    font-size:20px;
+    cursor:pointer;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    header{
+        padding:30px 20px;
+    }
+
+    .logo{
+        font-size:30px;
+    }
+
+    .back{
+        font-size:18px;
+        margin-top:35px;
+    }
+
+    .container{
+        margin:35px auto;
+        padding:0 18px;
+    }
+
+    .profile-card,
+    .section{
+        padding:30px 22px;
+        border-radius:23px;
+    }
+
+    .profile-card h1{
+        font-size:36px;
+    }
+
+    .section h2{
+        font-size:30px;
+    }
+
+    .search-box,
+    .search-box.second{
+        grid-template-columns:1fr;
+    }
+
+    .opportunity-grid{
+        grid-template-columns:1fr;
+    }
+
+    .tabs{
+        padding:12px;
+    }
+
+    .tab{
+        width:100%;
+    }
+
+    .action-row button{
+        width:100%;
+    }
+
+    .modal-content{
+        padding:28px 22px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        🩺 Luvio <span>HealthLink</span>
+    </div>
+
+    <a
+        class="back"
+        href="professional.html">
+
+        ← Back to Professional Workspace
+
+    </a>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- PROFESSIONAL INFORMATION -->
+
+    <div class="profile-card">
+
+        <h1 id="professionalName">
+            Professional
+        </h1>
+
+        <p id="professionalType">
+            Healthcare Professional
+        </p>
+
+        <div class="profile-meta">
+
+            <div
+                class="badge"
+                id="professionalId">
+
+                Professional ID
+
+            </div>
+
+            <div
+                class="badge"
+                id="professionalSpecialization">
+
+                Specialization
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TABS -->
+
+    <div class="tabs">
+
+        <button
+            class="tab active"
+            onclick="showTab('findOpportunities',this)">
+
+            Find Opportunities
+
+        </button>
+
+
+        <button
+            class="tab"
+            onclick="showTab('myApplications',this)">
+
+            My Applications
+
+        </button>
+
+    </div>
+
+
+    <!-- FIND OPPORTUNITIES -->
+
+    <section
+        id="findOpportunities"
+        class="section active">
+
+        <h2>
+            Find Opportunities
+        </h2>
+
+        <p class="section-description">
+
+            Discover healthcare opportunities from registered
+            organizations across the Luvio HealthLink network.
+
+        </p>
+
+
+        <div class="notice">
+
+            Your Professional Identity can be used to apply
+            for opportunities without creating a separate account
+            for every organization.
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                id="searchInput"
+                type="text"
+                placeholder="Search job title, organization or location..."
+                oninput="renderOpportunities()">
+
+
+            <select
+                id="professionFilter"
+                onchange="renderOpportunities()">
+
+                <option value="All">
+                    All Professions
+                </option>
+
+                <option value="Doctor">
+                    Doctor
+                </option>
+
+                <option value="Pharmacist">
+                    Pharmacist
+                </option>
+
+                <option value="Laboratory Professional">
+                    Laboratory Professional
+                </option>
+
+                <option value="Nurse">
+                    Nurse
+                </option>
+
+                <option value="Other Healthcare Professional">
+                    Other Healthcare Professional
+                </option>
+
+            </select>
+
+
+            <select
+                id="organizationFilter"
+                onchange="renderOpportunities()">
+
+                <option value="All">
+                    All Organizations
+                </option>
+
+                <option value="Polyclinic">
+                    Polyclinic
+                </option>
+
+                <option value="Hospital">
+                    Hospital
+                </option>
+
+                <option value="Pharmacy">
+                    Pharmacy
+                </option>
+
+                <option value="Diagnostics">
+                    Diagnostics
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="search-box second">
+
+            <select
+                id="locationFilter"
+                onchange="renderOpportunities()">
+
+                <option value="All">
+                    All Locations
+                </option>
+
+                <option value="Srinagar">
+                    Srinagar
+                </option>
+
+                <option value="Anantnag">
+                    Anantnag
+                </option>
+
+                <option value="Jammu">
+                    Jammu
+                </option>
+
+                <option value="Delhi">
+                    Delhi
+                </option>
+
+            </select>
+
+
+            <select
+                id="experienceFilter"
+                onchange="renderOpportunities()">
+
+                <option value="All">
+                    Any Experience
+                </option>
+
+                <option value="0-2">
+                    0–2 Years
+                </option>
+
+                <option value="2-5">
+                    2–5 Years
+                </option>
+
+                <option value="5+">
+                    5+ Years
+                </option>
+
+            </select>
+
+
+            <button
+                class="secondary-btn"
+                onclick="clearFilters()">
+
+                Clear Filters
+
+            </button>
+
+        </div>
+
+
+        <div id="opportunityResults"></div>
+
+    </section>
+
+
+    <!-- MY APPLICATIONS -->
+
+    <section
+        id="myApplications"
+        class="section">
+
+        <h2>
+            My Applications
+        </h2>
+
+        <p class="section-description">
+
+            Track opportunities you have applied for using
+            your Professional Identity.
+
+        </p>
+
+
+        <div id="applicationResults"></div>
+
+    </section>
+
+</div>
+
+
+<!-- OPPORTUNITY DETAILS MODAL -->
+
+<div
+    id="opportunityModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-btn"
+            onclick="closeModal()">
+
+            ×
+
+        </button>
+
+        <h2 id="modalTitle">
+            Opportunity
+        </h2>
+
+        <p id="modalOrganization"></p>
+
+        <p id="modalDescription"></p>
+
+        <div
+            id="modalDetails">
+        </div>
+
+        <div
+            class="action-row">
+
+            <button
+                id="modalApplyButton"
+                class="primary-btn">
+
+                Apply Now
+
+            </button>
+
+            <button
+                class="secondary-btn"
+                onclick="closeModal()">
+
+                Close
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const PROFESSIONAL_ACCOUNTS_KEY =
+    "luvio_doctor_accounts";
+
+const CURRENT_PROFESSIONAL_KEY =
+    "luvio_current_doctor";
+
+const OPPORTUNITIES_KEY =
+    "luvio_professional_jobs";
+
+const APPLICATIONS_KEY =
+    "luvio_professional_applications";
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function getArray(key){
+
+    try{
+
+        const data =
+            JSON.parse(
+                localStorage.getItem(key) || "[]"
+            );
+
+        return Array.isArray(data)
+            ? data
+            : [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function saveArray(key,data){
+
+    localStorage.setItem(
+        key,
+        JSON.stringify(data)
+    );
+
+}
+
+
+function escapeHtml(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeJs(value){
+
+    return String(value ?? "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'");
+
+}
+
+
+/* =========================================================
+   PROFESSIONAL SESSION
+========================================================= */
+
+function getCurrentProfessional(){
+
+    const accounts =
+        getArray(
+            PROFESSIONAL_ACCOUNTS_KEY
+        );
+
+
+    let current = null;
+
+    try{
+
+        current =
+            JSON.parse(
+                localStorage.getItem(
+                    CURRENT_PROFESSIONAL_KEY
+                ) || "null"
+            );
+
+    }catch(error){
+
+        current = null;
+
+    }
+
+
+    if(
+        current &&
+        typeof current === "object"
+    ){
+
+        const currentId =
+            current.id ||
+            current.professionalId ||
+            current.userId;
+
+
+        const found =
+            accounts.find(account =>
+
+                account.id === currentId ||
+                account.professionalId === currentId ||
+                account.userId === currentId
+
+            );
+
+
+        return found || current;
+
+    }
+
+
+    if(typeof current === "string"){
+
+        return accounts.find(account =>
+
+            account.id === current ||
+            account.professionalId === current ||
+            account.userId === current
+
+        ) || null;
+
+    }
+
+
+    return null;
+
+}
+
+
+const professional =
+    getCurrentProfessional();
+
+
+/* =========================================================
+   PROFESSIONAL INFORMATION
+========================================================= */
+
+function professionalValue(...values){
+
+    for(const value of values){
+
+        if(
+            value !== undefined &&
+            value !== null &&
+            String(value).trim() !== ""
+        ){
+
+            return value;
+
+        }
+
+    }
+
+    return "";
+
+}
+
+
+function loadProfessional(){
+
+    if(!professional){
+
+        document.getElementById(
+            "professionalName"
+        ).textContent =
+            "Professional";
+
+        document.getElementById(
+            "professionalType"
+        ).textContent =
+            "Please log in through the Professional Portal.";
+
+        document.getElementById(
+            "professionalId"
+        ).textContent =
+            "Professional ID not available";
+
+        document.getElementById(
+            "professionalSpecialization"
+        ).textContent =
+            "Not available";
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "professionalName"
+    ).textContent =
+
+        professionalValue(
+            professional.name,
+            professional.fullName
+        ) || "Professional";
+
+
+    document.getElementById(
+        "professionalType"
+    ).textContent =
+
+        professionalValue(
+            professional.professionalType,
+            professional.type,
+            professional.profession
+        ) || "Healthcare Professional";
+
+
+    document.getElementById(
+        "professionalId"
+    ).textContent =
+
+        professionalValue(
+            professional.id,
+            professional.professionalId,
+            professional.professionalID
+        ) || "Professional ID";
+
+
+    document.getElementById(
+        "professionalSpecialization"
+    ).textContent =
+
+        professionalValue(
+            professional.specialization,
+            professional.department
+        ) || "Specialization not specified";
+
+}
+
+
+/* =========================================================
+   DEMO OPPORTUNITIES
+========================================================= */
+
+function ensureDemoOpportunities(){
+
+    let opportunities =
+        getArray(
+            OPPORTUNITIES_KEY
+        );
+
+
+    if(opportunities.length > 0){
+
+        return opportunities;
+
+    }
+
+
+    opportunities = [
+
+        {
+            id:"JOB-000001",
+
+            title:"General Physician",
+
+            organizationId:"POLY-000001",
+
+            organizationName:
+                "Luvio Polyclinic",
+
+            organizationType:
+                "Polyclinic",
+
+            profession:
+                "Doctor",
+
+            specialization:
+                "General Medicine",
+
+            location:
+                "Srinagar",
+
+            employmentType:
+                "Full Time",
+
+            experience:
+                "2-5",
+
+            experienceText:
+                "2–5 Years",
+
+            salary:
+                "To be discussed",
+
+            description:
+                "Luvio Polyclinic is looking for a General Physician to provide outpatient consultations, clinical assessment, diagnosis, treatment planning and appropriate referrals.",
+
+            status:
+                "Open",
+
+            postedDate:
+                "2026-10-01"
+
+        },
+
+
+        {
+            id:"JOB-000002",
+
+            title:"Registered Pharmacist",
+
+            organizationId:"PHARM-000001",
+
+            organizationName:
+                "Luvio Pharmacy",
+
+            organizationType:
+                "Pharmacy",
+
+            profession:
+                "Pharmacist",
+
+            specialization:
+                "Pharmacy",
+
+            location:
+                "Srinagar",
+
+            employmentType:
+                "Full Time",
+
+            experience:
+                "0-2",
+
+            experienceText:
+                "0–2 Years",
+
+            salary:
+                "To be discussed",
+
+            description:
+                "Luvio Pharmacy is seeking a registered pharmacist for prescription dispensing, medicine inventory, batch and expiry management and pharmacy operations.",
+
+            status:
+                "Open",
+
+            postedDate:
+                "2026-10-02"
+
+        },
+
+
+        {
+            id:"JOB-000003",
+
+            title:"Medical Laboratory Professional",
+
+            organizationId:"LAB-000001",
+
+            organizationName:
+                "Luvio Diagnostics",
+
+            organizationType:
+                "Diagnostics",
+
+            profession:
+                "Laboratory Professional",
+
+            specialization:
+                "Medical Laboratory Technology",
+
+            location:
+                "Anantnag",
+
+            employmentType:
+                "Full Time",
+
+            experience:
+                "2-5",
+
+            experienceText:
+                "2–5 Years",
+
+            salary:
+                "To be discussed",
+
+            description:
+                "Luvio Diagnostics is looking for a laboratory professional for sample processing, laboratory procedures, quality documentation and report workflow.",
+
+            status:
+                "Open",
+
+            postedDate:
+                "2026-10-02"
+
+        },
+
+
+        {
+            id:"JOB-000004",
+
+            title:"Staff Nurse",
+
+            organizationId:"HOSP-000001",
+
+            organizationName:
+                "Luvio Partner Hospital",
+
+            organizationType:
+                "Hospital",
+
+            profession:
+                "Nurse",
+
+            specialization:
+                "Nursing",
+
+            location:
+                "Srinagar",
+
+            employmentType:
+                "Full Time",
+
+            experience:
+                "2-5",
+
+            experienceText:
+                "2–5 Years",
+
+            salary:
+                "To be discussed",
+
+            description:
+                "Luvio Partner Hospital is seeking a registered nurse for patient care, clinical documentation, coordination with doctors and routine nursing responsibilities.",
+
+            status:
+                "Open",
+
+            postedDate:
+                "2026-10-02"
+
+        }
+
+    ];
+
+
+    saveArray(
+        OPPORTUNITIES_KEY,
+        opportunities
+    );
+
+
+    return opportunities;
+
+}
+
+
+/* =========================================================
+   APPLICATIONS
+========================================================= */
+
+function getApplications(){
+
+    return getArray(
+        APPLICATIONS_KEY
+    );
+
+}
+
+
+/* =========================================================
+   FILTERING
+========================================================= */
+
+function renderOpportunities(){
+
+    const container =
+        document.getElementById(
+            "opportunityResults"
+        );
+
+
+    const opportunities =
+        ensureDemoOpportunities();
+
+
+    const applications =
+        getApplications();
+
+
+    const search =
+        document.getElementById(
+            "searchInput"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    const profession =
+        document.getElementById(
+            "professionFilter"
+        ).value;
+
+
+    const organizationType =
+        document.getElementById(
+            "organizationFilter"
+        ).value;
+
+
+    const location =
+        document.getElementById(
+            "locationFilter"
+        ).value;
+
+
+    const experience =
+        document.getElementById(
+            "experienceFilter"
+        ).value;
+
+
+    const results =
+        opportunities.filter(job => {
+
+
+            if(
+                String(job.status)
+                    .toLowerCase() !==
+                "open"
+            ){
+
+                return false;
+
+            }
+
+
+            const searchText = (
+
+                String(job.title || "") +
+                " " +
+                String(job.organizationName || "") +
+                " " +
+                String(job.location || "") +
+                " " +
+                String(job.specialization || "")
+
+            ).toLowerCase();
+
+
+            const matchesSearch =
+                !search ||
+                searchText.includes(search);
+
+
+            const matchesProfession =
+                profession === "All" ||
+                job.profession === profession;
+
+
+            const matchesOrganization =
+                organizationType === "All" ||
+                job.organizationType === organizationType;
+
+
+            const matchesLocation =
+                location === "All" ||
+                job.location === location;
+
+
+            const matchesExperience =
+                experience === "All" ||
+                job.experience === experience;
+
+
+            return (
+                matchesSearch &&
+                matchesProfession &&
+                matchesOrganization &&
+                matchesLocation &&
+                matchesExperience
+            );
+
+        });
+
+
+    if(results.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                No opportunities match your
+                current search and filters.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+
+        results.map(job => {
+
+            const applied =
+                applications.some(application =>
+
+                    application.opportunityId ===
+                    job.id &&
+
+                    application.professionalId ===
+                    currentProfessionalId()
+
+                );
+
+
+            return `
+
+                <div class="opportunity-card">
+
+                    <h3>
+                        ${escapeHtml(job.title)}
+                    </h3>
+
+                    <div class="organization-name">
+
+                        ${escapeHtml(
+                            job.organizationName
+                        )}
+
+                    </div>
+
+
+                    <span class="status open">
+
+                        Open
+
+                    </span>
+
+
+                    <div class="opportunity-grid">
+
+                        <div class="info">
+
+                            <strong>
+                                Profession
+                            </strong>
+
+                            ${escapeHtml(
+                                job.profession
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Specialization
+                            </strong>
+
+                            ${escapeHtml(
+                                job.specialization
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Organization Type
+                            </strong>
+
+                            ${escapeHtml(
+                                job.organizationType
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Location
+                            </strong>
+
+                            ${escapeHtml(
+                                job.location
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Employment
+                            </strong>
+
+                            ${escapeHtml(
+                                job.employmentType
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Experience
+                            </strong>
+
+                            ${escapeHtml(
+                                job.experienceText
+                            )}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="action-row">
+
+                        <button
+                            class="primary-btn"
+                            onclick="viewOpportunity(
+                                '${escapeJs(job.id)}'
+                            )">
+
+                            View Details
+
+                        </button>
+
+
+                        ${
+                            applied
+
+                            ?
+
+                            `
+                            <button
+                                class="secondary-btn"
+                                disabled>
+
+                                Already Applied
+
+                            </button>
+                            `
+
+                            :
+
+                            `
+                            <button
+                                class="secondary-btn"
+                                onclick="applyForOpportunity(
+                                    '${escapeJs(job.id)}'
+                                )">
+
+                                Apply
+
+                            </button>
+                            `
+
+                        }
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   CURRENT PROFESSIONAL ID
+========================================================= */
+
+function currentProfessionalId(){
+
+    if(!professional){
+
+        return "";
+
+    }
+
+
+    return professionalValue(
+        professional.id,
+        professional.professionalId,
+        professional.professionalID,
+        professional.userId
+    );
+
+}
+
+
+/* =========================================================
+   VIEW OPPORTUNITY
+========================================================= */
+
+function viewOpportunity(
+    opportunityId
+){
+
+    const opportunities =
+        ensureDemoOpportunities();
+
+
+    const job =
+        opportunities.find(
+            item =>
+                item.id === opportunityId
+        );
+
+
+    if(!job){
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        job.title;
+
+
+    document.getElementById(
+        "modalOrganization"
+    ).innerHTML =
+
+        "<strong>" +
+        escapeHtml(
+            job.organizationName
+        ) +
+        "</strong><br>" +
+
+        escapeHtml(
+            job.organizationType
+        ) +
+        " • " +
+
+        escapeHtml(
+            job.location
+        );
+
+
+    document.getElementById(
+        "modalDescription"
+    ).textContent =
+        job.description;
+
+
+    document.getElementById(
+        "modalDetails"
+    ).innerHTML = `
+
+        <div class="opportunity-grid">
+
+            <div class="info">
+
+                <strong>
+                    Profession
+                </strong>
+
+                ${escapeHtml(
+                    job.profession
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Specialization
+                </strong>
+
+                ${escapeHtml(
+                    job.specialization
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Experience
+                </strong>
+
+                ${escapeHtml(
+                    job.experienceText
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Employment
+                </strong>
+
+                ${escapeHtml(
+                    job.employmentType
+                )}
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>
+                    Salary
+                </strong>
+
+                ${escapeHtml(
+                    job.salary
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const applyButton =
+        document.getElementById(
+            "modalApplyButton"
+        );
+
+
+    applyButton.onclick =
+        function(){
+
+            applyForOpportunity(
+                job.id
+            );
+
+        };
+
+
+    document.getElementById(
+        "opportunityModal"
+    ).classList.add("active");
+
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(){
+
+    document.getElementById(
+        "opportunityModal"
+    ).classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   APPLY
+========================================================= */
+
+function applyForOpportunity(
+    opportunityId
+){
+
+    if(!professional){
+
+        alert(
+            "Please log in through the Professional Portal first."
+        );
+
+        return;
+
+    }
+
+
+    const opportunities =
+        ensureDemoOpportunities();
+
+
+    const job =
+        opportunities.find(
+            item =>
+                item.id === opportunityId
+        );
+
+
+    if(!job){
+
+        alert(
+            "Opportunity not found."
+        );
+
+        return;
+
+    }
+
+
+    const applications =
+        getApplications();
+
+
+    const professionalId =
+        currentProfessionalId();
+
+
+    const alreadyApplied =
+        applications.some(application =>
+
+            application.opportunityId ===
+            opportunityId &&
+
+            application.professionalId ===
+            professionalId
+
+        );
+
+
+    if(alreadyApplied){
+
+        alert(
+            "You have already applied for this opportunity."
+        );
+
+        return;
+
+    }
+
+
+    const application = {
+
+        id:
+            "APP-" +
+            Date.now(),
+
+        opportunityId:
+            opportunityId,
+
+        opportunityTitle:
+            job.title,
+
+        organizationId:
+            job.organizationId,
+
+        organizationName:
+            job.organizationName,
+
+        professionalId:
+            professionalId,
+
+        professionalName:
+            professionalValue(
+                professional.name,
+                professional.fullName
+            ),
+
+        status:
+            "Applied",
+
+        appliedAt:
+            new Date().toISOString()
+
+    };
+
+
+    applications.push(
+        application
+    );
+
+
+    saveArray(
+        APPLICATIONS_KEY,
+        applications
+    );
+
+
+    closeModal();
+
+
+    alert(
+        "Application submitted successfully."
+    );
+
+
+    renderOpportunities();
+
+    renderApplications();
+
+}
+
+
+/* =========================================================
+   MY APPLICATIONS
+========================================================= */
+
+function renderApplications(){
+
+    const container =
+        document.getElementById(
+            "applicationResults"
+        );
+
+
+    if(!professional){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                Please log in through the
+                Professional Portal to view
+                your applications.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    const applications =
+        getApplications();
+
+
+    const myApplications =
+        applications.filter(application =>
+
+            application.professionalId ===
+            currentProfessionalId()
+
+        );
+
+
+    if(myApplications.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                You have not applied for any
+                opportunities yet.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+
+        myApplications
+        .slice()
+        .reverse()
+        .map(application => {
+
+
+            const status =
+                application.status ||
+                "Applied";
+
+
+            const statusClass =
+                String(status)
+                    .toLowerCase();
+
+
+            const date =
+                application.appliedAt
+                    ? new Date(
+                        application.appliedAt
+                    ).toLocaleDateString()
+                    : "-";
+
+
+            return `
+
+                <div class="opportunity-card">
+
+                    <h3>
+
+                        ${escapeHtml(
+                            application.opportunityTitle
+                        )}
+
+                    </h3>
+
+
+                    <div class="organization-name">
+
+                        ${escapeHtml(
+                            application.organizationName
+                        )}
+
+                    </div>
+
+
+                    <span
+                        class="status ${escapeHtml(
+                            statusClass
+                        )}">
+
+                        ${escapeHtml(
+                            status
+                        )}
+
+                    </span>
+
+
+                    <div class="opportunity-grid">
+
+                        <div class="info">
+
+                            <strong>
+                                Professional
+                            </strong>
+
+                            ${escapeHtml(
+                                application.professionalName
+                            )}
+
+                        </div>
+
+
+                        <div class="info">
+
+                            <strong>
+                                Application Date
+                            </strong>
+
+                            ${escapeHtml(date)}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+function clearFilters(){
+
+    document.getElementById(
+        "searchInput"
+    ).value = "";
+
+
+    document.getElementById(
+        "professionFilter"
+    ).value = "All";
+
+
+    document.getElementById(
+        "organizationFilter"
+    ).value = "All";
+
+
+    document.getElementById(
+        "locationFilter"
+    ).value = "All";
+
+
+    document.getElementById(
+        "experienceFilter"
+    ).value = "All";
+
+
+    renderOpportunities();
+
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+function showTab(
+    tabId,
+    button
+){
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section => {
+
+            section.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    document
+        .querySelectorAll(".tab")
+        .forEach(tab => {
+
+            tab.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    document
+        .getElementById(tabId)
+        .classList.add(
+            "active"
+        );
+
+
+    button.classList.add(
+        "active"
+    );
+
+
+    if(
+        tabId ===
+        "myApplications"
+    ){
+
+        renderApplications();
+
+    }
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+loadProfessional();
+
+ensureDemoOpportunities();
+
+renderOpportunities();
+
+renderApplications();
+
+
+/* CLOSE MODAL WHEN CLICKING OUTSIDE */
+
+document
+    .getElementById(
+        "opportunityModal"
+    )
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+</html>
