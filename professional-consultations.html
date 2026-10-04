@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Professional Consultations | Luvio HealthLink</title>
+<title>Consultations | Luvio HealthLink</title>
 
 <style>
-
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
@@ -22,601 +20,868 @@ body{
 }
 
 header{
-    background:#fff;
-    border-bottom:1px solid #dce6ed;
-    padding:16px 24px;
+    background:#ffffff;
+    border-bottom:1px solid #dbe5ec;
+    padding:18px 25px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:20px;
+.logo{
+    font-size:22px;
     font-weight:700;
-}
-
-.brand-mark{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    background:#17324d;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.brand small{
-    display:block;
-    font-size:10px;
-    color:#71808c;
-    font-weight:400;
-}
-
-.back{
-    text-decoration:none;
     color:#17324d;
 }
 
-main{
-    max-width:1100px;
+.logo span{
+    color:#1687c8;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.professional-name{
+    font-size:14px;
+    color:#536779;
+}
+
+.back-btn{
+    text-decoration:none;
+    color:#17324d;
+    border:1px solid #ccd9e2;
+    padding:9px 14px;
+    border-radius:8px;
+    background:#ffffff;
+}
+
+.container{
+    max-width:1200px;
     margin:30px auto;
     padding:0 20px;
 }
 
-h1{
-    margin-bottom:6px;
-}
-
-.sub{
-    color:#71808c;
-    margin-bottom:25px;
-}
-
-.panel{
-    background:#fff;
-    border:1px solid #dce6ed;
-    border-radius:12px;
-    padding:20px;
-    margin-bottom:20px;
-}
-
-.search{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccd9e1;
-    border-radius:8px;
-    margin-bottom:20px;
-}
-
-.patient-card{
-    border:1px solid #dce6ed;
-    border-radius:10px;
-    padding:18px;
-    margin-bottom:12px;
-}
-
-.patient-card h3{
+.page-title{
+    font-size:30px;
     margin-bottom:8px;
 }
 
-.meta{
-    color:#617584;
-    line-height:1.7;
-    font-size:14px;
-}
-
-.actions{
-    margin-top:15px;
-}
-
-button{
-    border:none;
-    border-radius:8px;
-    padding:11px 16px;
-    cursor:pointer;
-    font-weight:600;
-}
-
-.primary{
-    background:#17324d;
-    color:#fff;
+.page-subtitle{
+    color:#687b8c;
+    margin-bottom:25px;
 }
 
 .notice{
-    background:#f4f8fb;
+    background:#eef7fc;
+    border-left:4px solid #1687c8;
+    padding:14px 16px;
+    border-radius:7px;
+    margin-bottom:22px;
+    color:#31546d;
+}
+
+.card{
+    background:#ffffff;
     border:1px solid #dce6ed;
-    padding:14px;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 4px 14px rgba(20,50,70,.04);
+}
+
+.card h2{
+    font-size:19px;
+    margin-bottom:18px;
+}
+
+.filters{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:20px;
+}
+
+select,
+input{
+    border:1px solid #ccd9e2;
     border-radius:8px;
-    color:#526875;
+    padding:10px 12px;
+    font-size:14px;
+    background:#ffffff;
+    color:#17324d;
+}
+
+.queue-card{
+    border:1px solid #dce6ed;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:14px;
+}
+
+.queue-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.patient-name{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.patient-id{
+    font-size:13px;
+    color:#687b8c;
 }
 
 .status{
     display:inline-block;
-    padding:5px 9px;
+    padding:5px 10px;
     border-radius:20px;
     font-size:12px;
-    background:#e8f5ed;
-    color:#23733c;
+    background:#e3f6ee;
+    color:#167454;
 }
 
-footer{
+.details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:10px;
+    margin-top:15px;
+}
+
+.detail{
+    background:#f7fafc;
+    padding:10px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+.detail strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:16px;
+}
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+    padding:10px 15px;
+    font-size:14px;
+}
+
+.primary{
+    background:#1687c8;
+    color:#ffffff;
+}
+
+.secondary{
+    background:#eef5f9;
+    color:#17324d;
+}
+
+.empty{
     text-align:center;
-    padding:30px;
-    color:#71808c;
-    font-size:12px;
+    padding:40px 20px;
+    color:#748696;
 }
 
-</style>
+.summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+    margin-bottom:20px;
+}
 
+.summary-box{
+    background:#ffffff;
+    border:1px solid #dce6ed;
+    border-radius:12px;
+    padding:18px;
+}
+
+.summary-number{
+    font-size:28px;
+    font-weight:700;
+    color:#1687c8;
+}
+
+.summary-label{
+    color:#687b8c;
+    font-size:13px;
+    margin-top:5px;
+}
+
+@media(max-width:700px){
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+    }
+
+    .queue-top{
+        flex-direction:column;
+    }
+
+}
+</style>
 </head>
 
 <body>
 
 <header>
 
-    <div class="brand">
+    <div class="logo">
+        🩺 Luvio <span>HealthLink</span>
+    </div>
 
-        <div class="brand-mark">
-            L
+    <div class="header-right">
+
+        <div class="professional-name" id="professionalName">
+            Professional
         </div>
 
-        <div>
-            Luvio HealthLink
-            <small>
-                Your Personal Health Architecture.
-            </small>
+        <a href="professional.html" class="back-btn">
+            ← Professional Workspace
+        </a>
+
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <h1 class="page-title">
+        Consultations
+    </h1>
+
+    <p class="page-subtitle">
+        View your consultation queue and open an authorized patient consultation.
+    </p>
+
+
+    <div class="notice">
+        Only patients with an active professional assignment are shown here.
+        Select <strong>Open Consultation</strong> to enter the actual consultation workspace.
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary">
+
+        <div class="summary-box">
+
+            <div class="summary-number" id="totalPatients">
+                0
+            </div>
+
+            <div class="summary-label">
+                Patients in Queue
+            </div>
+
+        </div>
+
+
+        <div class="summary-box">
+
+            <div class="summary-number" id="todayPatients">
+                0
+            </div>
+
+            <div class="summary-label">
+                Today's Consultations
+            </div>
+
+        </div>
+
+
+        <div class="summary-box">
+
+            <div class="summary-number" id="onlinePatients">
+                0
+            </div>
+
+            <div class="summary-label">
+                Online Consultations
+            </div>
+
         </div>
 
     </div>
 
 
-    <a
-        class="back"
-        href="professional.html">
+    <!-- QUEUE -->
 
-        ← Back to Professional Workspace
+    <div class="card">
 
-    </a>
-
-</header>
+        <h2>
+            Consultation Queue
+        </h2>
 
 
-<main>
+        <div class="filters">
 
-<h1>Consultations</h1>
+            <select id="queueFilter" onchange="renderQueue()">
 
-<p class="sub">
-    Consultation queue for patients currently assigned to this professional.
-</p>
+                <option value="all">
+                    All Patients
+                </option>
 
+                <option value="today">
+                    Today's Queue
+                </option>
 
-<section class="panel">
+                <option value="online">
+                    Online Consultation
+                </option>
 
-    <input
-        id="patientSearch"
-        class="search"
-        placeholder="Search patient by name or Patient ID..."
-        oninput="renderQueue()"
-    >
+                <option value="clinic">
+                    Clinic Consultation
+                </option>
 
-
-    <div id="queue"></div>
-
-</section>
-
-</main>
+            </select>
 
 
-<footer>
+            <input
+                type="text"
+                id="searchPatient"
+                placeholder="Search patient..."
+                oninput="renderQueue()"
+            >
 
-    Luvio HealthLink ·
-    Your Personal Health Architecture.
+        </div>
 
-</footer>
+
+        <div id="queueList"></div>
+
+    </div>
+
+</div>
 
 
 <script>
 
-const CURRENT_PROFESSIONAL_KEY =
-    "luvio_current_doctor";
+const ASSIGNMENTS_KEY =
+    "luvio_professional_patient_assignments";
 
 const PATIENTS_KEY =
     "luvio_patients";
 
-const ASSIGNMENTS_KEY =
-    "luvio_professional_patient_assignments";
+const PROFESSIONAL_KEY =
+    "luvio_current_doctor";
 
 
-/* =========================
-   STORAGE
-========================= */
-
-function getJSON(key,fallback){
-
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(key) ||
-            JSON.stringify(fallback)
-        );
-
-    }catch(e){
-
-        return fallback;
-
-    }
-
-}
-
-
-/* =========================
-   CURRENT PROFESSIONAL
-========================= */
-
-const professional =
-    getJSON(
-        CURRENT_PROFESSIONAL_KEY,
-        null
+let assignments =
+    JSON.parse(
+        localStorage.getItem(ASSIGNMENTS_KEY) || "[]"
     );
 
 
-/* =========================
-   DATA
-========================= */
-
-function getPatients(){
-
-    return getJSON(
-        PATIENTS_KEY,
-        []
+let patients =
+    JSON.parse(
+        localStorage.getItem(PATIENTS_KEY) || "[]"
     );
 
-}
 
-
-function getAssignments(){
-
-    return getJSON(
-        ASSIGNMENTS_KEY,
-        []
+let professional =
+    JSON.parse(
+        localStorage.getItem(PROFESSIONAL_KEY) || "null"
     );
 
-}
 
-
-/* =========================
-   HTML ESCAPE
-========================= */
-
-function esc(value){
-
-    return String(value ?? "")
-        .replace(/[&<>"']/g,m => ({
-
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-
-        }[m]));
-
-}
-
-
-/* =========================
-   PROFESSIONAL CHECK
-========================= */
-
-function belongsToProfessional(a){
+function getProfessionalId(){
 
     if(!professional){
+        return null;
+    }
+
+    return professional.id ||
+           professional.professionalId ||
+           professional.userId ||
+           professional.userID ||
+           null;
+}
+
+
+function getProfessionalName(){
+
+    if(!professional){
+        return "Professional";
+    }
+
+    return professional.fullName ||
+           professional.name ||
+           "Professional";
+}
+
+
+document.getElementById("professionalName").textContent =
+    getProfessionalName();
+
+
+function getPatientId(patient){
+
+    return patient.id ||
+           patient.patientId ||
+           patient.healthId ||
+           "";
+}
+
+
+function findPatient(id){
+
+    return patients.find(patient =>
+        String(getPatientId(patient)) === String(id)
+    );
+}
+
+
+function assignmentPatientId(assignment){
+
+    return assignment.patientId ||
+           assignment.patient ||
+           assignment.patientID ||
+           "";
+}
+
+
+function professionalMatches(assignment){
+
+    const professionalId =
+        getProfessionalId();
+
+    if(!professionalId){
         return false;
     }
 
+    return String(
+        assignment.professionalId || ""
+    ) === String(professionalId)
 
-    const professionalId =
-        professional.id ||
-        professional.professionalId;
+    ||
 
+    String(
+        assignment.doctorId || ""
+    ) === String(professionalId)
+
+    ||
+
+    String(
+        assignment.userId || ""
+    ) === String(professionalId);
+}
+
+
+function authorizedPatients(){
+
+    return assignments
+        .filter(assignment =>
+            professionalMatches(assignment)
+        )
+        .filter(assignment =>
+            String(
+                assignment.status || ""
+            ).toLowerCase() === "active"
+        );
+}
+
+
+function isToday(dateValue){
+
+    if(!dateValue){
+        return false;
+    }
+
+    const date =
+        new Date(dateValue);
+
+    if(isNaN(date.getTime())){
+        return false;
+    }
+
+    const today =
+        new Date();
+
+    return date.getDate() === today.getDate()
+        &&
+        date.getMonth() === today.getMonth()
+        &&
+        date.getFullYear() === today.getFullYear();
+}
+
+
+function getConsultationType(assignment, patient){
 
     return (
-
-        String(a.professionalId || "") ===
-        String(professionalId || "")
-
-    )
-    ||
-    (
-
-        String(a.professionalUserId || "") ===
-        String(professional.userId || "")
-
+        assignment.consultationType ||
+        assignment.visitType ||
+        patient?.consultationType ||
+        patient?.visitType ||
+        "Clinic"
     );
-
 }
 
-
-/* =========================
-   FIND PATIENT
-========================= */
-
-function findPatient(patientId){
-
-    return getPatients().find(
-        p =>
-            String(p.id) === String(patientId) ||
-            String(p.patientId) === String(patientId)
-    );
-
-}
-
-
-/* =========================
-   RENDER QUEUE
-========================= */
 
 function renderQueue(){
 
-    const queue =
-        document.getElementById("queue");
+    assignments =
+        JSON.parse(
+            localStorage.getItem(
+                ASSIGNMENTS_KEY
+            ) || "[]"
+        );
+
+    patients =
+        JSON.parse(
+            localStorage.getItem(
+                PATIENTS_KEY
+            ) || "[]"
+        );
 
 
-    if(!professional){
+    let queue =
+        authorizedPatients();
 
-        queue.innerHTML =
-            `<div class="notice">
 
-                No professional is currently logged in.
-
-                <br><br>
-
-                Please return to the Professional Portal
-                and log in.
-
-            </div>`;
-
-        return;
-
-    }
+    const filter =
+        document.getElementById(
+            "queueFilter"
+        ).value;
 
 
     const search =
-        document
-            .getElementById("patientSearch")
-            .value
-            .toLowerCase()
-            .trim();
+        document.getElementById(
+            "searchPatient"
+        ).value
+        .trim()
+        .toLowerCase();
 
 
-    let assignments =
-        getAssignments()
-            .filter(a =>
+    queue =
+        queue.filter(assignment => {
 
-                belongsToProfessional(a)
-
-                &&
-
-                a.status === "Active"
-
-            );
-
-
-    let list =
-        assignments
-            .map(a => {
-
-                const patient =
-                    findPatient(
-                        a.patientId
-                    );
-
-
-                if(!patient){
-                    return null;
-                }
-
-
-                return {
-                    assignment:a,
-                    patient:patient
-                };
-
-            })
-            .filter(Boolean);
-
-
-    if(search){
-
-        list =
-            list.filter(item => {
-
-                const p =
-                    item.patient;
-
-
-                const name =
-                    String(
-                        p.name ||
-                        p.fullName ||
-                        ""
-                    ).toLowerCase();
-
-
-                const id =
-                    String(
-                        p.id ||
-                        p.patientId ||
-                        ""
-                    ).toLowerCase();
-
-
-                return (
-                    name.includes(search) ||
-                    id.includes(search)
+            const patient =
+                findPatient(
+                    assignmentPatientId(
+                        assignment
+                    )
                 );
 
-            });
 
-    }
+            const name =
+                patient?.fullName ||
+                patient?.name ||
+                assignment.patientName ||
+                "";
 
-
-    if(!list.length){
-
-        queue.innerHTML =
-            `<div class="notice">
-
-                No patients are currently in
-                your consultation queue.
-
-            </div>`;
-
-        return;
-
-    }
-
-
-    queue.innerHTML =
-        list.map(item => {
-
-            const p =
-                item.patient;
-
-            const a =
-                item.assignment;
 
             const patientId =
-                p.id ||
-                p.patientId;
+                assignmentPatientId(
+                    assignment
+                );
 
 
-            return `
-
-            <div class="patient-card">
-
-                <h3>
-                    ${esc(
-                        p.name ||
-                        p.fullName ||
-                        "Patient"
-                    )}
-                </h3>
+            const type =
+                getConsultationType(
+                    assignment,
+                    patient
+                ).toLowerCase();
 
 
-                <div class="meta">
+            if(filter === "today"){
 
-                    Patient ID:
-                    <b>${esc(patientId)}</b>
+                const date =
+                    assignment.appointmentDate ||
+                    assignment.date ||
+                    assignment.scheduledAt ||
+                    assignment.createdAt;
 
-                    <br>
 
-                    Mobile:
-                    ${esc(
-                        p.mobile ||
-                        "Not provided"
-                    )}
+                if(!isToday(date)){
+                    return false;
+                }
 
-                    <br>
+            }
 
-                    Organization:
-                    ${esc(
-                        a.organizationName ||
-                        a.organizationId ||
-                        "Not specified"
-                    )}
 
-                    <br>
+            if(filter === "online"){
 
-                    <span class="status">
-                        Ready for Consultation
-                    </span>
+                if(!type.includes("online")){
+                    return false;
+                }
+
+            }
+
+
+            if(filter === "clinic"){
+
+                if(type.includes("online")){
+                    return false;
+                }
+
+            }
+
+
+            if(search){
+
+                const searchable =
+                    (
+                        name +
+                        " " +
+                        patientId
+                    ).toLowerCase();
+
+
+                if(!searchable.includes(search)){
+                    return false;
+                }
+
+            }
+
+
+            return true;
+
+        });
+
+
+    updateSummary();
+
+
+    const container =
+        document.getElementById(
+            "queueList"
+        );
+
+
+    if(!queue.length){
+
+        container.innerHTML = `
+            <div class="empty">
+
+                No patients are currently in your
+                consultation queue.
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        queue.map(
+            renderQueueCard
+        ).join("");
+
+}
+
+
+function renderQueueCard(assignment){
+
+    const patient =
+        findPatient(
+            assignmentPatientId(
+                assignment
+            )
+        );
+
+
+    const patientId =
+        assignmentPatientId(
+            assignment
+        );
+
+
+    const name =
+        patient?.fullName ||
+        patient?.name ||
+        assignment.patientName ||
+        "Patient";
+
+
+    const mobile =
+        patient?.mobile ||
+        patient?.phone ||
+        assignment.patientMobile ||
+        "Not available";
+
+
+    const age =
+        patient?.age ||
+        "Not recorded";
+
+
+    const gender =
+        patient?.gender ||
+        "Not recorded";
+
+
+    const type =
+        getConsultationType(
+            assignment,
+            patient
+        );
+
+
+    const appointment =
+        assignment.appointmentDate ||
+        assignment.date ||
+        assignment.scheduledAt ||
+        "Not scheduled";
+
+
+    return `
+
+        <div class="queue-card">
+
+            <div class="queue-top">
+
+                <div>
+
+                    <div class="patient-name">
+                        ${escapeHTML(name)}
+                    </div>
+
+                    <div class="patient-id">
+                        Patient ID:
+                        ${escapeHTML(patientId)}
+                    </div>
 
                 </div>
 
 
-                <div class="actions">
+                <span class="status">
+                    Active Patient
+                </span>
 
-                    <button
-                        class="primary"
-                        onclick="openConsultation('${encodeURIComponent(patientId)}')">
+            </div>
 
-                        Open Consultation
 
-                    </button>
+            <div class="details">
+
+                <div class="detail">
+
+                    <strong>
+                        Mobile
+                    </strong>
+
+                    ${escapeHTML(mobile)}
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Age
+                    </strong>
+
+                    ${escapeHTML(
+                        String(age)
+                    )}
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Gender
+                    </strong>
+
+                    ${escapeHTML(
+                        String(gender)
+                    )}
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Consultation
+                    </strong>
+
+                    ${escapeHTML(type)}
+
+                </div>
+
+
+                <div class="detail">
+
+                    <strong>
+                        Appointment
+                    </strong>
+
+                    ${escapeHTML(
+                        String(appointment)
+                    )}
 
                 </div>
 
             </div>
 
-            `;
 
-        })
-        .join("");
+            <div class="actions">
+
+                <button
+                    class="primary"
+                    onclick="openConsultation('${escapeAttribute(patientId)}')">
+
+                    Open Consultation
+
+                </button>
+
+
+                <button
+                    class="secondary"
+                    onclick="openPatientRecord('${escapeAttribute(patientId)}')">
+
+                    Patient Record
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
 
 }
 
 
-/* =========================
-   OPEN CONSULTATION
-   IMPORTANT CONNECTION
-========================= */
+function openConsultation(patientId){
 
-function openConsultation(encodedPatientId){
-
-    const patientId =
-        decodeURIComponent(
-            encodedPatientId
-        );
-
-
-    if(!professional){
-
+    if(!patientId){
         alert(
-            "Please log in to the Professional Portal first."
+            "Patient ID is missing."
         );
-
         return;
-
-    }
-
-
-    const assignment =
-        getAssignments().find(a =>
-
-            String(a.patientId) ===
-            String(patientId)
-
-            &&
-
-            belongsToProfessional(a)
-
-            &&
-
-            a.status === "Active"
-
-        );
-
-
-    if(!assignment){
-
-        alert(
-            "This patient is not currently assigned to this professional."
-        );
-
-        return;
-
     }
 
 
     /*
-       THIS IS THE ACTUAL CONNECTION.
+       IMPORTANT:
 
-       It opens the NEW consultation page,
-       not the old consultation page.
+       This page is only the consultation queue.
+
+       The actual consultation workspace
+       is professional-patient-consultation.html
     */
 
     window.location.href =
@@ -626,9 +891,110 @@ function openConsultation(encodedPatientId){
 }
 
 
-/* =========================
-   INITIAL LOAD
-========================= */
+function openPatientRecord(patientId){
+
+    /*
+       Until a dedicated patient-record page
+       is created, open the patient's authorized
+       consultation workspace.
+    */
+
+    window.location.href =
+        "professional-patient-consultation.html?patient=" +
+        encodeURIComponent(patientId);
+
+}
+
+
+function updateSummary(){
+
+    const queue =
+        authorizedPatients();
+
+
+    document.getElementById(
+        "totalPatients"
+    ).textContent =
+        queue.length;
+
+
+    const today =
+        queue.filter(
+            assignment => {
+
+                const date =
+                    assignment.appointmentDate ||
+                    assignment.date ||
+                    assignment.scheduledAt ||
+                    assignment.createdAt;
+
+                return isToday(date);
+
+            }
+        );
+
+
+    document.getElementById(
+        "todayPatients"
+    ).textContent =
+        today.length;
+
+
+    const online =
+        queue.filter(
+            assignment => {
+
+                const patient =
+                    findPatient(
+                        assignmentPatientId(
+                            assignment
+                        )
+                    );
+
+
+                const type =
+                    getConsultationType(
+                        assignment,
+                        patient
+                    ).toLowerCase();
+
+
+                return type.includes(
+                    "online"
+                );
+
+            }
+        );
+
+
+    document.getElementById(
+        "onlinePatients"
+    ).textContent =
+        online.length;
+
+}
+
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+function escapeAttribute(value){
+
+    return String(value ?? "")
+        .replace(/\\/g,"\\\\")
+        .replace(/'/g,"\\'");
+
+}
+
 
 renderQueue();
 
