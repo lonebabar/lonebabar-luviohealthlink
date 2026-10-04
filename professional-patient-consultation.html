@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Professional Patients | Luvio HealthLink</title>
+<title>Patient Consultation | Luvio HealthLink</title>
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 body{
@@ -21,185 +21,482 @@ body{
 
 header{
     background:#ffffff;
-    border-bottom:1px solid #dce6ed;
-    padding:16px 24px;
+    border-bottom:1px solid #dbe5ec;
+    padding:17px 24px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:15px;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
+.logo{
+    font-size:22px;
     font-weight:700;
-    font-size:20px;
+    color:#17324d;
 }
 
-.brand-mark{
-    width:38px;
-    height:38px;
-    border-radius:50%;
-    background:#17324d;
-    color:white;
+.logo span{
+    color:#1687c8;
+}
+
+.header-right{
     display:flex;
     align-items:center;
-    justify-content:center;
+    gap:12px;
 }
 
-.brand small{
-    display:block;
-    font-size:10px;
-    color:#71808c;
-    font-weight:400;
-    margin-top:2px;
-}
-
-.back{
-    text-decoration:none;
-    color:#17324d;
+.professional-name{
+    color:#5f7282;
     font-size:14px;
 }
 
-main{
-    max-width:1100px;
-    margin:30px auto;
+.back-btn{
+    text-decoration:none;
+    color:#17324d;
+    border:1px solid #ccd9e2;
+    padding:9px 14px;
+    border-radius:8px;
+    background:#ffffff;
+}
+
+.container{
+    max-width:1250px;
+    margin:28px auto;
     padding:0 20px;
 }
 
-h1{
+.page-title{
+    font-size:30px;
     margin-bottom:6px;
 }
 
-.sub{
-    color:#71808c;
-    margin-bottom:25px;
+.page-subtitle{
+    color:#6b7e8e;
+    margin-bottom:22px;
 }
 
-.tabs{
-    display:flex;
-    gap:10px;
-    margin-bottom:20px;
-    flex-wrap:wrap;
-}
-
-.tab{
-    border:1px solid #d5e0e7;
-    background:white;
-    padding:11px 16px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.tab.active{
-    background:#17324d;
-    color:white;
-}
-
-.panel{
-    background:white;
+.card{
+    background:#ffffff;
     border:1px solid #dce6ed;
-    border-radius:12px;
-    padding:20px;
+    border-radius:14px;
+    padding:22px;
     margin-bottom:20px;
+    box-shadow:0 4px 14px rgba(20,50,70,.04);
 }
 
-.search{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccd9e1;
-    border-radius:8px;
-    margin-bottom:20px;
+.card h2{
+    font-size:19px;
+    margin-bottom:17px;
 }
 
-.patient-card{
-    border:1px solid #dce6ed;
-    border-radius:10px;
-    padding:18px;
+.card h3{
+    font-size:16px;
     margin-bottom:12px;
-    background:#fff;
 }
 
-.patient-card h3{
-    margin-bottom:8px;
+.patient-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
 }
 
-.meta{
-    color:#617584;
-    line-height:1.7;
+.patient-name{
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.patient-id{
+    color:#6b7e8e;
     font-size:14px;
 }
 
-.actions{
-    margin-top:15px;
+.badge{
+    display:inline-block;
+    padding:6px 11px;
+    border-radius:20px;
+    background:#e3f6ee;
+    color:#167454;
+    font-size:12px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+}
+
+.grid-3{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.field{
     display:flex;
-    gap:10px;
+    flex-direction:column;
+    gap:6px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+label{
+    font-size:13px;
+    font-weight:700;
+    color:#405a6d;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    border:1px solid #ccd9e2;
+    border-radius:8px;
+    padding:11px 12px;
+    font-family:inherit;
+    font-size:14px;
+    color:#17324d;
+    background:#ffffff;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    outline:none;
+    border-color:#1687c8;
+}
+
+.readonly{
+    background:#f5f8fa;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.info-box{
+    background:#f7fafc;
+    border-radius:9px;
+    padding:13px;
+}
+
+.info-label{
+    font-size:12px;
+    color:#718392;
+    margin-bottom:5px;
+}
+
+.info-value{
+    font-size:14px;
+    font-weight:600;
+}
+
+.history-box{
+    background:#f8fafc;
+    border:1px solid #e1e9ee;
+    border-radius:10px;
+    padding:14px;
+    margin-bottom:10px;
+}
+
+.history-title{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.history-meta{
+    font-size:12px;
+    color:#718392;
+    margin-bottom:8px;
+}
+
+.history-text{
+    font-size:13px;
+    line-height:1.55;
+}
+
+.section-note{
+    font-size:13px;
+    color:#718392;
+    margin-bottom:14px;
+}
+
+.radio-row{
+    display:flex;
+    gap:20px;
+    align-items:center;
     flex-wrap:wrap;
+    margin-bottom:14px;
+}
+
+.radio-option{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-size:14px;
+}
+
+.radio-option input{
+    width:auto;
+}
+
+.medicine-row{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr auto;
+    gap:8px;
+    margin-bottom:9px;
+    align-items:center;
+}
+
+.medicine-row input,
+.medicine-row select{
+    margin:0;
+}
+
+.remove-btn{
+    background:#fbe7e7;
+    color:#a33a3a;
+    padding:9px 11px;
+}
+
+.add-btn{
+    background:#eef5f9;
+    color:#17324d;
+    margin-top:5px;
+}
+
+.diagnostic-row{
+    display:grid;
+    grid-template-columns:2fr 1.2fr auto;
+    gap:9px;
+    margin-bottom:9px;
+}
+
+.referral-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.checkbox-row{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    margin-top:10px;
+}
+
+.checkbox-row input{
+    width:auto;
+}
+
+.preview{
+    background:#ffffff;
+    border:1px solid #cfdce4;
+    border-radius:10px;
+    padding:25px;
+}
+
+.preview-header{
+    text-align:center;
+    border-bottom:1px solid #dce6ed;
+    padding-bottom:15px;
+    margin-bottom:18px;
+}
+
+.preview-brand{
+    font-size:21px;
+    font-weight:700;
+}
+
+.preview-tagline{
+    font-size:12px;
+    color:#718392;
+    margin-top:4px;
+}
+
+.preview-section{
+    margin-bottom:18px;
+}
+
+.preview-section h4{
+    font-size:14px;
+    border-bottom:1px solid #e2e9ee;
+    padding-bottom:6px;
+    margin-bottom:9px;
+}
+
+.preview-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.preview-table th,
+.preview-table td{
+    border:1px solid #dce6ed;
+    padding:9px;
+    text-align:left;
+    font-size:13px;
+}
+
+.preview-table th{
+    background:#f4f8fb;
+}
+
+.review-box{
+    background:#eef7fc;
+    border-left:4px solid #1687c8;
+    border-radius:7px;
+    padding:15px;
+    margin-bottom:15px;
+}
+
+.action-bar{
+    position:sticky;
+    bottom:0;
+    background:rgba(255,255,255,.97);
+    border-top:1px solid #dce6ed;
+    padding:15px 0;
+    margin-top:5px;
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+    z-index:10;
 }
 
 button{
     border:none;
-    border-radius:8px;
-    padding:10px 15px;
     cursor:pointer;
-    font-weight:600;
+    border-radius:8px;
+    padding:11px 17px;
+    font-size:14px;
 }
 
 .primary{
-    background:#17324d;
-    color:white;
+    background:#1687c8;
+    color:#ffffff;
 }
 
 .secondary{
-    background:#eef4f7;
+    background:#eef5f9;
     color:#17324d;
 }
 
-.danger{
-    background:#fbecec;
-    color:#a33;
+.success{
+    background:#168a61;
+    color:#ffffff;
 }
 
-.notice{
-    background:#f4f8fb;
-    border:1px solid #dce6ed;
-    padding:14px;
-    border-radius:8px;
-    color:#526875;
+.warning{
+    background:#d99b18;
+    color:#ffffff;
+}
+
+.danger{
+    background:#c94b4b;
+    color:#ffffff;
 }
 
 .hidden{
-    display:none;
+    display:none !important;
 }
 
-.status{
-    display:inline-block;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:12px;
-    background:#eef4f7;
+.alert{
+    padding:14px 16px;
+    border-radius:8px;
+    margin-bottom:20px;
 }
 
-.status.active{
-    background:#e8f5ed;
-    color:#23733c;
+.alert.error{
+    background:#fbe7e7;
+    color:#9d3434;
+    border:1px solid #efcaca;
 }
 
-.status.pending{
-    background:#fff5df;
-    color:#956500;
+.alert.success-alert{
+    background:#e4f6ed;
+    color:#176b4c;
+    border:1px solid #c8e8d8;
 }
 
-.status.declined{
-    background:#fbecec;
-    color:#a33;
+.signature-box{
+    border:1px dashed #bdcbd4;
+    border-radius:9px;
+    padding:15px;
+    background:#fafcfd;
 }
 
-footer{
-    text-align:center;
-    padding:30px;
-    color:#71808c;
-    font-size:12px;
+.signature-image{
+    max-width:220px;
+    max-height:80px;
+    object-fit:contain;
+}
+
+.seal-image{
+    max-width:100px;
+    max-height:100px;
+    object-fit:contain;
+}
+
+@media(max-width:900px){
+
+    .grid,
+    .grid-3,
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .medicine-row{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .diagnostic-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .header-right{
+        flex-wrap:wrap;
+    }
+
+    .grid,
+    .grid-3,
+    .info-grid,
+    .referral-row{
+        grid-template-columns:1fr;
+    }
+
+    .patient-header{
+        flex-direction:column;
+    }
+
+    .medicine-row{
+        grid-template-columns:1fr;
+    }
+
+    .action-bar{
+        flex-direction:column;
+    }
+
+    .action-bar button{
+        width:100%;
+    }
 }
 </style>
 </head>
@@ -208,1055 +505,2794 @@ footer{
 
 <header>
 
-    <div class="brand">
-        <div class="brand-mark">L</div>
-
-        <div>
-            Luvio HealthLink
-            <small>Your Personal Health Architecture.</small>
-        </div>
+    <div class="logo">
+        🩺 Luvio <span>HealthLink</span>
     </div>
 
-    <a class="back" href="professional.html">
-        ← Back to Professional Workspace
-    </a>
+    <div class="header-right">
+
+        <div class="professional-name" id="professionalName">
+            Professional
+        </div>
+
+        <a href="professional-consultations.html" class="back-btn">
+            ← Consultations
+        </a>
+
+    </div>
 
 </header>
 
 
-<main>
+<div class="container">
 
-<h1>Patients</h1>
+    <h1 class="page-title">
+        Patient Consultation
+    </h1>
 
-<p class="sub">
-    Manage patient assignments and open authorized patient consultations.
-</p>
+    <p class="page-subtitle">
+        Review the patient's record, complete the consultation and confirm the clinical encounter.
+    </p>
 
 
-<div class="tabs">
+    <div id="pageAlert" class="hidden"></div>
 
-    <button class="tab active"
-            onclick="showTab('pending',this)">
-        Pending Patients
-    </button>
 
-    <button class="tab"
-            onclick="showTab('my',this)">
-        My Patients
-    </button>
+    <!-- PATIENT HEADER -->
 
-    <button class="tab"
-            onclick="showTab('history',this)">
-        Assignment History
-    </button>
+    <div class="card">
+
+        <div class="patient-header">
+
+            <div>
+
+                <div class="patient-name" id="patientName">
+                    Patient
+                </div>
+
+                <div class="patient-id">
+                    Patient ID:
+                    <span id="patientId">—</span>
+                </div>
+
+            </div>
+
+            <span class="badge">
+                Authorized Patient
+            </span>
+
+        </div>
+
+
+        <div class="info-grid" style="margin-top:18px;">
+
+            <div class="info-box">
+                <div class="info-label">Age</div>
+                <div class="info-value" id="patientAge">—</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Gender</div>
+                <div class="info-value" id="patientGender">—</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Mobile</div>
+                <div class="info-value" id="patientMobile">—</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Blood Group</div>
+                <div class="info-value" id="patientBloodGroup">—</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECEPTION RECORD -->
+
+    <div class="card">
+
+        <h2>
+            Patient Record & Reception Information
+        </h2>
+
+        <p class="section-note">
+            Information already recorded by reception or the organization is shown here for clinical review.
+        </p>
+
+
+        <h3>
+            Vitals
+        </h3>
+
+        <div class="info-grid">
+
+            <div class="info-box">
+                <div class="info-label">Blood Pressure</div>
+                <div class="info-value" id="vitalBP">Not recorded</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Pulse</div>
+                <div class="info-value" id="vitalPulse">Not recorded</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Temperature</div>
+                <div class="info-value" id="vitalTemperature">Not recorded</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">SpO₂</div>
+                <div class="info-value" id="vitalSpo2">Not recorded</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Weight</div>
+                <div class="info-value" id="vitalWeight">Not recorded</div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-label">Height</div>
+                <div class="info-value" id="vitalHeight">Not recorded</div>
+            </div>
+
+        </div>
+
+
+        <h3 style="margin-top:22px;">
+            Allergies
+        </h3>
+
+        <div class="history-box">
+            <div class="history-text" id="allergies">
+                Not recorded
+            </div>
+        </div>
+
+
+        <h3>
+            Medical History
+        </h3>
+
+        <div class="history-box">
+            <div class="history-text" id="medicalHistory">
+                Not recorded
+            </div>
+        </div>
+
+
+        <h3>
+            Current Medications
+        </h3>
+
+        <div class="history-box">
+            <div class="history-text" id="currentMedications">
+                Not recorded
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- PREVIOUS RECORD -->
+
+    <div class="card">
+
+        <h2>
+            Previous Luvio Health Records
+        </h2>
+
+        <div id="previousConsultations">
+            <div class="empty">
+                No previous consultations found.
+            </div>
+        </div>
+
+        <div id="previousPrescriptions" style="margin-top:15px;">
+            <div class="empty">
+                No previous prescriptions found.
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- CURRENT CONSULTATION -->
+
+    <div class="card">
+
+        <h2>
+            Current Consultation
+        </h2>
+
+        <div class="grid">
+
+            <div class="field full">
+
+                <label for="chiefComplaint">
+                    Chief Complaint
+                </label>
+
+                <textarea
+                    id="chiefComplaint"
+                    placeholder="Enter the patient's main complaint..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label for="clinicalHistory">
+                    Clinical History
+                </label>
+
+                <textarea
+                    id="clinicalHistory"
+                    placeholder="History of present illness, relevant symptoms, duration, etc."
+                ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label for="examination">
+                    Examination
+                </label>
+
+                <textarea
+                    id="examination"
+                    placeholder="Enter examination findings..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="field full">
+
+                <label for="diagnosis">
+                    Diagnosis / Clinical Assessment
+                </label>
+
+                <textarea
+                    id="diagnosis"
+                    placeholder="Enter diagnosis or clinical assessment..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRESCRIPTION -->
+
+    <div class="card">
+
+        <h2>
+            Prescription
+        </h2>
+
+        <div class="radio-row">
+
+            <label class="radio-option">
+                <input
+                    type="radio"
+                    name="prescriptionMode"
+                    value="type"
+                    checked
+                    onchange="switchPrescriptionMode()"
+                >
+                Type Prescription
+            </label>
+
+
+            <label class="radio-option">
+                <input
+                    type="radio"
+                    name="prescriptionMode"
+                    value="handwrite"
+                    onchange="switchPrescriptionMode()"
+                >
+                Handwrite Prescription
+            </label>
+
+        </div>
+
+
+        <!-- TYPED PRESCRIPTION -->
+
+        <div id="typedPrescription">
+
+            <p class="section-note">
+                Add medicines, dosage, frequency and duration.
+            </p>
+
+            <div id="medicineRows"></div>
+
+            <button
+                type="button"
+                class="add-btn"
+                onclick="addMedicineRow()"
+            >
+                + Add Medicine
+            </button>
+
+        </div>
+
+
+        <!-- HANDWRITTEN PRESCRIPTION -->
+
+        <div id="handwrittenPrescription" class="hidden">
+
+            <p class="section-note">
+                Write the prescription below. The handwriting will be retained as part of the prescription record.
+            </p>
+
+            <canvas
+                id="prescriptionCanvas"
+                width="900"
+                height="350"
+                style="
+                    width:100%;
+                    max-width:900px;
+                    border:1px solid #ccd9e2;
+                    border-radius:9px;
+                    background:white;
+                    touch-action:none;
+                "
+            ></canvas>
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    class="secondary"
+                    onclick="clearCanvas()"
+                >
+                    Clear Handwriting
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="field" style="margin-top:18px;">
+
+            <label for="prescriptionInstructions">
+                Prescription Instructions / Advice
+            </label>
+
+            <textarea
+                id="prescriptionInstructions"
+                placeholder="Enter dosage instructions, precautions, follow-up advice, diet advice, etc."
+            ></textarea>
+
+        </div>
+
+    </div>
+
+
+    <!-- DIAGNOSTICS -->
+
+    <div class="card">
+
+        <h2>
+            Diagnostic Orders
+        </h2>
+
+        <p class="section-note">
+            Add tests that should be sent to the selected diagnostic provider.
+        </p>
+
+        <div id="diagnosticRows"></div>
+
+        <button
+            type="button"
+            class="add-btn"
+            onclick="addDiagnosticRow()"
+        >
+            + Add Diagnostic Test
+        </button>
+
+    </div>
+
+
+    <!-- REFERRAL -->
+
+    <div class="card">
+
+        <h2>
+            Referral
+        </h2>
+
+        <div class="checkbox-row">
+
+            <input
+                type="checkbox"
+                id="referralRequired"
+                onchange="toggleReferral()"
+            >
+
+            <label for="referralRequired">
+                Patient requires referral
+            </label>
+
+        </div>
+
+
+        <div id="referralSection" class="hidden" style="margin-top:18px;">
+
+            <div class="referral-row">
+
+                <div class="field">
+
+                    <label for="referralOrganization">
+                        Referral Organization / Hospital
+                    </label>
+
+                    <input
+                        id="referralOrganization"
+                        placeholder="Hospital / organization"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="referralDepartment">
+                        Department
+                    </label>
+
+                    <input
+                        id="referralDepartment"
+                        placeholder="Department / specialty"
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="referralReason">
+                        Referral Reason
+                    </label>
+
+                    <textarea
+                        id="referralReason"
+                        placeholder="Reason for referral..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="referralNotes">
+                        Referral Notes
+                    </label>
+
+                    <textarea
+                        id="referralNotes"
+                        placeholder="Additional referral information..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PRESCRIPTION PREVIEW -->
+
+    <div class="card">
+
+        <h2>
+            Prescription Preview
+        </h2>
+
+        <div class="preview" id="prescriptionPreview">
+
+            <div class="preview-header">
+
+                <div class="preview-brand">
+                    Luvio HealthLink
+                </div>
+
+                <div class="preview-tagline">
+                    Your Personal Health Architecture.
+                </div>
+
+            </div>
+
+            <div class="preview-section">
+
+                <h4>
+                    Patient
+                </h4>
+
+                <div id="previewPatient">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h4>
+                    Professional
+                </h4>
+
+                <div id="previewProfessional">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h4>
+                    Diagnosis / Assessment
+                </h4>
+
+                <div id="previewDiagnosis">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h4>
+                    Medicines
+                </h4>
+
+                <div id="previewMedicines">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h4>
+                    Advice
+                </h4>
+
+                <div id="previewAdvice">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h4>
+                    Signature
+                </h4>
+
+                <div id="previewSignature">
+                    Professional signature
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- REVIEW -->
+
+    <div class="card">
+
+        <h2>
+            Review Consultation
+        </h2>
+
+        <div class="review-box">
+
+            <strong>
+                Please review the consultation before confirming.
+            </strong>
+
+            <p style="margin-top:8px;font-size:13px;line-height:1.5;">
+                Once you select Confirm & Sign, the consultation will be saved
+                to the patient's Luvio Health record and the relevant
+                prescription, diagnostic and referral information will be stored.
+            </p>
+
+        </div>
+
+
+        <div class="grid">
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    Patient
+                </div>
+
+                <div class="info-value"
+                     id="reviewPatient">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    Professional
+                </div>
+
+                <div class="info-value"
+                     id="reviewProfessional">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    Diagnosis
+                </div>
+
+                <div class="info-value"
+                     id="reviewDiagnosis">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <div class="info-label">
+                    Prescription
+                </div>
+
+                <div class="info-value"
+                     id="reviewPrescription">
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="action-bar">
+
+        <button
+            type="button"
+            class="secondary"
+            onclick="saveDraft()"
+        >
+            Save Draft
+        </button>
+
+
+        <button
+            type="button"
+            class="primary"
+            onclick="reviewConsultation()"
+        >
+            Review Consultation
+        </button>
+
+
+        <button
+            type="button"
+            class="success"
+            onclick="confirmAndSign()"
+        >
+            Confirm & Sign
+        </button>
+
+    </div>
 
 </div>
 
 
-<!-- ========================= -->
-<!-- PENDING PATIENTS -->
-<!-- ========================= -->
-
-<section id="pendingPanel" class="panel">
-
-    <input
-        id="pendingSearch"
-        class="search"
-        placeholder="Search pending patients..."
-        oninput="renderPending()"
-    >
-
-    <div id="pendingList"></div>
-
-</section>
-
-
-<!-- ========================= -->
-<!-- MY PATIENTS -->
-<!-- ========================= -->
-
-<section id="myPanel" class="panel hidden">
-
-    <input
-        id="mySearch"
-        class="search"
-        placeholder="Search my patients..."
-        oninput="renderMyPatients()"
-    >
-
-    <div id="myPatientsList"></div>
-
-</section>
-
-
-<!-- ========================= -->
-<!-- HISTORY -->
-<!-- ========================= -->
-
-<section id="historyPanel" class="panel hidden">
-
-    <div id="historyList"></div>
-
-</section>
-
-</main>
-
-
-<footer>
-    Luvio HealthLink · Your Personal Health Architecture.
-</footer>
-
-
 <script>
+
+/* =========================================================
+   STORAGE
+========================================================= */
 
 const PATIENTS_KEY =
     "luvio_patients";
 
+const PROFESSIONAL_KEY =
+    "luvio_current_doctor";
+
 const ASSIGNMENTS_KEY =
     "luvio_professional_patient_assignments";
 
-const CURRENT_PROFESSIONAL_KEY =
-    "luvio_current_doctor";
+const CONSULTATIONS_KEY =
+    "luvio_professional_consultations";
+
+const PRESCRIPTIONS_KEY =
+    "luvio_prescriptions";
+
+const ORGANIZATIONS_KEY =
+    "luvio_organizations";
 
 
-/* =========================
-   BASIC STORAGE FUNCTIONS
-========================= */
+/* =========================================================
+   DATA
+========================================================= */
 
-function getJSON(key, fallback){
-
-    try{
-
-        return JSON.parse(
-            localStorage.getItem(key) ||
-            JSON.stringify(fallback)
-        );
-
-    }catch(e){
-
-        return fallback;
-
-    }
-
-}
-
-
-function setJSON(key,value){
-
-    localStorage.setItem(
-        key,
-        JSON.stringify(value)
+let patients =
+    JSON.parse(
+        localStorage.getItem(PATIENTS_KEY) || "[]"
     );
 
-}
-
-
-/* =========================
-   CURRENT PROFESSIONAL
-========================= */
-
-function getCurrentProfessional(){
-
-    return getJSON(
-        CURRENT_PROFESSIONAL_KEY,
-        null
+let professional =
+    JSON.parse(
+        localStorage.getItem(PROFESSIONAL_KEY) || "null"
     );
 
-}
+let assignments =
+    JSON.parse(
+        localStorage.getItem(ASSIGNMENTS_KEY) || "[]"
+    );
 
+let consultations =
+    JSON.parse(
+        localStorage.getItem(CONSULTATIONS_KEY) || "[]"
+    );
+
+let prescriptions =
+    JSON.parse(
+        localStorage.getItem(PRESCRIPTIONS_KEY) || "[]"
+    );
+
+let organizations =
+    JSON.parse(
+        localStorage.getItem(ORGANIZATIONS_KEY) || "[]"
+    );
+
+
+let selectedPatient = null;
+let activeAssignment = null;
+
+
+/* =========================================================
+   PATIENT ID FROM URL
+========================================================= */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const selectedPatientId =
+    urlParams.get("patient");
+
+
+/* =========================================================
+   BASIC HELPERS
+========================================================= */
 
 function getProfessionalId(){
-
-    const professional =
-        getCurrentProfessional();
 
     if(!professional){
         return null;
     }
 
-    return (
-        professional.id ||
-        professional.professionalId ||
-        ""
-    );
-
+    return professional.id ||
+           professional.professionalId ||
+           professional.userId ||
+           professional.userID ||
+           null;
 }
 
 
-/* =========================
-   PATIENT DATA
-========================= */
-
-function getPatients(){
-
-    return getJSON(
-        PATIENTS_KEY,
-        []
-    );
-
-}
-
-
-function getAssignments(){
-
-    return getJSON(
-        ASSIGNMENTS_KEY,
-        []
-    );
-
-}
-
-
-/* =========================
-   ESCAPE HTML
-========================= */
-
-function esc(value){
-
-    return String(value ?? "")
-        .replace(/[&<>"']/g,m => ({
-
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-
-        }[m]));
-
-}
-
-
-/* =========================
-   PATIENT LOOKUP
-========================= */
-
-function findPatient(patientId){
-
-    const patients =
-        getPatients();
-
-    return patients.find(
-        p =>
-            String(p.id) === String(patientId) ||
-            String(p.patientId) === String(patientId)
-    );
-
-}
-
-
-/* =========================
-   PROFESSIONAL ASSIGNMENT
-========================= */
-
-function belongsToProfessional(assignment){
-
-    const professional =
-        getCurrentProfessional();
+function getProfessionalName(){
 
     if(!professional){
+        return "Professional";
+    }
+
+    return professional.fullName ||
+           professional.name ||
+           "Professional";
+}
+
+
+function getPatientId(patient){
+
+    return patient.id ||
+           patient.patientId ||
+           patient.healthId ||
+           "";
+}
+
+
+function findPatient(id){
+
+    return patients.find(patient =>
+        String(getPatientId(patient)) === String(id)
+    );
+}
+
+
+function assignmentPatientId(assignment){
+
+    return assignment.patientId ||
+           assignment.patient ||
+           assignment.patientID ||
+           "";
+}
+
+
+function professionalMatches(assignment){
+
+    const id =
+        getProfessionalId();
+
+    if(!id){
         return false;
     }
 
-    const professionalId =
-        professional.id ||
-        professional.professionalId;
+    return String(
+        assignment.professionalId || ""
+    ) === String(id)
 
-    return (
-        String(assignment.professionalId || "") ===
-        String(professionalId || "")
-    )
     ||
-    (
-        String(assignment.professionalUserId || "") ===
-        String(professional.userId || "")
-    );
 
+    String(
+        assignment.doctorId || ""
+    ) === String(id)
+
+    ||
+
+    String(
+        assignment.userId || ""
+    ) === String(id);
 }
 
 
-/* =========================
-   TAB SWITCHING
-========================= */
+function showAlert(message,type){
 
-function showTab(tab,button){
-
-    document
-        .querySelectorAll(".tab")
-        .forEach(b =>
-            b.classList.remove("active")
+    const box =
+        document.getElementById(
+            "pageAlert"
         );
 
-    button.classList.add("active");
+    box.className =
+        "alert " +
+        (
+            type === "success"
+            ? "success-alert"
+            : "error"
+        );
 
-    document
-        .getElementById("pendingPanel")
-        .classList.add("hidden");
+    box.textContent =
+        message;
 
-    document
-        .getElementById("myPanel")
-        .classList.add("hidden");
+    box.classList.remove("hidden");
 
-    document
-        .getElementById("historyPanel")
-        .classList.add("hidden");
-
-
-    if(tab === "pending"){
-
-        document
-            .getElementById("pendingPanel")
-            .classList.remove("hidden");
-
-        renderPending();
-
-    }
-
-
-    if(tab === "my"){
-
-        document
-            .getElementById("myPanel")
-            .classList.remove("hidden");
-
-        renderMyPatients();
-
-    }
-
-
-    if(tab === "history"){
-
-        document
-            .getElementById("historyPanel")
-            .classList.remove("hidden");
-
-        renderHistory();
-
-    }
-
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* =========================
-   PENDING PATIENTS
-========================= */
+function clearAlert(){
 
-function renderPending(){
+    const box =
+        document.getElementById(
+            "pageAlert"
+        );
 
-    const professional =
-        getCurrentProfessional();
+    box.className =
+        "hidden";
 
-    const container =
-        document.getElementById("pendingList");
+    box.textContent =
+        "";
+}
+
+
+/* =========================================================
+   LOAD AUTHORIZED PATIENT
+========================================================= */
+
+function loadPatient(){
 
     if(!professional){
 
-        container.innerHTML =
-            `<div class="notice">
-                No professional is currently logged in.
-            </div>`;
+        showAlert(
+            "No professional is currently logged in.",
+            "error"
+        );
 
-        return;
+        return false;
     }
 
 
-    const search =
-        document
-            .getElementById("pendingSearch")
-            .value
-            .toLowerCase()
-            .trim();
+    if(!selectedPatientId){
+
+        showAlert(
+            "No patient was selected for consultation.",
+            "error"
+        );
+
+        return false;
+    }
 
 
-    const assignments =
-        getAssignments();
-
-
-    let list =
-        assignments.filter(a =>
-
-            belongsToProfessional(a) &&
-            a.status === "Pending"
-
+    activeAssignment =
+        assignments.find(
+            assignment =>
+                professionalMatches(assignment)
+                &&
+                String(
+                    assignmentPatientId(
+                        assignment
+                    )
+                ) === String(
+                    selectedPatientId
+                )
+                &&
+                String(
+                    assignment.status || ""
+                ).toLowerCase() === "active"
         );
 
 
-    list =
-        list
-            .map(a => {
+    if(!activeAssignment){
 
-                const patient =
-                    findPatient(a.patientId);
+        showAlert(
+            "This patient is not currently assigned to this professional.",
+            "error"
+        );
 
-                if(!patient){
-                    return null;
-                }
-
-                return {
-                    assignment:a,
-                    patient:patient
-                };
-
-            })
-            .filter(Boolean);
-
-
-    if(search){
-
-        list =
-            list.filter(item => {
-
-                const p =
-                    item.patient;
-
-                return (
-
-                    String(
-                        p.name ||
-                        p.fullName ||
-                        ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
-
-                    ||
-
-                    String(
-                        p.id ||
-                        p.patientId ||
-                        ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
-
-                );
-
-            });
-
+        return false;
     }
 
 
-    if(!list.length){
+    selectedPatient =
+        findPatient(
+            selectedPatientId
+        );
 
-        container.innerHTML =
-            `<div class="notice">
-                No pending patient assignments.
-            </div>`;
 
-        return;
+    if(!selectedPatient){
 
+        showAlert(
+            "Patient record could not be found.",
+            "error"
+        );
+
+        return false;
     }
 
 
-    container.innerHTML =
-        list.map(item => {
-
-            const p =
-                item.patient;
-
-            const a =
-                item.assignment;
-
-            const patientId =
-                p.id ||
-                p.patientId;
+    populatePatient();
 
 
-            return `
-
-            <div class="patient-card">
-
-                <h3>
-                    ${esc(
-                        p.name ||
-                        p.fullName ||
-                        "Patient"
-                    )}
-                </h3>
-
-                <div class="meta">
-
-                    Patient ID:
-                    <b>${esc(patientId)}</b>
-
-                    <br>
-
-                    Mobile:
-                    ${esc(
-                        p.mobile ||
-                        "Not provided"
-                    )}
-
-                    <br>
-
-                    Organization:
-                    ${esc(
-                        a.organizationName ||
-                        a.organizationId ||
-                        "Not specified"
-                    )}
-
-                    <br>
-
-                    <span class="status pending">
-                        Pending Assignment
-                    </span>
-
-                </div>
+    renderPreviousRecords();
 
 
-                <div class="actions">
+    return true;
+}
 
-                    <button
-                        class="primary"
-                        onclick="acceptAssignment('${encodeURIComponent(patientId)}')">
-                        Accept
-                    </button>
 
-                    <button
-                        class="danger"
-                        onclick="declineAssignment('${encodeURIComponent(patientId)}')">
-                        Decline
-                    </button>
+/* =========================================================
+   PATIENT INFORMATION
+========================================================= */
 
-                </div>
+function populatePatient(){
 
-            </div>
+    const p =
+        selectedPatient;
 
-            `;
 
-        })
-        .join("");
+    document.getElementById(
+        "professionalName"
+    ).textContent =
+        getProfessionalName();
+
+
+    document.getElementById(
+        "patientName"
+    ).textContent =
+        p.fullName ||
+        p.name ||
+        "Patient";
+
+
+    document.getElementById(
+        "patientId"
+    ).textContent =
+        getPatientId(p) || "—";
+
+
+    document.getElementById(
+        "patientAge"
+    ).textContent =
+        p.age ||
+        calculateAge(p.dateOfBirth) ||
+        "—";
+
+
+    document.getElementById(
+        "patientGender"
+    ).textContent =
+        p.gender ||
+        "—";
+
+
+    document.getElementById(
+        "patientMobile"
+    ).textContent =
+        p.mobile ||
+        p.phone ||
+        "—";
+
+
+    document.getElementById(
+        "patientBloodGroup"
+    ).textContent =
+        p.bloodGroup ||
+        "—";
+
+
+    renderVitals(p);
+
+
+    document.getElementById(
+        "allergies"
+    ).textContent =
+        formatValue(
+            p.allergies ||
+            p.allergy ||
+            p.knownAllergies
+        );
+
+
+    document.getElementById(
+        "medicalHistory"
+    ).textContent =
+        formatValue(
+            p.medicalHistory ||
+            p.history ||
+            p.medical_history
+        );
+
+
+    document.getElementById(
+        "currentMedications"
+    ).textContent =
+        formatValue(
+            p.currentMedications ||
+            p.medications ||
+            p.current_medicines
+        );
+
+
+    renderPreview();
 
 }
 
 
-/* =========================
-   ACCEPT ASSIGNMENT
-========================= */
+function calculateAge(dateOfBirth){
 
-function acceptAssignment(encodedPatientId){
+    if(!dateOfBirth){
+        return "";
+    }
+
+    const dob =
+        new Date(dateOfBirth);
+
+    if(isNaN(dob.getTime())){
+        return "";
+    }
+
+    const today =
+        new Date();
+
+    let age =
+        today.getFullYear() -
+        dob.getFullYear();
+
+    const month =
+        today.getMonth() -
+        dob.getMonth();
+
+    if(
+        month < 0 ||
+        (
+            month === 0 &&
+            today.getDate() < dob.getDate()
+        )
+    ){
+        age--;
+    }
+
+    return age;
+
+}
+
+
+function formatValue(value){
+
+    if(value === null ||
+       value === undefined ||
+       value === ""){
+
+        return "Not recorded";
+
+    }
+
+
+    if(Array.isArray(value)){
+
+        if(!value.length){
+            return "None recorded";
+        }
+
+        return value.join(", ");
+
+    }
+
+
+    if(typeof value === "object"){
+
+        return Object.entries(value)
+            .map(
+                ([key,val]) =>
+                    key + ": " + val
+            )
+            .join(" | ");
+
+    }
+
+
+    return String(value);
+
+}
+
+
+/* =========================================================
+   VITALS
+========================================================= */
+
+function renderVitals(p){
+
+    const vitals =
+        p.vitals ||
+        p.receptionVitals ||
+        p.recordedVitals ||
+        p.latestVitals ||
+        {};
+
+
+    document.getElementById(
+        "vitalBP"
+    ).textContent =
+        vitals.bloodPressure ||
+        vitals.bp ||
+        p.bloodPressure ||
+        "Not recorded";
+
+
+    document.getElementById(
+        "vitalPulse"
+    ).textContent =
+        vitals.pulse ||
+        vitals.heartRate ||
+        p.pulse ||
+        "Not recorded";
+
+
+    document.getElementById(
+        "vitalTemperature"
+    ).textContent =
+        vitals.temperature ||
+        p.temperature ||
+        "Not recorded";
+
+
+    document.getElementById(
+        "vitalSpo2"
+    ).textContent =
+        vitals.spo2 ||
+        vitals.SpO2 ||
+        vitals.oxygenSaturation ||
+        p.spo2 ||
+        "Not recorded";
+
+
+    document.getElementById(
+        "vitalWeight"
+    ).textContent =
+        vitals.weight ||
+        p.weight ||
+        "Not recorded";
+
+
+    document.getElementById(
+        "vitalHeight"
+    ).textContent =
+        vitals.height ||
+        p.height ||
+        "Not recorded";
+
+}
+
+
+/* =========================================================
+   PREVIOUS CONSULTATIONS
+========================================================= */
+
+function renderPreviousRecords(){
 
     const patientId =
-        decodeURIComponent(
-            encodedPatientId
+        getPatientId(
+            selectedPatient
         );
 
 
-    const professional =
-        getCurrentProfessional();
-
-
-    const assignments =
-        getAssignments();
-
-
-    const professionalId =
-        professional.id ||
-        professional.professionalId;
-
-
-    const assignment =
-        assignments.find(a =>
-
-            String(a.patientId) ===
-            String(patientId)
-
-            &&
-
-            belongsToProfessional(a)
-
-            &&
-
-            a.status === "Pending"
-
+    const previous =
+        consultations.filter(
+            consultation =>
+                String(
+                    consultation.patientId ||
+                    consultation.patientID ||
+                    ""
+                ) === String(patientId)
         );
 
-
-    if(!assignment){
-
-        alert(
-            "This patient assignment could not be found."
-        );
-
-        return;
-
-    }
-
-
-    assignment.status =
-        "Active";
-
-    assignment.acceptedAt =
-        new Date().toISOString();
-
-
-    assignment.acceptedBy =
-        professionalId;
-
-
-    setJSON(
-        ASSIGNMENTS_KEY,
-        assignments
-    );
-
-
-    renderPending();
-
-
-    alert(
-        "Patient assignment accepted."
-    );
-
-}
-
-
-/* =========================
-   DECLINE ASSIGNMENT
-========================= */
-
-function declineAssignment(encodedPatientId){
-
-    const patientId =
-        decodeURIComponent(
-            encodedPatientId
-        );
-
-
-    const assignments =
-        getAssignments();
-
-
-    const assignment =
-        assignments.find(a =>
-
-            String(a.patientId) ===
-            String(patientId)
-
-            &&
-
-            belongsToProfessional(a)
-
-            &&
-
-            a.status === "Pending"
-
-        );
-
-
-    if(!assignment){
-
-        alert(
-            "This patient assignment could not be found."
-        );
-
-        return;
-
-    }
-
-
-    assignment.status =
-        "Declined";
-
-    assignment.declinedAt =
-        new Date().toISOString();
-
-
-    setJSON(
-        ASSIGNMENTS_KEY,
-        assignments
-    );
-
-
-    renderPending();
-
-}
-
-
-/* =========================
-   MY PATIENTS
-========================= */
-
-function renderMyPatients(){
 
     const container =
         document.getElementById(
-            "myPatientsList"
+            "previousConsultations"
         );
 
 
-    const search =
-        document
-            .getElementById("mySearch")
-            .value
-            .toLowerCase()
-            .trim();
+    if(!previous.length){
 
+        container.innerHTML = `
+            <div class="empty">
+                No previous consultations found.
+            </div>
+        `;
 
-    const assignments =
-        getAssignments();
-
-
-    let list =
-        assignments.filter(a =>
-
-            belongsToProfessional(a) &&
-            a.status === "Active"
-
-        );
-
-
-    list =
-        list
-            .map(a => {
-
-                const patient =
-                    findPatient(a.patientId);
-
-                if(!patient){
-                    return null;
-                }
-
-                return {
-                    assignment:a,
-                    patient:patient
-                };
-
-            })
-            .filter(Boolean);
-
-
-    if(search){
-
-        list =
-            list.filter(item => {
-
-                const p =
-                    item.patient;
-
-                return (
-
-                    String(
-                        p.name ||
-                        p.fullName ||
-                        ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
-
-                    ||
-
-                    String(
-                        p.id ||
-                        p.patientId ||
-                        ""
-                    )
-                    .toLowerCase()
-                    .includes(search)
-
-                );
-
-            });
-
-    }
-
-
-    if(!list.length){
+    }else{
 
         container.innerHTML =
-            `<div class="notice">
-                No active patients are currently assigned to you.
-            </div>`;
-
-        return;
+            previous
+                .slice()
+                .reverse()
+                .slice(0,10)
+                .map(renderPreviousConsultation)
+                .join("");
 
     }
 
 
-    container.innerHTML =
-        list.map(item => {
-
-            const p =
-                item.patient;
-
-            const a =
-                item.assignment;
-
-            const patientId =
-                p.id ||
-                p.patientId;
+    const previousRx =
+        prescriptions.filter(
+            prescription =>
+                String(
+                    prescription.patientId ||
+                    prescription.patientID ||
+                    ""
+                ) === String(patientId)
+        );
 
 
-            return `
-
-            <div class="patient-card">
-
-                <h3>
-                    ${esc(
-                        p.name ||
-                        p.fullName ||
-                        "Patient"
-                    )}
-                </h3>
-
-                <div class="meta">
-
-                    Patient ID:
-                    <b>${esc(patientId)}</b>
-
-                    <br>
-
-                    Mobile:
-                    ${esc(
-                        p.mobile ||
-                        "Not provided"
-                    )}
-
-                    <br>
-
-                    Organization:
-                    ${esc(
-                        a.organizationName ||
-                        a.organizationId ||
-                        "Not specified"
-                    )}
-
-                    <br>
-
-                    <span class="status active">
-                        Active Patient
-                    </span>
-
-                </div>
+    const rxContainer =
+        document.getElementById(
+            "previousPrescriptions"
+        );
 
 
-                <div class="actions">
+    if(!previousRx.length){
 
-                    <button
-                        class="primary"
-                        onclick="startConsultation('${encodeURIComponent(patientId)}')">
-                        Start Consultation
-                    </button>
+        rxContainer.innerHTML = `
+            <div class="empty">
+                No previous prescriptions found.
+            </div>
+        `;
 
-                    <button
-                        class="secondary"
-                        onclick="openPatientRecord('${encodeURIComponent(patientId)}')">
-                        Open Patient
-                    </button>
+    }else{
 
-                </div>
+        rxContainer.innerHTML =
+            `
+            <h3>Previous Prescriptions</h3>
+            ` +
+
+            previousRx
+                .slice()
+                .reverse()
+                .slice(0,10)
+                .map(renderPreviousPrescription)
+                .join("");
+
+    }
+
+}
+
+
+function renderPreviousConsultation(c){
+
+    return `
+
+        <div class="history-box">
+
+            <div class="history-title">
+                Consultation
+            </div>
+
+            <div class="history-meta">
+                ${escapeHTML(
+                    c.date ||
+                    c.createdAt ||
+                    "Date not recorded"
+                )}
+                ${c.professionalName
+                    ? " • " +
+                      escapeHTML(
+                          c.professionalName
+                      )
+                    : ""
+                }
+            </div>
+
+            <div class="history-text">
+
+                <strong>
+                    Chief Complaint:
+                </strong>
+
+                ${escapeHTML(
+                    c.chiefComplaint ||
+                    "Not recorded"
+                )}
+
+                <br><br>
+
+                <strong>
+                    Diagnosis:
+                </strong>
+
+                ${escapeHTML(
+                    c.diagnosis ||
+                    c.assessment ||
+                    "Not recorded"
+                )}
 
             </div>
 
-            `;
+        </div>
 
-        })
-        .join("");
-
-}
-
-
-/* =========================
-   START CONSULTATION
-   THIS IS THE IMPORTANT
-   CONNECTION
-========================= */
-
-function startConsultation(encodedPatientId){
-
-    const patientId =
-        decodeURIComponent(
-            encodedPatientId
-        );
-
-
-    const professional =
-        getCurrentProfessional();
-
-
-    if(!professional){
-
-        alert(
-            "Please log in to the Professional Portal first."
-        );
-
-        return;
-
-    }
-
-
-    const assignments =
-        getAssignments();
-
-
-    const assignment =
-        assignments.find(a =>
-
-            String(a.patientId) ===
-            String(patientId)
-
-            &&
-
-            belongsToProfessional(a)
-
-            &&
-
-            a.status === "Active"
-
-        );
-
-
-    if(!assignment){
-
-        alert(
-            "This patient is not currently active for this professional."
-        );
-
-        return;
-
-    }
-
-
-    /*
-       NEW ACTUAL CONSULTATION PAGE
-
-       Patient ID is passed in the URL.
-       The consultation page will then
-       identify the current professional
-       from lu​​vio_current_doctor.
-    */
-
-    window.location.href =
-        "professional-patient-consultation.html?patient=" +
-        encodeURIComponent(patientId);
+    `;
 
 }
 
 
-/* =========================
-   OPEN PATIENT
-========================= */
+function renderPreviousPrescription(rx){
 
-function openPatientRecord(encodedPatientId){
+    const medicines =
+        rx.medicines ||
+        [];
 
-    /*
-       For now, Open Patient also enters
-       the authorized patient workspace.
 
-       A separate Patient Record page
-       can be created later.
-    */
+    let medicineText =
+        "No medicines recorded";
 
-    startConsultation(
-        encodedPatientId
+
+    if(
+        Array.isArray(
+            medicines
+        ) &&
+        medicines.length
+    ){
+
+        medicineText =
+            medicines.map(
+                medicine =>
+                    (
+                        medicine.name ||
+                        medicine.medicine ||
+                        "Medicine"
+                    )
+                    +
+                    (
+                        medicine.dose
+                        ? " — " +
+                          medicine.dose
+                        : ""
+                    )
+            ).join(", ");
+
+    }
+
+
+    return `
+
+        <div class="history-box">
+
+            <div class="history-title">
+                Prescription
+            </div>
+
+            <div class="history-meta">
+                ${escapeHTML(
+                    rx.date ||
+                    rx.createdAt ||
+                    "Date not recorded"
+                )}
+            </div>
+
+            <div class="history-text">
+
+                ${escapeHTML(
+                    medicineText
+                )}
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   MEDICINES
+========================================================= */
+
+function addMedicineRow(data={}){
+
+    const container =
+        document.getElementById(
+            "medicineRows"
+        );
+
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "medicine-row";
+
+
+    row.innerHTML = `
+
+        <input
+            class="medicine-name"
+            placeholder="Medicine name"
+            value="${escapeAttribute(
+                data.name ||
+                data.medicine ||
+                ""
+            )}"
+        >
+
+        <input
+            class="medicine-dose"
+            placeholder="Dose"
+            value="${escapeAttribute(
+                data.dose ||
+                ""
+            )}"
+        >
+
+        <input
+            class="medicine-frequency"
+            placeholder="Frequency"
+            value="${escapeAttribute(
+                data.frequency ||
+                ""
+            )}"
+        >
+
+        <input
+            class="medicine-duration"
+            placeholder="Duration"
+            value="${escapeAttribute(
+                data.duration ||
+                ""
+            )}"
+        >
+
+        <button
+            type="button"
+            class="remove-btn"
+            onclick="this.parentElement.remove(); renderPreview();"
+        >
+            Remove
+        </button>
+
+    `;
+
+
+    container.appendChild(row);
+
+
+    row.querySelectorAll(
+        "input"
+    ).forEach(
+        input =>
+            input.addEventListener(
+                "input",
+                renderPreview
+            )
     );
 
 }
 
 
-/* =========================
-   HISTORY
-========================= */
+function getMedicines(){
 
-function renderHistory(){
+    return Array.from(
+        document.querySelectorAll(
+            ".medicine-row"
+        )
+    )
+    .map(row => {
 
-    const container =
-        document.getElementById(
-            "historyList"
-        );
-
-
-    const assignments =
-        getAssignments();
-
-
-    let list =
-        assignments.filter(a =>
-            belongsToProfessional(a)
-        );
+        const name =
+            row.querySelector(
+                ".medicine-name"
+            ).value.trim();
 
 
-    if(!list.length){
-
-        container.innerHTML =
-            `<div class="notice">
-                No assignment history available.
-            </div>`;
-
-        return;
-
-    }
+        const dose =
+            row.querySelector(
+                ".medicine-dose"
+            ).value.trim();
 
 
-    container.innerHTML =
-        list
-            .map(a => {
-
-                const p =
-                    findPatient(
-                        a.patientId
-                    );
-
-                if(!p){
-                    return "";
-                }
+        const frequency =
+            row.querySelector(
+                ".medicine-frequency"
+            ).value.trim();
 
 
-                const patientId =
-                    p.id ||
-                    p.patientId;
+        const duration =
+            row.querySelector(
+                ".medicine-duration"
+            ).value.trim();
 
 
-                return `
+        return {
+            name,
+            dose,
+            frequency,
+            duration
+        };
 
-                <div class="patient-card">
-
-                    <h3>
-                        ${esc(
-                            p.name ||
-                            p.fullName ||
-                            "Patient"
-                        )}
-                    </h3>
-
-                    <div class="meta">
-
-                        Patient ID:
-                        <b>${esc(patientId)}</b>
-
-                        <br>
-
-                        Organization:
-                        ${esc(
-                            a.organizationName ||
-                            a.organizationId ||
-                            "Not specified"
-                        )}
-
-                        <br>
-
-                        Status:
-                        <span class="status ${String(a.status || "").toLowerCase()}">
-                            ${esc(a.status || "Unknown")}
-                        </span>
-
-                    </div>
-
-                </div>
-
-                `;
-
-            })
-            .join("");
+    })
+    .filter(
+        medicine =>
+            medicine.name
+    );
 
 }
 
 
-/* =========================
-   INITIAL LOAD
-========================= */
+/* =========================================================
+   HANDWRITING
+========================================================= */
 
-renderPending();
+const canvas =
+    document.getElementById(
+        "prescriptionCanvas"
+    );
+
+const ctx =
+    canvas.getContext(
+        "2d"
+    );
+
+let drawing =
+    false;
+
+
+function canvasPosition(event){
+
+    const rect =
+        canvas.getBoundingClientRect();
+
+
+    let clientX;
+    let clientY;
+
+
+    if(
+        event.touches &&
+        event.touches.length
+    ){
+
+        clientX =
+            event.touches[0].clientX;
+
+        clientY =
+            event.touches[0].clientY;
+
+    }else{
+
+        clientX =
+            event.clientX;
+
+        clientY =
+            event.clientY;
+
+    }
+
+
+    return {
+        x:
+            (
+                clientX -
+                rect.left
+            )
+            *
+            (
+                canvas.width /
+                rect.width
+            ),
+
+        y:
+            (
+                clientY -
+                rect.top
+            )
+            *
+            (
+                canvas.height /
+                rect.height
+            )
+    };
+
+}
+
+
+function startDrawing(event){
+
+    drawing = true;
+
+    const pos =
+        canvasPosition(
+            event
+        );
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+        pos.x,
+        pos.y
+    );
+
+    event.preventDefault();
+
+}
+
+
+function draw(event){
+
+    if(!drawing){
+        return;
+    }
+
+    const pos =
+        canvasPosition(
+            event
+        );
+
+
+    ctx.lineWidth =
+        2;
+
+    ctx.lineCap =
+        "round";
+
+    ctx.strokeStyle =
+        "#17324d";
+
+
+    ctx.lineTo(
+        pos.x,
+        pos.y
+    );
+
+    ctx.stroke();
+
+
+    event.preventDefault();
+
+}
+
+
+function stopDrawing(){
+
+    drawing = false;
+
+    ctx.closePath();
+
+}
+
+
+canvas.addEventListener(
+    "mousedown",
+    startDrawing
+);
+
+canvas.addEventListener(
+    "mousemove",
+    draw
+);
+
+canvas.addEventListener(
+    "mouseup",
+    stopDrawing
+);
+
+canvas.addEventListener(
+    "mouseleave",
+    stopDrawing
+);
+
+
+canvas.addEventListener(
+    "touchstart",
+    startDrawing,
+    {passive:false}
+);
+
+canvas.addEventListener(
+    "touchmove",
+    draw,
+    {passive:false}
+);
+
+canvas.addEventListener(
+    "touchend",
+    stopDrawing
+);
+
+
+function clearCanvas(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+}
+
+
+/* =========================================================
+   PRESCRIPTION MODE
+========================================================= */
+
+function switchPrescriptionMode(){
+
+    const mode =
+        document.querySelector(
+            'input[name="prescriptionMode"]:checked'
+        ).value;
+
+
+    document.getElementById(
+        "typedPrescription"
+    ).classList.toggle(
+        "hidden",
+        mode !== "type"
+    );
+
+
+    document.getElementById(
+        "handwrittenPrescription"
+    ).classList.toggle(
+        "hidden",
+        mode !== "handwrite"
+    );
+
+
+    renderPreview();
+
+}
+
+
+/* =========================================================
+   DIAGNOSTICS
+========================================================= */
+
+function addDiagnosticRow(data={}){
+
+    const container =
+        document.getElementById(
+            "diagnosticRows"
+        );
+
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+
+    row.className =
+        "diagnostic-row";
+
+
+    row.innerHTML = `
+
+        <input
+            class="diagnostic-name"
+            placeholder="Test name"
+            value="${escapeAttribute(
+                data.test ||
+                data.name ||
+                ""
+            )}"
+        >
+
+
+        <input
+            class="diagnostic-provider"
+            placeholder="Diagnostic provider"
+            value="${escapeAttribute(
+                data.provider ||
+                ""
+            )}"
+        >
+
+
+        <button
+            type="button"
+            class="remove-btn"
+            onclick="this.parentElement.remove()"
+        >
+            Remove
+        </button>
+
+    `;
+
+
+    container.appendChild(row);
+
+}
+
+
+function getDiagnostics(){
+
+    return Array.from(
+        document.querySelectorAll(
+            ".diagnostic-row"
+        )
+    )
+    .map(row => {
+
+        return {
+
+            test:
+                row.querySelector(
+                    ".diagnostic-name"
+                ).value.trim(),
+
+            provider:
+                row.querySelector(
+                    ".diagnostic-provider"
+                ).value.trim()
+
+        };
+
+    })
+    .filter(
+        diagnostic =>
+            diagnostic.test
+    );
+
+}
+
+
+/* =========================================================
+   REFERRAL
+========================================================= */
+
+function toggleReferral(){
+
+    const checked =
+        document.getElementById(
+            "referralRequired"
+        ).checked;
+
+
+    document.getElementById(
+        "referralSection"
+    ).classList.toggle(
+        "hidden",
+        !checked
+    );
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+function renderPreview(){
+
+    if(!selectedPatient){
+        return;
+    }
+
+
+    const name =
+        selectedPatient.fullName ||
+        selectedPatient.name ||
+        "Patient";
+
+
+    const patientId =
+        getPatientId(
+            selectedPatient
+        );
+
+
+    const professionalName =
+        getProfessionalName();
+
+
+    document.getElementById(
+        "previewPatient"
+    ).textContent =
+        name +
+        " • " +
+        patientId;
+
+
+    document.getElementById(
+        "previewProfessional"
+    ).textContent =
+        professionalName;
+
+
+    document.getElementById(
+        "previewDiagnosis"
+    ).textContent =
+        document.getElementById(
+            "diagnosis"
+        ).value ||
+        "Not entered";
+
+
+    const mode =
+        document.querySelector(
+            'input[name="prescriptionMode"]:checked'
+        ).value;
+
+
+    if(mode === "handwrite"){
+
+        document.getElementById(
+            "previewMedicines"
+        ).textContent =
+            "Handwritten prescription attached.";
+
+    }else{
+
+        const medicines =
+            getMedicines();
+
+
+        if(!medicines.length){
+
+            document.getElementById(
+                "previewMedicines"
+            ).textContent =
+                "No medicines entered.";
+
+        }else{
+
+            document.getElementById(
+                "previewMedicines"
+            ).innerHTML =
+                medicines
+                    .map(
+                        medicine =>
+                            escapeHTML(
+                                medicine.name
+                            )
+                            +
+                            (
+                                medicine.dose
+                                ? " — " +
+                                  escapeHTML(
+                                      medicine.dose
+                                  )
+                                : ""
+                            )
+                            +
+                            (
+                                medicine.frequency
+                                ? " — " +
+                                  escapeHTML(
+                                      medicine.frequency
+                                  )
+                                : ""
+                            )
+                            +
+                            (
+                                medicine.duration
+                                ? " — " +
+                                  escapeHTML(
+                                      medicine.duration
+                                  )
+                                : ""
+                            )
+                    )
+                    .join("<br>");
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "previewAdvice"
+    ).textContent =
+        document.getElementById(
+            "prescriptionInstructions"
+        ).value ||
+        "No additional advice entered.";
+
+
+    const signature =
+        professional.signatureData ||
+        professional.signature ||
+        "";
+
+
+    if(signature){
+
+        document.getElementById(
+            "previewSignature"
+        ).innerHTML =
+            `
+            <img
+                class="signature-image"
+                src="${escapeAttribute(signature)}"
+                alt="Professional signature"
+            >
+            `;
+
+    }else{
+
+        document.getElementById(
+            "previewSignature"
+        ).textContent =
+            professional.registrationNumber
+            ? professionalName +
+              " • " +
+              professional.registrationNumber
+            : professionalName;
+
+    }
+
+
+    document.getElementById(
+        "reviewPatient"
+    ).textContent =
+        name;
+
+
+    document.getElementById(
+        "reviewProfessional"
+    ).textContent =
+        professionalName;
+
+
+    document.getElementById(
+        "reviewDiagnosis"
+    ).textContent =
+        document.getElementById(
+            "diagnosis"
+        ).value ||
+        "Not entered";
+
+
+    document.getElementById(
+        "reviewPrescription"
+    ).textContent =
+        mode === "handwrite"
+        ? "Handwritten prescription"
+        : getMedicines().length +
+          " medicine(s)";
+
+}
+
+
+/* =========================================================
+   REVIEW
+========================================================= */
+
+function reviewConsultation(){
+
+    clearAlert();
+
+    renderPreview();
+
+    const complaint =
+        document.getElementById(
+            "chiefComplaint"
+        ).value.trim();
+
+
+    const diagnosis =
+        document.getElementById(
+            "diagnosis"
+        ).value.trim();
+
+
+    if(!complaint){
+
+        showAlert(
+            "Please enter the Chief Complaint before reviewing.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!diagnosis){
+
+        showAlert(
+            "Please enter the Diagnosis / Clinical Assessment before reviewing.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "prescriptionPreview"
+    ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+
+    showAlert(
+        "Consultation reviewed. Please check the prescription preview and then use Confirm & Sign.",
+        "success"
+    );
+
+}
+
+
+/* =========================================================
+   SAVE DRAFT
+========================================================= */
+
+function buildConsultationObject(status){
+
+    const mode =
+        document.querySelector(
+            'input[name="prescriptionMode"]:checked'
+        ).value;
+
+
+    const consultationId =
+        "CONS-" +
+        Date.now();
+
+
+    const consultation = {
+
+        id:
+            consultationId,
+
+        patientId:
+            getPatientId(
+                selectedPatient
+            ),
+
+        professionalId:
+            getProfessionalId(),
+
+        professionalName:
+            getProfessionalName(),
+
+        organizationId:
+            activeAssignment.organizationId ||
+            activeAssignment.orgId ||
+            null,
+
+        assignmentId:
+            activeAssignment.id ||
+            null,
+
+        date:
+            new Date().toLocaleString(),
+
+        status:
+            status,
+
+        chiefComplaint:
+            document.getElementById(
+                "chiefComplaint"
+            ).value.trim(),
+
+        clinicalHistory:
+            document.getElementById(
+                "clinicalHistory"
+            ).value.trim(),
+
+        examination:
+            document.getElementById(
+                "examination"
+            ).value.trim(),
+
+        diagnosis:
+            document.getElementById(
+                "diagnosis"
+            ).value.trim(),
+
+        prescriptionMode:
+            mode,
+
+        medicines:
+            mode === "type"
+            ? getMedicines()
+            : [],
+
+        handwrittenPrescription:
+            mode === "handwrite"
+            ? canvas.toDataURL(
+                "image/png"
+              )
+            : null,
+
+        prescriptionInstructions:
+            document.getElementById(
+                "prescriptionInstructions"
+            ).value.trim(),
+
+        diagnostics:
+            getDiagnostics(),
+
+        referral:
+            buildReferral(),
+
+        createdAt:
+            new Date().toISOString()
+
+    };
+
+
+    return consultation;
+
+}
+
+
+function buildReferral(){
+
+    const required =
+        document.getElementById(
+            "referralRequired"
+        ).checked;
+
+
+    if(!required){
+        return null;
+    }
+
+
+    return {
+
+        required:true,
+
+        organization:
+            document.getElementById(
+                "referralOrganization"
+            ).value.trim(),
+
+        department:
+            document.getElementById(
+                "referralDepartment"
+            ).value.trim(),
+
+        reason:
+            document.getElementById(
+                "referralReason"
+            ).value.trim(),
+
+        notes:
+            document.getElementById(
+                "referralNotes"
+            ).value.trim()
+
+    };
+
+}
+
+
+function saveDraft(){
+
+    if(!selectedPatient ||
+       !activeAssignment){
+
+        showAlert(
+            "Patient authorization could not be verified.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const consultation =
+        buildConsultationObject(
+            "Draft"
+        );
+
+
+    consultations.push(
+        consultation
+    );
+
+
+    localStorage.setItem(
+        CONSULTATIONS_KEY,
+        JSON.stringify(
+            consultations
+        )
+    );
+
+
+    showAlert(
+        "Consultation draft saved.",
+        "success"
+    );
+
+}
+
+
+/* =========================================================
+   CONFIRM & SIGN
+========================================================= */
+
+function confirmAndSign(){
+
+    clearAlert();
+
+
+    if(!selectedPatient ||
+       !activeAssignment){
+
+        showAlert(
+            "Patient authorization could not be verified.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const complaint =
+        document.getElementById(
+            "chiefComplaint"
+        ).value.trim();
+
+
+    const diagnosis =
+        document.getElementById(
+            "diagnosis"
+        ).value.trim();
+
+
+    if(!complaint){
+
+        showAlert(
+            "Chief Complaint is required.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    if(!diagnosis){
+
+        showAlert(
+            "Diagnosis / Clinical Assessment is required.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const mode =
+        document.querySelector(
+            'input[name="prescriptionMode"]:checked'
+        ).value;
+
+
+    const medicines =
+        mode === "type"
+        ? getMedicines()
+        : [];
+
+
+    if(
+        mode === "type" &&
+        medicines.length === 0
+    ){
+
+        const proceed =
+            confirm(
+                "No medicine has been added. Do you want to continue without a typed prescription?"
+            );
+
+
+        if(!proceed){
+            return;
+        }
+
+    }
+
+
+    const consultation =
+        buildConsultationObject(
+            "Confirmed"
+        );
+
+
+    consultations.push(
+        consultation
+    );
+
+
+    localStorage.setItem(
+        CONSULTATIONS_KEY,
+        JSON.stringify(
+            consultations
+        )
+    );
+
+
+    /* CREATE PRESCRIPTION RECORD */
+
+    const prescription = {
+
+        id:
+            "RX-" +
+            Date.now(),
+
+        consultationId:
+            consultation.id,
+
+        patientId:
+            getPatientId(
+                selectedPatient
+            ),
+
+        professionalId:
+            getProfessionalId(),
+
+        professionalName:
+            getProfessionalName(),
+
+        organizationId:
+            activeAssignment.organizationId ||
+            activeAssignment.orgId ||
+            null,
+
+        date:
+            new Date().toLocaleString(),
+
+        prescriptionMode:
+            mode,
+
+        medicines:
+            medicines,
+
+        handwrittenPrescription:
+            mode === "handwrite"
+            ? canvas.toDataURL(
+                "image/png"
+              )
+            : null,
+
+        instructions:
+            document.getElementById(
+                "prescriptionInstructions"
+            ).value.trim(),
+
+        diagnosis:
+            diagnosis,
+
+        createdAt:
+            new Date().toISOString(),
+
+        branding:
+            {
+                name:
+                    "Luvio HealthLink",
+
+                tagline:
+                    "Your Personal Health Architecture."
+            }
+
+    };
+
+
+    prescriptions.push(
+        prescription
+    );
+
+
+    localStorage.setItem(
+        PRESCRIPTIONS_KEY,
+        JSON.stringify(
+            prescriptions
+        )
+    );
+
+
+    /* UPDATE PATIENT RECORD */
+
+    updatePatientRecord(
+        consultation,
+        prescription
+    );
+
+
+    showAlert(
+        "Consultation confirmed and signed successfully.",
+        "success"
+    );
+
+
+    document.querySelector(
+        ".action-bar"
+    ).style.display =
+        "none";
+
+
+    setTimeout(
+        () => {
+
+            const goBack =
+                confirm(
+                    "Consultation saved successfully. Return to the consultation queue?"
+                );
+
+
+            if(goBack){
+
+                window.location.href =
+                    "professional-consultations.html";
+
+            }
+
+        },
+        500
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE PATIENT RECORD
+========================================================= */
+
+function updatePatientRecord(
+    consultation,
+    prescription
+){
+
+    const patientIndex =
+        patients.findIndex(
+            patient =>
+                String(
+                    getPatientId(
+                        patient
+                    )
+                ) === String(
+                    consultation.patientId
+                )
+        );
+
+
+    if(patientIndex === -1){
+        return;
+    }
+
+
+    const patient =
+        patients[
+            patientIndex
+        ];
+
+
+    if(!Array.isArray(
+        patient.consultations
+    )){
+
+        patient.consultations =
+            [];
+
+    }
+
+
+    patient.consultations.push(
+        consultation
+    );
+
+
+    if(!Array.isArray(
+        patient.prescriptions
+    )){
+
+        patient.prescriptions =
+            [];
+
+    }
+
+
+    patient.prescriptions.push(
+        prescription
+    );
+
+
+    patient.lastConsultation =
+        consultation.date;
+
+
+    localStorage.setItem(
+        PATIENTS_KEY,
+        JSON.stringify(
+            patients
+        )
+    );
+
+}
+
+
+/* =========================================================
+   SECURITY / ESCAPING
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+function escapeAttribute(value){
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+
+}
+
+
+/* =========================================================
+   INPUT LISTENERS
+========================================================= */
+
+[
+    "chiefComplaint",
+    "clinicalHistory",
+    "examination",
+    "diagnosis",
+    "prescriptionInstructions"
+]
+.forEach(
+    id => {
+
+        const element =
+            document.getElementById(
+                id
+            );
+
+        if(element){
+
+            element.addEventListener(
+                "input",
+                renderPreview
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+if(loadPatient()){
+
+    addMedicineRow();
+
+    addDiagnosticRow();
+
+    renderPreview();
+
+}
 
 </script>
 
