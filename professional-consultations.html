@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Luvio HealthLink | Professional Consultations</title>
+<title>Professional Consultations | Luvio HealthLink</title>
 
 <style>
 
@@ -15,39 +16,55 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f4f8fb;
     color:#17324d;
 }
 
 header{
-    background:#17324d;
-    color:white;
-    padding:18px 5%;
+    background:#fff;
+    border-bottom:1px solid #dce6ed;
+    padding:16px 24px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:15px;
-    flex-wrap:wrap;
 }
 
 .brand{
-    font-size:21px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
     font-weight:700;
 }
 
+.brand-mark{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#17324d;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.brand small{
+    display:block;
+    font-size:10px;
+    color:#71808c;
+    font-weight:400;
+}
+
 .back{
-    color:white;
     text-decoration:none;
-    border:1px solid rgba(255,255,255,.4);
-    padding:9px 14px;
-    border-radius:8px;
+    color:#17324d;
 }
 
 main{
-    max-width:1200px;
-    margin:28px auto;
-    padding:0 18px;
+    max-width:1100px;
+    margin:30px auto;
+    padding:0 20px;
 }
 
 h1{
@@ -55,44 +72,51 @@ h1{
 }
 
 .sub{
-    color:#66788a;
-    margin-bottom:22px;
+    color:#71808c;
+    margin-bottom:25px;
 }
 
 .panel{
-    background:white;
-    border-radius:14px;
+    background:#fff;
+    border:1px solid #dce6ed;
+    border-radius:12px;
     padding:20px;
-    margin-bottom:18px;
-    box-shadow:0 4px 18px rgba(20,50,80,.07);
+    margin-bottom:20px;
 }
 
-.queue{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:14px;
+.search{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccd9e1;
+    border-radius:8px;
+    margin-bottom:20px;
 }
 
 .patient-card{
-    border:1px solid #dbe5ec;
-    border-radius:12px;
-    padding:16px;
+    border:1px solid #dce6ed;
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:12px;
 }
 
 .patient-card h3{
-    margin-bottom:6px;
+    margin-bottom:8px;
 }
 
 .meta{
-    color:#6b7d8d;
+    color:#617584;
+    line-height:1.7;
     font-size:14px;
-    line-height:1.6;
+}
+
+.actions{
+    margin-top:15px;
 }
 
 button{
-    border:0;
+    border:none;
     border-radius:8px;
-    padding:10px 15px;
+    padding:11px 16px;
     cursor:pointer;
     font-weight:600;
 }
@@ -102,667 +126,100 @@ button{
     color:#fff;
 }
 
-.secondary{
-    background:#eaf1f6;
-    color:#17324d;
-}
-
-.success{
-    background:#26734d;
-    color:#fff;
-}
-
-.danger{
-    background:#b53b3b;
-    color:#fff;
-}
-
-.search{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccd9e2;
-    border-radius:8px;
-    margin-bottom:16px;
-}
-
-.hidden{
-    display:none !important;
-}
-
 .notice{
-    background:#eef6fb;
-    border-left:4px solid #2d719f;
-    padding:12px;
+    background:#f4f8fb;
+    border:1px solid #dce6ed;
+    padding:14px;
     border-radius:8px;
-    margin-bottom:16px;
-}
-
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-}
-
-label{
-    display:block;
-    font-size:13px;
-    font-weight:700;
-    margin:12px 0 6px;
-}
-
-input,
-textarea,
-select{
-    width:100%;
-    padding:11px;
-    border:1px solid #ccd9e2;
-    border-radius:8px;
-    font:inherit;
-}
-
-textarea{
-    min-height:100px;
-    resize:vertical;
-}
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    margin-bottom:12px;
-}
-
-.mode-buttons{
-    display:flex;
-    gap:8px;
-    margin:12px 0;
-}
-
-.mode-buttons button.active{
-    background:#17324d;
-    color:#fff;
-}
-
-/* HANDWRITING BOARD */
-
-#writingBoard{
-    width:100%;
-    height:380px;
-    border:2px solid #ccd9e2;
-    border-radius:10px;
-    background:#fff;
-    touch-action:none;
-    display:block;
-}
-
-.board-tools{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:10px;
-}
-
-/* TYPED MEDICINES */
-
-.med-row{
-    display:grid;
-    grid-template-columns:
-        2fr
-        1fr
-        1fr
-        1fr
-        2fr
-        auto;
-
-    gap:8px;
-    margin-bottom:8px;
-}
-
-/* REVIEW */
-
-.review{
-    background:#f8fbfd;
-    border:1px solid #dbe5ec;
-    padding:16px;
-    border-radius:10px;
-    line-height:1.7;
+    color:#526875;
 }
 
 .status{
     display:inline-block;
     padding:5px 9px;
     border-radius:20px;
-    background:#edf3f7;
+    font-size:12px;
+    background:#e8f5ed;
+    color:#23733c;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#71808c;
     font-size:12px;
 }
 
-.actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:18px;
-}
-
-@media(max-width:750px){
-
-    .form-grid{
-        grid-template-columns:1fr;
-    }
-
-    .med-row{
-        grid-template-columns:1fr 1fr;
-    }
-
-    #writingBoard{
-        height:300px;
-    }
-
-}
-
 </style>
+
 </head>
 
-
 <body>
-
 
 <header>
 
     <div class="brand">
-        🩺 Luvio HealthLink
+
+        <div class="brand-mark">
+            L
+        </div>
+
+        <div>
+            Luvio HealthLink
+            <small>
+                Your Personal Health Architecture.
+            </small>
+        </div>
+
     </div>
 
-    <a class="back" href="professional.html">
+
+    <a
+        class="back"
+        href="professional.html">
+
         ← Back to Professional Workspace
+
     </a>
 
 </header>
 
 
-
 <main>
 
-    <h1>
-        Consultations
-    </h1>
+<h1>Consultations</h1>
 
-    <p class="sub">
-        Review an authorized patient, complete the consultation,
-        prepare the prescription, then use one final
-        Review & Confirm / Sign action.
-    </p>
+<p class="sub">
+    Consultation queue for patients currently assigned to this professional.
+</p>
 
 
+<section class="panel">
 
-    <!-- CONSULTATION QUEUE -->
+    <input
+        id="patientSearch"
+        class="search"
+        placeholder="Search patient by name or Patient ID..."
+        oninput="renderQueue()"
+    >
 
-    <div class="panel">
 
-        <div class="section-title">
+    <div id="queue"></div>
 
-            <h2>
-                Consultation Queue
-            </h2>
-
-            <span
-                class="status"
-                id="professionalStatus">
-                Professional
-            </span>
-
-        </div>
-
-
-        <input
-            id="patientSearch"
-            class="search"
-            placeholder="Search patient by name or Patient ID">
-
-
-        <div
-            id="queue"
-            class="queue">
-        </div>
-
-    </div>
-
-
-
-    <!-- CONSULTATION -->
-
-    <div
-        id="consultationPanel"
-        class="hidden">
-
-
-
-        <!-- PATIENT / ENCOUNTER -->
-
-        <div class="panel">
-
-            <div class="section-title">
-
-                <h2>
-                    Patient & Encounter
-                </h2>
-
-                <span
-                    class="status"
-                    id="patientStatus">
-                </span>
-
-            </div>
-
-
-            <div
-                id="patientSummary"
-                class="notice">
-            </div>
-
-
-
-            <div class="form-grid">
-
-
-                <div>
-
-                    <label>
-                        Chief Complaint
-                    </label>
-
-                    <textarea
-                        id="chiefComplaint"
-                        placeholder="Reason for today's consultation">
-                    </textarea>
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Clinical History
-                    </label>
-
-                    <textarea
-                        id="clinicalHistory"
-                        placeholder="Relevant history, symptoms and duration">
-                    </textarea>
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Examination & Vitals
-                    </label>
-
-                    <textarea
-                        id="examination"
-                        placeholder="Examination findings and relevant vitals">
-                    </textarea>
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Diagnosis / Clinical Assessment
-                    </label>
-
-                    <textarea
-                        id="diagnosis"
-                        placeholder="Diagnosis or clinical assessment">
-                    </textarea>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PRESCRIPTION -->
-
-        <div class="panel">
-
-
-            <div class="section-title">
-
-                <h2>
-                    Prescription
-                </h2>
-
-                <span class="status">
-                    Handwritten or Typed
-                </span>
-
-            </div>
-
-
-
-            <div class="mode-buttons">
-
-                <button
-                    id="handwriteBtn"
-                    class="secondary active"
-                    onclick="showPrescriptionMode('handwrite')">
-
-                    ✍️ Handwrite
-
-                </button>
-
-
-
-                <button
-                    id="typeBtn"
-                    class="secondary"
-                    onclick="showPrescriptionMode('type')">
-
-                    ⌨️ Type
-
-                </button>
-
-            </div>
-
-
-
-            <!-- HANDWRITTEN -->
-
-            <div id="handwriteMode">
-
-                <div class="notice">
-
-                    Write naturally using a mouse,
-                    trackpad, stylus,
-                    Apple Pencil or touchscreen.
-
-                </div>
-
-
-
-                <canvas
-                    id="writingBoard">
-                </canvas>
-
-
-
-                <div class="board-tools">
-
-                    <button
-                        class="secondary"
-                        onclick="undoStroke()">
-
-                        ↶ Undo
-
-                    </button>
-
-
-                    <button
-                        class="secondary"
-                        onclick="redoStroke()">
-
-                        ↷ Redo
-
-                    </button>
-
-
-                    <button
-                        class="secondary"
-                        onclick="toggleEraser()"
-                        id="eraserBtn">
-
-                        Eraser
-
-                    </button>
-
-
-                    <button
-                        class="danger"
-                        onclick="clearBoard()">
-
-                        Clear
-
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- TYPED -->
-
-            <div
-                id="typeMode"
-                class="hidden">
-
-
-                <div id="medicineRows">
-                </div>
-
-
-
-                <button
-                    class="secondary"
-                    onclick="addMedicineRow()">
-
-                    ＋ Add Medicine
-
-                </button>
-
-
-
-                <label>
-
-                    Additional Prescription Instructions
-
-                </label>
-
-
-                <textarea
-                    id="typedInstructions"
-                    placeholder="General instructions, diet advice, precautions, etc.">
-                </textarea>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- DIAGNOSTICS -->
-
-        <div class="panel">
-
-            <div class="section-title">
-
-                <h2>
-                    Diagnostic Orders
-                </h2>
-
-            </div>
-
-
-            <label>
-                Tests
-            </label>
-
-
-            <textarea
-                id="diagnostics"
-                placeholder="Enter diagnostic tests and instructions">
-            </textarea>
-
-        </div>
-
-
-
-        <!-- REFERRAL -->
-
-        <div class="panel">
-
-
-            <div class="section-title">
-
-                <h2>
-                    Referral
-                </h2>
-
-            </div>
-
-
-
-            <div class="form-grid">
-
-
-                <div>
-
-                    <label>
-                        Specialist / Department
-                    </label>
-
-                    <input
-                        id="referralSpecialist"
-                        placeholder="e.g. Cardiology">
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Hospital / Destination
-                    </label>
-
-                    <input
-                        id="referralHospital"
-                        placeholder="Referral destination">
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Referral Reason
-                    </label>
-
-                    <textarea
-                        id="referralReason"
-                        placeholder="Reason for referral">
-                    </textarea>
-
-                </div>
-
-
-
-                <div>
-
-                    <label>
-                        Follow-up
-                    </label>
-
-                    <input
-                        id="followup"
-                        placeholder="e.g. 7 days">
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-
-
-        <!-- REVIEW -->
-
-        <div class="panel">
-
-
-            <h2>
-                Review & Confirmation
-            </h2>
-
-
-            <br>
-
-
-            <div
-                id="reviewBox"
-                class="review">
-
-                Complete the consultation and click
-                <b>Review Consultation</b>.
-
-            </div>
-
-
-
-            <div class="actions">
-
-
-                <button
-                    class="secondary"
-                    onclick="saveDraft()">
-
-                    Save Draft
-
-                </button>
-
-
-
-                <button
-                    class="primary"
-                    onclick="reviewConsultation()">
-
-                    Review Consultation
-
-                </button>
-
-
-
-                <button
-                    class="success"
-                    onclick="confirmConsultation()">
-
-                    Confirm & Sign
-
-                </button>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
+</section>
 
 </main>
 
 
+<footer>
+
+    Luvio HealthLink ·
+    Your Personal Health Architecture.
+
+</footer>
+
 
 <script>
-
-
-/* =====================================================
-   STORAGE KEYS
-===================================================== */
-
-const PROFESSIONAL_ACCOUNTS_KEY =
-    "luvio_doctor_accounts";
 
 const CURRENT_PROFESSIONAL_KEY =
     "luvio_current_doctor";
@@ -773,32 +230,10 @@ const PATIENTS_KEY =
 const ASSIGNMENTS_KEY =
     "luvio_professional_patient_assignments";
 
-const CONSULTATIONS_KEY =
-    "luvio_professional_consultations";
 
-
-
-/* =====================================================
-   GLOBAL VARIABLES
-===================================================== */
-
-let selectedPatient = null;
-
-let strokes = [];
-
-let redoStack = [];
-
-let drawing = false;
-
-let currentStroke = [];
-
-let eraser = false;
-
-
-
-/* =====================================================
-   STORAGE FUNCTIONS
-===================================================== */
+/* =========================
+   STORAGE
+========================= */
 
 function getJSON(key,fallback){
 
@@ -818,20 +253,9 @@ function getJSON(key,fallback){
 }
 
 
-function setJSON(key,value){
-
-    localStorage.setItem(
-        key,
-        JSON.stringify(value)
-    );
-
-}
-
-
-
-/* =====================================================
+/* =========================
    CURRENT PROFESSIONAL
-===================================================== */
+========================= */
 
 const professional =
     getJSON(
@@ -840,21 +264,9 @@ const professional =
     );
 
 
-document.getElementById(
-    "professionalStatus"
-).textContent = professional
-    ? (
-        (professional.name || "Professional") +
-        " · " +
-        (professional.id || "")
-      )
-    : "Professional";
-
-
-
-/* =====================================================
-   PATIENT DATA
-===================================================== */
+/* =========================
+   DATA
+========================= */
 
 function getPatients(){
 
@@ -876,17 +288,34 @@ function getAssignments(){
 }
 
 
+/* =========================
+   HTML ESCAPE
+========================= */
 
-/* =====================================================
-   AUTHORIZED PATIENTS
-===================================================== */
+function esc(value){
 
-function authorizedPatients(){
+    return String(value ?? "")
+        .replace(/[&<>"']/g,m => ({
+
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            '"':"&quot;",
+            "'":"&#039;"
+
+        }[m]));
+
+}
+
+
+/* =========================
+   PROFESSIONAL CHECK
+========================= */
+
+function belongsToProfessional(a){
 
     if(!professional){
-
-        return [];
-
+        return false;
     }
 
 
@@ -895,196 +324,233 @@ function authorizedPatients(){
         professional.professionalId;
 
 
-    const assignments =
-        getAssignments().filter(a =>
+    return (
 
-            (
-                a.professionalId ===
-                professionalId
+        String(a.professionalId || "") ===
+        String(professionalId || "")
 
-                ||
+    )
+    ||
+    (
 
-                a.professionalUserId ===
-                professional.userId
-            )
+        String(a.professionalUserId || "") ===
+        String(professional.userId || "")
 
-            &&
-
-            a.status === "Active"
-
-        );
-
-
-    const patients =
-        getPatients();
-
-
-    return assignments
-        .map(a => {
-
-            const p =
-                patients.find(
-                    x =>
-                    x.id ===
-                    a.patientId
-                );
-
-
-            if(!p){
-
-                return null;
-
-            }
-
-
-            return {
-
-                patient:p,
-
-                assignment:a
-
-            };
-
-        })
-
-        .filter(Boolean);
+    );
 
 }
 
 
+/* =========================
+   FIND PATIENT
+========================= */
 
-/* =====================================================
+function findPatient(patientId){
+
+    return getPatients().find(
+        p =>
+            String(p.id) === String(patientId) ||
+            String(p.patientId) === String(patientId)
+    );
+
+}
+
+
+/* =========================
    RENDER QUEUE
-===================================================== */
+========================= */
 
 function renderQueue(){
 
     const queue =
-        document.getElementById(
-            "queue"
-        );
+        document.getElementById("queue");
 
 
-    const search =
-        document.getElementById(
-            "patientSearch"
-        ).value
-        .toLowerCase()
-        .trim();
+    if(!professional){
 
+        queue.innerHTML =
+            `<div class="notice">
 
-    let list =
-        authorizedPatients();
+                No professional is currently logged in.
 
+                <br><br>
 
-    if(search){
+                Please return to the Professional Portal
+                and log in.
 
-        list =
-            list.filter(x =>
-
-                (
-                    x.patient.name ||
-                    ""
-                )
-                .toLowerCase()
-                .includes(search)
-
-                ||
-
-                (
-                    x.patient.id ||
-                    ""
-                )
-                .toLowerCase()
-                .includes(search)
-
-            );
-
-    }
-
-
-
-    if(!list.length){
-
-        queue.innerHTML = `
-
-            <div class="notice">
-
-                No active authorized patients
-                are currently available in
-                your consultation queue.
-
-            </div>
-
-        `;
+            </div>`;
 
         return;
 
     }
 
 
+    const search =
+        document
+            .getElementById("patientSearch")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    let assignments =
+        getAssignments()
+            .filter(a =>
+
+                belongsToProfessional(a)
+
+                &&
+
+                a.status === "Active"
+
+            );
+
+
+    let list =
+        assignments
+            .map(a => {
+
+                const patient =
+                    findPatient(
+                        a.patientId
+                    );
+
+
+                if(!patient){
+                    return null;
+                }
+
+
+                return {
+                    assignment:a,
+                    patient:patient
+                };
+
+            })
+            .filter(Boolean);
+
+
+    if(search){
+
+        list =
+            list.filter(item => {
+
+                const p =
+                    item.patient;
+
+
+                const name =
+                    String(
+                        p.name ||
+                        p.fullName ||
+                        ""
+                    ).toLowerCase();
+
+
+                const id =
+                    String(
+                        p.id ||
+                        p.patientId ||
+                        ""
+                    ).toLowerCase();
+
+
+                return (
+                    name.includes(search) ||
+                    id.includes(search)
+                );
+
+            });
+
+    }
+
+
+    if(!list.length){
+
+        queue.innerHTML =
+            `<div class="notice">
+
+                No patients are currently in
+                your consultation queue.
+
+            </div>`;
+
+        return;
+
+    }
+
 
     queue.innerHTML =
-        list.map(x => {
+        list.map(item => {
 
             const p =
-                x.patient;
+                item.patient;
+
+            const a =
+                item.assignment;
+
+            const patientId =
+                p.id ||
+                p.patientId;
 
 
             return `
 
-                <div class="patient-card">
+            <div class="patient-card">
 
-                    <h3>
-                        ${escapeHTML(
-                            p.name ||
-                            "Patient"
-                        )}
-                    </h3>
-
-
-                    <div class="meta">
-
-                        Patient ID:
-                        <b>
-                            ${escapeHTML(
-                                p.id || ""
-                            )}
-                        </b>
-
-                        <br>
-
-                        Mobile:
-                        ${escapeHTML(
-                            p.mobile ||
-                            "Not provided"
-                        )}
-
-                        <br>
-
-                        Organization:
-                        ${escapeHTML(
-                            x.assignment.organizationName ||
-                            x.assignment.organizationId ||
-                            "Organization"
-                        )}
-
-                    </div>
+                <h3>
+                    ${esc(
+                        p.name ||
+                        p.fullName ||
+                        "Patient"
+                    )}
+                </h3>
 
 
-                    <div class="actions">
+                <div class="meta">
 
-                        <button
-                            class="primary"
-                            onclick="openPatient('${escapeAttr(p.id)}')">
+                    Patient ID:
+                    <b>${esc(patientId)}</b>
 
-                            Open Consultation
+                    <br>
 
-                        </button>
+                    Mobile:
+                    ${esc(
+                        p.mobile ||
+                        "Not provided"
+                    )}
 
-                    </div>
+                    <br>
+
+                    Organization:
+                    ${esc(
+                        a.organizationName ||
+                        a.organizationId ||
+                        "Not specified"
+                    )}
+
+                    <br>
+
+                    <span class="status">
+                        Ready for Consultation
+                    </span>
 
                 </div>
+
+
+                <div class="actions">
+
+                    <button
+                        class="primary"
+                        onclick="openConsultation('${encodeURIComponent(patientId)}')">
+
+                        Open Consultation
+
+                    </button>
+
+                </div>
+
+            </div>
 
             `;
 
@@ -1094,40 +560,23 @@ function renderQueue(){
 }
 
 
+/* =========================
+   OPEN CONSULTATION
+   IMPORTANT CONNECTION
+========================= */
 
-/* =====================================================
-   SEARCH
-===================================================== */
+function openConsultation(encodedPatientId){
 
-document
-    .getElementById(
-        "patientSearch"
-    )
-    .addEventListener(
-        "input",
-        renderQueue
-    );
-
-
-
-/* =====================================================
-   OPEN PATIENT
-===================================================== */
-
-function openPatient(id){
-
-    const found =
-        authorizedPatients()
-        .find(
-            x =>
-            x.patient.id === id
+    const patientId =
+        decodeURIComponent(
+            encodedPatientId
         );
 
 
-    if(!found){
+    if(!professional){
 
         alert(
-            "This patient is not currently authorized or assigned to you."
+            "Please log in to the Professional Portal first."
         );
 
         return;
@@ -1135,1046 +584,27 @@ function openPatient(id){
     }
 
 
-    selectedPatient =
-        found;
+    const assignment =
+        getAssignments().find(a =>
 
+            String(a.patientId) ===
+            String(patientId)
 
-    document
-        .getElementById(
-            "consultationPanel"
-        )
-        .classList
-        .remove("hidden");
+            &&
 
+            belongsToProfessional(a)
 
+            &&
 
-    const p =
-        found.patient;
+            a.status === "Active"
 
-
-
-    document.getElementById(
-        "patientStatus"
-    ).textContent =
-        p.id;
-
-
-
-    document.getElementById(
-        "patientSummary"
-    ).innerHTML = `
-
-        <b>
-            ${escapeHTML(
-                p.name ||
-                "Patient"
-            )}
-        </b>
-
-        ·
-
-        ${escapeHTML(
-            p.id ||
-            ""
-        )}
-
-        <br>
-
-        Vitals:
-        ${escapeHTML(
-            formatVitals(
-                p.vitals
-            )
-        )}
-
-        <br>
-
-        Allergies:
-        ${escapeHTML(
-            p.allergies ||
-            "Not recorded"
-        )}
-
-        <br>
-
-        History:
-        ${escapeHTML(
-            p.history ||
-            "Not recorded"
-        )}
-
-    `;
-
-
-
-    resetConsultationForm();
-
-
-
-    window.scrollTo({
-
-        top:
-            document
-            .getElementById(
-                "consultationPanel"
-            )
-            .offsetTop - 20,
-
-        behavior:
-            "smooth"
-
-    });
-
-}
-
-
-
-/* =====================================================
-   FORMAT VITALS
-===================================================== */
-
-function formatVitals(v){
-
-    if(!v){
-
-        return "Not recorded";
-
-    }
-
-
-    return Object
-        .entries(v)
-        .map(
-            ([key,value]) =>
-            `${key}: ${value}`
-        )
-        .join(" · ");
-
-}
-
-
-
-/* =====================================================
-   RESET FORM
-===================================================== */
-
-function resetConsultationForm(){
-
-    [
-
-        "chiefComplaint",
-
-        "clinicalHistory",
-
-        "examination",
-
-        "diagnosis",
-
-        "diagnostics",
-
-        "referralSpecialist",
-
-        "referralHospital",
-
-        "referralReason",
-
-        "followup",
-
-        "typedInstructions"
-
-    ].forEach(id => {
-
-        document
-            .getElementById(id)
-            .value = "";
-
-    });
-
-
-
-    document.getElementById(
-        "medicineRows"
-    ).innerHTML = "";
-
-
-
-    addMedicineRow();
-
-
-
-    clearBoard(false);
-
-
-
-    document.getElementById(
-        "reviewBox"
-    ).innerHTML =
-
-        "Complete the consultation and click " +
-        "<b>Review Consultation</b>.";
-
-
-
-    showPrescriptionMode(
-        "handwrite"
-    );
-
-}
-
-
-
-/* =====================================================
-   ADD MEDICINE
-===================================================== */
-
-function addMedicineRow(){
-
-    const div =
-        document.createElement(
-            "div"
         );
 
 
-    div.className =
-        "med-row";
-
-
-    div.innerHTML = `
-
-        <input
-            placeholder="Medicine name">
-
-
-        <input
-            placeholder="Strength">
-
-
-        <input
-            placeholder="Dose">
-
-
-        <input
-            placeholder="Frequency">
-
-
-        <input
-            placeholder="Duration / instructions">
-
-
-        <button
-            class="danger"
-            onclick="this.parentElement.remove()">
-
-            ×
-
-        </button>
-
-    `;
-
-
-    document
-        .getElementById(
-            "medicineRows"
-        )
-        .appendChild(div);
-
-}
-
-
-
-/* =====================================================
-   PRESCRIPTION MODE
-===================================================== */
-
-function showPrescriptionMode(mode){
-
-    document
-        .getElementById(
-            "handwriteMode"
-        )
-        .classList
-        .toggle(
-            "hidden",
-            mode !== "handwrite"
-        );
-
-
-    document
-        .getElementById(
-            "typeMode"
-        )
-        .classList
-        .toggle(
-            "hidden",
-            mode !== "type"
-        );
-
-
-    document
-        .getElementById(
-            "handwriteBtn"
-        )
-        .classList
-        .toggle(
-            "active",
-            mode === "handwrite"
-        );
-
-
-    document
-        .getElementById(
-            "typeBtn"
-        )
-        .classList
-        .toggle(
-            "active",
-            mode === "type"
-        );
-
-}
-
-
-
-/* =====================================================
-   CANVAS SETUP
-===================================================== */
-
-function setupCanvas(){
-
-    const canvas =
-        document.getElementById(
-            "writingBoard"
-        );
-
-
-    const ratio =
-        window.devicePixelRatio ||
-        1;
-
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    canvas.width =
-        rect.width * ratio;
-
-
-    canvas.height =
-        rect.height * ratio;
-
-
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-
-    ctx.scale(
-        ratio,
-        ratio
-    );
-
-
-    ctx.lineCap =
-        "round";
-
-
-    ctx.lineJoin =
-        "round";
-
-
-    redrawCanvas();
-
-}
-
-
-
-/* =====================================================
-   POINTER POSITION
-===================================================== */
-
-function pointFromEvent(e){
-
-    const canvas =
-        document.getElementById(
-            "writingBoard"
-        );
-
-
-    const rect =
-        canvas.getBoundingClientRect();
-
-
-    const touch =
-        e.touches &&
-        e.touches[0];
-
-
-    const clientX =
-        touch
-        ? touch.clientX
-        : e.clientX;
-
-
-    const clientY =
-        touch
-        ? touch.clientY
-        : e.clientY;
-
-
-    return {
-
-        x:
-            clientX -
-            rect.left,
-
-        y:
-            clientY -
-            rect.top
-
-    };
-
-}
-
-
-
-/* =====================================================
-   DRAWING
-===================================================== */
-
-function startDraw(e){
-
-    e.preventDefault();
-
-    drawing = true;
-
-    currentStroke = [
-
-        pointFromEvent(e)
-
-    ];
-
-}
-
-
-function moveDraw(e){
-
-    if(!drawing){
-
-        return;
-
-    }
-
-
-    e.preventDefault();
-
-
-    currentStroke.push(
-        pointFromEvent(e)
-    );
-
-
-    redrawCanvas();
-
-
-    drawStroke(
-        currentStroke,
-        eraser
-    );
-
-}
-
-
-function endDraw(e){
-
-    if(!drawing){
-
-        return;
-
-    }
-
-
-    e.preventDefault();
-
-
-    drawing = false;
-
-
-    if(
-        currentStroke.length > 1
-    ){
-
-        strokes.push({
-
-            points:
-                currentStroke.slice(),
-
-            eraser:
-                eraser
-
-        });
-
-
-        redoStack = [];
-
-    }
-
-
-    currentStroke = [];
-
-
-    redrawCanvas();
-
-}
-
-
-
-/* =====================================================
-   DRAW STROKE
-===================================================== */
-
-function drawStroke(
-    points,
-    isEraser
-){
-
-    const canvas =
-        document.getElementById(
-            "writingBoard"
-        );
-
-
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-
-    ctx.save();
-
-
-    ctx.lineWidth =
-        isEraser
-        ? 18
-        : 2.2;
-
-
-    ctx.strokeStyle =
-        isEraser
-        ? "#fff"
-        : "#17324d";
-
-
-    ctx.globalCompositeOperation =
-        isEraser
-        ? "destination-out"
-        : "source-over";
-
-
-    ctx.beginPath();
-
-
-    points.forEach(
-        (p,index) => {
-
-            if(index){
-
-                ctx.lineTo(
-                    p.x,
-                    p.y
-                );
-
-            }else{
-
-                ctx.moveTo(
-                    p.x,
-                    p.y
-                );
-
-            }
-
-        }
-    );
-
-
-    ctx.stroke();
-
-
-    ctx.restore();
-
-}
-
-
-
-/* =====================================================
-   REDRAW
-===================================================== */
-
-function redrawCanvas(){
-
-    const canvas =
-        document.getElementById(
-            "writingBoard"
-        );
-
-
-    const ctx =
-        canvas.getContext(
-            "2d"
-        );
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    strokes.forEach(
-        s => {
-
-            drawStroke(
-                s.points,
-                s.eraser
-            );
-
-        }
-    );
-
-}
-
-
-
-/* =====================================================
-   UNDO
-===================================================== */
-
-function undoStroke(){
-
-    if(!strokes.length){
-
-        return;
-
-    }
-
-
-    redoStack.push(
-        strokes.pop()
-    );
-
-
-    redrawCanvas();
-
-}
-
-
-
-/* =====================================================
-   REDO
-===================================================== */
-
-function redoStroke(){
-
-    if(!redoStack.length){
-
-        return;
-
-    }
-
-
-    strokes.push(
-        redoStack.pop()
-    );
-
-
-    redrawCanvas();
-
-}
-
-
-
-/* =====================================================
-   ERASER
-===================================================== */
-
-function toggleEraser(){
-
-    eraser =
-        !eraser;
-
-
-    document.getElementById(
-        "eraserBtn"
-    ).textContent =
-        eraser
-        ? "Pen"
-        : "Eraser";
-
-}
-
-
-
-/* =====================================================
-   CLEAR BOARD
-===================================================== */
-
-function clearBoard(
-    resetButton = true
-){
-
-    strokes = [];
-
-    redoStack = [];
-
-    eraser = false;
-
-
-    redrawCanvas();
-
-
-    if(resetButton){
-
-        document.getElementById(
-            "eraserBtn"
-        ).textContent =
-            "Eraser";
-
-    }
-
-}
-
-
-
-/* =====================================================
-   TYPED MEDICINES
-===================================================== */
-
-function getTypedMedicines(){
-
-    return [
-
-        ...document.querySelectorAll(
-            "#medicineRows .med-row"
-        )
-
-    ]
-
-    .map(row => {
-
-        const inputs =
-            row.querySelectorAll(
-                "input"
-            );
-
-
-        return {
-
-            medicine:
-                inputs[0]
-                .value
-                .trim(),
-
-            strength:
-                inputs[1]
-                .value
-                .trim(),
-
-            dose:
-                inputs[2]
-                .value
-                .trim(),
-
-            frequency:
-                inputs[3]
-                .value
-                .trim(),
-
-            duration:
-                inputs[4]
-                .value
-                .trim()
-
-        };
-
-    })
-
-    .filter(
-        m =>
-        m.medicine
-    );
-
-}
-
-
-
-/* =====================================================
-   PRESCRIPTION DATA
-===================================================== */
-
-function hasHandwriting(){
-
-    return strokes.length > 0;
-
-}
-
-
-
-function buildPrescription(){
-
-    const typed =
-        getTypedMedicines();
-
-
-    return {
-
-        mode:
-
-            hasHandwriting() &&
-            typed.length
-
-            ?
-
-            "Handwritten + Typed"
-
-            :
-
-            hasHandwriting()
-
-            ?
-
-            "Handwritten"
-
-            :
-
-            typed.length
-
-            ?
-
-            "Typed"
-
-            :
-
-            "None",
-
-
-        handwrittenDrawing:
-
-            hasHandwriting()
-            ? strokes
-            : null,
-
-
-        typedMedicines:
-            typed,
-
-
-        typedInstructions:
-
-            document
-            .getElementById(
-                "typedInstructions"
-            )
-            .value
-            .trim()
-
-    };
-
-}
-
-
-
-/* =====================================================
-   COLLECT CONSULTATION
-===================================================== */
-
-function collectConsultation(
-    status
-){
-
-    if(!selectedPatient){
-
-        return null;
-
-    }
-
-
-    return {
-
-        id:
-            "CONS-" +
-            Date.now(),
-
-
-        patientId:
-            selectedPatient
-            .patient
-            .id,
-
-
-        patientName:
-            selectedPatient
-            .patient
-            .name,
-
-
-        professionalId:
-            professional?.id ||
-            "",
-
-
-        professionalUserId:
-            professional?.userId ||
-            "",
-
-
-        professionalName:
-            professional?.name ||
-            "",
-
-
-        organizationId:
-            selectedPatient
-            .assignment
-            .organizationId ||
-            "",
-
-
-        organizationName:
-            selectedPatient
-            .assignment
-            .organizationName ||
-            "",
-
-
-        chiefComplaint:
-            document
-            .getElementById(
-                "chiefComplaint"
-            )
-            .value
-            .trim(),
-
-
-        clinicalHistory:
-            document
-            .getElementById(
-                "clinicalHistory"
-            )
-            .value
-            .trim(),
-
-
-        examination:
-            document
-            .getElementById(
-                "examination"
-            )
-            .value
-            .trim(),
-
-
-        diagnosis:
-            document
-            .getElementById(
-                "diagnosis"
-            )
-            .value
-            .trim(),
-
-
-        prescription:
-            buildPrescription(),
-
-
-        diagnostics:
-            document
-            .getElementById(
-                "diagnostics"
-            )
-            .value
-            .trim(),
-
-
-        referral:{
-
-            specialist:
-                document
-                .getElementById(
-                    "referralSpecialist"
-                )
-                .value
-                .trim(),
-
-
-            hospital:
-                document
-                .getElementById(
-                    "referralHospital"
-                )
-                .value
-                .trim(),
-
-
-            reason:
-                document
-                .getElementById(
-                    "referralReason"
-                )
-                .value
-                .trim()
-
-        },
-
-
-        followup:
-            document
-            .getElementById(
-                "followup"
-            )
-            .value
-            .trim(),
-
-
-        status:
-
-
-            status,
-
-
-        createdAt:
-            new Date()
-            .toISOString(),
-
-
-        updatedAt:
-            new Date()
-            .toISOString()
-
-    };
-
-}
-
-
-
-/* =====================================================
-   REVIEW CONSULTATION
-===================================================== */
-
-function reviewConsultation(){
-
-    const c =
-        collectConsultation(
-            "Draft"
-        );
-
-
-    if(!c){
+    if(!assignment){
 
         alert(
-            "Select an authorized patient first."
+            "This patient is not currently assigned to this professional."
         );
 
         return;
@@ -2182,429 +612,25 @@ function reviewConsultation(){
     }
 
 
-    const prescription =
-        c.prescription;
+    /*
+       THIS IS THE ACTUAL CONNECTION.
 
+       It opens the NEW consultation page,
+       not the old consultation page.
+    */
 
-    let prescriptionHTML =
-
-        `<b>Prescription:</b>
-        ${escapeHTML(
-            prescription.mode
-        )}`;
-
-
-
-    if(
-        prescription
-        .typedMedicines
-        .length
-    ){
-
-        prescriptionHTML +=
-
-            "<ul>" +
-
-            prescription
-            .typedMedicines
-            .map(m =>
-
-                `<li>
-                    ${escapeHTML(
-                        [
-                            m.medicine,
-                            m.strength,
-                            m.dose,
-                            m.frequency,
-                            m.duration
-                        ]
-                        .filter(Boolean)
-                        .join(" · ")
-                    )}
-                </li>`
-
-            )
-            .join("")
-
-            +
-
-            "</ul>";
-
-    }
-
-
-
-    if(
-        prescription
-        .handwrittenDrawing
-    ){
-
-        prescriptionHTML +=
-
-            `<p>
-                ✓ Handwritten prescription
-                prepared on the digital
-                writing board.
-            </p>`;
-
-    }
-
-
-
-    document.getElementById(
-        "reviewBox"
-    ).innerHTML = `
-
-        <p>
-
-            <b>Patient:</b>
-
-            ${escapeHTML(
-                c.patientName
-            )}
-
-            (${escapeHTML(
-                c.patientId
-            )})
-
-        </p>
-
-
-        <p>
-
-            <b>Diagnosis:</b>
-
-            ${escapeHTML(
-                c.diagnosis ||
-                "Not entered"
-            )}
-
-        </p>
-
-
-        <p>
-
-            ${prescriptionHTML}
-
-        </p>
-
-
-        <p>
-
-            <b>Diagnostics:</b>
-
-            ${escapeHTML(
-                c.diagnostics ||
-                "None"
-            )}
-
-        </p>
-
-
-        <p>
-
-            <b>Referral:</b>
-
-            ${
-                (
-                    c.referral.specialist ||
-                    c.referral.hospital
-                )
-
-                ?
-
-                "Referral entered"
-
-                :
-
-                "None"
-            }
-
-        </p>
-
-
-        <p>
-
-            <b>Follow-up:</b>
-
-            ${escapeHTML(
-                c.followup ||
-                "Not specified"
-            )}
-
-        </p>
-
-
-        <div
-            class="notice"
-            style="margin-top:12px">
-
-            Review everything before
-            using <b>Confirm & Sign</b>.
-
-        </div>
-
-    `;
+    window.location.href =
+        "professional-patient-consultation.html?patient=" +
+        encodeURIComponent(patientId);
 
 }
 
 
-
-/* =====================================================
-   SAVE DRAFT
-===================================================== */
-
-function saveDraft(){
-
-    const c =
-        collectConsultation(
-            "Draft"
-        );
-
-
-    if(!c){
-
-        alert(
-            "Select an authorized patient first."
-        );
-
-        return;
-
-    }
-
-
-    const list =
-        getJSON(
-            CONSULTATIONS_KEY,
-            []
-        );
-
-
-    list.push(c);
-
-
-    setJSON(
-        CONSULTATIONS_KEY,
-        list
-    );
-
-
-    alert(
-        "Consultation draft saved."
-    );
-
-}
-
-
-
-/* =====================================================
-   CONFIRM & SIGN
-===================================================== */
-
-function confirmConsultation(){
-
-    const c =
-        collectConsultation(
-            "Completed"
-        );
-
-
-    if(!c){
-
-        alert(
-            "Select an authorized patient first."
-        );
-
-        return;
-
-    }
-
-
-    if(
-
-        !c.chiefComplaint &&
-
-        !c.diagnosis &&
-
-        c.prescription.mode ===
-        "None" &&
-
-        !c.diagnostics &&
-
-        !c.referral.specialist &&
-
-        !c.referral.hospital
-
-    ){
-
-        alert(
-            "Please enter the relevant consultation details before confirming."
-        );
-
-        return;
-
-    }
-
-
-
-    const list =
-        getJSON(
-            CONSULTATIONS_KEY,
-            []
-        );
-
-
-    list.push(c);
-
-
-    setJSON(
-        CONSULTATIONS_KEY,
-        list
-    );
-
-
-
-    alert(
-
-        "Consultation confirmed and signed.\n\n" +
-
-        "The authorized prescription, " +
-        "diagnostic and referral records " +
-        "can now be routed."
-
-    );
-
-
-
-    renderQueue();
-
-
-    document
-        .getElementById(
-            "consultationPanel"
-        )
-        .classList
-        .add("hidden");
-
-
-    selectedPatient =
-        null;
-
-}
-
-
-
-/* =====================================================
-   SECURITY / DISPLAY HELPERS
-===================================================== */
-
-function escapeHTML(value){
-
-    return String(
-        value ?? ""
-    )
-
-    .replace(
-        /[&<>"']/g,
-        m => ({
-
-            "&":"&amp;",
-            "<":"&lt;",
-            ">":"&gt;",
-            '"':"&quot;",
-            "'":"&#039;"
-
-        }[m])
-
-    );
-
-}
-
-
-function escapeAttr(value){
-
-    return String(
-        value ?? ""
-    )
-    .replace(
-        /'/g,
-        "\\'"
-    );
-
-}
-
-
-
-/* =====================================================
-   CANVAS EVENTS
-===================================================== */
-
-window.addEventListener(
-    "resize",
-    setupCanvas
-);
-
-
-const canvas =
-    document.getElementById(
-        "writingBoard"
-    );
-
-
-canvas.addEventListener(
-    "mousedown",
-    startDraw
-);
-
-
-canvas.addEventListener(
-    "mousemove",
-    moveDraw
-);
-
-
-canvas.addEventListener(
-    "mouseup",
-    endDraw
-);
-
-
-canvas.addEventListener(
-    "mouseleave",
-    endDraw
-);
-
-
-canvas.addEventListener(
-    "touchstart",
-    startDraw,
-    {passive:false}
-);
-
-
-canvas.addEventListener(
-    "touchmove",
-    moveDraw,
-    {passive:false}
-);
-
-
-canvas.addEventListener(
-    "touchend",
-    endDraw,
-    {passive:false}
-);
-
-
-
-/* =====================================================
-   START
-===================================================== */
-
-setupCanvas();
+/* =========================
+   INITIAL LOAD
+========================= */
 
 renderQueue();
-
 
 </script>
 
