@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Patients | Luvio HealthLink</title>
+<title>Luvio HealthLink | Professional Patients</title>
 
 <style>
 
@@ -16,504 +15,377 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f4f8fb;
-    color:#20354d;
+    color:#17324d;
 }
 
 header{
-    background:white;
-    border-bottom:1px solid #dce6ec;
-    padding:35px 5%;
+    background:#ffffff;
+    border-bottom:1px solid #dce6ed;
+    padding:18px 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
 }
 
-.logo{
-    font-size:34px;
-    font-weight:700;
-    color:#2f687c;
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:18px;
 }
 
-.logo span{
-    color:#55a69b;
+.brand-mark{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    background:#17324d;
+    color:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+}
+
+.brand small{
+    display:block;
+    font-size:10px;
+    font-weight:500;
+    color:#71808c;
+    margin-top:2px;
 }
 
 .back{
-    display:inline-block;
-    margin-top:45px;
     text-decoration:none;
-    color:#2f687c;
-    font-size:20px;
+    color:#17324d;
     font-weight:700;
 }
 
-.container{
-    max-width:1100px;
-    margin:55px auto;
-    padding:0 25px;
+main{
+    max-width:1150px;
+    margin:30px auto;
+    padding:0 20px 50px;
 }
 
-
-/* PROFESSIONAL CARD */
-
-.profile-card{
-    background:white;
-    border-radius:28px;
-    padding:45px;
-    box-shadow:0 15px 45px rgba(31,58,78,.08);
-    margin-bottom:35px;
+h1{
+    font-size:30px;
+    margin-bottom:7px;
 }
 
-.profile-card h1{
-    font-size:42px;
-    margin-bottom:12px;
+.subtitle{
+    color:#687b89;
+    margin-bottom:25px;
 }
 
-.profile-card p{
-    color:#687b8b;
+.panel{
+    background:#ffffff;
+    border:1px solid #dce6ed;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 5px 18px rgba(23,50,77,.05);
+}
+
+.panel h2{
+    margin-bottom:15px;
     font-size:20px;
 }
 
-.profile-meta{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-    margin-top:22px;
+.notice{
+    background:#f5f9fc;
+    border:1px solid #dce7ee;
+    border-radius:10px;
+    padding:13px 15px;
+    color:#536b7b;
+    line-height:1.5;
+    margin-bottom:15px;
 }
 
-.badge{
-    background:#edf6f8;
-    color:#2f687c;
-    padding:10px 17px;
-    border-radius:30px;
-    font-weight:700;
+.error{
+    background:#fff3f3;
+    border:1px solid #efcaca;
+    color:#9a3030;
+    border-radius:10px;
+    padding:13px 15px;
 }
 
-
-/* TABS */
+.success-message{
+    background:#effaf3;
+    border:1px solid #c7e7d0;
+    color:#23703a;
+    border-radius:10px;
+    padding:13px 15px;
+    margin-bottom:15px;
+}
 
 .tabs{
-    background:white;
-    border-radius:25px;
-    padding:15px;
     display:flex;
-    gap:12px;
     flex-wrap:wrap;
-    box-shadow:0 15px 45px rgba(31,58,78,.06);
-    margin-bottom:35px;
+    gap:8px;
+    margin-bottom:20px;
 }
 
 .tab{
-    border:none;
-    background:#eaf2f6;
-    color:#20354d;
-    padding:17px 25px;
-    border-radius:16px;
-    font-size:17px;
-    font-weight:700;
+    border:1px solid #d6e1e8;
+    background:#ffffff;
+    color:#17324d;
+    padding:11px 16px;
+    border-radius:9px;
     cursor:pointer;
+    font-weight:700;
 }
 
 .tab.active{
-    background:#2f687c;
-    color:white;
+    background:#17324d;
+    color:#ffffff;
 }
 
-
-/* SECTIONS */
-
-.section{
-    display:none;
-    background:white;
-    border-radius:28px;
-    padding:45px;
-    box-shadow:0 15px 45px rgba(31,58,78,.08);
-}
-
-.section.active{
-    display:block;
-}
-
-.section h2{
-    font-size:34px;
-    margin-bottom:12px;
-}
-
-.section-description{
-    color:#687b8b;
-    font-size:19px;
-    line-height:1.6;
-    margin-bottom:30px;
-}
-
-
-/* SEARCH */
-
-.search-row{
-    display:grid;
-    grid-template-columns:2fr 1fr auto;
-    gap:12px;
-    margin-bottom:30px;
+.toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:18px;
 }
 
 input,
 select{
     width:100%;
-    padding:15px 17px;
-    border:1px solid #ccd9e0;
-    border-radius:13px;
-    font-size:16px;
-    outline:none;
-    background:white;
+    padding:12px;
+    border:1px solid #ccd9e1;
+    border-radius:9px;
+    font-size:14px;
+    background:#ffffff;
 }
 
-input:focus,
-select:focus{
-    border-color:#2f687c;
+.search{
+    flex:1;
+    min-width:220px;
 }
 
+.filter{
+    width:220px;
+}
 
-/* PATIENT CARD */
+.patient-list{
+    display:grid;
+    gap:14px;
+}
 
 .patient-card{
-    border:1px solid #dce7ed;
-    border-radius:22px;
-    padding:28px;
-    margin-bottom:20px;
-    background:#fbfdfe;
+    border:1px solid #dce6ed;
+    border-radius:12px;
+    padding:18px;
+    background:#ffffff;
 }
 
 .patient-card h3{
-    font-size:25px;
-    margin-bottom:7px;
+    font-size:18px;
+    margin-bottom:8px;
 }
 
-.patient-id{
-    color:#2f687c;
-    font-weight:700;
-    margin-bottom:18px;
+.meta{
+    color:#627786;
+    line-height:1.7;
+    font-size:14px;
 }
-
-.patient-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-    margin-bottom:22px;
-}
-
-.info{
-    background:#f1f6f8;
-    padding:14px 17px;
-    border-radius:14px;
-}
-
-.info strong{
-    display:block;
-    font-size:13px;
-    color:#718392;
-    margin-bottom:5px;
-    text-transform:uppercase;
-}
-
-
-/* STATUS */
 
 .status{
     display:inline-block;
-    padding:8px 14px;
+    padding:5px 9px;
     border-radius:20px;
-    font-size:14px;
+    font-size:12px;
     font-weight:700;
-    margin-bottom:18px;
+    margin-top:9px;
 }
 
 .status.pending{
-    background:#fff3d9;
-    color:#986a16;
+    background:#fff5dc;
+    color:#8a6200;
 }
 
 .status.active{
-    background:#e4f5ec;
-    color:#27734a;
+    background:#eaf8ef;
+    color:#28733e;
 }
 
 .status.declined{
-    background:#fde9e9;
-    color:#a33b3b;
+    background:#fff0f0;
+    color:#a03a3a;
 }
 
 .status.completed{
-    background:#eaf2f6;
-    color:#2f687c;
+    background:#eef4fb;
+    color:#365d83;
 }
 
-
-/* BUTTONS */
-
-.primary-btn{
-    background:#2f687c;
-    color:white;
-    border:none;
-    border-radius:13px;
-    padding:14px 22px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.secondary-btn{
-    background:#eaf2f6;
-    color:#20354d;
-    border:none;
-    border-radius:13px;
-    padding:14px 22px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.danger-btn{
-    background:#fde9e9;
-    color:#a33b3b;
-    border:none;
-    border-radius:13px;
-    padding:14px 22px;
-    font-size:16px;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.action-row{
+.actions{
     display:flex;
     flex-wrap:wrap;
-    gap:12px;
+    gap:9px;
+    margin-top:15px;
 }
 
-
-/* NOTICE */
-
-.notice{
-    background:#edf6f8;
-    border-left:5px solid #2f687c;
-    padding:18px 20px;
-    border-radius:12px;
-    margin-bottom:25px;
-    line-height:1.6;
-    color:#49616f;
+button{
+    border:0;
+    border-radius:9px;
+    padding:11px 15px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:14px;
 }
 
+.primary{
+    background:#17324d;
+    color:#ffffff;
+}
 
-/* EMPTY */
+.secondary{
+    background:#eef4f8;
+    color:#17324d;
+    border:1px solid #d5e1e8;
+}
+
+.success{
+    background:#28733e;
+    color:#ffffff;
+}
+
+.danger{
+    background:#a93636;
+    color:#ffffff;
+}
+
+button:hover{
+    opacity:.9;
+}
 
 .empty{
     text-align:center;
-    padding:45px 20px;
-    background:#f7fafb;
+    padding:35px 20px;
+    border:1px dashed #cbd9e2;
+    border-radius:12px;
+    color:#71818d;
+}
+
+.patient-details{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px 20px;
+    margin-top:10px;
+}
+
+.detail-item{
+    font-size:13px;
+    color:#607684;
+}
+
+.detail-item strong{
+    color:#17324d;
+}
+
+.hidden{
+    display:none!important;
+}
+
+.count{
+    font-size:12px;
+    background:#edf3f7;
+    color:#17324d;
     border-radius:20px;
-    color:#718392;
-    font-size:18px;
+    padding:4px 8px;
+    margin-left:5px;
 }
-
-
-/* MODAL */
-
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(20,40,55,.55);
-    z-index:1000;
-    padding:25px;
-    overflow:auto;
-}
-
-.modal.active{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.modal-content{
-    width:100%;
-    max-width:750px;
-    background:white;
-    border-radius:28px;
-    padding:40px;
-}
-
-.modal-content h2{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-.modal-content p{
-    color:#687b8b;
-    line-height:1.7;
-    margin-bottom:20px;
-}
-
-.close-btn{
-    float:right;
-    border:none;
-    background:#eaf2f6;
-    border-radius:50%;
-    width:42px;
-    height:42px;
-    font-size:20px;
-    cursor:pointer;
-}
-
-
-/* MOBILE */
 
 @media(max-width:700px){
 
     header{
-        padding:30px 20px;
+        padding:15px;
     }
 
-    .logo{
-        font-size:30px;
+    main{
+        padding:0 14px 40px;
+        margin-top:20px;
     }
 
-    .back{
-        font-size:18px;
-        margin-top:35px;
+    h1{
+        font-size:25px;
     }
 
-    .container{
-        margin:35px auto;
-        padding:0 18px;
-    }
-
-    .profile-card,
-    .section{
-        padding:30px 22px;
-        border-radius:23px;
-    }
-
-    .profile-card h1{
-        font-size:36px;
-    }
-
-    .section h2{
-        font-size:30px;
-    }
-
-    .search-row{
-        grid-template-columns:1fr;
-    }
-
-    .patient-grid{
-        grid-template-columns:1fr;
-    }
-
-    .tabs{
-        padding:12px;
-    }
-
-    .tab{
+    .filter{
         width:100%;
     }
 
-    .action-row button{
-        width:100%;
-    }
-
-    .modal-content{
-        padding:28px 22px;
+    .patient-details{
+        grid-template-columns:1fr;
     }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <header>
 
-    <div class="logo">
-        🩺 Luvio <span>HealthLink</span>
+    <div class="brand">
+
+        <div class="brand-mark">L</div>
+
+        <div>
+            Luvio HealthLink
+            <small>Your Personal Health Architecture.</small>
+        </div>
+
     </div>
 
-    <a
-        class="back"
-        href="professional.html">
-
-        ← Back to Professional Workspace
-
+    <a class="back" href="professional.html">
+        ← Professional Workspace
     </a>
 
 </header>
 
 
-<div class="container">
+<main>
+
+<h1>Patients</h1>
+
+<p class="subtitle">
+Manage patient assignments, authorized patients and consultation access.
+</p>
 
 
-    <!-- PROFESSIONAL INFORMATION -->
-
-    <div class="profile-card">
-
-        <h1 id="professionalName">
-            Professional
-        </h1>
-
-        <p id="professionalType">
-            Healthcare Professional
-        </p>
-
-        <div class="profile-meta">
-
-            <div
-                class="badge"
-                id="professionalId">
-
-                Professional ID
-
-            </div>
-
-            <div
-                class="badge"
-                id="professionalSpecialization">
-
-                Specialization
-
-            </div>
-
-        </div>
-
-    </div>
+<div id="globalMessage"></div>
 
 
-    <!-- TABS -->
+<div class="panel">
 
     <div class="tabs">
 
         <button
+            id="pendingTab"
             class="tab active"
-            onclick="showTab('pending',this)">
-
+            onclick="showTab('pending')">
             Pending Patients
-
+            <span id="pendingCount" class="count">0</span>
         </button>
 
         <button
+            id="myPatientsTab"
             class="tab"
-            onclick="showTab('myPatients',this)">
-
+            onclick="showTab('myPatients')">
             My Patients
-
+            <span id="myPatientsCount" class="count">0</span>
         </button>
 
         <button
+            id="historyTab"
             class="tab"
-            onclick="showTab('history',this)">
-
+            onclick="showTab('history')">
             Assignment History
-
         </button>
 
     </div>
@@ -521,251 +393,155 @@ select:focus{
 
     <!-- PENDING PATIENTS -->
 
-    <section
-        id="pending"
-        class="section active">
+    <section id="pendingSection">
 
-        <h2>
-            Pending Patients
-        </h2>
-
-        <p class="section-description">
-
-            Patients assigned to you by an authorized reception,
-            pharmacy or organization staff member are shown here.
-            Review the assignment before accepting it.
-
-        </p>
-
+        <h2>Pending Patient Assignments</h2>
 
         <div class="notice">
+            Patients registered by a polyclinic, pharmacy or authorized organization
+            may be assigned to you for consultation. Review the assignment and
+            accept or decline it.
+        </div>
 
-            Accepting an assignment establishes the professional
-            relationship needed for the consultation workflow.
-            It does not by itself give unrestricted access to every
-            part of a patient's health record.
+        <div class="toolbar">
+
+            <input
+                id="pendingSearch"
+                class="search"
+                placeholder="Search patient name or Patient ID"
+                oninput="renderPending()">
+
+            <select
+                id="pendingOrganizationFilter"
+                class="filter"
+                onchange="renderPending()">
+
+                <option value="">All Organizations</option>
+
+            </select>
 
         </div>
 
-
-        <div id="pendingPatients"></div>
+        <div id="pendingList" class="patient-list"></div>
 
     </section>
 
 
     <!-- MY PATIENTS -->
 
-    <section
-        id="myPatients"
-        class="section">
+    <section id="myPatientsSection" class="hidden">
 
-        <h2>
-            My Patients
-        </h2>
+        <h2>My Patients</h2>
 
-        <p class="section-description">
+        <div class="notice">
+            These are patients whose assignments have been accepted by you.
+            Open a patient to view the authorized patient record or start the
+            actual consultation.
+        </div>
 
-            Patients whose assignments you have accepted and who
-            are available within your authorized professional
-            workspace.
-
-        </p>
-
-
-        <div class="search-row">
+        <div class="toolbar">
 
             <input
-                id="patientSearch"
-                type="text"
-                placeholder="Search patient name or Patient ID..."
+                id="myPatientSearch"
+                class="search"
+                placeholder="Search patient name or Patient ID"
                 oninput="renderMyPatients()">
 
-
             <select
-                id="organizationFilter"
+                id="myPatientOrganizationFilter"
+                class="filter"
                 onchange="renderMyPatients()">
 
-                <option value="All">
-                    All Organizations
-                </option>
-
-                <option value="Luvio Polyclinic">
-                    Luvio Polyclinic
-                </option>
-
-                <option value="Luvio Partner Hospital">
-                    Luvio Partner Hospital
-                </option>
-
-                <option value="Luvio Pharmacy">
-                    Luvio Pharmacy
-                </option>
+                <option value="">All Organizations</option>
 
             </select>
 
-
-            <button
-                class="secondary-btn"
-                onclick="clearPatientFilters()">
-
-                Clear
-
-            </button>
-
         </div>
 
-
-        <div id="myPatientsResults"></div>
+        <div id="myPatientsList" class="patient-list"></div>
 
     </section>
 
 
     <!-- ASSIGNMENT HISTORY -->
 
-    <section
-        id="history"
-        class="section">
+    <section id="historySection" class="hidden">
 
-        <h2>
-            Assignment History
-        </h2>
+        <h2>Assignment History</h2>
 
-        <p class="section-description">
+        <div class="notice">
+            Previous patient assignment decisions are shown here.
+        </div>
 
-            View previous patient assignments and their current
-            relationship status.
+        <div class="toolbar">
 
-        </p>
+            <input
+                id="historySearch"
+                class="search"
+                placeholder="Search patient name or Patient ID"
+                oninput="renderHistory()">
 
+        </div>
 
-        <div id="assignmentHistory"></div>
+        <div id="historyList" class="patient-list"></div>
 
     </section>
 
 </div>
 
-
-<!-- PATIENT MODAL -->
-
-<div
-    id="patientModal"
-    class="modal">
-
-    <div class="modal-content">
-
-        <button
-            class="close-btn"
-            onclick="closePatientModal()">
-
-            ×
-
-        </button>
-
-
-        <h2 id="modalPatientName">
-            Patient
-        </h2>
-
-
-        <p id="modalPatientId">
-        </p>
-
-
-        <div id="modalPatientDetails"></div>
-
-
-        <div class="notice">
-
-            Patient medical information will be available
-            through the authorized consultation and patient-record
-            workflow.
-
-        </div>
-
-
-        <div class="action-row">
-
-            <button
-                class="primary-btn"
-                onclick="openConsultationFromPatient()">
-
-                Open Consultation
-
-            </button>
-
-
-            <button
-                class="secondary-btn"
-                onclick="closePatientModal()">
-
-                Close
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
+</main>
 
 
 <script>
 
+const CURRENT_KEY = "luvio_current_doctor";
 
-/* =========================================================
-   STORAGE
-========================================================= */
-
-const PROFESSIONAL_ACCOUNTS_KEY =
-    "luvio_doctor_accounts";
-
-const CURRENT_PROFESSIONAL_KEY =
-    "luvio_current_doctor";
-
-const PATIENTS_KEY =
-    "luvio_patients";
+const PATIENTS_KEY = "luvio_patients";
 
 const ASSIGNMENTS_KEY =
     "luvio_professional_patient_assignments";
 
 
-/* =========================================================
-   HELPERS
-========================================================= */
+let professional = null;
 
-function getArray(key){
+
+/* =========================
+   STORAGE HELPERS
+========================= */
+
+function getJSON(key, fallback){
 
     try{
 
-        const data =
-            JSON.parse(
-                localStorage.getItem(key) || "[]"
-            );
-
-        return Array.isArray(data)
-            ? data
-            : [];
+        return JSON.parse(
+            localStorage.getItem(key) ||
+            JSON.stringify(fallback)
+        );
 
     }catch(error){
 
-        return [];
+        return fallback;
 
     }
 
 }
 
 
-function saveArray(key,data){
+function setJSON(key, value){
 
     localStorage.setItem(
         key,
-        JSON.stringify(data)
+        JSON.stringify(value)
     );
 
 }
 
 
-function escapeHtml(value){
+/* =========================
+   SECURITY DISPLAY
+========================= */
+
+function esc(value){
 
     return String(value ?? "")
         .replace(/&/g,"&amp;")
@@ -777,7 +553,7 @@ function escapeHtml(value){
 }
 
 
-function escapeJs(value){
+function attr(value){
 
     return String(value ?? "")
         .replace(/\\/g,"\\\\")
@@ -786,706 +562,268 @@ function escapeJs(value){
 }
 
 
-function professionalValue(...values){
-
-    for(const value of values){
-
-        if(
-            value !== undefined &&
-            value !== null &&
-            String(value).trim() !== ""
-        ){
-
-            return value;
-
-        }
-
-    }
-
-    return "";
-
-}
-
-
-/* =========================================================
-   PROFESSIONAL SESSION
-========================================================= */
-
-function getCurrentProfessional(){
-
-    const accounts =
-        getArray(
-            PROFESSIONAL_ACCOUNTS_KEY
-        );
-
-
-    let current = null;
-
-    try{
-
-        current =
-            JSON.parse(
-                localStorage.getItem(
-                    CURRENT_PROFESSIONAL_KEY
-                ) || "null"
-            );
-
-    }catch(error){
-
-        current = null;
-
-    }
-
-
-    if(
-        current &&
-        typeof current === "object"
-    ){
-
-        const currentId =
-            current.id ||
-            current.professionalId ||
-            current.userId;
-
-
-        const found =
-            accounts.find(account =>
-
-                account.id === currentId ||
-                account.professionalId === currentId ||
-                account.userId === currentId
-
-            );
-
-
-        return found || current;
-
-    }
-
-
-    if(typeof current === "string"){
-
-        return accounts.find(account =>
-
-            account.id === current ||
-            account.professionalId === current ||
-            account.userId === current
-
-        ) || null;
-
-    }
-
-
-    return null;
-
-}
-
-
-const professional =
-    getCurrentProfessional();
-
-
-/* =========================================================
-   PROFESSIONAL INFORMATION
-========================================================= */
+/* =========================
+   PROFESSIONAL
+========================= */
 
 function loadProfessional(){
 
+    professional =
+        getJSON(CURRENT_KEY,null);
+
     if(!professional){
 
         document.getElementById(
-            "professionalName"
-        ).textContent =
-            "Professional";
+            "globalMessage"
+        ).innerHTML = `
+            <div class="error">
+                No professional is currently logged in.
+                Please log in through the Professional Portal first.
+            </div>
+        `;
 
-        document.getElementById(
-            "professionalType"
-        ).textContent =
-            "Please log in through the Professional Portal.";
-
-        document.getElementById(
-            "professionalId"
-        ).textContent =
-            "Professional ID not available";
-
-        document.getElementById(
-            "professionalSpecialization"
-        ).textContent =
-            "Not available";
-
-        return;
+        return false;
 
     }
 
-
-    document.getElementById(
-        "professionalName"
-    ).textContent =
-
-        professionalValue(
-            professional.name,
-            professional.fullName
-        ) || "Professional";
-
-
-    document.getElementById(
-        "professionalType"
-    ).textContent =
-
-        professionalValue(
-            professional.professionalType,
-            professional.type,
-            professional.profession
-        ) || "Healthcare Professional";
-
-
-    document.getElementById(
-        "professionalId"
-    ).textContent =
-
-        professionalValue(
-            professional.id,
-            professional.professionalId,
-            professional.professionalID
-        ) || "Professional ID";
-
-
-    document.getElementById(
-        "professionalSpecialization"
-    ).textContent =
-
-        professionalValue(
-            professional.specialization,
-            professional.department
-        ) || "Specialization not specified";
+    return true;
 
 }
 
 
-/* =========================================================
-   CURRENT PROFESSIONAL ID
-========================================================= */
+function professionalId(){
 
-function currentProfessionalId(){
+    if(!professional) return "";
 
-    if(!professional){
-
-        return "";
-
-    }
-
-
-    return professionalValue(
-        professional.id,
-        professional.professionalId,
-        professional.professionalID,
-        professional.userId
+    return (
+        professional.id ||
+        professional.professionalId ||
+        ""
     );
 
 }
 
 
-/* =========================================================
-   DEMO PATIENTS
-========================================================= */
+/* =========================
+   DATA
+========================= */
 
-function ensureDemoPatients(){
+function getPatients(){
 
-    let patients =
-        getArray(
-            PATIENTS_KEY
-        );
-
-
-    if(patients.length > 0){
-
-        return patients;
-
-    }
-
-
-    patients = [
-
-        {
-            id:"LH-000001",
-            patientId:"LH-000001",
-            name:"Patient A",
-            age:42,
-            gender:"Male",
-            mobile:"XXXXXX1001"
-        },
-
-        {
-            id:"LH-000002",
-            patientId:"LH-000002",
-            name:"Patient B",
-            age:35,
-            gender:"Female",
-            mobile:"XXXXXX1002"
-        },
-
-        {
-            id:"LH-000003",
-            patientId:"LH-000003",
-            name:"Patient C",
-            age:28,
-            gender:"Male",
-            mobile:"XXXXXX1003"
-        },
-
-        {
-            id:"LH-000004",
-            patientId:"LH-000004",
-            name:"Patient D",
-            age:51,
-            gender:"Female",
-            mobile:"XXXXXX1004"
-        },
-
-        {
-            id:"LH-000005",
-            patientId:"LH-000005",
-            name:"Patient E",
-            age:64,
-            gender:"Male",
-            mobile:"XXXXXX1005"
-        }
-
-    ];
-
-
-    saveArray(
+    return getJSON(
         PATIENTS_KEY,
-        patients
+        []
     );
-
-
-    return patients;
 
 }
 
 
-/* =========================================================
-   DEMO ASSIGNMENTS
-========================================================= */
+function getAssignments(){
 
-function ensureDemoAssignments(){
+    return getJSON(
+        ASSIGNMENTS_KEY,
+        []
+    );
 
-    let assignments =
-        getArray(
-            ASSIGNMENTS_KEY
-        );
+}
 
 
-    if(assignments.length > 0){
+function saveAssignments(assignments){
 
-        return assignments;
-
-    }
-
-
-    const professionalId =
-        currentProfessionalId();
-
-
-    assignments = [
-
-        {
-            id:"ASSIGN-000001",
-
-            patientId:"LH-000001",
-
-            professionalId:
-                professionalId,
-
-            patientName:"Patient A",
-
-            organizationId:
-                "POLY-000001",
-
-            organizationName:
-                "Luvio Polyclinic",
-
-            department:
-                "General Medicine",
-
-            assignedBy:
-                "Reception",
-
-            assignedByName:
-                "Reception Desk",
-
-            status:
-                "Pending",
-
-            assignedAt:
-                new Date().toISOString()
-
-        },
-
-
-        {
-            id:"ASSIGN-000002",
-
-            patientId:"LH-000002",
-
-            professionalId:
-                professionalId,
-
-            patientName:"Patient B",
-
-            organizationId:
-                "POLY-000001",
-
-            organizationName:
-                "Luvio Polyclinic",
-
-            department:
-                "General Medicine",
-
-            assignedBy:
-                "Reception",
-
-            assignedByName:
-                "Reception Desk",
-
-            status:
-                "Pending",
-
-            assignedAt:
-                new Date().toISOString()
-
-        },
-
-
-        {
-            id:"ASSIGN-000003",
-
-            patientId:"LH-000003",
-
-            professionalId:
-                professionalId,
-
-            patientName:"Patient C",
-
-            organizationId:
-                "HOSP-000001",
-
-            organizationName:
-                "Luvio Partner Hospital",
-
-            department:
-                "General Medicine",
-
-            assignedBy:
-                "Hospital Staff",
-
-            assignedByName:
-                "Hospital Reception",
-
-            status:
-                "Active",
-
-            assignedAt:
-                new Date().toISOString()
-
-        }
-
-    ];
-
-
-    saveArray(
+    setJSON(
         ASSIGNMENTS_KEY,
         assignments
     );
 
+}
 
-    return assignments;
+
+/* =========================
+   PROFESSIONAL ASSIGNMENTS
+========================= */
+
+function myAssignments(){
+
+    const id = professionalId();
+
+    return getAssignments().filter(a => {
+
+        return (
+            String(a.professionalId || "") === String(id) ||
+            String(a.professionalUserId || "") ===
+            String(professional.userId || "")
+        );
+
+    });
 
 }
 
 
-/* =========================================================
-   PATIENT LOOKUP
-========================================================= */
+/* =========================
+   PATIENT MATCH
+========================= */
 
-function getPatient(
-    patientId
-){
+function findPatient(patientId){
 
-    const patients =
-        ensureDemoPatients();
+    const patients = getPatients();
+
+    return patients.find(p => {
+
+        return (
+            String(p.id || "") ===
+            String(patientId) ||
+
+            String(p.patientId || "") ===
+            String(patientId)
+        );
+
+    });
+
+}
 
 
-    return patients.find(patient =>
+/* =========================
+   TAB CONTROL
+========================= */
 
-        patient.id === patientId ||
-        patient.patientId === patientId
+function showTab(tab){
 
+    document.getElementById(
+        "pendingSection"
+    ).classList.toggle(
+        "hidden",
+        tab !== "pending"
+    );
+
+    document.getElementById(
+        "myPatientsSection"
+    ).classList.toggle(
+        "hidden",
+        tab !== "myPatients"
+    );
+
+    document.getElementById(
+        "historySection"
+    ).classList.toggle(
+        "hidden",
+        tab !== "history"
+    );
+
+
+    document.getElementById(
+        "pendingTab"
+    ).classList.toggle(
+        "active",
+        tab === "pending"
+    );
+
+
+    document.getElementById(
+        "myPatientsTab"
+    ).classList.toggle(
+        "active",
+        tab === "myPatients"
+    );
+
+
+    document.getElementById(
+        "historyTab"
+    ).classList.toggle(
+        "active",
+        tab === "history"
     );
 
 }
 
 
-/* =========================================================
-   PENDING PATIENTS
-========================================================= */
+/* =========================
+   ORGANIZATION FILTERS
+========================= */
 
-function renderPendingPatients(){
-
-    const container =
-        document.getElementById(
-            "pendingPatients"
-        );
-
-
-    if(!professional){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Please log in through the
-                Professional Portal first.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
+function populateOrganizationFilters(){
 
     const assignments =
-        ensureDemoAssignments();
+        myAssignments();
+
+    const organizations = [];
+
+    assignments.forEach(a => {
+
+        const name =
+            a.organizationName ||
+            a.organizationId ||
+            "Organization";
+
+        if(!organizations.includes(name)){
+
+            organizations.push(name);
+
+        }
+
+    });
 
 
-    const pending =
-        assignments.filter(assignment =>
+    const selects = [
 
-            assignment.professionalId ===
-            currentProfessionalId() &&
-
-            String(
-                assignment.status
-            ).toLowerCase() ===
-            "pending"
-
-        );
-
-
-    if(pending.length === 0){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                You have no pending patient assignments.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-
-        pending.map(assignment => {
-
-            const patient =
-                getPatient(
-                    assignment.patientId
-                );
-
-
-            return patientCard(
-                assignment,
-                patient,
-                true
-            );
-
-        }).join("");
-
-}
-
-
-/* =========================================================
-   MY PATIENTS
-========================================================= */
-
-function renderMyPatients(){
-
-    const container =
         document.getElementById(
-            "myPatientsResults"
-        );
+            "pendingOrganizationFilter"
+        ),
 
-
-    if(!professional){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Please log in through the
-                Professional Portal first.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    const assignments =
-        ensureDemoAssignments();
-
-
-    const search =
         document.getElementById(
-            "patientSearch"
-        ).value
-        .trim()
-        .toLowerCase();
+            "myPatientOrganizationFilter"
+        )
+
+    ];
 
 
-    const organization =
-        document.getElementById(
-            "organizationFilter"
-        ).value;
+    selects.forEach(select => {
 
+        select.innerHTML =
+            `<option value="">All Organizations</option>`;
 
-    const active =
-        assignments.filter(assignment => {
+        organizations.forEach(org => {
 
-            if(
-                assignment.professionalId !==
-                currentProfessionalId()
-            ){
+            const option =
+                document.createElement("option");
 
-                return false;
+            option.value = org;
 
-            }
+            option.textContent = org;
 
-
-            if(
-                String(
-                    assignment.status
-                ).toLowerCase() !==
-                "active"
-            ){
-
-                return false;
-
-            }
-
-
-            const patient =
-                getPatient(
-                    assignment.patientId
-                );
-
-
-            const name =
-                String(
-                    patient?.name ||
-                    assignment.patientName ||
-                    ""
-                ).toLowerCase();
-
-
-            const patientId =
-                String(
-                    assignment.patientId ||
-                    ""
-                ).toLowerCase();
-
-
-            const matchesSearch =
-                !search ||
-                name.includes(search) ||
-                patientId.includes(search);
-
-
-            const matchesOrganization =
-                organization === "All" ||
-                assignment.organizationName ===
-                organization;
-
-
-            return (
-                matchesSearch &&
-                matchesOrganization
-            );
+            select.appendChild(option);
 
         });
 
-
-    if(active.length === 0){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                No patients found in your current
-                authorized patient list.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        active.map(assignment => {
-
-            const patient =
-                getPatient(
-                    assignment.patientId
-                );
-
-
-            return patientCard(
-                assignment,
-                patient,
-                false
-            );
-
-        }).join("");
+    });
 
 }
 
 
-/* =========================================================
+/* =========================
    PATIENT CARD
-========================================================= */
+========================= */
 
 function patientCard(
-    assignment,
     patient,
-    isPending
+    assignment,
+    mode
 ){
 
-    const patientName =
-        patient?.name ||
-        assignment.patientName ||
+    const id =
+        patient.id ||
+        patient.patientId ||
+        "";
+
+    const name =
+        patient.name ||
+        patient.fullName ||
         "Patient";
 
 
-    const patientId =
-        patient?.patientId ||
-        patient?.id ||
-        assignment.patientId ||
-        "-";
+    const organization =
+        assignment.organizationName ||
+        assignment.organizationId ||
+        "Organization";
 
 
     const status =
@@ -1493,9 +831,114 @@ function patientCard(
         "Pending";
 
 
-    const statusClass =
-        String(status)
-            .toLowerCase();
+    const mobile =
+        patient.mobile ||
+        patient.phone ||
+        "Not provided";
+
+
+    const gender =
+        patient.gender ||
+        "Not provided";
+
+
+    const dob =
+        patient.dob ||
+        patient.dateOfBirth ||
+        "Not provided";
+
+
+    let statusClass = "pending";
+
+    if(status === "Active"){
+        statusClass = "active";
+    }
+
+    if(status === "Declined"){
+        statusClass = "declined";
+    }
+
+    if(status === "Completed"){
+        statusClass = "completed";
+    }
+
+
+    let actions = "";
+
+
+    /* PENDING */
+
+    if(mode === "pending"){
+
+        actions = `
+
+            <button
+                class="success"
+                onclick="acceptAssignment('${attr(assignment.id)}')">
+
+                ✓ Accept Patient
+
+            </button>
+
+
+            <button
+                class="danger"
+                onclick="declineAssignment('${attr(assignment.id)}')">
+
+                Decline
+
+            </button>
+
+        `;
+
+    }
+
+
+    /* MY PATIENTS */
+
+    if(mode === "active"){
+
+        actions = `
+
+            <button
+                class="primary"
+                onclick="openPatientRecord('${attr(id)}')">
+
+                Open Patient Record
+
+            </button>
+
+
+            <button
+                class="success"
+                onclick="startConsultation('${attr(id)}')">
+
+                Start Consultation
+
+            </button>
+
+        `;
+
+    }
+
+
+    /* HISTORY */
+
+    if(mode === "history"){
+
+        actions = `
+
+            <button
+                class="secondary"
+                onclick="viewAssignmentDetails('${attr(assignment.id)}')">
+
+                View Details
+
+            </button>
+
+        `;
+
+    }
 
 
     return `
@@ -1503,189 +946,53 @@ function patientCard(
         <div class="patient-card">
 
             <h3>
-
-                ${escapeHtml(
-                    patientName
-                )}
-
+                ${esc(name)}
             </h3>
 
 
-            <div class="patient-id">
+            <div class="meta">
 
-                Patient ID:
-                ${escapeHtml(
-                    patientId
-                )}
+                <div>
+                    Patient ID:
+                    <b>${esc(id)}</b>
+                </div>
+
+                <div>
+                    Mobile:
+                    ${esc(mobile)}
+                </div>
+
+                <div>
+                    Gender:
+                    ${esc(gender)}
+                </div>
+
+                <div>
+                    Date of Birth:
+                    ${esc(dob)}
+                </div>
+
+                <div>
+                    Organization:
+                    ${esc(organization)}
+                </div>
+
+                <div>
+                    Assignment:
+                    ${esc(assignment.role || "Patient")}
+                </div>
 
             </div>
 
 
-            <span class="status ${escapeHtml(
-                statusClass
-            )}">
-
-                ${escapeHtml(
-                    status
-                )}
-
+            <span class="status ${statusClass}">
+                ${esc(status)}
             </span>
 
 
-            <div class="patient-grid">
+            <div class="actions">
 
-                <div class="info">
-
-                    <strong>
-                        Age
-                    </strong>
-
-                    ${escapeHtml(
-                        patient?.age || "-"
-                    )}
-
-                </div>
-
-
-                <div class="info">
-
-                    <strong>
-                        Gender
-                    </strong>
-
-                    ${escapeHtml(
-                        patient?.gender || "-"
-                    )}
-
-                </div>
-
-
-                <div class="info">
-
-                    <strong>
-                        Organization
-                    </strong>
-
-                    ${escapeHtml(
-                        assignment.organizationName ||
-                        "-"
-                    )}
-
-                </div>
-
-
-                <div class="info">
-
-                    <strong>
-                        Department
-                    </strong>
-
-                    ${escapeHtml(
-                        assignment.department ||
-                        "-"
-                    )}
-
-                </div>
-
-
-                <div class="info">
-
-                    <strong>
-                        Assigned By
-                    </strong>
-
-                    ${escapeHtml(
-                        assignment.assignedByName ||
-                        assignment.assignedBy ||
-                        "-"
-                    )}
-
-                </div>
-
-
-                <div class="info">
-
-                    <strong>
-                        Assignment Date
-                    </strong>
-
-                    ${escapeHtml(
-                        formatDate(
-                            assignment.assignedAt
-                        )
-                    )}
-
-                </div>
-
-            </div>
-
-
-            <div class="action-row">
-
-                ${
-                    isPending
-
-                    ?
-
-                    `
-                    <button
-                        class="primary-btn"
-                        onclick="acceptPatient(
-                            '${escapeJs(
-                                assignment.id
-                            )}'
-                        )">
-
-                        Accept Patient
-
-                    </button>
-
-
-                    <button
-                        class="danger-btn"
-                        onclick="declinePatient(
-                            '${escapeJs(
-                                assignment.id
-                            )}'
-                        )">
-
-                        Decline
-
-                    </button>
-                    `
-
-                    :
-
-                    `
-
-                    <button
-                        class="primary-btn"
-                        onclick="viewPatient(
-                            '${escapeJs(
-                                assignment.patientId
-                            )}'
-                        )">
-
-                        Open Patient Record
-
-                    </button>
-
-
-                    <button
-                        class="secondary-btn"
-                        onclick="openConsultation(
-                            '${escapeJs(
-                                assignment.patientId
-                            )}'
-                        )">
-
-                        Start Consultation
-
-                    </button>
-
-                    `
-
-                }
+                ${actions}
 
             </div>
 
@@ -1696,27 +1003,374 @@ function patientCard(
 }
 
 
-/* =========================================================
-   ACCEPT PATIENT
-========================================================= */
+/* =========================
+   PENDING
+========================= */
 
-function acceptPatient(
+function renderPending(){
+
+    const list =
+        document.getElementById(
+            "pendingList"
+        );
+
+
+    const search =
+        document.getElementById(
+            "pendingSearch"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+    const organization =
+        document.getElementById(
+            "pendingOrganizationFilter"
+        ).value;
+
+
+    let assignments =
+        myAssignments().filter(
+            a => a.status === "Pending"
+        );
+
+
+    assignments =
+        assignments.filter(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            if(!patient) return false;
+
+
+            const name =
+                (
+                    patient.name ||
+                    patient.fullName ||
+                    ""
+                ).toLowerCase();
+
+
+            const id =
+                (
+                    patient.id ||
+                    patient.patientId ||
+                    ""
+                ).toLowerCase();
+
+
+            const org =
+                a.organizationName ||
+                a.organizationId ||
+                "";
+
+
+            const searchMatch =
+                !search ||
+                name.includes(search) ||
+                id.includes(search);
+
+
+            const orgMatch =
+                !organization ||
+                org === organization;
+
+
+            return searchMatch && orgMatch;
+
+        });
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        myAssignments()
+        .filter(a => a.status === "Pending")
+        .length;
+
+
+    if(!assignments.length){
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                No pending patient assignments are
+                currently available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        assignments.map(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            return patientCard(
+                patient,
+                a,
+                "pending"
+            );
+
+        }).join("");
+
+}
+
+
+/* =========================
+   MY PATIENTS
+========================= */
+
+function renderMyPatients(){
+
+    const list =
+        document.getElementById(
+            "myPatientsList"
+        );
+
+
+    const search =
+        document.getElementById(
+            "myPatientSearch"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+    const organization =
+        document.getElementById(
+            "myPatientOrganizationFilter"
+        ).value;
+
+
+    let assignments =
+        myAssignments().filter(
+            a => a.status === "Active"
+        );
+
+
+    assignments =
+        assignments.filter(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            if(!patient) return false;
+
+
+            const name =
+                (
+                    patient.name ||
+                    patient.fullName ||
+                    ""
+                ).toLowerCase();
+
+
+            const id =
+                (
+                    patient.id ||
+                    patient.patientId ||
+                    ""
+                ).toLowerCase();
+
+
+            const org =
+                a.organizationName ||
+                a.organizationId ||
+                "";
+
+
+            const searchMatch =
+                !search ||
+                name.includes(search) ||
+                id.includes(search);
+
+
+            const orgMatch =
+                !organization ||
+                org === organization;
+
+
+            return searchMatch && orgMatch;
+
+        });
+
+
+    document.getElementById(
+        "myPatientsCount"
+    ).textContent =
+        myAssignments()
+        .filter(a => a.status === "Active")
+        .length;
+
+
+    if(!assignments.length){
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                No active patients are currently
+                assigned to you.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        assignments.map(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            return patientCard(
+                patient,
+                a,
+                "active"
+            );
+
+        }).join("");
+
+}
+
+
+/* =========================
+   HISTORY
+========================= */
+
+function renderHistory(){
+
+    const list =
+        document.getElementById(
+            "historyList"
+        );
+
+
+    const search =
+        document.getElementById(
+            "historySearch"
+        ).value
+        .toLowerCase()
+        .trim();
+
+
+    let assignments =
+        myAssignments().filter(a => {
+
+            return (
+                a.status === "Declined" ||
+                a.status === "Completed"
+            );
+
+        });
+
+
+    assignments =
+        assignments.filter(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            if(!patient) return false;
+
+
+            const name =
+                (
+                    patient.name ||
+                    patient.fullName ||
+                    ""
+                ).toLowerCase();
+
+
+            const id =
+                (
+                    patient.id ||
+                    patient.patientId ||
+                    ""
+                ).toLowerCase();
+
+
+            return (
+                !search ||
+                name.includes(search) ||
+                id.includes(search)
+            );
+
+        });
+
+
+    if(!assignments.length){
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                No previous assignment history
+                is available.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    list.innerHTML =
+        assignments.map(a => {
+
+            const patient =
+                findPatient(a.patientId);
+
+            return patientCard(
+                patient,
+                a,
+                "history"
+            );
+
+        }).join("");
+
+}
+
+
+/* =========================
+   ACCEPT
+========================= */
+
+function acceptAssignment(
     assignmentId
 ){
 
     const assignments =
-        ensureDemoAssignments();
+        getAssignments();
 
 
     const index =
         assignments.findIndex(
-            assignment =>
-                assignment.id ===
-                assignmentId
+            a => String(a.id) ===
+            String(assignmentId)
         );
 
 
     if(index === -1){
+
+        alert(
+            "Assignment could not be found."
+        );
 
         return;
 
@@ -1731,15 +1385,22 @@ function acceptPatient(
         new Date().toISOString();
 
 
-    saveArray(
-        ASSIGNMENTS_KEY,
+    saveAssignments(
         assignments
     );
 
 
-    alert(
-        "Patient assignment accepted."
-    );
+    document.getElementById(
+        "globalMessage"
+    ).innerHTML = `
+
+        <div class="success-message">
+
+            Patient assignment accepted successfully.
+
+        </div>
+
+    `;
 
 
     renderAll();
@@ -1747,27 +1408,36 @@ function acceptPatient(
 }
 
 
-/* =========================================================
-   DECLINE PATIENT
-========================================================= */
+/* =========================
+   DECLINE
+========================= */
 
-function declinePatient(
+function declineAssignment(
     assignmentId
 ){
 
+    const reason =
+        prompt(
+            "Optional: Enter a reason for declining this assignment."
+        );
+
+
     const assignments =
-        ensureDemoAssignments();
+        getAssignments();
 
 
     const index =
         assignments.findIndex(
-            assignment =>
-                assignment.id ===
-                assignmentId
+            a => String(a.id) ===
+            String(assignmentId)
         );
 
 
     if(index === -1){
+
+        alert(
+            "Assignment could not be found."
+        );
 
         return;
 
@@ -1782,15 +1452,26 @@ function declinePatient(
         new Date().toISOString();
 
 
-    saveArray(
-        ASSIGNMENTS_KEY,
+    assignments[index].declineReason =
+        reason || "";
+
+
+    saveAssignments(
         assignments
     );
 
 
-    alert(
-        "Patient assignment declined."
-    );
+    document.getElementById(
+        "globalMessage"
+    ).innerHTML = `
+
+        <div class="success-message">
+
+            Patient assignment declined.
+
+        </div>
+
+    `;
 
 
     renderAll();
@@ -1798,416 +1479,164 @@ function declinePatient(
 }
 
 
-/* =========================================================
-   PATIENT HISTORY
-========================================================= */
+/* =========================
+   OPEN PATIENT RECORD
+========================= */
 
-function renderHistory(){
+function openPatientRecord(
+    patientId
+){
 
-    const container =
-        document.getElementById(
-            "assignmentHistory"
-        );
+    /*
+        Patient record page will be developed
+        separately.
 
+        For now, the user is sent to the actual
+        consultation workspace because that is the
+        active patient workflow.
+    */
 
-    if(!professional){
+    startConsultation(
+        patientId
+    );
 
-        container.innerHTML = `
-
-            <div class="empty">
-
-                Please log in first.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
+}
 
 
-    const assignments =
-        ensureDemoAssignments();
+/* =========================
+   START ACTUAL CONSULTATION
+========================= */
 
+function startConsultation(
+    patientId
+){
 
-    const history =
-        assignments.filter(assignment =>
+    const active =
+        myAssignments().find(a => {
 
-            assignment.professionalId ===
-            currentProfessionalId()
-
-        ).filter(assignment =>
-
-            String(
-                assignment.status
-            ).toLowerCase() !==
-            "pending"
-
-        );
-
-
-    if(history.length === 0){
-
-        container.innerHTML = `
-
-            <div class="empty">
-
-                No completed assignment actions yet.
-
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    container.innerHTML =
-        history.map(assignment => {
-
-            const patient =
-                getPatient(
-                    assignment.patientId
-                );
-
-
-            return patientCard(
-                assignment,
-                patient,
-                false
+            return (
+                String(a.patientId) ===
+                String(patientId) &&
+                a.status === "Active"
             );
 
-        }).join("");
-
-}
+        });
 
 
-/* =========================================================
-   VIEW PATIENT
-========================================================= */
-
-function viewPatient(
-    patientId
-){
-
-    const patient =
-        getPatient(
-            patientId
-        );
-
-
-    const assignments =
-        ensureDemoAssignments();
-
-
-    const assignment =
-        assignments.find(item =>
-
-            item.patientId ===
-            patientId &&
-
-            item.professionalId ===
-            currentProfessionalId() &&
-
-            String(
-                item.status
-            ).toLowerCase() ===
-            "active"
-
-        );
-
-
-    if(!patient || !assignment){
+    if(!active){
 
         alert(
-            "Authorized patient record could not be found."
+            "This patient is not currently assigned to you."
         );
 
         return;
 
     }
-
-
-    document.getElementById(
-        "modalPatientName"
-    ).textContent =
-        patient.name;
-
-
-    document.getElementById(
-        "modalPatientId"
-    ).textContent =
-        "Patient ID: " +
-        patient.patientId;
-
-
-    document.getElementById(
-        "modalPatientDetails"
-    ).innerHTML = `
-
-        <div class="patient-grid">
-
-            <div class="info">
-
-                <strong>
-                    Age
-                </strong>
-
-                ${escapeHtml(
-                    patient.age
-                )}
-
-            </div>
-
-
-            <div class="info">
-
-                <strong>
-                    Gender
-                </strong>
-
-                ${escapeHtml(
-                    patient.gender
-                )}
-
-            </div>
-
-
-            <div class="info">
-
-                <strong>
-                    Organization
-                </strong>
-
-                ${escapeHtml(
-                    assignment.organizationName
-                )}
-
-            </div>
-
-
-            <div class="info">
-
-                <strong>
-                    Department
-                </strong>
-
-                ${escapeHtml(
-                    assignment.department
-                )}
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    window.currentPatientId =
-        patientId;
-
-
-    document.getElementById(
-        "patientModal"
-    ).classList.add(
-        "active"
-    );
-
-}
-
-
-/* =========================================================
-   CLOSE PATIENT MODAL
-========================================================= */
-
-function closePatientModal(){
-
-    document.getElementById(
-        "patientModal"
-    ).classList.remove(
-        "active"
-    );
-
-}
-
-
-/* =========================================================
-   OPEN CONSULTATION
-========================================================= */
-
-function openConsultation(
-    patientId
-){
-
-    window.currentPatientId =
-        patientId;
 
 
     /*
-       The actual consultation workflow will be
-       connected when professional-consultations.html
-       is built.
+        IMPORTANT:
+
+        This opens the actual one-patient
+        consultation page.
+
+        It does NOT open the consultation
+        queue/history page.
     */
 
     window.location.href =
-        "professional-consultations.html";
+        "professional-patient-consultation.html?patient=" +
+        encodeURIComponent(patientId);
 
 }
 
 
-function openConsultationFromPatient(){
+/* =========================
+   HISTORY DETAILS
+========================= */
 
-    if(
-        !window.currentPatientId
-    ){
+function viewAssignmentDetails(
+    assignmentId
+){
+
+    const assignment =
+        getAssignments().find(
+            a => String(a.id) ===
+            String(assignmentId)
+        );
+
+
+    if(!assignment){
+
+        alert(
+            "Assignment not found."
+        );
 
         return;
 
     }
 
 
-    openConsultation(
-        window.currentPatientId
+    const patient =
+        findPatient(
+            assignment.patientId
+        );
+
+
+    if(!patient){
+
+        alert(
+            "Patient record not found."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+
+        "Patient: " +
+        (patient.name ||
+        patient.fullName ||
+        "Patient") +
+
+        "\n\nPatient ID: " +
+        (patient.id ||
+        patient.patientId ||
+        "") +
+
+        "\n\nOrganization: " +
+        (
+            assignment.organizationName ||
+            assignment.organizationId ||
+            "Organization"
+        ) +
+
+        "\n\nStatus: " +
+        assignment.status +
+
+        (
+            assignment.declineReason
+            ? "\n\nReason: " +
+              assignment.declineReason
+            : ""
+        )
+
     );
 
 }
 
 
-/* =========================================================
-   CLEAR FILTERS
-========================================================= */
-
-function clearPatientFilters(){
-
-    document.getElementById(
-        "patientSearch"
-    ).value = "";
-
-
-    document.getElementById(
-        "organizationFilter"
-    ).value =
-        "All";
-
-
-    renderMyPatients();
-
-}
-
-
-/* =========================================================
-   TABS
-========================================================= */
-
-function showTab(
-    tabId,
-    button
-){
-
-    document
-        .querySelectorAll(
-            ".section"
-        )
-        .forEach(section => {
-
-            section.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    document
-        .querySelectorAll(
-            ".tab"
-        )
-        .forEach(tab => {
-
-            tab.classList.remove(
-                "active"
-            );
-
-        });
-
-
-    document
-        .getElementById(
-            tabId
-        )
-        .classList.add(
-            "active"
-        );
-
-
-    button.classList.add(
-        "active"
-    );
-
-
-    if(tabId === "pending"){
-
-        renderPendingPatients();
-
-    }
-
-
-    if(tabId === "myPatients"){
-
-        renderMyPatients();
-
-    }
-
-
-    if(tabId === "history"){
-
-        renderHistory();
-
-    }
-
-}
-
-
-/* =========================================================
-   DATE
-========================================================= */
-
-function formatDate(date){
-
-    if(!date){
-
-        return "-";
-
-    }
-
-
-    return new Date(date)
-        .toLocaleDateString(
-            "en-IN",
-            {
-                day:"numeric",
-                month:"short",
-                year:"numeric"
-            }
-        );
-
-}
-
-
-/* =========================================================
-   RENDER ALL
-========================================================= */
+/* =========================
+   RENDER EVERYTHING
+========================= */
 
 function renderAll(){
 
-    loadProfessional();
+    populateOrganizationFilters();
 
-    ensureDemoPatients();
-
-    ensureDemoAssignments();
-
-    renderPendingPatients();
+    renderPending();
 
     renderMyPatients();
 
@@ -2216,33 +1645,29 @@ function renderAll(){
 }
 
 
-/* =========================================================
+/* =========================
+   INITIALIZE
+========================= */
+
+function init(){
+
+    if(!loadProfessional()){
+
+        return;
+
+    }
+
+
+    renderAll();
+
+}
+
+
+/* =========================
    START
-========================================================= */
+========================= */
 
-renderAll();
-
-
-/* CLOSE MODAL WHEN CLICKING OUTSIDE */
-
-document
-    .getElementById(
-        "patientModal"
-    )
-    .addEventListener(
-        "click",
-        function(event){
-
-            if(
-                event.target === this
-            ){
-
-                closePatientModal();
-
-            }
-
-        }
-    );
+init();
 
 </script>
 
